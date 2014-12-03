@@ -1,0 +1,31 @@
+/* Global Styles */
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+}
+
+.alert {
+	/* Ми додали відстань лише зверху елемента: -top */
+	margin-top: 10px;
+}
+
+#footer {
+	/* pадаємо верхню межу елемента: ширина лінії, тип лінії, 
+	 * колі лінії */
+	border-top: 1px solid #dddddd;
+	/*задаємо внутрішю відстанб елемента до верхньго краю */
+	padding-top: 10px;
+}
+
+#group-selector {
+	margin: 10px 0;
+}
+#group-selector select {
+	margin: 0;
+	width: 85%;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	height: 30px;
+	line-height: 30px;
+	color: #555555;
+}
+	
