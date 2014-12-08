@@ -28,4 +28,12 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 30px;
 	color: #555555;
 }
-	
+
+#navigate-month {
+	margin-bottom: 10px;
+}
+#buttonsEditStudent {
+	border-top: 2px solid #dddddd;
+	padding-top: 20px;
+	background-color: #eeeeee;
+}
