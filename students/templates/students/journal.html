@@ -1,0 +1,106 @@
+{% extends "students/base.html" %}
+
+
+{% load static from staticfiles %}
+
+{% block meta_title %}Журнал Відвідування{% endblock meta_title %}
+
+{% block title %}Відвідування{% endblock title %}
+
+{% block content %}
+
+		    <div align="center" id="navigate-month">
+			<a href="#">&larr;</a>
+			<span class="area-hidden"><strong>Жовтень 2014</strong></span>
+			<a href="#">&rarr;</a>
+		    </div>
+		    
+		    <div>
+			<!-- Start Attendance Listing -->
+			<table class="table table-bordered">
+			    
+			    <thead>
+                                <tr>
+                                    <td>#</td>
+                                    <td>Студент</td>
+                                    <td>Ср<br>1</td>
+                                    <td>Чт<br>2</td>
+                                    <td>Пт<br>3</td>
+                                    <td>Сб<br>4</td>
+                                    <td>Нд<br>5</td>
+                                    <td>Пн<br>6</td>
+                                    <td>Вт<br>7</td>
+                                    <td>Ср<br>8</td>
+                                    <td>Чт<br>9</td>
+                                    <td>Пт<br>10</td>
+                                    <td>Сб<br>11</td>
+                                    <td>Нд<br>12</td>
+                                    <td>Пн<br>13</td>
+                                    <td>Вт<br>14</td>
+                                    <td>Ср<br>15</td>
+                                    <td>Чт<br>16</td>
+                                    <td>Пт<br>17</td>
+                                    <td>Сб<br>18</td>
+                                    <td>Нд<br>19</td>
+                                    <td>Пн<br>20</td>
+                                    <td>Вт<br>21</td>
+                                    <td>Ср<br>22</td>
+                                    <td>Чт<br>23</td>
+                                    <td>Пт<br>24</td>
+                                    <td>Сб<br>25</td>
+                                    <td>Нд<br>26</td>
+                                    <td>Пн<br>27</td>
+                                    <td>Вт<br>28</td>
+                                    <td>Ср<br>29</td>
+                                    <td>Чт<br>30</td>
+                                    <td>Пт<br>31</td>
+                                </tr>
+			    </thead>
+			    <tbody>
+				{% for student in students %}
+				<tr>
+				    <td>{{ forloop.counter }}</td>
+				    <td><a href="{% url "students_edit" student.id %}">{{ student.first_name }} {{ student.last_name }}</a></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+				    <td><input type="checkbox" id="blankCheckbox"></td>
+
+				</tr>
+				{% endfor %}
+			    </tbody>			    
+			</table>		    
+
+			<!-- End Attendance Listing -->
+		    </div>
+
+
+
+{% endblock content %}

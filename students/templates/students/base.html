@@ -12,7 +12,7 @@
 			<!-- Include Styles -->
 			<link rel="stylesheet"
 				href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
-			<link rel="stylesheet" href="{% static "css/main.css" %}">
+			<link rel="stylesheet" href="{{ PORTAL_URL }}{% static "css/main.css" %}">
 	{% block extra_css %}{% endblock extra_css %}
 				
 	</head>
@@ -25,11 +25,14 @@
 			<div class="row" id="header">
 			
 				<!-- Logo -->
+				{% block logo %}				
 				<div class="col-xs-8">
 					<h1>Сервіс обліку студентів</h1>
 				</div>
+				{% endblock logo %}
 			
 				<!-- Groups selector -->
+				{% block groups_selector %}				
 				<div class="col-xs-4" id="group-selector">
 					<strong>Група:</strong>
 					<select>
@@ -38,18 +41,22 @@
 						<option value="">МтМ - 22, Корост Андрій (№ 2123)</option>
 					</select>
 				</div>
+				{% endblock groups_selector %}
 			</div>
 			<!-- End Header -->
 			
 			<!-- Start SubHeader -->
 			<div class="row" id="sub-header">
-				<div class="col-xs-12">
-					<ul class="nav nav-tabs">
-						<li role="presentation" class="active"><a href="{% url "home" %}">Студенти</a></li>
-						<li role="presentation"><a href="/journal">Відвідування</a></li>
-						<li role="presentation"><a href="{% url "groups" %}">Групи</a></li>
-					</ul>
-				</div>
+			    <div class="col-xs-12">
+				{% url 'home' as home_page %}
+				{% url 'groups' as groups_page %}
+				{% url 'journal' as journal_page %}
+				<ul class="nav nav-tabs">
+				    <li role="presentation" {% if request.path == home_page %} class="active" {% endif %}><a href="{{ home_page }}">Студенти</a></li>
+				    <li role="presentation" {% if journal_page in request.path %} class="active" {% endif %}><a href="{{ journal_page }}">Відвідування</a></li>
+				    <li role="presentation" {% if groups_page in request.path %} class="active" {% endif %}><a href="{{ groups_page }}">Групи</a></li>
+				</ul>
+			    </div>
 			</div>
 			<!-- End SubHeader -->
 			
@@ -67,11 +74,13 @@
 			<!-- End Content Columns -->
 			
 			<!-- Start Footer -->
+			{% block footer %} 
 			<div class="row" id="footer">
 				<div class="col-xs-12">
 					&copy; 2014 Сервіс обліку студентів
 				</div>
 			</div>
+			{% endblock footer %} 
 			<!-- End Footer -->		
 						
 		</div>
