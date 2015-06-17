@@ -15,17 +15,38 @@
 	<tr>
 	    <th><a href="">№</a></th>
 	    <th>Фото</th>
-	    <th><a href="">Прізвище &uarr;</a></th>
-	    <th><a href="#">Ім’я</a></th>
-	    <th><a href="#">№ Білету</a></th>
+	    <th><a href="{% url "home" %}?order_by=last_name{% if request.GET.reverse != '1' %}&amp;reverse=1"{% endif %}>Прізвище
+		    {% if request.GET.order_by == 'last_name' and request.GET.reverse != '1' %}&uarr;
+		    {% elif request.GET.order_by == 'last_name' and request.GET.reverse == '1' %}&darr;
+		    {% endif %}
+		</a>
+	    </th>
+	    <th><a href="{% url "home" %}?order_by=first_name{% if request.GET.reverse != '1' %}&amp;reverse=1"{% endif %}>Ім’я
+		{% if request.GET.order_by == 'first_name' and request.GET.reverse != '1' %}&uarr;
+		{% elif request.GET.order_by == 'first_name' and request.GET.reverse == '1' %}&darr;
+		{% endif %}
+		</a>
+	    </th>
+	    <th><a href="{% url "home" %}?order_by=ticket{% if request.GET.reverse != '1' %}&amp;reverse=1"{% endif %}>№ Білету
+		{% if request.GET.order_by == 'ticket' and request.GET.reverse != '1' %}&uarr;
+		{% elif request.GET.order_by == 'ticket' and request.GET.reverse == '1' %}&darr;
+		{% endif %}
+		</a>
+	    </th>
 	    <th>Дії</th>								
-	</tr>							
+	</tr>	
     </thead>
     <tbody>
 	{% for student in students %}
 	<tr>
 	    <td>{{ forloop.counter }}</td>								
-	    <td><img heigh="30", width="30" src="{% static student.image %}" class="img-circle"></td>								
+	    <td>
+		{% if student.photo %}
+		<img heigh="30", width="30" src="{{ student.photo.url }}" class="img-circle"/>
+		{% else %}
+		<img heigh="30", width="30" src="{% static "img/default_user.jpg" %}" class="img-circle"/>
+		{% endif %}
+		</td>
 	    <td><a title="Редагувати"  href='{% url "students_edit" student.id %}'>{{ student.last_name }}</a></td>
 	    <td><a title="Редагувати"  href='{% url "students_edit" student.id %}'>{{ student.first_name }}</a></td>
 	    <td>{{ student.ticket }}</td>								
