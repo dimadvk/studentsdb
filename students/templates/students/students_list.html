@@ -11,31 +11,34 @@
 
 <!-- Start Students Listing -->
 <table class="table table-hover table-strip">
+    {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
     <thead>
 	<tr>
-	    <th><a href="">№</a></th>
+	    <th><a href="#">№</a></th>
 	    <th>Фото</th>
-	    <th><a href="{% url "home" %}?order_by=last_name{% if request.GET.reverse != '1' %}&amp;reverse=1"{% endif %}>Прізвище
-		    {% if request.GET.order_by == 'last_name' and request.GET.reverse != '1' %}&uarr;
-		    {% elif request.GET.order_by == 'last_name' and request.GET.reverse == '1' %}&darr;
+	    <th><a href="{% url "home" %}?order_by=last_name{% if reverse != '1' %}&amp;reverse=1{% endif %}">Прізвище
+		    {% if order_by == 'last_name' and reverse != '1' %}&uarr;
+		    {% elif not order_by %}&uarr;
+		    {% elif order_by == 'last_name' and reverse == '1' %}&darr;
 		    {% endif %}
 		</a>
 	    </th>
-	    <th><a href="{% url "home" %}?order_by=first_name{% if request.GET.reverse != '1' %}&amp;reverse=1"{% endif %}>Ім’я
-		{% if request.GET.order_by == 'first_name' and request.GET.reverse != '1' %}&uarr;
-		{% elif request.GET.order_by == 'first_name' and request.GET.reverse == '1' %}&darr;
+	    <th><a href="{% url "home" %}?order_by=first_name{% if reverse != '1' %}&amp;reverse=1{% endif %}">Ім’я
+		{% if order_by == 'first_name' and reverse != '1' %}&uarr;
+		{% elif order_by == 'first_name' and reverse == '1' %}&darr;
 		{% endif %}
 		</a>
 	    </th>
-	    <th><a href="{% url "home" %}?order_by=ticket{% if request.GET.reverse != '1' %}&amp;reverse=1"{% endif %}>№ Білету
-		{% if request.GET.order_by == 'ticket' and request.GET.reverse != '1' %}&uarr;
-		{% elif request.GET.order_by == 'ticket' and request.GET.reverse == '1' %}&darr;
+	    <th><a href="{% url "home" %}?order_by=ticket{% if reverse != '1' %}&amp;reverse=1{% endif %}">№ Білету
+		{% if order_by == 'ticket' and reverse != '1' %}&uarr;
+		{% elif order_by == 'ticket' and reverse == '1' %}&darr;
 		{% endif %}
 		</a>
 	    </th>
 	    <th>Дії</th>								
 	</tr>	
     </thead>
+    {% endwith %}
     <tbody>
 	{% for student in students %}
 	<tr>
@@ -67,9 +70,23 @@
     </tbody>						
 </table>					
 <!-- End Students Listing -->
-
+{% if students.has_other_pages %}
+{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
 <nav>
-    {% include "students/pagination.html" %}
+    <ul class="pagination">
+	<li><a href="{% url "home" %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&laquo;</a></li>
+	{% for p in students.paginator.page_range %}
+	<li {% if students.number == p %}class='active'{% endif %}>
+	    <a href="{% url "home" %}?page={{ p }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">{{ p }}</a>
+	</li>
+	{% endfor %}
+	<li>
+	    <a href="{% url "home" %}?page={{ students.paginator.num_pages }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">
+		&raquo;</a>
+	</li>
+    </ul>
 </nav>
+{% endwith %}
+{% endif %}
 
 {% endblock content %}
