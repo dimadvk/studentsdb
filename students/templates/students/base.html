@@ -49,8 +49,8 @@
 			<div class="row" id="sub-header">
 			    <div class="col-xs-12">
 				{% url 'home' as home_page %}
-				{% url 'groups' as groups_page %}
 				{% url 'journal' as journal_page %}
+				{% url 'groups' as groups_page %}
 				<ul class="nav nav-tabs">
 				    <li role="presentation" {% if request.path == home_page %} class="active" {% endif %}><a href="{{ home_page }}">Студенти</a></li>
 				    <li role="presentation" {% if journal_page in request.path %} class="active" {% endif %}><a href="{{ journal_page }}">Відвідування</a></li>
