@@ -25,7 +25,7 @@ def groups_list(request):
     paginator = Paginator(groups, 3)
     page = request.GET.get('page')
     try:
-        groupss = paginator.page(page)
+        groups = paginator.page(page)
     except PageNotAnInteger:
         # if page is not an integer, deliver first page.
         groups = paginator.page(1)
