@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Student, Group
+from .models.student import Student
+from .models.group import Group
 
 # Register your models here.
 
