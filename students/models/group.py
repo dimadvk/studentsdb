@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from student import Student
 
 # Create your models here
 
