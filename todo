@@ -8,4 +8,4 @@
 4.відвідати вбудовану в Django аплікацію
 “statusmessages” і спробувати розібратись як вона працює базуючись на її
 внутрішньому коді.
-
+https://docs.djangoproject.com/en/dev/ref/contrib/messages/
