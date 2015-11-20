@@ -35,14 +35,14 @@
 		{% endif %}
 		</a>
 	    </th>
-	    <th>Дії</th>								
-	</tr>	
+	    <th>Дії</th>
+	</tr>
     </thead>
     {% endwith %}
     <tbody>
 	{% for student in students %}
 	<tr>
-	    <td>{{ forloop.counter }}</td>								
+	    <td>{{ forloop.counter }}</td>
 	    <td>
 		{% if student.photo %}
 		<img heigh="30", width="30" src="{{ student.photo.url }}" class="img-circle"/>
@@ -52,7 +52,7 @@
 		</td>
 	    <td><a title="Редагувати"  href='{% url "students_edit" student.id %}'>{{ student.last_name }}</a></td>
 	    <td><a title="Редагувати"  href='{% url "students_edit" student.id %}'>{{ student.first_name }}</a></td>
-	    <td>{{ student.ticket }}</td>								
+	    <td>{{ student.ticket }}</td>
 	    <td>
 		<div class="btn-group">
 		    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія<span class="caret"></span>
@@ -63,25 +63,25 @@
 			<li><a href="{% url "students_delete" student.id %}">Вдалити</a></li>
 		    </ul>
 		</div>
-	    </td>								
+	    </td>
 	</tr>
 	{% endfor %}
-	
-    </tbody>						
-</table>					
+
+    </tbody>
+</table>
 <!-- End Students Listing -->
-{% if students.has_other_pages %}
+{% if num_pages > 1 %}
 {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
 <nav>
     <ul class="pagination">
-	<li><a href="{% url "home" %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&laquo;</a></li>
-	{% for p in students.paginator.page_range %}
-	<li {% if students.number == p %}class='active'{% endif %}>
+	<li><a href="{% url 'home' %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&laquo;</a></li>
+    {% for p in page_list %}
+	<li {% if p == page %}class='active'{% endif %}>
 	    <a href="{% url "home" %}?page={{ p }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">{{ p }}</a>
 	</li>
 	{% endfor %}
 	<li>
-	    <a href="{% url "home" %}?page={{ students.paginator.num_pages }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">
+	    <a href="{% url "home" %}?page={{ num_pages }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">
 		&raquo;</a>
 	</li>
     </ul>
