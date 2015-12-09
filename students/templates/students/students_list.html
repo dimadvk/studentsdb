@@ -5,7 +5,9 @@
 
 {% block meta_title %}Студенти{% endblock meta_title %}
 
-{% block title %}База студентів{% endblock title %}
+{% block title %}База студентів
+    <a class="btn btn-primary" href="{% url "students_add" %}">Додати Студента</a>
+{% endblock title %}
 
 {% block content %}
 

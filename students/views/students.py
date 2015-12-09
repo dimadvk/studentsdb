@@ -67,7 +67,7 @@ def students_list(request):
             )
 
 def students_add(request):
-    return HttpResponse('<h1>Student Add Form</h1>')
+    return render(request, 'students/students_add.html', {})
 
 def students_edit(request, sid):
     return HttpResponse('<h1>Edit Student %s</h1>' % sid)
