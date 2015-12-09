@@ -66,9 +66,6 @@ def students_list(request):
             'page_list':page_list}
             )
 
-def students_add(request):
-    return render(request, 'students/students_add.html', {})
-
 def students_edit(request, sid):
     return HttpResponse('<h1>Edit Student %s</h1>' % sid)
 
