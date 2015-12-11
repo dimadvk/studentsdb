@@ -9,7 +9,7 @@ from django.core.urlresolvers import reverse
 from studentsdb.settings import ADMIN_EMAIL
 
 class ContactForm(forms.Form):
-    form_email = forms.EmailField(
+    from_email = forms.EmailField(
         label=u"Ваша Емейл Адреса")
 
     subject = forms.CharField(
@@ -33,7 +33,7 @@ def contact_admin(request):
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
             from_email = form.cleaned_data['from_email']
-
+            send_mail(subject, message, from_email, [ADMIN_EMAIL])
             try:
                 send_mail(subject, message, from_email, [ADMIN_EMAIL])
             except Exception:
@@ -45,7 +45,7 @@ def contact_admin(request):
 
             # redirect to same contact page with success message
             return HttpResponseRedirect(
-                u'%s?status_message=%s' , % (reverse('contact_admin'), message))
+                u'%s?status_message=%s' % (reverse('contact_admin'), message))
 
     # if there was not POST render blank form
     else:
