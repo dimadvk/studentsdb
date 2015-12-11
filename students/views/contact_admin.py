@@ -33,7 +33,6 @@ def contact_admin(request):
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
             from_email = form.cleaned_data['from_email']
-            send_mail(subject, message, from_email, [ADMIN_EMAIL])
             try:
                 send_mail(subject, message, from_email, [ADMIN_EMAIL])
             except Exception:
