@@ -90,3 +90,12 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
+
+# email settings
+ADMIN_EMAIL = "ren-kpi@i.ua"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = "587"
+EMAIL_HOST_USER = "d.v.kutnyakov@gmail.com"
+EMAIL_HOST_PASSWORD = "******"
+EMAIL_USE_TLS = "False"
+EMAIL_USE_SSL = "True"
