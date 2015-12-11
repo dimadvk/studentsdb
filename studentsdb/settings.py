@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'students',
 )
 
@@ -49,6 +50,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+# for crispy_forms...
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+#
 
 ROOT_URLCONF = 'studentsdb.urls'
 
@@ -64,7 +69,7 @@ from .db import DATABASES
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uk'
 
 TIME_ZONE = 'UTC'
 
@@ -97,4 +102,4 @@ EMAIL_HOST = "smtp.skif.com.ua"
 EMAIL_PORT = "465"
 EMAIL_HOST_USER = "dvk@skif.net.ua"
 EMAIL_HOST_PASSWORD = "*******"
-EMAIL_USE_SSL = "True"
+EMAIL_USE_SSL = True
