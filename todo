@@ -18,4 +18,5 @@ ls ../../lib/python2.7/site-packages/django/contrib/messages/
 8. 343 переробіть контакт форму з використанням вже існу-
 ючої Django аплікації: https://pypi.python.org/pypi/django-contact-form
 9. p352
-
+10. p357
+11. p361
