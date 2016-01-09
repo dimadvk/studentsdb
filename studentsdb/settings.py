@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'crispy_forms',
     'students',
+    'endless_pagination',
 )
 
 MIDDLEWARE_CLASSES = (

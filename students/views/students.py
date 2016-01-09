@@ -68,6 +68,7 @@ class StudentDeleteView(DeleteView):
     def get_success_url(self):
         return '%s?status_message=Студента успішно видалено!' % reverse('home')
 
+
 # Views for Students
 
 def students_list(request):
@@ -133,3 +134,5 @@ def students_edit(request, sid):
 
 def students_delete(request, sid):
     return HttpResponse('<h1>Delete Student %s' % sid)
+
+        
