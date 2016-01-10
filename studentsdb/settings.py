@@ -66,7 +66,6 @@ WSGI_APPLICATION = 'studentsdb.wsgi.application'
 
 from .db import DATABASES
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
