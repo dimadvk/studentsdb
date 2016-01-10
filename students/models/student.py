@@ -8,32 +8,33 @@ class Student(models.Model):
     '''Student Model'''
 
     class Meta(object):
-        verbose_name = u"Студент"
-        verbose_name_plural = u"Студенти"
+        verbose_name = u"студент"
+        verbose_name_plural = u"студенти"
 
     first_name = models.CharField(
         max_length=256,
         blank= False,
-        verbose_name=u"Ім’я")
+        verbose_name=u"ім’я"
+    )
     last_name = models.CharField(
         max_length=256,
         blank=False,
-        verbose_name=u"Прізвище"
+        verbose_name=u"прізвище"
     )
     middle_name = models.CharField(
         max_length=256,
         blank=True,
-        verbose_name=u"По-батькові",
+        verbose_name=u"по-батькові",
         default=''
     )
     birthday = models.DateField(
         blank=False,
-        verbose_name=u"Дата народження",
+        verbose_name=u"дата родження",
         null=True
     )
     photo = models.ImageField(
         blank=True,
-        verbose_name=u"Фото",
+        verbose_name=u"фото",
         null=True
     )
     ticket = models.CharField(
