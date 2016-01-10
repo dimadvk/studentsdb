@@ -10,7 +10,8 @@ class Journal(models.Model):
     class Meta(object):
         verbose_name = u'відвідування'
         verbose_name_plural = 'відвідування'
-    attendance_date = models.DateField(
+
+    attendance = models.DateField(
         verbose_name = u'Був присутній',
     )
 
