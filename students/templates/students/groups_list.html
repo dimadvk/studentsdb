@@ -11,7 +11,7 @@
 
 <!-- Start Students Listing -->
 <table class="table table-hover table-strip">
-    {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
+{% with order_by=request.GET.order_by reverse=request.GET.reverse %} 
     <thead>
 	<tr>
 	    <th><a href="">#</a></th>
@@ -32,7 +32,7 @@
 	    <th>Дії</th>								
 	</tr>							
     </thead>
-    {% endwith %}
+{% endwith %} 
     <tbody>
 	{% for group in groups %}
 	<tr>

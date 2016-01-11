@@ -1,21 +1,38 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
 
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from ..models import Student
+from ..models import Journal
+
 # Views for Students
 
 def journal_list(request):
-    students = (
-    {'id': 1,
-     'first_name': u'Віталій',
-     'last_name': u'Подоба'},
-    {'id': 2,
-     'first_name': u'Андрій',
-     'last_name': u'Корост'},
-    {'id': 3,
-     'first_name': u'Антон',
-     'last_name': u'Разгільдяй'}
-    )
+   
+    # get month. If no month specified - use current month
+    request_month = request.GET.get('month', '')
+    if request_month:
+        # should be done later
+        pass
+    else:
+        # use the current month:
+        current_date = datetime.now()
+        month_num = current_date.month
+        month_name = current_date.strftime('%B')
+
+    # get name of month
+    # get count of days in month
+    # get names of every day in month
+
+    # get students
+    students = Student.objects.all()
+
+    # get students ids and get journal
+    students_ids = students.values_list('id')
+    students_journals = Journal.objects.filter(student_id__in=students_ids).all()
+
+
     return render(request, 'students/journal.html', {'students':students})
 
