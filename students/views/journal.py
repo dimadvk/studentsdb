@@ -32,7 +32,7 @@ def journal_list(request):
     # get students ids and get journal
     students_ids = students.values_list('id')
     students_journals = Journal.objects.filter(student_id__in=students_ids).all()
-
+    # для конкретного місяця: j = Journal.objects.filter(attendance__month=month)
 
     return render(request, 'students/journal.html', {'students':students})
 
