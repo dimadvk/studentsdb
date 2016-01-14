@@ -4,6 +4,7 @@ from .settings import MEDIA_ROOT, DEBUG
 
 from students.views.student_list import StudentList
 from students.views.students import StudentUpdateView, StudentDeleteView
+from students.views.students import students_ajax_next_page
 
 urlpatterns = patterns('',
     # Students urls
@@ -16,6 +17,9 @@ urlpatterns = patterns('',
     url(r'^(?P<pk>\d+)/delete/$',
         StudentDeleteView.as_view(), 
         name='students_delete'),
+
+    # trying ajax
+    url(r'students/next_page$', students_ajax_next_page, name='students_ajax_next_page'),
 
     #Groups urls
     url(r'^groups/$', 'students.views.groups.groups_list', name='groups'),

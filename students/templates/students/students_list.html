@@ -72,6 +72,7 @@
     </tbody>
 </table>
 <!-- End Students Listing -->
+
 {% if num_pages > 1 %}
 {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
 <nav>
@@ -91,5 +92,22 @@
 
 {% endwith %}
 {% endif %}
+
+<!-- try ajax
+
+<div id="demo"><h2>Let AJAX change this text</h2></div>
+<button type="button" onclick="loadDoc()">Change Content</button>
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById("demo").innerHTML = xhttp.responseText;
+    }
+  };
+  xhttp.open("GET", "students/next_page", true);
+  xhttp.send();
+}
+</script> -->
 
 {% endblock content %}

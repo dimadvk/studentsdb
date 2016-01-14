@@ -135,4 +135,7 @@ def students_edit(request, sid):
 def students_delete(request, sid):
     return HttpResponse('<h1>Delete Student %s' % sid)
 
-        
+def students_ajax_next_page(request):
+    print request.GET
+    text = '<h2>Text from view students_ajax_next_page, received via ajax</h2>'
+    return HttpResponse(text)
