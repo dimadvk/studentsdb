@@ -16,8 +16,6 @@ http://stackoverflow.com/questions/12129677/django-custom-validation-in-model-fo
 -- django validates the image uploaded via forms http://stackoverflow.com/questions/5770660/django-imagefield-validation-is-it-sufficient
 
 
-6. p313 додайте до статусного повідомлення про успішне створення студента ще й повне ім’я новоствореного об’єкта.
-
 7. p315 - django messages
 
 8. 343 переробіть контакт форму з використанням вже існуючої Django аплікації: https://pypi.python.org/pypi/django-contact-form
