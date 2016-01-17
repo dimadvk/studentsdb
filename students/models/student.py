@@ -5,15 +5,6 @@ from django.db import models
 from django.utils.image import Image
 from django.core.exceptions import ValidationError
 
-def validate_image(image):
-    try:
-        Image.open(image).verify()
-    except:
-        raise ValidationError("The file is not an image")
-    else:
-        if len(image) > (2*1024*1024):
-            raise ValidationError("The file is too big. Must be less than 2MB")
-
 
 # Create your models here
 
@@ -49,7 +40,6 @@ class Student(models.Model):
         blank=True,
         verbose_name=u"фото",
         null=True,
-        validators = [validate_image]
     )
     ticket = models.CharField(
         max_length=256,
@@ -68,5 +58,11 @@ class Student(models.Model):
     )
     def __unicode__(self):
         return u"%s %s" % (self.first_name, self.last_name)
+
+    def clean(self):
+        if len(self.photo) > (1*1024*1024):
+            raise ValidationError({"photo": "The file is too big. Must be less than 2MB."})
+
+
     
 
