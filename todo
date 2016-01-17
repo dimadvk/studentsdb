@@ -9,12 +9,7 @@
  --- підожде...
 
 5. На домашнє завдання реалізувати валідацію поля Фото. p306
-вказати
-create own validator? -- http://djbook.ru/rel1.8/ref/validators.html
-https://www.google.com.ua/search?client=ubuntu&channel=fs&q=dgango+validator+image&ie=utf-8&oe=utf-8&gfe_rd=cr&ei=7lCSVsWKE8G86ATGx5yYCw
-http://stackoverflow.com/questions/12129677/django-custom-validation-in-model-form-for-imagefield-max-file-size-etc
--- django validates the image uploaded via forms http://stackoverflow.com/questions/5770660/django-imagefield-validation-is-it-sufficient
-
+6. http://studentsdb.local:8000/admin/students/student/add/ -- при додаванні студента через адмінку поле фото таки перевіряється. Як!!?
 
 7. p315 - django messages
 
@@ -26,3 +21,4 @@ http://stackoverflow.com/questions/12129677/django-custom-validation-in-model-fo
 13. p370 + Складніше завдання: розібратись із діями256 в Django адмінці і реалізувати
 функцію копіювання обраних студентів у списку.
 14. p374
+

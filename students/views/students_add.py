@@ -5,6 +5,8 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+from django.utils.image import Image
+
 from ..models.group import Group
 from ..models.student import Student
 
@@ -39,13 +41,13 @@ def students_add(request):
             if not birthday:
                 errors['birthday'] = u"Дата народження є обов'язковою"
             else:
+                data['birthday'] = birthday
                 try:
                     datetime.strptime(birthday, '%Y-%m-%d')
                 except Exception:
                     errors['birthday'] = u"Введіть корректний формат дати (напр. 1984-12-30)"
                 else:
                     data['birthday'] = birthday
-
             ticket = request.POST.get('ticket', '').strip()
             if not ticket:
                 errors['ticket'] = u"Номер білета є обов'язковим"
@@ -65,11 +67,23 @@ def students_add(request):
             photo = request.FILES.get('photo')
             if photo:
                 data['photo'] = photo
+                """
+                try:
+                    Image.open(photo).verify()
+                except Exception:
+                    errors['photo'] = u"Файл не є зображенням"
+                else:
+                    if len(photo) > (2*1024*1024):
+                        errors['photo'] = u"Завеликий файл. Фото має бути не більше 2 мегабайт"
+                    else:
+                        data['photo'] = photo
+"""
 
             if not errors:
                 # create student object
                 student = Student(**data)
                 # save it to database
+                student.full_clean()
                 student.save()
 
                 # redirect user to students list
