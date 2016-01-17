@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='student',
             name='photo',
-            field=models.ImageField(blank=True, upload_to=b'', null=True, verbose_name='\u0444\u043e\u0442\u043e', validators=[students.models.student.validate_image]),
+            field=models.ImageField(blank=True, upload_to=b'', null=True, verbose_name='\u0444\u043e\u0442\u043e', ),
             preserve_default=True,
         ),
     ]
