@@ -60,8 +60,9 @@ class Student(models.Model):
         return u"%s %s" % (self.first_name, self.last_name)
 
     def clean(self):
-        if len(self.photo) > (1*1024*1024):
-            raise ValidationError({"photo": "The file is too big. Must be less than 2MB."})
+        if self.photo:
+            if len(self.photo) > (1*1024*1024):
+                raise ValidationError({"photo": "The file is too big. Must be less than 2MB."})
 
 
     
