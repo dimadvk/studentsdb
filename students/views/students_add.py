@@ -67,7 +67,6 @@ def students_add(request):
             photo = request.FILES.get('photo')
             if photo:
                 data['photo'] = photo
-                """
                 try:
                     Image.open(photo).verify()
                 except Exception:
@@ -77,13 +76,11 @@ def students_add(request):
                         errors['photo'] = u"Завеликий файл. Фото має бути не більше 2 мегабайт"
                     else:
                         data['photo'] = photo
-"""
 
             if not errors:
                 # create student object
                 student = Student(**data)
                 # save it to database
-                student.full_clean()
                 student.save()
 
                 # redirect user to students list
