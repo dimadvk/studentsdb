@@ -47,7 +47,7 @@
 	    <td>{{ forloop.counter }}</td>
 	    <td>
 		{% if student.photo %}
-		<img heigh="30", width="30" src="{{ student.photo.url }}" class="img-circle"/>
+		<img heigh="30" width="30" src="{{ student.photo.url }}" class="img-circle"/>
 		{% else %}
 		<img heigh="30", width="30" src="{% static "img/default_user.jpg" %}" class="img-circle"/>
 		{% endif %}
