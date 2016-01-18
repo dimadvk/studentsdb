@@ -100,9 +100,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 ADMIN_EMAIL = "ren-kpi@i.ua"
 EMAIL_HOST = "smtp.skif.com.ua"
 EMAIL_PORT = "465"
-EMAIL_HOST_USER = "dvk@skif.net.ua"
-EMAIL_HOST_PASSWORD = "*******"
+EMAIL_HOST_USER = "user@skif.net.ua"
+EMAIL_HOST_PASSWORD = "password"
 EMAIL_USE_SSL = True
+#EMAIL_USE_TLS = True
 
 # messages - storage backend
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"

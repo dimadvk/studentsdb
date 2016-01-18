@@ -90,7 +90,7 @@ def students_add(request):
                     u'Студента "%s %s" успішно додано!' %
                         (student.first_name, student.last_name),
                 )
-                return HttpResponseRedirect(reverse('home'), messages)
+                return HttpResponseRedirect(reverse('home'))
 
             else:
                 # render form with errors  and previous user input
@@ -102,9 +102,8 @@ def students_add(request):
             messages.info(
                 request,
                 u'Додавання студента скасовано!',
-                extra_tags = 'alert tag',
             )
-            return HttpResponseRedirect(reverse('home'), messages)
+            return HttpResponseRedirect(reverse('home'))
     else:
         # initial form render
         return render(request, 'students/students_add.html',

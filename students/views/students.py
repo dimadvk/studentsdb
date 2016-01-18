@@ -19,6 +19,7 @@ from ..models.student import Student
 class StudentUpdateForm(ModelForm):
     class Meta:
         model = Student
+        fields = '__all__'
 
 
     def __init__(self, *args, **kwargs):
