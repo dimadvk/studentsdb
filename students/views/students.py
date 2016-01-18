@@ -8,6 +8,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.urlresolvers import reverse
 from django.views.generic import UpdateView, DeleteView
 from django.forms import  ModelForm
+from django.contrib import messages
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
@@ -52,13 +53,14 @@ class StudentUpdateView(UpdateView):
     form_class = StudentUpdateForm
 
     def get_success_url(self):
-        return u'%s?status_message=Студента успішно збережено!' % reverse('home')
+        return reverse('home')
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            return HttpResponseRedirect(
-                u'%s?status_message=Редагування студента відмінено!' % reverse('home'))
+            messages.info(self.request, u"Редагування студента відмінено!")
+            return HttpResponseRedirect(reverse('home'))
         else:
+            messages.info(self.request, u"Студента успішно збережено!")
             return super(StudentUpdateView, self).post(request, *args, **kwargs)
 
 
@@ -67,7 +69,10 @@ class StudentDeleteView(DeleteView):
     template_name = 'students/students_confirm_delete.html'
 
     def get_success_url(self):
-        return '%s?status_message=Студента успішно видалено!' % reverse('home')
+        return reverse('home')
+    def delete(self, request, *args, **kwargs):
+        messages.info(self.request, u"Студента успішно видалено!")
+        return HttpResponseRedirect(reverse('home'))
 
 
 # Views for Students
@@ -130,11 +135,6 @@ def students_list(request):
             'page_list':page_list}
             )
 
-def students_edit(request, sid):
-    return HttpResponse('<h1>Edit Student %s</h1>' % sid)
-
-def students_delete(request, sid):
-    return HttpResponse('<h1>Delete Student %s' % sid)
 
 def students_ajax_next_page(request):
     print request.GET
