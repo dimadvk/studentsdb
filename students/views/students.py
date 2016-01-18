@@ -100,7 +100,7 @@ def students_list(request):
 
     # remake pagination without 'paginator'
     # count of pages:
-    num_rows_per_page = 3
+    num_rows_per_page = 4
     if len(students):
         num_pages = len(students) // num_rows_per_page
     else:
