@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib import messages
 
 from django.utils.image import Image
 
@@ -84,10 +85,12 @@ def students_add(request):
                 student.save()
 
                 # redirect user to students list
-                return HttpResponseRedirect(
-                    u'%s?status_message=Студента "%s %s" успішно додано!' %
-                    (reverse('home'), student.first_name, student.last_name)
+                messages.info(
+                    request,
+                    u'Студента "%s %s" успішно додано!' %
+                        (student.first_name, student.last_name),
                 )
+                return HttpResponseRedirect(reverse('home'), messages)
 
             else:
                 # render form with errors  and previous user input
@@ -96,9 +99,12 @@ def students_add(request):
                      'errors': errors})
         elif request.POST.get('cancel_button') is not None:
             # redirect to home page on cancel button
-            return HttpResponseRedirect(
-                u'%s?status_message=Додавання студента скасовано!' %
-                reverse('home'))
+            messages.info(
+                request,
+                u'Додавання студента скасовано!',
+                extra_tags = 'alert tag',
+            )
+            return HttpResponseRedirect(reverse('home'), messages)
     else:
         # initial form render
         return render(request, 'students/students_add.html',

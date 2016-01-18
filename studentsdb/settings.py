@@ -39,7 +39,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'crispy_forms',
     'students',
-    'endless_pagination',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -89,9 +88,10 @@ STATIC_URL = '/static/'
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 									    "django.core.context_processors.request",
 									    "studentsdb.context_processors.students_proc",
+                                        "django.contrib.messages.context_processors.messages",
 									    )
 
-# PORTAL_URL = 'http://localhost:8000'
+#PORTAL_URL = 'http://localhost:8000'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
@@ -103,3 +103,6 @@ EMAIL_PORT = "465"
 EMAIL_HOST_USER = "dvk@skif.net.ua"
 EMAIL_HOST_PASSWORD = "*******"
 EMAIL_USE_SSL = True
+
+# messages - storage backend
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
