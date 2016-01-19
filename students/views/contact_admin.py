@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# writed as in the book of V.Podoba
 from django.shortcuts import render, redirect
 from django import forms
 from django.core.mail import send_mail

@@ -1,0 +1,36 @@
+{% extends "students/base.html" %}
+
+
+{% load static from staticfiles %}
+
+<!-- % load crispy_forms_tags %} -->
+
+{% block meta_title %}Зв’язок із Адміністратором{% endblock meta_title %}
+
+{% block title %}Зв’язок із Адміністратором{% endblock title %}
+
+{% block status_message %}
+    {% if form.errors %}
+        <div class="alert alert-warning" role="alert">
+            Будь-ласкаб виправте наступні помилки
+        </div>
+    {% endif %}
+
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+<form method="post" role="form" class="form-horizontal">{% csrf_token %}
+    {% for field in form %}
+        <div class="form-group {% if field.errors %} has-error {% endif %}">
+        <span class="help-block">{{ field.errors }}</span>
+        {{ field.label_tag }} {{ field }}
+        </div>
+    {% endfor %}
+    <input type="submit" value="Submit">
+</form>
+
+<!-- % crispy form %} -->
+
+{% endblock content %}
