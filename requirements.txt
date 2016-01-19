@@ -1,4 +1,12 @@
 Django==1.7.1
-Pillow
-MySQL-python
+django-contact-form==1.2
 django-crispy-forms==1.4.0
+django-debug-toolbar==1.4
+ipdb==0.8.1
+ipython==3.0.0
+MySQL-python==1.2.5
+pdb==0.1
+Pillow==3.1.0
+python-gnupg==0.3.8
+PyYAML==3.11
+sqlparse==0.1.18
