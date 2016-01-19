@@ -39,9 +39,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'crispy_forms',
     'students',
+    'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
+#    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -107,3 +109,6 @@ EMAIL_USE_SSL = True
 
 # messages - storage backend
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
+
+# debug_toolbar
+DEBUG_TOOLBAR_PATCH_SETTINGS = True
