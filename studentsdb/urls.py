@@ -4,26 +4,34 @@ from .settings import MEDIA_ROOT, DEBUG
 
 from students.views.students import StudentUpdateView, StudentDeleteView
 from students.views.students import students_ajax_next_page
+from students.views.custom_contact_form import CustomContactFormView
 
 urlpatterns = patterns('',
     # Students urls
     url(r'^$', 'students.views.students.students_list', name='home'),
-    url(r'^students/add/$', 'students.views.students_add.students_add', name='students_add'),
+    url(r'^students/add/$',
+        'students.views.students_add.students_add', name='students_add'),
 #    url(r'^students/(?P<sid>\d+)/edit/$', 'students.views.students.students_edit', name='students_edit'),
 #    url(r'^students/(?P<sid>\d+)/delete/$', 'students.views.students.students_delete', name='students_delete'),
-    url(r'^students/(?P<pk>\d+)/edit/$', StudentUpdateView.as_view(), name='students_edit'),
+    url(r'^students/(?P<pk>\d+)/edit/$',
+        StudentUpdateView.as_view(), name='students_edit'),
     url(r'^(?P<pk>\d+)/delete/$',
-        StudentDeleteView.as_view(), 
+        StudentDeleteView.as_view(),
         name='students_delete'),
 
     # trying ajax
-    url(r'students/next_page$', students_ajax_next_page, name='students_ajax_next_page'),
+    url(r'students/next_page$',
+        students_ajax_next_page, name='students_ajax_next_page'),
 
     #Groups urls
-    url(r'^groups/$', 'students.views.groups.groups_list', name='groups'),
-    url(r'^groups/add/$', 'students.views.groups.groups_add', name='groups_add'),
-    url(r'^groups/(?P<gid>\d+)/edit/$', 'students.views.groups.groups_edit', name='groups_edit'),
-    url(r'^groups/(?P<gid>\d+)/delete/$', 'students.views.groups.groups_delete', name='groups_delete'),
+    url(r'^groups/$',
+        'students.views.groups.groups_list', name='groups'),
+    url(r'^groups/add/$',
+        'students.views.groups.groups_add', name='groups_add'),
+    url(r'^groups/(?P<gid>\d+)/edit/$',
+        'students.views.groups.groups_edit', name='groups_edit'),
+    url(r'^groups/(?P<gid>\d+)/delete/$',
+        'students.views.groups.groups_delete', name='groups_delete'),
 
     # Journal url
     url(r'^journal/$', 'students.views.journal.journal_list', name='journal'),
@@ -33,11 +41,13 @@ urlpatterns = patterns('',
     # Contact Admin Form
     url(r'^contact-admin/$', 'students.views.contact_admin.contact_admin',
         name='contact_admin'),
-    
+
     # contact admin with application django-contact-form
-    url(r'^contact/', include('contact_form.urls')),
+    url(r'^contact-form/$', include('contact_form.urls')),
+    url(r'^contact-form/view/$',
+        CustomContactFormView.as_view(), name='contact_form'),
 )
-    
+
 if DEBUG:
     # serve files from media folder
     urlpatterns += patterns('',
