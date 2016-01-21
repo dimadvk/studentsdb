@@ -43,8 +43,8 @@ urlpatterns = patterns('',
         name='contact_admin'),
 
     # contact admin with application django-contact-form
-    url(r'^contact-form/$', include('contact_form.urls')),
-    url(r'^contact-form/view/$',
+    #url(r'^contact-form/$', include('contact_form.urls')),
+    url(r'^contact-form/$',
         CustomContactFormView.as_view(), name='contact_form'),
 )
 
