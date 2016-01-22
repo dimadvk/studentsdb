@@ -1,26 +1,66 @@
 # -*- coding: utf-8 -*-
 
+from datetime import datetime
+from collections import OrderedDict
+
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
+from django.forms import ModelForm
 
 from django.utils.image import Image
+
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit, Layout
+from crispy_forms.bootstrap import FormActions
 
 from ..models.group import Group
 from ..models.student import Student
 
-from datetime import datetime
+class StudentAddForm(ModelForm):
+    class Meta:
+        model = Student
+        fields = '__all__'
+
+
+    def __init__(self, *args, **kwargs):
+        super(StudentAddForm, self).__init__(*args, **kwargs)
+
+        self.helper = FormHelper(self)
+
+        # set form tag attributes
+        self.helper.from_action = reverse('students_add')
+        self.helper.form_method = 'POST'
+        self.helper.form_class = 'form-horizontal'
+
+        # set form field properties
+        self.helper.help_text_inline = True
+        self.helper.html5_required = False
+        self.helper.label_class = 'col-sm-2 control-label'
+        self.helper.field_class = 'col-sm-10'
+
+        # add button
+        self.helper.layout.append(
+            FormActions(
+                Submit('add_button', u'Зберегти', css_class="btn btn-primary"),
+                Submit('cancel_button', u'Скасувати', css_class="btn btn-link"),
+            )
+        )
+        
+
 
 
 def students_add(request):
+    form = StudentAddForm()
+    context = {'form': form}
     # was form posted?
     if request.method == "POST":
         # was form add button clicked?
         if request.POST.get('add_button') is not None:
             # error collection
-            errors = {}
+            errors = OrderedDict()
             # validate student data will go here
             data = {'middle_name': request.POST.get('middle_name'),
                     'notes': request.POST.get('notes')}
@@ -94,9 +134,11 @@ def students_add(request):
 
             else:
                 # render form with errors  and previous user input
+                for error_key in errors.keys():
+                    messages.info(request, errors[error_key])
+
                 return render(request, 'students/students_add.html',
-                    {'groups': Group.objects.all().order_by('title'),
-                     'errors': errors})
+                    context)
         elif request.POST.get('cancel_button') is not None:
             # redirect to home page on cancel button
             messages.info(
@@ -107,4 +149,4 @@ def students_add(request):
     else:
         # initial form render
         return render(request, 'students/students_add.html',
-            {'groups': Group.objects.all().order_by('title')})
+            context)
