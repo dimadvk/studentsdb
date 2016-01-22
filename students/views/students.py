@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.urlresolvers import reverse
-from django.views.generic import UpdateView, DeleteView
+from django.views.generic import UpdateView, DeleteView, ListView
 from django.forms import  ModelForm
 from django.contrib import messages
 
@@ -77,6 +77,10 @@ class StudentDeleteView(DeleteView):
 
 # Views for Students
 
+class StudentList(ListView):
+    model = Student
+
+
 def students_list(request):
     students = Student.objects.all()
 
@@ -135,8 +139,6 @@ def students_list(request):
             'page_list':page_list}
             )
 
-
 def students_ajax_next_page(request):
-    print request.GET
     text = '<h2>Text from view students_ajax_next_page, received via ajax</h2>'
     return HttpResponse(text)

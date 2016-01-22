@@ -2,9 +2,10 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from .settings import MEDIA_ROOT, DEBUG
 
-from students.views.students import StudentUpdateView, StudentDeleteView
+from students.views.students import StudentUpdateView, StudentDeleteView, StudentList
 from students.views.students import students_ajax_next_page
 from students.views.custom_contact_form import CustomContactFormView
+from students.views.contact_admin import ContactAdminView
 
 urlpatterns = patterns('',
     # Students urls
@@ -18,6 +19,7 @@ urlpatterns = patterns('',
     url(r'^(?P<pk>\d+)/delete/$',
         StudentDeleteView.as_view(),
         name='students_delete'),
+    url(r'^student_list/$', StudentList.as_view()),
 
     # trying ajax
     url(r'students/next_page$',
@@ -39,9 +41,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     # Contact Admin Form
-    url(r'^contact-admin/$', 'students.views.contact_admin.contact_admin',
+    url(r'^contact-admin/$', ContactAdminView.as_view(),
         name='contact_admin'),
-
     # contact admin with application django-contact-form
     #url(r'^contact-form/$', include('contact_form.urls')),
     url(r'^contact-form/$',

@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib import messages
+from django.views.generic import FormView
 
 from studentsdb.settings import ADMIN_EMAIL
 
@@ -13,10 +14,10 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
 
-class ContactForm(forms.Form):
+class ContactAdminForm(forms.Form):
     def __init__(self, *args, **kwargs):
         # call original initialiazator
-        super(ContactForm, self).__init__(*args, **kwargs)
+        super(ContactAdminForm, self).__init__(*args, **kwargs)
 
         # this helper object allows us to customize form
         self.helper = FormHelper()
@@ -24,7 +25,7 @@ class ContactForm(forms.Form):
         # form tag attributes
         self.helper.form_class = 'form-horizontal'
         self.helper.form_method = 'post'
-        self.helper.form_action = reverse('contact_admin')
+        #self.helper.form_action = reverse('contact_admin')
 
         # twitter bootstrap styles
         self.helper.help_text_inline = True
@@ -47,12 +48,38 @@ class ContactForm(forms.Form):
         max_length=2500,
         widget=forms.Textarea)
 
+    recipient_list = [ADMIN_EMAIL]
+
+    def send_email(self):
+        send_mail(**self.cleaned_data)
+        
+
+
+class ContactAdminView(FormView):
+    form_class = ContactAdminForm
+    template_name = 'contact_admin/form.html'
+
+    def get_success_url(self):
+        return reverse('contact_admin')
+
+    def form_valid(self, form):
+        try:
+            form.send_email()
+        except Exception:
+            messages.info(self.request, u"Сталася якась помилка, лист не відправився. Shit happens :)")
+        else:
+            messages.info(self.request, u"Лист відправлено. Верховна канцелярія вже займається обробкою!")
+        return super(ContactAdminView, self).form_valid(form)
+
+
+
+'''
 def contact_admin(request):
     # check if form was posted
     if request.method == 'POST':
         # create a form instance and populate it
         # with data from the request
-        form = ContactForm(request.POST)
+        form = ContactAdminForm(request.POST)
 
         # check whether user data is valid:
         if form.is_valid():
@@ -74,6 +101,7 @@ def contact_admin(request):
 
     # if there was not POST render blank form
     else:
-        context = { 'form': ContactForm()}
+        context = { 'form': ContactAdminForm()}
 
     return render(request, 'contact_admin/form.html', context)
+'''
