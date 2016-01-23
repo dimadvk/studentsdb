@@ -7,6 +7,9 @@ from students.views.students import students_ajax_next_page
 from students.views.custom_contact_form import CustomContactFormView
 from students.views.contact_admin import ContactAdminView
 
+#test
+from django.views.generic import RedirectView
+
 urlpatterns = patterns('',
     # Students urls
     url(r'^$', 'students.views.students.students_list', name='home'),
@@ -24,6 +27,8 @@ urlpatterns = patterns('',
     # trying ajax
     url(r'students/next_page$',
         students_ajax_next_page, name='students_ajax_next_page'),
+    #test templateView
+    url('^test/$', RedirectView.as_view(pattern_name="home")),
 
     #Groups urls
     url(r'^groups/$',

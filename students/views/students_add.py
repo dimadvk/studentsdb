@@ -135,7 +135,8 @@ def students_add(request):
             else:
                 # render form with errors  and previous user input
                 for error_key in errors.keys():
-                    messages.info(request, errors[error_key])
+                    messages.error(request, errors[error_key])
+                context['errors'] = errors
 
                 return render(request, 'students/students_add.html',
                     context)

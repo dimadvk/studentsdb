@@ -9,6 +9,7 @@ from django.core.urlresolvers import reverse
 from django.views.generic import UpdateView, DeleteView, ListView
 from django.forms import  ModelForm
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 
 from ..models.student import Student
 
@@ -21,10 +22,11 @@ class StudentUpdateForm(StudentAddForm):
             kwargs={'pk': kwargs['instance'].id})
 
 
-class StudentUpdateView(UpdateView):
+class StudentUpdateView(SuccessMessageMixin, UpdateView):
     model = Student
     template_name = 'students/students_add.html'
     form_class = StudentUpdateForm
+    success_message = u'Студента "%(first_name)s %(last_name)s" успішно збережено!'
 
     def get_success_url(self):
         return reverse('home')
@@ -34,7 +36,6 @@ class StudentUpdateView(UpdateView):
             messages.info(self.request, u"Редагування студента відмінено!")
             return HttpResponseRedirect(reverse('home'))
         else:
-            messages.info(self.request, u"Студента успішно збережено!")
             return super(StudentUpdateView, self).post(request, *args, **kwargs)
 
 
