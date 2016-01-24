@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.urlresolvers import reverse
-from django.views.generic import UpdateView, DeleteView, ListView
+from django.views.generic import UpdateView, DeleteView, ListView, DetailView
 from django.forms import  ModelForm
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
@@ -53,7 +53,9 @@ class StudentDeleteView(DeleteView):
 # Views for Students
 
 class StudentList(ListView):
-    model = Student
+    #model = Student
+    context_object_name = 'students'
+    queryset = Student.objects.values('last_name')
 
 
 def students_list(request):
