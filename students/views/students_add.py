@@ -107,13 +107,12 @@ def students_add(request):
 
             photo = request.FILES.get('photo')
             if photo:
-                data['photo'] = photo
                 try:
                     Image.open(photo).verify()
                 except Exception:
                     errors['photo'] = u"Файл не є зображенням"
                 else:
-                    if len(photo) > (2*1024*1024):
+                    if photo.size > (2*1024*1024):
                         errors['photo'] = u"Завеликий файл. Фото має бути не більше 2 мегабайт"
                     else:
                         data['photo'] = photo
