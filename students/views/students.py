@@ -18,7 +18,7 @@ from students_add import StudentAddForm
 class StudentUpdateForm(StudentAddForm):
     def __init__(self, *args, **kwargs):
         super(StudentUpdateForm, self).__init__(*args, **kwargs)
-        self.helper.from_action = reverse('students_edit',
+        self.helper.form_action = reverse('students_edit',
             kwargs={'pk': kwargs['instance'].id})
 
 
@@ -30,6 +30,11 @@ class StudentUpdateView(SuccessMessageMixin, UpdateView):
 
     def get_success_url(self):
         return reverse('home')
+
+    def get_context_data(self, **kwargs):
+        context = super(StudentUpdateView, self).get_context_data(**kwargs)
+        context.update({'page_title': u"Редагувати Студента"})
+        return context
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):

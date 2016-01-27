@@ -31,7 +31,7 @@ class StudentAddForm(ModelForm):
         self.helper = FormHelper(self)
 
         # set form tag attributes
-        self.helper.from_action = reverse('students_add')
+        self.helper.form_action = reverse('students_add')
         self.helper.form_method = 'POST'
         self.helper.form_class = 'form-horizontal'
 
@@ -55,6 +55,7 @@ class StudentAddForm(ModelForm):
 def students_add(request):
     form = StudentAddForm()
     context = {'form': form}
+    context.update({'page_title': u"Додати Студента"})
     # was form posted?
     if request.method == "POST":
         # was form add button clicked?

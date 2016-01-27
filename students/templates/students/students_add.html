@@ -1,8 +1,8 @@
 {% extends "students/base.html" %}
 {% load static from staticfiles %}
 {% load crispy_forms_tags %}
-{% block meta_title %}Додати Студента{% endblock meta_title %}
-{% block title %}Додати Студента{% endblock title %}
+{% block meta_title %}{{ page_title }}{% endblock meta_title %}
+{% block title %}{{ page_title }}{% endblock title %}
 {% block status_message %}
 
 {% if messages %}
