@@ -6,6 +6,7 @@ from students.views.students import StudentUpdateView, StudentDeleteView, Studen
 from students.views.students import students_ajax_next_page
 from students.views.custom_contact_form import CustomContactFormView
 from students.views.contact_admin import ContactAdminView
+from students.views.groups import GroupsDeleteView
 
 #test
 from django.views.generic import RedirectView
@@ -37,8 +38,8 @@ urlpatterns = patterns('',
         'students.views.groups.groups_add', name='groups_add'),
     url(r'^groups/(?P<gid>\d+)/edit/$',
         'students.views.groups.groups_edit', name='groups_edit'),
-    url(r'^groups/(?P<gid>\d+)/delete/$',
-        'students.views.groups.groups_delete', name='groups_delete'),
+    url(r'^groups/(?P<pk>\d+)/delete/$', 
+        GroupsDeleteView.as_view(), name='groups_delete'),
 
     # Journal url
     url(r'^journal/$', 'students.views.journal.journal_list', name='journal'),

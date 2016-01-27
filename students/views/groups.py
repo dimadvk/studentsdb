@@ -3,6 +3,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.generic import DeleteView
+from django.core.urlresolvers import reverse_lazy
 
 from ..models.group import Group
 
@@ -42,6 +44,9 @@ def groups_add(request):
 def groups_edit(request, gid):
     return HttpResponse('<h1>Edit Group %s' % gid)
 
-def groups_delete(request, gid):
-    return HttpResponse('<h1>Delete Group %s</h1>' % gid)
-
+#def groups_delete(request, gid):
+#    return HttpResponse('<h1>Delete Group %s</h1>' % gid)
+class GroupsDeleteView(DeleteView):
+    model = Group
+    template_name = "students/groups_confirm_delete.html"
+    success_url = reverse_lazy("groups")
