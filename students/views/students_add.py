@@ -60,6 +60,7 @@ def students_add(request):
     if request.method == "POST":
         # was form add button clicked?
         if request.POST.get('add_button') is not None:
+            context.update({'form' : StudentAddForm(request.POST)})
             # error collection
             errors = OrderedDict()
             # validate student data will go here
