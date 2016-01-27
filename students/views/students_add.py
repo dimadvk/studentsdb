@@ -53,14 +53,13 @@ class StudentAddForm(ModelForm):
 
 
 def students_add(request):
-    form = StudentAddForm()
+    form = StudentAddForm(request.POST or None)
     context = {'form': form}
     context.update({'page_title': u"Додати Студента"})
     # was form posted?
     if request.method == "POST":
         # was form add button clicked?
         if request.POST.get('add_button') is not None:
-            context.update({'form' : StudentAddForm(request.POST)})
             # error collection
             errors = OrderedDict()
             # validate student data will go here
