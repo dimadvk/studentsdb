@@ -5,7 +5,7 @@ from datetime import datetime
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic import UpdateView, DeleteView, ListView, DetailView
 from django.forms import  ModelForm
 from django.contrib import messages
@@ -47,12 +47,24 @@ class StudentUpdateView(SuccessMessageMixin, UpdateView):
 class StudentDeleteView(DeleteView):
     model = Student
     template_name = 'students/students_confirm_delete.html'
-    success_url = reverse('home')
+    success_url = reverse_lazy('home')
 
     def delete(self, request, *args, **kwargs):
         messages.info(self.request, u"Студента успішно видалено!")
-        return HttpResponseRedirect(reverse('home'))
+        return super(StudentDeleteView, self).delete(request, *args, **kwargs)
 
+def students_delete(request, pk):
+    object = Student.objects.filter(pk=pk).first()
+    context = {'object': object}
+    if request.method == "GET":
+        confirm_template = "students/students_confirm_delete.html"
+        return render(request, confirm_template, context)
+    elif request.method == "POST":
+        object.delete()
+        messages.info(request, u"Студента успішно видалено!")
+        return HttpResponseRedirect(reverse("home"))
+
+        
 
 # Views for Students
 

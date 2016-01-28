@@ -45,8 +45,8 @@ def groups_list(request):
 def groups_add(request):
     return HttpResponse('<h1>Group Add Form</h1>')
 
-def groups_edit(request, gid):
-    return HttpResponse('<h1>Edit Group %s' % gid)
+def groups_edit(request, pk):
+    return HttpResponse('<h1>Edit Group %s' % pk)
 
 #def groups_delete(request, gid):
 #    return HttpResponse('<h1>Delete Group %s</h1>' % gid)
