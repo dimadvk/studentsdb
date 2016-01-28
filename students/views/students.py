@@ -47,9 +47,8 @@ class StudentUpdateView(SuccessMessageMixin, UpdateView):
 class StudentDeleteView(DeleteView):
     model = Student
     template_name = 'students/students_confirm_delete.html'
+    success_url = reverse('home')
 
-    def get_success_url(self):
-        return reverse('home')
     def delete(self, request, *args, **kwargs):
         messages.info(self.request, u"Студента успішно видалено!")
         return HttpResponseRedirect(reverse('home'))
