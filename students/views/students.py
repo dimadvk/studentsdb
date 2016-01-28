@@ -7,11 +7,12 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic import UpdateView, DeleteView, ListView, DetailView
-from django.forms import  ModelForm
+from django.forms import  ModelForm, ValidationError
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 
 from ..models.student import Student
+from ..models.group import Group
 
 from students_add import StudentAddForm
 
@@ -20,6 +21,11 @@ class StudentUpdateForm(StudentAddForm):
         super(StudentUpdateForm, self).__init__(*args, **kwargs)
         self.helper.form_action = reverse('students_edit',
             kwargs={'pk': kwargs['instance'].id})
+    def clean_student_group(self):
+        groups = Group.objects.filter(leader=self.instance)
+        if len(groups) > 0 and self.cleaned_data['student_group'] != groups[0]:
+            raise ValidationError(u'Студент є старостою групи "%s"' % groups.first())
+        return self.cleaned_data['student_group']
 
 
 class StudentUpdateView(SuccessMessageMixin, UpdateView):
