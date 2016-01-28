@@ -3,14 +3,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.views.generic import DeleteView
-from django.core.urlresolvers import reverse_lazy
-
+from django.views.generic import DeleteView, UpdateView
+from django.core.urlresolvers import reverse_lazy, reverse
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.core.exceptions import PermissionDenied
 from django.http.response import HttpResponseForbidden
+from django.forms import ModelForm, ValidationError
+
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
+from crispy_forms.bootstrap import FormActions
 
 from ..models.group import Group
+from ..models.student import Student
 
 # Views for Groups
 
@@ -48,9 +54,61 @@ def groups_add(request):
 def groups_edit(request, pk):
     return HttpResponse('<h1>Edit Group %s' % pk)
 
+class GroupUpdateForm(ModelForm):
+    class Meta:
+        model = Group
+        fields = '__all__'
+    def __init__(self, *args, **kwargs):
+        super(GroupUpdateForm, self).__init__(*args, **kwargs)
+
+        self.helper = FormHelper(self)
+        self.helper.form_action = reverse('group_edit',
+            kwargs={'pk': kwargs['instance'].id})
+        self.helper.form_method = "POST"
+        self.helper.form_class = "form-horizontal"
+
+        self.helper.help_text_inline = True
+        self.helper.html5_required = True
+
+        self.helper.layout.append(
+            FormActions(
+                Submit('edit_button', u'Зберегти', css_class="btn btn-primary"),
+                Submit("cancel_button", u'Скасувати', css_class="btn btn-link"),
+            )
+        )
+    def clean_leader(self):
+        """ Check if leader is in the same group """
+        queryset = Student.objects.filter(student_group=self.instance)
+        new_leader = self.cleaned_data['leader']
+        if new_leader and new_leader not in queryset:
+            raise ValidationError(u"Студент не входить до даної групи!")
+        return new_leader
+
+ 
+
+
+class GroupUpdateView(SuccessMessageMixin, UpdateView):
+    model = Group
+    form_class = GroupUpdateForm
+    template_name = "students/group_add.html"
+    success_url = reverse_lazy('groups')
+    success_message = u'Групу "%(title)s" успішно збережено!'
+
+    def get_context_data(self, **kwargs):
+        context = super(GroupUpdateView, self).get_context_data(**kwargs)
+        context.update({'page_title': u'Редагування групи'})
+        return context
+
+    def post(self, request, *args, **kwargs):
+        if request.POST.get('cancel_button'):
+            messages.info(request, u"Редагування відмінено")
+            return HttpResponseRedirect(self.success_url)
+        else:
+            return super(GroupUpdateView, self).post(request, *args, **kwargs)
+
 #def groups_delete(request, gid):
 #    return HttpResponse('<h1>Delete Group %s</h1>' % gid)
-class GroupsDeleteView(DeleteView):
+class GroupDeleteView(DeleteView):
     model = Group
     template_name = "students/groups_confirm_delete.html"
     success_url = reverse_lazy("groups")

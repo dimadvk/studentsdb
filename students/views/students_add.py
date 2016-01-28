@@ -13,7 +13,7 @@ from django.forms import ModelForm
 from django.utils.image import Image
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout
+from crispy_forms.layout import Submit
 from crispy_forms.bootstrap import FormActions
 
 from ..models.group import Group
