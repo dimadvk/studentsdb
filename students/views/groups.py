@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import DeleteView
 from django.core.urlresolvers import reverse_lazy
+
+from django.contrib import messages
+from django.core.exceptions import PermissionDenied
+from django.http.response import HttpResponseForbidden
 
 from ..models.group import Group
 
@@ -50,3 +54,17 @@ class GroupsDeleteView(DeleteView):
     model = Group
     template_name = "students/groups_confirm_delete.html"
     success_url = reverse_lazy("groups")
+
+    def delete(self, request, *args, **kwargs):
+        """
+        Calls the delete() method on the fetched object and then
+        redirects to the success URL.
+        """
+        self.object = self.get_object()
+        success_url = self.get_success_url()
+        if self.object.student_set.exists():
+            messages.info(self.request,
+                u"Неможливо видалити групу, що містить студентів!")
+            return HttpResponseRedirect(success_url)
+        self.object.delete()
+        return HttpResponseRedirect(success_url)
