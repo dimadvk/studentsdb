@@ -66,5 +66,4 @@ class GroupsDeleteView(DeleteView):
             messages.info(self.request,
                 u"Неможливо видалити групу, що містить студентів!")
             return HttpResponseRedirect(success_url)
-        self.object.delete()
-        return HttpResponseRedirect(success_url)
+        return super(GroupsDeleteView, self).delete(request, *args, **kwargs)
