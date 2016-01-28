@@ -40,9 +40,10 @@ class GroupFormAdmin(ModelForm):
     def clean_leader(self):
         """ Check if leader is in the same group """
         queryset = Student.objects.filter(student_group=self.instance)
-        if self.cleaned_data['leader'] not in queryset:
+        new_leader = self.cleaned_data['leader']
+        if new_leader and new_leader not in queryset:
             raise ValidationError(u"Студент не входить до даної групи!")
-        return self.cleaned_data['leader']
+        return new_leader
 
 class GroupAdmin(admin.ModelAdmin):
     list_display = ['title', 'leader']
