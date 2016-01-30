@@ -59,6 +59,15 @@ class StudentDeleteView(DeleteView):
         messages.info(self.request, u"Студента успішно видалено!")
         return super(StudentDeleteView, self).delete(request, *args, **kwargs)
 
+def students_delete_bunch(request):
+    if request.method =="POST":
+        students_id_list = request.POST.getlist('selected-student')
+        students_set = Student.objects.filter(pk__in=students_id_list)
+        students_set.delete()
+        messages.info(request, u"Вибраних студентів успішно видалено!")
+        return HttpResponseRedirect(reverse("home"))
+
+
 def students_delete(request, pk):
     student = Student.objects.get(pk=pk)
     context = {'object': student}

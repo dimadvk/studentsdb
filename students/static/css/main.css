@@ -50,3 +50,7 @@ select,
 input {
     max-width: 300px;
 }
+
+.col-checkbox{
+    width: 50px;
+}

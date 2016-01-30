@@ -4,6 +4,7 @@ from .settings import MEDIA_ROOT, DEBUG
 
 from students.views.students import StudentUpdateView, StudentDeleteView, StudentList
 from students.views.students import students_ajax_next_page
+from students.views.students import students_delete_bunch
 from students.views.custom_contact_form import CustomContactFormView
 from students.views.contact_admin import ContactAdminView
 from students.views.groups import GroupDeleteView
@@ -32,6 +33,9 @@ urlpatterns = patterns('',
         students_ajax_next_page, name='students_ajax_next_page'),
     #test templateView
     url('^test/$', RedirectView.as_view(pattern_name="home")),
+
+    # delete bunch of students
+    url(r'^students/delete-bunch/$', students_delete_bunch, name="students-delete-bunch"),
 
 
     #Groups urls
