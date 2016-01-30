@@ -5,7 +5,10 @@
 
 {% block meta_title %}Групи{% endblock meta_title %}
 
-{% block title %}Групи{% endblock title %}
+{% block title %}
+    Групи
+    <a class="btn btn-primary" href="{% url "groups_add" %}">Додати Групу</a>
+{% endblock title %}
 
 {% block content %}
 

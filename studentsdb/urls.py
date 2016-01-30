@@ -8,6 +8,7 @@ from students.views.custom_contact_form import CustomContactFormView
 from students.views.contact_admin import ContactAdminView
 from students.views.groups import GroupDeleteView
 from students.views.groups import GroupUpdateView
+from students.views.groups import GroupCreateView
 
 #test
 from django.views.generic import RedirectView
@@ -36,8 +37,9 @@ urlpatterns = patterns('',
     #Groups urls
     url(r'^groups/$',
         'students.views.groups.groups_list', name='groups'),
-    url(r'^groups/add/$',
-        'students.views.groups.groups_add', name='groups_add'),
+#    url(r'^groups/add/$',
+#        'students.views.groups.groups_add', name='groups_add'),
+    url(r'^groups/add/$', GroupCreateView.as_view(), name="groups_add"),
 #    url(r'^groups/(?P<pk>\d+)/edit/$',
 #        'students.views.groups.groups_edit', name='groups_edit'),
     url(r'^groups/(?P<pk>\d+)/edit/$',

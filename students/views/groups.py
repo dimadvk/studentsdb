@@ -3,16 +3,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.views.generic import DeleteView, UpdateView
+from django.views.generic import DeleteView, UpdateView, CreateView
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.exceptions import PermissionDenied
 from django.http.response import HttpResponseForbidden
-from django.forms import ModelForm, ValidationError
+from django.forms import ModelForm, ValidationError, ChoiceField, Select
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
+from crispy_forms.layout import Submit, Layout, Field
 from crispy_forms.bootstrap import FormActions
 
 from ..models.group import Group
@@ -51,19 +51,16 @@ def groups_list(request):
 def groups_add(request):
     return HttpResponse('<h1>Group Add Form</h1>')
 
-def groups_edit(request, pk):
-    return HttpResponse('<h1>Edit Group %s' % pk)
-
-class GroupUpdateForm(ModelForm):
+class GroupCreateForm(ModelForm):
     class Meta:
         model = Group
         fields = '__all__'
+
     def __init__(self, *args, **kwargs):
-        super(GroupUpdateForm, self).__init__(*args, **kwargs)
+        super(GroupCreateForm, self).__init__(*args, **kwargs)
 
         self.helper = FormHelper(self)
-        self.helper.form_action = reverse('group_edit',
-            kwargs={'pk': kwargs['instance'].id})
+        self.helper.form_action = reverse('groups_add')
         self.helper.form_method = "POST"
         self.helper.form_class = "form-horizontal"
 
@@ -76,6 +73,43 @@ class GroupUpdateForm(ModelForm):
                 Submit("cancel_button", u'Скасувати', css_class="btn btn-link"),
             )
         )
+        self.fields['leader'].widget.attrs = {'disabled': True}
+#    leader = ChoiceField(
+#                widget = Select(attrs={'disabled':True})
+#    )
+
+
+
+class GroupCreateView(SuccessMessageMixin, CreateView):
+    model = Group
+    form_class = GroupCreateForm
+    template_name = "students/groups_add.html"
+    success_url = reverse_lazy("groups")
+    success_message = u"Групу успішно додано!"
+
+    def get_context_data(self, **kwargs):
+        context = super(GroupCreateView, self).get_context_data(**kwargs)
+        context.update({"page_title": u"Додавання групи"})
+        return context
+
+    def post(self, request, *args, **kwargs):
+        if request.POST.get('cancel_button'):
+            messages.info(request, u"Додавання групи відмінено")
+            return HttpResponseRedirect(self.success_url)
+        else:
+            return super(GroupCreateView, self).post(request, *args, **kwargs)
+
+#def groups_edit(request, pk):
+#    return HttpResponse('<h1>Edit Group %s' % pk)
+
+class GroupUpdateForm(GroupCreateForm):
+    def __init__(self, *args, **kwargs):
+        super(GroupUpdateForm, self).__init__(*args, **kwargs)
+
+        self.helper.form_action = reverse('group_edit',
+            kwargs={'pk': kwargs['instance'].id})
+        self.fields['leader'].widget.attrs = {}
+        
     def clean_leader(self):
         """ Check if leader is in the same group """
         queryset = Student.objects.filter(student_group=self.instance)
@@ -83,14 +117,13 @@ class GroupUpdateForm(ModelForm):
         if new_leader and new_leader not in queryset:
             raise ValidationError(u"Студент не входить до даної групи!")
         return new_leader
-
  
 
 
 class GroupUpdateView(SuccessMessageMixin, UpdateView):
     model = Group
     form_class = GroupUpdateForm
-    template_name = "students/group_add.html"
+    template_name = "students/groups_add.html"
     success_url = reverse_lazy('groups')
     success_message = u'Групу "%(title)s" успішно збережено!'
 
@@ -124,4 +157,4 @@ class GroupDeleteView(DeleteView):
             messages.info(self.request,
                 u"Неможливо видалити групу, що містить студентів!")
             return HttpResponseRedirect(success_url)
-        return super(GroupsDeleteView, self).delete(request, *args, **kwargs)
+        return super(GroupDeleteView, self).delete(request, *args, **kwargs)

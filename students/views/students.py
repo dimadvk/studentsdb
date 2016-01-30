@@ -60,13 +60,13 @@ class StudentDeleteView(DeleteView):
         return super(StudentDeleteView, self).delete(request, *args, **kwargs)
 
 def students_delete(request, pk):
-    object = Student.objects.filter(pk=pk).first()
-    context = {'object': object}
+    student = Student.objects.get(pk=pk)
+    context = {'object': student}
     if request.method == "GET":
         confirm_template = "students/students_confirm_delete.html"
         return render(request, confirm_template, context)
     elif request.method == "POST":
-        object.delete()
+        student.delete()
         messages.info(request, u"Студента успішно видалено!")
         return HttpResponseRedirect(reverse("home"))
 
