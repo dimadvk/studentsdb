@@ -48,9 +48,6 @@ def groups_list(request):
     return render(request, 'students/groups_list.html', {'groups':groups})
 
 
-def groups_add(request):
-    return HttpResponse('<h1>Group Add Form</h1>')
-
 class GroupCreateForm(ModelForm):
     class Meta:
         model = Group
@@ -74,10 +71,6 @@ class GroupCreateForm(ModelForm):
             )
         )
         self.fields['leader'].widget.attrs = {'disabled': True}
-#    leader = ChoiceField(
-#                widget = Select(attrs={'disabled':True})
-#    )
-
 
 
 class GroupCreateView(SuccessMessageMixin, CreateView):
