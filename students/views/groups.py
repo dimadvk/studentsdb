@@ -112,10 +112,11 @@ class GroupUpdateForm(GroupCreateForm):
         
     def clean_leader(self):
         """ Check if leader is in the same group """
-        queryset = Student.objects.filter(student_group=self.instance)
         new_leader = self.cleaned_data['leader']
-        if new_leader and new_leader not in queryset:
-            raise ValidationError(u"Студент не входить до даної групи!")
+        queryset = Student.objects.filter(pk=new_leader.pk, student_group=self.instance.pk)
+        if len(queryset) == 0:
+            raise ValidationError(u"Студент не входить до даної групи!",
+                code='invalid')
         return new_leader
  
 
