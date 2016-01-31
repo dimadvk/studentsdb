@@ -70,7 +70,8 @@ class GroupCreateForm(ModelForm):
                 Submit("cancel_button", u'Скасувати', css_class="btn btn-link"),
             )
         )
-        self.fields['leader'].widget.attrs = {'disabled': True}
+        self.fields['leader'].widget.attrs = {'disabled': 'True'}
+        self.fields['leader'].queryset = self.fields['leader'].queryset.none()
 
 
 class GroupCreateView(SuccessMessageMixin, CreateView):
