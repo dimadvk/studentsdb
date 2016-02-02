@@ -1,4 +1,4 @@
-# -*- conding: utf8 -*-
+# -*- coding: utf8 -*-
 
 from django.db import models
 
@@ -18,6 +18,9 @@ class MonthJournal(models.Model):
     date = models.DateField(
         verbose_name=u'Дата',
         blank=False)
+
+    def __unicode__(self):
+        return u'%s: %d, %d' % (self.student.last_name, self.date.month, self.date.year)
 
     present_day1 = models.BooleanField(default=False)
     present_day2 = models.BooleanField(default=False)
@@ -51,6 +54,6 @@ class MonthJournal(models.Model):
     present_day30 = models.BooleanField(default=False)
     present_day31 = models.BooleanField(default=False)
 
-    def __unicode__(self):
-        return u'%s: %d, %d' % (self.student.last_name, self.date.month, self.date.year)
-
+#for num in range(1, 32):
+#    setattr(MonthJournal, 'present_day'+str(num),
+#        'models.BooleanField(default=False)')

@@ -6,6 +6,7 @@ from django.forms import ModelForm, ValidationError
 
 from .models.student import Student
 from .models.group import Group
+from .models.monthjournal import MonthJournal
 
 
 class StudentFormAdmin(ModelForm):
@@ -74,3 +75,4 @@ class GroupAdmin(admin.ModelAdmin):
 
 admin.site.register(Student, StudentAdmin)
 admin.site.register(Group, GroupAdmin)
+admin.site.register(MonthJournal)

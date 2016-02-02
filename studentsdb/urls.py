@@ -10,6 +10,7 @@ from students.views.contact_admin import ContactAdminView
 from students.views.groups import GroupDeleteView
 from students.views.groups import GroupUpdateView
 from students.views.groups import GroupCreateView
+from students.views.journal import JournalView
 
 #test
 from django.views.generic import RedirectView
@@ -52,7 +53,10 @@ urlpatterns = patterns('',
         GroupDeleteView.as_view(), name='group_delete'),
 
     # Journal url
-    url(r'^journal/$', 'students.views.journal.journal_list', name='journal'),
+    #url(r'^journal/$', 'students.views.journal.journal_list', name='journal'),
+    url(r'journal/$', JournalView.as_view(), name='journal'),
+
+    # Admin page
 
     url(r'^admin/', include(admin.site.urls)),
 
