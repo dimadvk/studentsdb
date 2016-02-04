@@ -54,7 +54,8 @@ urlpatterns = patterns('',
 
     # Journal url
     #url(r'^journal/$', 'students.views.journal.journal_list', name='journal'),
-    url(r'journal/$', JournalView.as_view(), name='journal'),
+    #url(r'^journal/$', JournalView.as_view(), name='journal'),
+    url(r'^journal/(?P<pk>\d+)?/?$', JournalView.as_view(), name='journal'),
 
     # Admin page
 

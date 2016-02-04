@@ -4,7 +4,7 @@ from dateutil.relativedelta import relativedelta
 from calendar import monthrange, weekday, day_abbr
 
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.generic.base import TemplateView
 from django.core.urlresolvers import reverse
 
@@ -44,7 +44,10 @@ class JournalView(TemplateView):
             'verbose': day_abbr[weekday(myear, mmonth, d)][:2]}
             for d in range(1, number_of_days+1)]
 
-        queryset = Student.objects.all().order_by('last_name')
+        if kwargs.get('pk'):
+            queryset = [Student.objects.get(pk=kwargs['pk'])]
+        else:
+            queryset = Student.objects.all().order_by('last_name')
 
         update_url = reverse('journal')
 
@@ -59,7 +62,7 @@ class JournalView(TemplateView):
             for day in range(1, number_of_days+1):
                 days.append({
                     'day': day,
-                    'present': journal and getattr(jouranl, 'present_day%d' % day, False) or False,
+                    'present': journal and getattr(journal, 'present_day%d' % day, False) or False,
                     'date': date(myear, mmonth, day).strftime('%Y-%m-%d'),
                 })
 
@@ -74,6 +77,19 @@ class JournalView(TemplateView):
                                 context, var_name='students')
 
         return context
+
+    def post(self, request, *args, **kwargs):
+        data = request.POST
+
+        current_date = datetime.strptime(data['date'], '%Y-%m-%d').date()
+        month = date(current_date.year, current_date.month, 1)
+        present = data['present'] and True or False
+        student = Student.objects.get(pk=data['pk'])
+
+        journal = MonthJournal.objects.get_or_create(student=student, date=month)[0]
+        setattr(journal, 'present_day%d' % current_date.day, present)
+        journal.save()
+        return JsonResponse({'status': 'success'})
 
 
 
