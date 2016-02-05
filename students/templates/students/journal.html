@@ -70,7 +70,7 @@
 </table>
 {% endif %}
 
-{# comment #}
+{% comment %}
 {% with object_list=students %}
     {% if num_pages > 1 %}
         {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
@@ -93,7 +93,7 @@
     {% endif %}
 
 {% endwith %}
-{# endcomment #}
+{% endcomment %}
 
 {% with object_list=students %}
     {% include "students/pagination.html" %}

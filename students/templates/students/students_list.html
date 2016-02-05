@@ -78,6 +78,13 @@
 </form>
 <!-- End Students Listing -->
 
+
+{% with object_list=students %}
+    {% include "students/pagination.html" %}
+{% endwith %}  
+
+{% comment %}
+kjhkjdhfkjsdhkjshdksjdhf
 {% if num_pages > 1 %}
 {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
 <nav>
@@ -94,9 +101,9 @@
 	</li>
     </ul>
 </nav>
-
 {% endwith %}
 {% endif %}
+{% endcomment %}
 
 <!-- try ajax
 
