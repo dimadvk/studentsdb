@@ -146,7 +146,7 @@ def students_list(request):
     #students = students[ (page-1)*num_rows_per_page : page*num_rows_per_page ]
     #page_list = [p+1 for p in range(num_pages)]
 
-    context = paginate(students, 3, request, {}, var_name='students')
+    context = paginate(students, 4, request, {}, var_name='students')
 
     return render(request, 'students/students_list.html', context)
 
