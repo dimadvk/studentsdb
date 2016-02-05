@@ -57,9 +57,49 @@ function initDateFields() {
     });
 }
 
+function initEditStudentForm(form, modal) {
+    // attache datepicker
+    initDateFields();
+    
+    // close modal window on Cancel button click
+    form.find('input[name="cancel_button"]').click(function(event){
+        modal.modal('hide');
+        return false;
+    });
+
+    // make form work in AJAX mode
+    form.ajaxForm({
+        'dataType': 'html',
+        'error': function(){
+            alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
+            return false;
+        },
+        'success': function(data, status, xhr) {
+            var html = $(data), newform = html.find('#content-column form');
+
+            // copy alert to modal window
+            modal.find('.modal-body').html(html.find('.alert'));
+
+            // copy form to modal if we found it in server response
+            if (newform.length > 0) {
+                modal.find('.modal-body').append(newform);
+
+                // initialize form fields and buttons
+                initEditStudentForm(newform, modal);
+            } else {
+                // if no form, it means success and we need to reload page
+                // to get updated student list;
+                // reload after 2 seconds, so that user can read
+                // success message
+                setTimeout(function(){location.reload(true);}, 500);
+            }
+        }
+    });
+}
+
 function initEditStudentPage() {
     $('a.student-edit-form-link').click(function(event){
-        var link = ${this);
+        var link = $(this);
         $.ajax({
             'url': link.attr('href'),
             'dataType': 'html',
@@ -76,6 +116,9 @@ function initEditStudentPage() {
                 html = $(data), form = html.find('#content-column form');
                 modal.find('.modal-title').html(html.find('#content-column h2').text());
                 modal.find('.modal-body').html(form);
+
+                // init our edit form
+                initEditStudentForm(form, modal);
 
                 // setup and show modal window finally
                 modal.modal('show');
