@@ -75,7 +75,7 @@ function initEditStudentForm(form, modal) {
             return false;
         },
         'success': function(data, status, xhr) {
-            var html = $(data), newform = html.find('#content-column form');
+            var html = $(data), newform = html.find('#content-column form.form-horizontal');
 
             // copy alert to modal window
             modal.find('.modal-body').html(html.find('.alert'));
