@@ -52,7 +52,7 @@
 		{% if student.photo %}
 		<img heigh="30" width="30" src="{{ student.photo.url }}" class="img-circle"/>
 		{% else %}
-		<img heigh="30", width="30" src="{% static "img/default_user.jpg" %}" class="img-circle"/>
+		<img heigh="30" width="30" src="{% static "img/default_user.jpg" %}" class="img-circle"/>
 		{% endif %}
 		</td>
 	    <td><a title="Редагувати" class="student-edit-form-link" href='{% url "students_edit" student.id %}'>{{ student.last_name }}</a></td>
