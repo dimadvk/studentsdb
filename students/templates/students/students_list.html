@@ -55,15 +55,15 @@
 		<img heigh="30", width="30" src="{% static "img/default_user.jpg" %}" class="img-circle"/>
 		{% endif %}
 		</td>
-	    <td><a title="Редагувати"  href='{% url "students_edit" student.id %}'>{{ student.last_name }}</a></td>
-	    <td><a title="Редагувати"  href='{% url "students_edit" student.id %}'>{{ student.first_name }}</a></td>
+	    <td><a title="Редагувати" class="student-edit-form-link" href='{% url "students_edit" student.id %}'>{{ student.last_name }}</a></td>
+	    <td><a title="Редагувати" class="student-edit-form-link" href='{% url "students_edit" student.id %}'>{{ student.first_name }}</a></td>
 	    <td>{{ student.ticket }}</td>
 	    <td>
 		<div class="btn-group">
 		    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія<span class="caret"></span>
 		    </button>
 		    <ul class="dropdown-menu" role="menu">
-			<li><a href="{% url "students_edit" student.id %}">Редагування</a></li>
+			<li><a href="{% url "students_edit" student.id %}" class="student-edit-form-link">Редагування</a></li>
 			<li><a href="{% url "journal" student.id %}">Відвідування</a></li>
 			<li><a href="{% url "students_delete" student.id %}">Видалити</a></li>
 		    </ul>
