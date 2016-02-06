@@ -9,7 +9,6 @@ from django.views.generic.base import TemplateView
 from django.core.urlresolvers import reverse
 
 from ..models import Student, MonthJournal
-from ..models import Journal
 from ..util import paginate
 
 
