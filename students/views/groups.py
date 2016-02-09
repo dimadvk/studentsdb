@@ -50,8 +50,7 @@ def groups_list(request):
 #    return render(request, 'students/groups_list.html', {'groups':groups})
 
     # paginate groups with custom func "paginate" from ..util
-    context = {}
-    context = paginate(groups, 5, request, context, var_name="groups")
+    context = paginate(groups, 5, request, {}, var_name="groups")
     return render(request, 'students/groups_list.html', context)
 
 class GroupCreateForm(ModelForm):
