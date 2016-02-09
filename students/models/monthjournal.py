@@ -17,9 +17,9 @@ class MonthJournal(models.Model):
         verbose_name = u'Місячний журнал'
         verbose_name_plural = u'Місячні Журнали'
 
-    def __init__(self, *args, **kwargs):
-        super(MonthJournal, self).__init__(*args, **kwargs)
-        set_boolean_fields(self)
+#    def __init__(self, *args, **kwargs):
+#        super(MonthJournal, self).__init__(*args, **kwargs)
+#        set_boolean_fields(self)
 
     student = models.ForeignKey('Student',
         verbose_name=u'Студент',

@@ -21,13 +21,12 @@ class JournalView(TemplateView):
         # get context dara from TemplateView class
         context = super(JournalView, self).get_context_data(**kwargs)
 
-        
         if self.request.GET.get('month'):
             month = datetime.strptime(self.request.GET['month'], '%Y-%m-%d').date()
         else:
             today = datetime.today()
             month = date(today.year, today.month, 1)
-            
+
         next_month = month + relativedelta(months=1)
         prev_month = month - relativedelta(months=1)
         context['prev_month'] = prev_month.strftime('%Y-%m-%d')
@@ -84,7 +83,6 @@ class JournalView(TemplateView):
         month = date(current_date.year, current_date.month, 1)
         present = data['present'] and True or False
         student = Student.objects.get(pk=data['pk'])
-
         journal = MonthJournal.objects.get_or_create(student=student, date=month)[0]
         setattr(journal, 'present_day%d' % current_date.day, present)
         journal.save()

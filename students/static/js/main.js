@@ -17,8 +17,9 @@ function initJournal() {
                 indicator.show();
             },
             'error': function(xhr, status, error){
-                alert(error);
-                indicator.hide()
+                $('#ajax-error').show();
+                $('#ajax-error-text').text(error);
+                indicator.hide();
             },
             'success': function(data, status, xhr){
                 indicator.hide();
