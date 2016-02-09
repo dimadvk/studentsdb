@@ -17,6 +17,7 @@ from crispy_forms.bootstrap import FormActions
 
 from ..models.group import Group
 from ..models.student import Student
+from ..util import paginate
 
 # Views for Groups
 
@@ -33,20 +34,25 @@ def groups_list(request):
         order_by = 'title'
         groups = groups.order_by(order_by)
 
-    # paginate groups
-    paginator = Paginator(groups, 3)
-    page = request.GET.get('page')
-    try:
-        groups = paginator.page(page)
-    except PageNotAnInteger:
-        # if page is not an integer, deliver first page.
-        groups = paginator.page(1)
-    except EmptyPage:
-        # if page is out of range (e.g. 9999), deliver
-        # last page of results.
-        groups = paginator.page(paginator.num_pages)
-    return render(request, 'students/groups_list.html', {'groups':groups})
+#    # paginate groups
+#    paginator = Paginator(groups, 3)
+#    page = request.GET.get('page')
+#    try:
+#        groups = paginator.page(page)
+#    except PageNotAnInteger:
+#        # if page is not an integer, deliver first page.
+#        groups = paginator.page(1)
+#    except EmptyPage:
+#        # if page is out of range (e.g. 9999), deliver
+#        # last page of results.
+#        groups = paginator.page(paginator.num_pages)
+#    
+#    return render(request, 'students/groups_list.html', {'groups':groups})
 
+    # paginate groups with custom func "paginate" from ..util
+    context = {}
+    context = paginate(groups, 5, request, context, var_name="groups")
+    return render(request, 'students/groups_list.html', context)
 
 class GroupCreateForm(ModelForm):
     class Meta:
