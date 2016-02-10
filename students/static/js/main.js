@@ -44,7 +44,8 @@ function initGroupSelector(){
         }
 
         // and reload a page
-        location.reload(true);
+        // location.reload(true);
+        location = '/' + location.pathname.split('/')[1];
 
         return true;
     });
@@ -56,11 +57,21 @@ function initDateFields() {
     }).on('dp.hide', function(event){
         $(this).blur();
     });
+    var datefield = $('#div_id_birthday div');
+    datefield.find('input').attr('aria-describedby', 'calendar-icon');
+    datefield.append('<span class="input-group-addon"><i class="glyphicon glyphicon-calendar" id="calendar-addon" aria-hidden="true"></i></span>');
+    datefield.wrapInner('<div class="input-group"> </div>');
 }
 
 function initEditStudentForm(form, modal) {
     // attache datepicker
     initDateFields();
+
+    //var datefield = form.find('#div_id_birthday div');
+    //datefield.find('input').attr('aria-describedby', 'calendar-icon');
+    //datefield.append('<span class="input-group-addon"><i class="glyphicon glyphicon-calendar" id="calendar-addon" aria-hidden="true"></i></span>');
+    //datefield.find('.input-group-addon').css('width', '13%');
+    //datefield.wrapInner('<div class="input-group"> </div>');
     
     // close modal window on Cancel button click
     form.find('input[name="cancel_button"]').click(function(event){
@@ -77,6 +88,10 @@ function initEditStudentForm(form, modal) {
         },
         'success': function(data, status, xhr) {
             var html = $(data), newform = html.find('#content-column form.form-horizontal');
+
+            // div aria-describedby="calendar-icon"
+            // <span class="glyphicon glyphicon-calendar input-group-addon" id="calendar-icon" aria-hidden="true"></span>
+            // html.find('#div_id_birthday').append('<br><br>');
 
             // copy alert to modal window
             modal.find('.modal-body').html(html.find('.alert'));

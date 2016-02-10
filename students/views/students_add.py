@@ -14,7 +14,7 @@ from django.utils.image import Image
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
-from crispy_forms.bootstrap import FormActions
+from crispy_forms.bootstrap import FormActions, AppendedText, PrependedText
 
 from ..models.group import Group
 from ..models.student import Student
@@ -33,13 +33,13 @@ class StudentAddForm(ModelForm):
         # set form tag attributes
         self.helper.form_action = reverse('students_add')
         self.helper.form_method = 'POST'
-        self.helper.form_class = 'form-horizontal'
+        self.helper.form_class = 'form-horizontal student-form'
 
         # set form field properties
         self.helper.help_text_inline = True
         self.helper.html5_required = False
         self.helper.label_class = 'col-sm-2 control-label'
-        self.helper.field_class = 'col-sm-10'
+        self.helper.field_class = 'col-sm-10 student-form-width'
 
         # add button
         self.helper.layout.append(
@@ -48,6 +48,9 @@ class StudentAddForm(ModelForm):
                 Submit('cancel_button', u'Скасувати', css_class="btn btn-link"),
             )
         )
+        #self.helper.layout[3] = AppendedText('birthday',
+        #    '<i class="glyphicon glyphicon-calendar" ></i>',
+        #    active=True)
         
 
 
