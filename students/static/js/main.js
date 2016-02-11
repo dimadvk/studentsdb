@@ -18,7 +18,7 @@ function initJournal() {
             },
             'error': function(xhr, status, error){
                 $('#ajax-error').show();
-                $('#ajax-error-text').text(error);
+                $('#ajax-error-text').text("ERROR: Data not saved. " + error);
                 indicator.hide();
             },
             'success': function(data, status, xhr){
@@ -53,7 +53,8 @@ function initGroupSelector(){
 
 function initDateFields() {
     $('input.dateinput').datetimepicker({
-        'format': 'YYYY-MM-DD'
+        format: 'YYYY-MM-DD',
+        locale: 'uk'
     }).on('dp.hide', function(event){
         $(this).blur();
     });
@@ -63,16 +64,14 @@ function initDateFields() {
     datefield.wrapInner('<div class="input-group"> </div>');
 }
 
+function renewStudentsList(data, student_id) {
+    $('table #'+student_id).html($(data).find('table #'+student_id).html());
+}
+
 function initEditStudentForm(form, modal) {
     // attache datepicker
     initDateFields();
 
-    //var datefield = form.find('#div_id_birthday div');
-    //datefield.find('input').attr('aria-describedby', 'calendar-icon');
-    //datefield.append('<span class="input-group-addon"><i class="glyphicon glyphicon-calendar" id="calendar-addon" aria-hidden="true"></i></span>');
-    //datefield.find('.input-group-addon').css('width', '13%');
-    //datefield.wrapInner('<div class="input-group"> </div>');
-    
     // close modal window on Cancel button click
     form.find('input[name="cancel_button"]').click(function(event){
         modal.modal('hide');
@@ -107,7 +106,11 @@ function initEditStudentForm(form, modal) {
                 // to get updated student list;
                 // reload after 2 seconds, so that user can read
                 // success message
-                setTimeout(function(){location.reload(true);}, 500);
+                //setTimeout(function(){location.reload(true);}, 500);
+                student_id = $(form).attr('action').split('/')[2];
+                $('table #'+student_id).html(
+                    $(data).find('table #'+student_id).html()
+                );
             }
         }
     });
@@ -152,7 +155,6 @@ function initEditStudentPage() {
         return false;
     });
 }
-
 
 
 $(document).ready(function(){

@@ -73,6 +73,8 @@ class GroupCreateForm(ModelForm):
 
         self.helper.help_text_inline = True
         self.helper.html5_required = True
+        self.helper.label_class = 'col-sm-2 control-label'
+        self.helper.field_class = 'col-sm-10 form-field-width'
 
         self.helper.layout.append(
             FormActions(

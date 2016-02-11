@@ -16,6 +16,9 @@
                 href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.0.0/css/bootstrap-datetimepicker.min.css">
 			<link rel="stylesheet" 
                 href="{{ PORTAL_URL }}{% static "css/main.css" %}">
+            <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" /><!-- test popUp -->
+        
+        
 	{% block extra_css %}{% endblock extra_css %}
 				
 	</head>
@@ -86,6 +89,9 @@
                             </ul>
                         </div>
                       {% endif %}
+                        <div class="alert alert-danger" id="ajax-error">
+                            <span id="ajax-error-text"></span>
+                        </div>
                     {% endblock %}
 
 				    <h2>{% block title %}{% endblock title %}</h2>
@@ -123,14 +129,18 @@
                 </div>
             </div>
         </div>
+
+        <!-- test code -->
+        <!-- end test -->>
 						
 		<!-- Javascript Section -->
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js"></script>
         <script src="{% static "js/jquery.cookie.js" %}"></script>
 		<script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.0.0/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script><!-- test popUp -->
         <script src="{% static "js/main.js" %}"></script>
         {% block extra_js %}{% endblock extra_js %}
 			

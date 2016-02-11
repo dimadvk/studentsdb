@@ -45,7 +45,7 @@
     {% endwith %}
     <tbody>
 	{% for student in students %}
-	<tr>
+    <tr id="{{student.id}}">
         <td><input type="checkbox" name="selected-student" value="{{student.id}}"></td>
 	    <td>{{ forloop.counter }}</td>
 	    <td>

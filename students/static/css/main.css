@@ -51,8 +51,8 @@ input {
 /*    max-width: 300px;*/
 }
 
-.student-form-width{
-    width: 300px;
+.form-field-width{
+    max-width: 300px;
 }
 
 .col-checkbox{
@@ -72,5 +72,9 @@ th.day-header {
 
 /* ajax error message */
 #ajax-error{
+    display: none;
+}
+
+#popUp{
     display: none;
 }
