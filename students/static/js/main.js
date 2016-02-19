@@ -82,15 +82,13 @@ function initEditStudentForm(form, modal) {
     form.ajaxForm({
         'dataType': 'html',
         'error': function(){
-            alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
+            //alert('Помилка на сервері. Спробуйте будь-ласка пізніше. form.ajaxForm()');
+            $('#modal-message-block').show();
+            $('#modal-message').html('<b>Error:</b> Помилка на сервері. Спробуйте будь-ласка пізніше.');
             return false;
         },
         'success': function(data, status, xhr) {
             var html = $(data), newform = html.find('#content-column form.form-horizontal');
-
-            // div aria-describedby="calendar-icon"
-            // <span class="glyphicon glyphicon-calendar input-group-addon" id="calendar-icon" aria-hidden="true"></span>
-            // html.find('#div_id_birthday').append('<br><br>');
 
             // copy alert to modal window
             modal.find('.modal-body').html(html.find('.alert'));
@@ -126,7 +124,7 @@ function initEditStudentPage() {
             'success': function(data, status, xhr){
                 // check if we got successfull response from the server
                 if (status != 'success') {
-                    alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
+                    alert('Помилка на сервері. Спробуйте будь-ласка пізніше. initEditStudentPage() status != "success" ');
                     return false;
                 }
 
@@ -147,7 +145,7 @@ function initEditStudentPage() {
                 });
             },
             'error': function(){
-                alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
+                alert('Помилка на сервері. Спробуйте будь-ласка пізніше. initEditStudentPage() error');
                 return false;
             }
         });

@@ -10,7 +10,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #footer {
 	/* pадаємо верхню межу елемента: ширина лінії, тип лінії, 
-	 * колі лінії */
+	 * колір лінії */
 	border-top: 1px solid #dddddd;
 	/*задаємо внутрішю відстанб елемента до верхньго краю */
 	padding-top: 10px;
@@ -77,4 +77,8 @@ th.day-header {
 
 #popUp{
     display: none;
+}
+
+#modal-message-block{
+    margin: 10px 15px 20px;
 }
