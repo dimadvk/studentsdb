@@ -112,6 +112,14 @@ function initEditStudentForm(form, modal) {
                     $(data).find('table #'+student_id).html()
                 );
             }
+        },
+        'beforeSend': function() {
+            $('.ajax-loader-modal img').show();
+            $('input, select, textarea, a, button').attr('disabled', 'disabled');
+        },
+        'complete': function() {
+            $('.ajax-loader-modal img').hide();
+            $('input, select, textarea, a, button').removeAttr('disabled', 'disabled');
         }
     });
 }

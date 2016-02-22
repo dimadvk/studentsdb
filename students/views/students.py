@@ -23,7 +23,7 @@ class StudentUpdateForm(StudentAddForm):
         super(StudentUpdateForm, self).__init__(*args, **kwargs)
         self.helper.form_action = reverse('students_edit',
             kwargs={'pk': kwargs['instance'].id})
-        sleep(1)
+        sleep(2)
     def clean_student_group(self):
         groups = Group.objects.filter(leader=self.instance)
         if len(groups) > 0 and self.cleaned_data['student_group'] != groups[0]:

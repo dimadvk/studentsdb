@@ -100,4 +100,13 @@ th.day-header {
     margin-left: -65px;
     margin-top: -20px;
 }
+.ajax-loader-modal{
+    position:relative;
+    width:130px;
+    height: 20px;
+    margin: auto;
+}
+.ajax-loader-modal img{
+    display: none;
+}
 
