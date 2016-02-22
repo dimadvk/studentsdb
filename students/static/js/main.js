@@ -60,7 +60,9 @@ function initDateFields() {
     });
     var datefield = $('#div_id_birthday div');
     datefield.find('input').attr('aria-describedby', 'calendar-icon');
-    datefield.append('<span class="input-group-addon"><i class="glyphicon glyphicon-calendar" id="calendar-addon" aria-hidden="true"></i></span>');
+    datefield.append('<span class="input-group-addon">'
+            + '<i class="glyphicon glyphicon-calendar"'
+            + 'id="calendar-addon" aria-hidden="true"></i></span>');
     datefield.wrapInner('<div class="input-group"> </div>');
 }
 
@@ -116,6 +118,12 @@ function initEditStudentForm(form, modal) {
 
 function initEditStudentPage() {
     $('a.student-edit-form-link').click(function(event){
+        // dvk: find all anchors with a class .student-edit-form-link
+        var studentEditAnchors = $('a.student-edit-form-link');
+        $('a').click(function (event) {
+            event.preventDefault();
+        });
+        
         var link = $(this);
         $.ajax({
             'url': link.attr('href'),
@@ -147,6 +155,12 @@ function initEditStudentPage() {
             'error': function(){
                 alert('Помилка на сервері. Спробуйте будь-ласка пізніше. initEditStudentPage() error');
                 return false;
+            },
+            'beforeSend': function () {
+                $('.ajax-loader').show();
+            },
+            'complete': function () {
+                $('.ajax-loader').hide();
             }
         });
 
