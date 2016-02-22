@@ -11,18 +11,21 @@
 			
 			<!-- Include Styles -->
 			<link rel="stylesheet"
-				href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+            href="{% static 'css/bootstrap.min.css' %}">
+                {# href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css"> #}
             <link rel="stylesheet"
-                href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.0.0/css/bootstrap-datetimepicker.min.css">
+            href="{% static 'css/bootstrap-datetimepicker.min.css' %}">
+                {# href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.0.0/css/bootstrap-datetimepicker.min.css"> #}
 			<link rel="stylesheet" 
                 href="{{ PORTAL_URL }}{% static "css/main.css" %}">
-            <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" /><!-- test popUp -->
+                {# <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" /><!-- test popUp --> #}
         
         
 	{% block extra_css %}{% endblock extra_css %}
 				
 	</head>
 	<body>
+
 		
 		<!-- Start Containet -->
 		<div class="container">
@@ -155,6 +158,7 @@
         <script src="{% static "js/main.js" %}"></script>
         {% block extra_js %}{% endblock extra_js %}
 			
+        <div class="ajax-loader"><img src='{% static "img/ajax-loader-bert2.gif" %}'></div>
 	</body>
 
 

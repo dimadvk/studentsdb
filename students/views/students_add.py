@@ -9,6 +9,7 @@ from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 from django.forms import ModelForm
+from django import forms
 
 from django.utils.image import Image
 
@@ -18,6 +19,14 @@ from crispy_forms.bootstrap import FormActions, AppendedText, PrependedText
 
 from ..models.group import Group
 from ..models.student import Student
+
+#class StudentAddForm(forms.Form):
+#    queryset = Group.objects.all()
+#
+#    student_group = forms.ModelChoiceField(queryset=queryset)
+#    def __init__(self, *args, **kwargs):
+#            super(StudentAddForm, self).__init__(*args, **kwargs)
+#            self.fields['student_group'].queryset = Group.objects.all()
 
 class StudentAddForm(ModelForm):
     class Meta:

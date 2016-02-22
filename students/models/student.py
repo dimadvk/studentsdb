@@ -65,5 +65,3 @@ class Student(models.Model):
                 raise ValidationError({"photo": "The file is too big. Must be less than 2MB."})
 
 
-    
-
