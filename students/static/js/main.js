@@ -176,11 +176,27 @@ function initEditStudentPage() {
     });
 }
 
+function navTabs() {
+    var navLinks = $('.nav-tabs li > a');
+    navLinks.click(function(event) {
+      var url = this.href;
+      navLinks.each(function(index){
+        console.log(this.href + " " + index);
+        if (this.href === url) {
+          $(this).parent().addClass('active');
+        } else {
+          $(this).parent().removeClass('active');
+        };
+      });
+      event.preventDefault();
+    });
+}
 
 $(document).ready(function(){
     initJournal();
     initGroupSelector();
     initDateFields();
     initEditStudentPage();
+    navTabs();
 }
 );
