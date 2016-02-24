@@ -81,6 +81,7 @@ th.day-header {
 
 #modal-message-block{
     margin: 10px 15px 20px;
+    display: none;
 }
 
 .ajax-loader{

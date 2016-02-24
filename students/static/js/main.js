@@ -126,11 +126,11 @@ function initEditStudentForm(form, modal) {
 
 function initEditStudentPage() {
     $('a.student-edit-form-link').click(function(event){
-        // dvk: find all anchors with a class .student-edit-form-link
-        var studentEditAnchors = $('a.student-edit-form-link');
-        $('a').click(function (event) {
-            event.preventDefault();
-        });
+       // // dvk: find all anchors with a class .student-edit-form-link
+       // var studentEditAnchors = $('a.student-edit-form-link');
+       // $('a').click(function (event) {
+       //     event.preventDefault();
+       // });
         
         var link = $(this);
         $.ajax({
@@ -140,7 +140,7 @@ function initEditStudentPage() {
             'success': function(data, status, xhr){
                 // check if we got successfull response from the server
                 if (status != 'success') {
-                    alert('Помилка на сервері. Спробуйте будь-ласка пізніше. initEditStudentPage() status != "success" ');
+                    alert('Помилка на сервері. Спробуйте пізніше.');
                     return false;
                 }
 
@@ -161,17 +161,16 @@ function initEditStudentPage() {
                 });
             },
             'error': function(){
-                alert('Помилка на сервері. Спробуйте будь-ласка пізніше. initEditStudentPage() error');
+                alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
                 return false;
             },
-            'beforeSend': function () {
+            'beforeSend': function() {
                 $('.ajax-loader').show();
             },
-            'complete': function () {
+            'complete': function() {
                 $('.ajax-loader').hide();
             }
         });
-
         return false;
     });
 }
@@ -179,24 +178,55 @@ function initEditStudentPage() {
 function navTabs() {
     var navLinks = $('.nav-tabs li > a');
     navLinks.click(function(event) {
-      var url = this.href;
-      navLinks.each(function(index){
-        console.log(this.href + " " + index);
-        if (this.href === url) {
-          $(this).parent().addClass('active');
-        } else {
-          $(this).parent().removeClass('active');
-        };
-      });
-      event.preventDefault();
+        var url = this.href;
+        $.ajax({
+            'url': url,
+            'dataType': 'html',
+            'type': 'get',
+            'success': function(data, status, xhr){
+                // check if we got successful responcse
+                if (status != 'success') {
+                    alert('Помилка на сервері.');
+                    return false;
+                };
+                
+                // update table
+                var content = $(data).find('#content-columns');
+                var pageTitle = content.find('h2').text();
+                $(document).find('#content-columns').html(content.html());
+                navLinks.each(function(index){
+                    if (this.href === url) {
+                      $(this).parent().addClass('active');
+                    } else {
+                      $(this).parent().removeClass('active');
+                    };
+                });
+                // update uri in address bar
+                window.history.pushState("string", pageTitle, url);
+                // update page title
+                document.title = $(data).filter('title').text();
+            },
+            'error': function() {
+                alert('Помилка на сервері.');
+                return false;
+            },
+            'beforeSend': function() {
+                $('.ajax-loader').show();
+            },
+            'complete': function() {
+                $('.ajax-loader').hide();
+                initFunctions();
+            }
+        });
+        event.preventDefault();
     });
 }
 
-$(document).ready(function(){
+$(document).ready(initFunctions);
+function initFunctions(){
     initJournal();
     initGroupSelector();
     initDateFields();
     initEditStudentPage();
     navTabs();
 }
-);
