@@ -222,6 +222,15 @@ function navTabs() {
     });
 }
 
+function closeModalBackButton() {
+    window.addEventListener('popstate', function() {
+        $('#myModal').modal('hide');
+        var url = document.referrer;
+        console.log(url);
+        window.history.pushState("string", '', url);
+    });
+}
+
 $(document).ready(initFunctions);
 function initFunctions(){
     initJournal();
@@ -229,4 +238,5 @@ function initFunctions(){
     initDateFields();
     initEditStudentPage();
     navTabs();
+    closeModalBackButton();
 }
