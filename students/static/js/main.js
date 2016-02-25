@@ -73,6 +73,8 @@ function renewStudentsList(data, student_id) {
 function initEditStudentForm(form, modal) {
     // attache datepicker
     initDateFields();
+    initPhotoField();
+    initPhotoFieldWidget();
 
     // close modal window on Cancel button click
     form.find('input[name="cancel_button"]').click(function(event){
@@ -152,6 +154,7 @@ function initEditStudentPage() {
 
                 // init our edit form
                 initEditStudentForm(form, modal);
+                
 
                 // setup and show modal window finally
                 modal.modal({
@@ -226,10 +229,45 @@ function closeModalBackButton() {
     window.addEventListener('popstate', function() {
         $('#myModal').modal('hide');
         var url = document.referrer;
-        console.log(url);
         window.history.pushState("string", '', url);
     });
 }
+
+function initPhotoField(){
+    var imgUrl = $('#div_id_photo a').attr('href');
+    var imgHtml = '<img heigh="30" width="30" class=img-circle src=' +  imgUrl + '/>'
+    $('#div_id_photo a').html(imgHtml);
+}
+
+function initPhotoFieldWidget(){
+    var imgUrl = $('#div_id_photo a').attr('href');
+    $('#div_id_photo div.controls').html('<div id="fileuploader">Upload</div>');
+    uploadImgWidget();
+}
+
+function uploadImgWidget() {
+    $("#fileuploader").uploadFile({
+    url:"{% url 'test2' %}",
+    fileName:"photo",
+    multiple: false,
+    dragDrop: true,
+    maxFileCount:1,
+    acceptFiles:"image/*",
+    maxFileSize:2*1024*1024,
+    showPreview:true,
+      previewHeight: "35px",
+      previewWidth: "35px",
+    showDelete: true,
+    autoSubmit: false,
+    dragdropWidth:245,
+    statusBarWidth:245,
+    dragDropStr: "<span style='font-size:0.9em; display:inline-block; margin-top:0px; margin-left:20px;'><b>Перетягніть<br> сюди фото</b></span>",
+    extErrorStr:"Файл не є зображенням.",
+    sizeErrorStr:"Завеликий файл, має бути менше: ",
+    uploadStr:"Завантажити"
+    });
+}
+
 
 $(document).ready(initFunctions);
 function initFunctions(){

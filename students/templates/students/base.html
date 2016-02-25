@@ -19,6 +19,8 @@
 			<link rel="stylesheet" 
                 href="{{ PORTAL_URL }}{% static "css/main.css" %}">
                 {# <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" /><!-- test popUp --> #}
+            {# use file-upload plugin http://hayageek.com/docs/jquery-upload-file.php #}    
+            <link href="http://hayageek.github.io/jQuery-Upload-File/4.0.10/uploadfile.css" rel="stylesheet">
         
         
 	{% block extra_css %}{% endblock extra_css %}
@@ -160,6 +162,8 @@
         <script src="{% static "js/bootstrap-datetimepicker.min.js" %}"></script>
 
         <script src="{% static "js/main.js" %}"></script>
+        {# use file-upload plugin http://hayageek.com/docs/jquery-upload-file.php #}    
+        <script src="http://hayageek.github.io/jQuery-Upload-File/4.0.10/jquery.uploadfile.min.js"></script>
         {% block extra_js %}{% endblock extra_js %}
 			
         <div class="ajax-loader"><img src='{% static "img/ajax-loader-bert2.gif" %}'></div>
