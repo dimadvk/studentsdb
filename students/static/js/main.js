@@ -228,5 +228,5 @@ function initFunctions(){
     initGroupSelector();
     initDateFields();
     initEditStudentPage();
-    navTabs();
+//    navTabs();
 }

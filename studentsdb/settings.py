@@ -38,8 +38,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-    'students',
 #    'debug_toolbar',
+    'students',
+# el_pagination __must__ be after 'students' for applying custom template show_more.html
+    'el_pagination', 
 )
 
 MIDDLEWARE_CLASSES = (
@@ -88,11 +90,11 @@ STATIC_URL = '/static/'
 
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
-									    "django.core.context_processors.request",
-									    "studentsdb.context_processors.students_proc",
+					"django.core.context_processors.request",
+					"studentsdb.context_processors.students_proc",
                                         "django.contrib.messages.context_processors.messages",
                                         "students.context_processors.groups_processor",
-									    )
+)
 
 #PORTAL_URL = 'http://localhost:8000'
 

@@ -3,12 +3,13 @@
 from datetime import datetime
 from time import sleep
 
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic import UpdateView, DeleteView, ListView, DetailView
 from django.forms import  ModelForm, ValidationError
+from django.template import RequestContext
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 
@@ -91,8 +92,10 @@ class StudentList(ListView):
     context_object_name = 'students'
     queryset = Student.objects.values('last_name')
 
-
-def students_list(request):
+def students_list(request,
+                  template='students/students_list.html',
+                  page_template='students/students_list_page.html',
+                  extra_context=None):
     # check if need to show only one group of students
     current_group = get_current_group(request)
     if current_group:
@@ -110,47 +113,20 @@ def students_list(request):
        order_by = 'last_name'
        students = students.order_by(order_by)
 
-    # # paginate students
-    # paginator = Paginator(students, 3)
-    # page = request.GET.get('page')
-    # try:
-    #     students = paginator.page(page)
-    # except PageNotAnInteger:
-    #     # if page is not an integer, deliver first page.
-    #     students = paginator.page(1)
-    # except EmptyPage:
-    #     # if page is out of range (e.g. 9999), deliver
-    #     # last page of results.
-    #     students = paginator.page(paginator.num_pages)
-    # return render(request, 'students/students_list.html', {'students':students})
+    context = {
+        'students': students,
+        'page_template': page_template,
+    }
+    if request.is_ajax():
+        template = page_template
+    if extra_context is not None:
+        context.update(extra_context)
 
-    # remake pagination without 'paginator'
-    # count of pages:
-    #num_rows_per_page = 4
-    #if len(students):
-    #    num_pages = len(students) // num_rows_per_page
-    #else:
-    #    num_pages = 1
-    ## if len(students) % num_rows_per_page > 0
-    #if len(students) % num_rows_per_page:
-    #    num_pages += 1
-    #page = request.GET.get('page')
-    ## ceck if page is integer
-    #try:
-    #    page = int(page)
-    #except:
-    #    page = 1
-    ## if page is out of range return last page
-    #if page > num_pages:
-    #    page = num_pages
-    #elif page < 1:
-    #    page = 1
-    #students = students[ (page-1)*num_rows_per_page : page*num_rows_per_page ]
-    #page_list = [p+1 for p in range(num_pages)]
+    #context = paginate(students, 4, request, {}, var_name='students')
+    return render_to_response(
+        template, context, context_instance=RequestContext(request)
+    )
 
-    context = paginate(students, 4, request, {}, var_name='students')
-
-    return render(request, 'students/students_list.html', context)
 
 def students_ajax_next_page(request):
     text = '<h2>Text from view students_ajax_next_page, received via ajax</h2>'
