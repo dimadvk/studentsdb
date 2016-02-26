@@ -74,7 +74,6 @@ function initEditStudentForm(form, modal) {
     // attache datepicker
     initDateFields();
     initPhotoField();
-    initPhotoFieldWidget();
 
     // close modal window on Cancel button click
     form.find('input[name="cancel_button"]').click(function(event){
@@ -228,8 +227,7 @@ function navTabs() {
 function closeModalBackButton() {
     window.addEventListener('popstate', function() {
         $('#myModal').modal('hide');
-        var url = document.referrer;
-        window.history.pushState("string", '', url);
+        window.history.pushState("string", '', '');
     });
 }
 
@@ -239,34 +237,35 @@ function initPhotoField(){
     $('#div_id_photo a').html(imgHtml);
 }
 
-function initPhotoFieldWidget(){
-    var imgUrl = $('#div_id_photo a').attr('href');
-    $('#div_id_photo div.controls').html('<div id="fileuploader">Upload</div>');
-    uploadImgWidget();
-}
-
-function uploadImgWidget() {
-    $("#fileuploader").uploadFile({
-    url:"{% url 'test2' %}",
-    fileName:"photo",
-    multiple: false,
-    dragDrop: true,
-    maxFileCount:1,
-    acceptFiles:"image/*",
-    maxFileSize:2*1024*1024,
-    showPreview:true,
-      previewHeight: "35px",
-      previewWidth: "35px",
-    showDelete: true,
-    autoSubmit: false,
-    dragdropWidth:245,
-    statusBarWidth:245,
-    dragDropStr: "<span style='font-size:0.9em; display:inline-block; margin-top:0px; margin-left:20px;'><b>Перетягніть<br> сюди фото</b></span>",
-    extErrorStr:"Файл не є зображенням.",
-    sizeErrorStr:"Завеликий файл, має бути менше: ",
-    uploadStr:"Завантажити"
-    });
-}
+//
+//function initPhotoFieldWidget(){
+//    var imgUrl = $('#div_id_photo a').attr('href');
+//    $('#div_id_photo div.controls').html('<div id="fileuploader">Upload</div>');
+//    uploadImgWidget();
+//}
+//
+//function uploadImgWidget() {
+//    $("#fileuploader").uploadFile({
+//    url:"{% url 'test2' %}",
+//    fileName:"photo",
+//    multiple: false,
+//    dragDrop: true,
+//    maxFileCount:1,
+//    acceptFiles:"image/*",
+//    maxFileSize:2*1024*1024,
+//    showPreview:true,
+//      previewHeight: "35px",
+//      previewWidth: "35px",
+//    showDelete: true,
+//    autoSubmit: false,
+//    dragdropWidth:245,
+//    statusBarWidth:245,
+//    dragDropStr: "<span style='font-size:0.9em; display:inline-block; margin-top:0px; margin-left:20px;'><b>Перетягніть<br> сюди фото</b></span>",
+//    extErrorStr:"Файл не є зображенням.",
+//    sizeErrorStr:"Завеликий файл, має бути менше: ",
+//    uploadStr:"Завантажити"
+//    });
+//}
 
 
 $(document).ready(initFunctions);
