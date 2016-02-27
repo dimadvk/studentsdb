@@ -227,7 +227,7 @@ function navTabs() {
 function closeModalBackButton() {
     window.addEventListener('popstate', function() {
         $('#myModal').modal('hide');
-        window.history.pushState("string", '', '');
+        window.history.pushState("string", '', '/');
     });
 }
 

@@ -22,7 +22,7 @@ class Group(models.Model):
         null = True,
         blank = True,
         on_delete = models.SET_NULL)
-    
+
     notes = models.TextField(
         blank=True,
         verbose_name=u"додаткові нотатки")

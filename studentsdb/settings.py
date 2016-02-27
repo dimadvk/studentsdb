@@ -61,7 +61,6 @@ ROOT_URLCONF = 'studentsdb.urls'
 
 WSGI_APPLICATION = 'studentsdb.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
@@ -80,19 +79,17 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
 
-
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
-									    "django.core.context_processors.request",
-									    "studentsdb.context_processors.students_proc",
-                                        "django.contrib.messages.context_processors.messages",
-                                        "students.context_processors.groups_processor",
-									    )
+    "django.core.context_processors.request",
+    "studentsdb.context_processors.students_proc",
+    "django.contrib.messages.context_processors.messages",
+    "students.context_processors.groups_processor",
+)
 
 #PORTAL_URL = 'http://localhost:8000'
 
@@ -118,3 +115,52 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 # debug_toolbar
 DEBUG_TOOLBAR_PATCH_SETTINGS = True
+
+# logging settings
+LOG_FILE = os.path.join(BASE_DIR, 'studentsdb.log')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s: %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': LOG_FILE,
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['null'],
+            'propagate': True,
+            'level': 'INFO',
+        },
+        'students.signals': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+        },
+        'student.views.contact_admin': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+        }
+    }
+}
+
