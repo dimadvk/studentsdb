@@ -55,3 +55,13 @@ def log_group_deleted_event(sender, **kwargs):
     logger.logging.getLogger(__name__)
     group = kwargs['instance']
     logger.info("Group deleted: %s (ID: %d)", group.title, group.id)
+
+@receiver(post_save, sender=MonthJournal)
+def log_monthjournal_changes(sender, **kwargs):
+    logger = logging.getLogger(__name__)
+    monthjournal = kwargs['instance']
+    logger.info("MonthJournal updated: %s (Journal ID: %d)",
+                monthjournal.student,
+                monthjournal.id
+               )
+
