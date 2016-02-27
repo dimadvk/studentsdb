@@ -98,12 +98,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 
 # email settings
 ADMIN_EMAIL = "ren-kpi@i.ua"
-EMAIL_HOST = "smtp.skif.com.ua"
-EMAIL_PORT = "465"
-EMAIL_HOST_USER = "@skif.net.ua"
-EMAIL_HOST_PASSWORD = "pp"
-EMAIL_USE_SSL = True
-#EMAIL_USE_TLS = True
+from .smtp_settings import *
+
 # as django-contact-form needs
 DEFAULT_FROM_EMAIL = '@skif.net.ua'
 MANAGERS = [
