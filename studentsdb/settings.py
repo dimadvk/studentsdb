@@ -153,7 +153,7 @@ LOGGING = {
             'handlers': ['console', 'file'],
             'level': 'INFO',
         },
-        'student.views.contact_admin': {
+        'students.views.contact_admin': {
             'handlers': ['console', 'file'],
             'level': 'INFO',
         }

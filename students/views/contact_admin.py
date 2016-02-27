@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-# writed as in the book of V.Podoba
+import logging
+from collections import OrderedDict
+
 from django.shortcuts import render, redirect
 from django import forms
 from django.core.mail import send_mail
@@ -51,8 +53,13 @@ class ContactAdminForm(forms.Form):
     recipient_list = [ADMIN_EMAIL]
 
     def send_email(self):
-        send_mail(**self.cleaned_data)
-        
+        data = self.cleaned_data
+        send_mail('[contact admin]' + data.get('subject'),
+                  data.get('message'),
+                  data.get('from_email'),
+                  [ADMIN_EMAIL]
+                 )
+
 
 
 class ContactAdminView(FormView):
@@ -66,7 +73,10 @@ class ContactAdminView(FormView):
         try:
             form.send_email()
         except Exception:
-            messages.info(self.request, u"Сталася якась помилка, лист не відправився. Shit happens :)")
+            message = u"Сталася якась помилка, лист не відправився. Shit happens :)"
+            messages.info(self.request, message)
+            logger = logging.getLogger(__name__)
+            logger.exception(message)
         else:
             messages.info(self.request, u"Лист відправлено. Верховна канцелярія вже займається обробкою!")
         return super(ContactAdminView, self).form_valid(form)
