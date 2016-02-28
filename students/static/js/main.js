@@ -112,6 +112,7 @@ function initEditStudentForm(form, modal) {
                 $('table #'+student_id).html(
                     $(data).find('table #'+student_id).html()
                 );
+                initEditStudentPage();
             }
         },
         'beforeSend': function() {

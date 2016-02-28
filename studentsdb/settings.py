@@ -99,6 +99,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 # email settings
 ADMIN_EMAIL = "ren-kpi@i.ua"
 from .smtp_settings import *
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # as django-contact-form needs
 DEFAULT_FROM_EMAIL = '@skif.net.ua'
@@ -142,15 +143,21 @@ LOGGING = {
             'filename': LOG_FILE,
             'formatter': 'verbose'
         },
+        'mail_admins': {
+            'level': 'INFO',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'email_backend': 'django.core.mail.backends.console.EmailBackend',
+            'include_html': True,
+        },
     },
     'loggers': {
         'django': {
-            'handlers': ['null'],
+            'handlers': ['mail_admins', 'null'],
             'propagate': True,
             'level': 'INFO',
         },
         'students.signals': {
-            'handlers': ['console', 'file'],
+            'handlers': ['console', 'file', 'mail_admins'],
             'level': 'INFO',
         },
         'students.views.contact_admin': {
