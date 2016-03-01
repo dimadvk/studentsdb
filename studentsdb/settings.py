@@ -82,7 +82,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/tesr/'
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     "django.core.context_processors.request",
@@ -98,13 +98,19 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 
 # email settings
 ADMIN_EMAIL = "ren-kpi@i.ua"
+ADMINS = (
+    ('admin', 'ren-kpi@i.ua'),
+)
 from .smtp_settings import *
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_FILE_PATH = 'email_files'
+SERVER_EMAIL = "dvk@skif.net.ua"
 
 # as django-contact-form needs
-DEFAULT_FROM_EMAIL = '@skif.net.ua'
 MANAGERS = [
-    ('ren-kpi', 'ren-kpi@i.ua'),
+    ('admin', 'ren-kpi@i.ua'),
 ]
 
 # messages - storage backend
@@ -146,8 +152,7 @@ LOGGING = {
         'mail_admins': {
             'level': 'INFO',
             'class': 'django.utils.log.AdminEmailHandler',
-            'email_backend': 'django.core.mail.backends.console.EmailBackend',
-            'include_html': True,
+            #'include_html': True,
         },
     },
     'loggers': {
@@ -166,4 +171,3 @@ LOGGING = {
         }
     }
 }
-
