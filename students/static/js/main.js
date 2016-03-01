@@ -96,6 +96,8 @@ function initEditStudentForm(form, modal) {
             // copy alert to modal window
             modal.find('.modal-body').html(html.find('.alert'));
 
+            $('#modal-message-block').hide();
+
             // copy form to modal if we found it in server response
             if (newform.length > 0) {
                 modal.find('.modal-body').append(newform);
