@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.views.generic.base import RedirectView
+
 from .settings import MEDIA_ROOT, DEBUG
 
 from students.views.students import StudentUpdateView, StudentDeleteView, StudentList
@@ -58,8 +60,11 @@ urlpatterns = patterns('',
     url(r'^journal/(?P<pk>\d+)?/?$', JournalView.as_view(), name='journal'),
 
     # Admin page
-
     url(r'^admin/', include(admin.site.urls)),
+
+    # favicon.ico
+    url(r'^/favicon\.ico/$', RedirectView.as_view(url='/static/img/favicon.ico')),
+
 
     # Contact Admin Form
     url(r'^contact-admin/$', ContactAdminView.as_view(),
