@@ -1,7 +1,7 @@
 import logging
 
-from django.db.models.signals import post_save, post_delete
-from django.dispatch import receiver
+from django.db.models.signals import post_save, post_delete, post_migrate
+from django.dispatch import receiver, Signal
 
 from .models import Student, Group, MonthJournal
 
@@ -65,3 +65,21 @@ def log_monthjournal_changes(sender, **kwargs):
                 monthjournal.id
                )
 
+# custom signal contact_admin
+contact_admin_sent = Signal()
+
+@receiver(contact_admin_sent)
+def log_contact_admin(sender, **kwargs):
+    logger = logging.getLogger(__name__)
+    logger.info('A message via Contact Form was sent. Sender: %s; Subject: %s',
+                kwargs['message_sender'],
+                kwargs['message_subject'],
+               )
+
+@receiver(post_migrate)
+def log_migrate(sender, **kwargs):
+    logger = logging.getLogger(__name__)
+    logger.info('Migration done. Application: "%s". Using database: %s',
+                kwargs['app_config'].label,
+                kwargs['using'],
+               )

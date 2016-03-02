@@ -63,7 +63,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     # favicon.ico
-    url(r'^/favicon\.ico/$', RedirectView.as_view(url='/static/img/favicon.ico')),
+#    url(r'^/favicon\.ico/$', RedirectView.as_view(url='/static/img/favicon.ico')),
 
 
     # Contact Admin Form

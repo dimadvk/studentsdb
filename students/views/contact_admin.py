@@ -10,10 +10,12 @@ from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.views.generic import FormView
 
-from studentsdb.settings import ADMIN_EMAIL
+from studentsdb.settings import ADMIN_EMAIL, DEFAULT_FROM_EMAIL
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
+
+from ..signals import contact_admin_sent
 
 
 class ContactAdminForm(forms.Form):
@@ -55,8 +57,8 @@ class ContactAdminForm(forms.Form):
     def send_email(self):
         data = self.cleaned_data
         send_mail('[contact admin]' + data.get('subject'),
-                  data.get('message'),
-                  data.get('from_email'),
+                  'From: ' + data.get('from_email') + '\n\n' + data.get('message'),
+                  DEFAULT_FROM_EMAIL,
                   [ADMIN_EMAIL]
                  )
 
@@ -79,6 +81,14 @@ class ContactAdminView(FormView):
             logger.exception(message)
         else:
             messages.info(self.request, u"Лист відправлено. Верховна канцелярія вже займається обробкою!")
+            # send a signal
+            form_data = self.get_form_kwargs().get('data')
+            message_subject = form_data.get('subject')
+            message_sender = form_data.get('from_email')
+            contact_admin_sent.send(sender=self.__class__,
+                                    message_subject=message_subject,
+                                    message_sender=message_sender
+                                   )
         return super(ContactAdminView, self).form_valid(form)
 
 

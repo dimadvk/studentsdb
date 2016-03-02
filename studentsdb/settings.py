@@ -22,10 +22,11 @@ SECRET_KEY = 'ye#_i*tty*u53sqpy1l=9dkqszm+-n#(6lbqh@*8vepfp&^8zj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+#DEBUG = False
+
+ALLOWED_HOSTS = ['studentsdb.local', 'localhost']
 
 TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -82,7 +83,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-STATIC_URL = '/static/tesr/'
+STATIC_URL = '/static/'
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     "django.core.context_processors.request",
@@ -104,8 +105,7 @@ ADMINS = (
 from .smtp_settings import *
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_FILE_PATH = 'email_files'
+#EMAIL_FILE_PATH = 'email_files'
 SERVER_EMAIL = "dvk@skif.net.ua"
 
 # as django-contact-form needs
@@ -124,7 +124,7 @@ LOG_FILE = os.path.join(BASE_DIR, 'studentsdb.log')
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': True,
+    'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
             'format': '%(levelname)s %(asctime)s %(module)s: %(message)s'
@@ -133,41 +133,53 @@ LOGGING = {
             'format': '%(levelname)s %(message)s'
         },
     },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
     'handlers': {
         'null': {
             'level': 'DEBUG',
             'class': 'logging.NullHandler',
         },
         'console': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             'class': 'logging.StreamHandler',
-            'formatter': 'verbose'
+            'formatter': 'verbose',
+            'filters': ['require_debug_true'],
         },
         'file': {
-            'level': 'INFO',
+            'level': 'ERROR',
             'class': 'logging.FileHandler',
             'filename': LOG_FILE,
-            'formatter': 'verbose'
+            'formatter': 'verbose',
+            'filters': ['require_debug_false'],
         },
         'mail_admins': {
-            'level': 'INFO',
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler',
-            #'include_html': True,
+            'include_html': True,
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['mail_admins', 'null'],
+            'handlers': ['mail_admins', 'file', 'console'],
             'propagate': True,
-            'level': 'INFO',
+            'level': 'DEBUG',
         },
         'students.signals': {
-            'handlers': ['console', 'file', 'mail_admins'],
-            'level': 'INFO',
-        },
-        'students.views.contact_admin': {
             'handlers': ['console', 'file'],
             'level': 'INFO',
-        }
+            'propagate': False,
+        },
+        'students.views.contact_admin': {
+            'handlers': ['mail_admins', 'file'],
+            'level': 'ERROR',
+        },
     }
 }
