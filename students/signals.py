@@ -1,6 +1,7 @@
 import logging
 
 from django.db.models.signals import post_save, post_delete, post_migrate
+from django.core.signals import request_started
 from django.dispatch import receiver, Signal
 
 from .models import Student, Group, MonthJournal
@@ -83,3 +84,10 @@ def log_migrate(sender, **kwargs):
                 kwargs['app_config'].label,
                 kwargs['using'],
                )
+
+# requests counter
+REQUESTS_COUNT = 0
+@receiver(request_started)
+def count_requests(sender, *args, **kwargs):
+    global REQUESTS_COUNT
+    REQUESTS_COUNT += 1
