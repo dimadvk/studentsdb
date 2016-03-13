@@ -4,7 +4,7 @@ from django.db.models.signals import post_save, post_delete, post_migrate
 from django.core.signals import request_started
 from django.dispatch import receiver, Signal
 
-from .models import Student, Group, MonthJournal
+from .models import Student, Group, MonthJournal, Action
 
 
 @receiver(post_save, sender=Student)
@@ -12,6 +12,7 @@ def log_student_updated_added_event(sender, **kwargs):
     """Writes information about
         newly added or updated student into log file"""
     logger = logging.getLogger(__name__)
+    action = Action()
 
     student = kwargs['instance']
     if kwargs['created']:
@@ -20,51 +21,91 @@ def log_student_updated_added_event(sender, **kwargs):
                     student.last_name,
                     student.id
                    )
+        action.action_detail = "Student added: %s %s (ID: %d)" % (
+                                student.first_name,
+                                student.last_name,
+                                student.id
+                                )
     else:
         logger.info("Student updated: %s %s (ID: %d)",
                       student.first_name,
                       student.last_name,
                       student.id
                    )
+        action.action_detail = "Student udated: %s %s (ID: %d)" % (
+                                student.first_name,
+                                student.last_name,
+                                student.id
+                                )
+    action.save()
+
+
 
 @receiver(post_delete, sender=Student)
 def log_student_deleted_event(sender, **kwargs):
     logger = logging.getLogger(__name__)
+    action = Action()
 
     student = kwargs['instance']
     logger.info("Student deleted: %s %s (ID: %d)",
                 student.first_name,
                 student.last_name,
                 student.id
-               )
+    )
+    action.action_detail = "Student deleted: %s %s (ID: %d)" % (
+                student.first_name,
+                student.last_name,
+                student.id,
+    )
+    action.save()
+
 
 @receiver(post_save, sender=Group)
 def log_group_updated_added_event(sender, **kwargs):
     logger = logging.getLogger(__name__)
+    action = Action()
+
     group = kwargs['instance']
     if kwargs['created']:
         logger.info("Group created: %s (Leader: %s) (ID: %d)",
                     group.title, group.leader, group.id
                    )
+        action.action_detail = "Group created: %s (Leader: %s) (ID: %d)" % (
+            group.title, group.leader, group.id,
+        )
     else:
         logger.info("Group updated: %s (Leader: %s) (ID: %d)",
                    group.title, group.leader, group.id
                    )
+        action.action_detail = "Group updated: %s (Leader: %s) (ID: %d)" % (
+            group.title, group.leader, group.id,
+        )
+    action.save()
+
 
 @receiver(post_delete, sender=Group)
 def log_group_deleted_event(sender, **kwargs):
     logger.logging.getLogger(__name__)
+    action = Action()
     group = kwargs['instance']
     logger.info("Group deleted: %s (ID: %d)", group.title, group.id)
+    action.action_detail = "Group deleted: %s (ID: %d)" % (group.title, group.id)
+    action.save()
 
 @receiver(post_save, sender=MonthJournal)
 def log_monthjournal_changes(sender, **kwargs):
     logger = logging.getLogger(__name__)
+    action = Action()
     monthjournal = kwargs['instance']
     logger.info("MonthJournal updated: %s (Journal ID: %d)",
                 monthjournal.student,
                 monthjournal.id
                )
+    action.action_detail = "MonthJournal updated: %s (Journal ID: %d)" % (
+        monthjournal.student,
+        monthjournal.id,
+    )
+
 
 # custom signal contact_admin
 contact_admin_sent = Signal()
