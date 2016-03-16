@@ -11,7 +11,7 @@ from django.core.exceptions import ValidationError
 class Student(models.Model):
     '''Student Model'''
 
-    class Meta(object):
+    class Meta:
         verbose_name = u"студент"
         verbose_name_plural = u"студенти"
 
