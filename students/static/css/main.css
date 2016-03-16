@@ -111,3 +111,24 @@ th.day-header {
     display: none;
 }
 
+.dl-horizontal .action-entry-name{
+    width: 320px;
+}
+.dl-horizontal .action-entry-detail{
+    margin-left: 340px;
+}
+.action-entry{
+    margin-top:4px;
+    padding: 8px;
+    border-radius: 4px;
+}
+.action-entry-monthjournal{
+    background: #D6F7FF;
+}
+.action-entry-student{
+    background: #cffdcc;
+}
+.action-entry-group{
+    background: #fffec7;
+}
+

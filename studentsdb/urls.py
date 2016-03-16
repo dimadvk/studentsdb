@@ -13,6 +13,7 @@ from students.views.groups import GroupDeleteView
 from students.views.groups import GroupUpdateView
 from students.views.groups import GroupCreateView
 from students.views.journal import JournalView
+from students.views.action_journal import ActionListView
 
 #test
 from django.views.generic import RedirectView
@@ -73,6 +74,9 @@ urlpatterns = patterns('',
     #url(r'^contact-form/$', include('contact_form.urls')),
     url(r'^contact-form/$',
         CustomContactFormView.as_view(), name='contact_form'),
+
+    # Action List
+    url(r'^action-journal/$', ActionListView.as_view(), name='action_journal'),
 )
 
 if DEBUG:
