@@ -21,3 +21,14 @@ class Action(models.Model):
         blank = False,
         max_length = 256,
     )
+    model_name = models.CharField(
+        verbose_name = u'назва моделі',
+        blank = False,
+        max_length = 256,
+    )
+    model_verbose_name = models.CharField(
+        verbose_name = u'повна назва моделі',
+        blank = False,
+        max_length = 256,
+    )
+
