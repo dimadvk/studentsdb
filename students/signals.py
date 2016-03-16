@@ -7,6 +7,12 @@ from django.dispatch import receiver, Signal
 from .models import Student, Group, MonthJournal, Action
 
 
+#@receiver(post_save)
+#def test(sender, **kwargs):
+#    import ipdb; ipdb.set_trace()
+#    pass
+
+
 @receiver(post_save, sender=Student)
 def log_student_updated_added_event(sender, **kwargs):
     """Writes information about
@@ -32,11 +38,13 @@ def log_student_updated_added_event(sender, **kwargs):
                       student.last_name,
                       student.id
                    )
-        action.action_detail = "Student udated: %s %s (ID: %d)" % (
+        action.action_detail = "Student updated: %s %s (ID: %d)" % (
                                 student.first_name,
                                 student.last_name,
                                 student.id
                                 )
+    action.model_name = sender.__name__
+    action.model_verbose_name = sender._meta.verbose_name
     action.save()
 
 
@@ -57,6 +65,8 @@ def log_student_deleted_event(sender, **kwargs):
                 student.last_name,
                 student.id,
     )
+    action.model_name = sender.__name__
+    action.model_verbose_name = sender._meta.verbose_name
     action.save()
 
 
@@ -80,16 +90,20 @@ def log_group_updated_added_event(sender, **kwargs):
         action.action_detail = "Group updated: %s (Leader: %s) (ID: %d)" % (
             group.title, group.leader, group.id,
         )
+    action.model_name = sender.__name__
+    action.model_verbose_name = sender._meta.verbose_name
     action.save()
 
 
 @receiver(post_delete, sender=Group)
 def log_group_deleted_event(sender, **kwargs):
-    logger.logging.getLogger(__name__)
+    logger = logging.getLogger(__name__)
     action = Action()
     group = kwargs['instance']
     logger.info("Group deleted: %s (ID: %d)", group.title, group.id)
     action.action_detail = "Group deleted: %s (ID: %d)" % (group.title, group.id)
+    action.model_name = sender.__name__
+    action.model_verbose_name = sender._meta.verbose_name
     action.save()
 
 @receiver(post_save, sender=MonthJournal)
@@ -105,6 +119,9 @@ def log_monthjournal_changes(sender, **kwargs):
         monthjournal.student,
         monthjournal.id,
     )
+    action.model_name = sender.__name__
+    action.model_verbose_name = sender._meta.verbose_name
+    action.save()
 
 
 # custom signal contact_admin
