@@ -116,7 +116,7 @@ def students_list(request):
     # try:
     #     students = paginator.page(page)
     # except PageNotAnInteger:
-    #     # if page is not an integer, deliver first page.
+    #     # if page is not an integer, turn to first page.
     #     students = paginator.page(1)
     # except EmptyPage:
     #     # if page is out of range (e.g. 9999), deliver
@@ -152,6 +152,7 @@ def students_list(request):
 
     return render(request, 'students/students_list.html', context)
 
+# ajax, first probe
 def students_ajax_next_page(request):
     text = '<h2>Text from view students_ajax_next_page, received via ajax</h2>'
     return HttpResponse(text)

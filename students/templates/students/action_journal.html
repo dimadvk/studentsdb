@@ -6,9 +6,12 @@
 <dl class="dl-horizontal">
     {% for action in actions %}
     <div class="action-entry action-entry-{{action.model_name|lower}}">
-    <dt class="action-entry-name">{{ action.model_verbose_name|capfirst}} ({{action.timestamp|date:"d/m/Y H:i"}})</dt>
-    <dd class="action-entry-detail">{{ action.action_detail|capfirst }}</dd>
+        <dt class="action-entry-name">{{ action.model_verbose_name|capfirst}} ({{action.timestamp|date:"d/m/Y H:i"}})</dt>
+        <dd class="action-entry-detail">{{ action.action_detail|capfirst }}</dd>
     </div>
     {% endfor %}
 </dl>
+{% with object_list=actions %}
+    {% include "students/pagination.html" %}
+{% endwith %} 
 {% endblock %}

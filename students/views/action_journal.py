@@ -14,7 +14,7 @@ class ActionListView(ListView):
     def get_context_data(self, **kwargs):
         # get context dara from TemplateView class
         context = super(ActionListView, self).get_context_data(**kwargs)
-        #context = paginate(self.queryset, 10, self.request, context)
+        context = paginate(self.queryset, 10, self.request, context, var_name='actions')
         return context
 
 
