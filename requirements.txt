@@ -1,4 +1,4 @@
-Django==1.7.1
+Django==1.7.2
 django-contact-form==1.2
 django-crispy-forms==1.4.0
 django-debug-toolbar==1.4
