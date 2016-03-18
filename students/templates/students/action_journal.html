@@ -1,15 +1,28 @@
 {% extends "students/base.html" %}
 
+{% load tz %}
+
+{% block meta_title %}Журнал Змін{% endblock meta_title %}
+
+{% block title %}Журнал Змін{% endblock title %}
+
 {% block content %}
 
-<h2>Журнал Змін</h2>
+
+
 <dl class="dl-horizontal">
+
+    {% timezone "Europe/Kiev" %}
+
     {% for action in actions %}
     <div class="action-entry action-entry-{{action.model_name|lower}}">
         <dt class="action-entry-name">{{ action.model_verbose_name|capfirst}} ({{action.timestamp|date:"d/m/Y H:i"}} by {{action.user}})</dt>
         <dd class="action-entry-detail">{{ action.action_detail|capfirst }}</dd>
     </div>
     {% endfor %}
+
+    {% endtimezone %}
+
 </dl>
 {% with object_list=actions %}
     {% include "students/pagination.html" %}
