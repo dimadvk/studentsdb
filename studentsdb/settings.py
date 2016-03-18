@@ -13,6 +13,10 @@ from django.conf import global_settings
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+STATIC_ROOT = ''
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale/'),
+)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -72,13 +76,12 @@ from .db import DATABASES
 
 LANGUAGE_CODE = 'uk'
 
+USE_TZ = True
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
-
 USE_L10N = True
 
-USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/

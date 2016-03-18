@@ -18,6 +18,11 @@ from students.views.action_journal import ActionListView
 #test
 from django.views.generic import RedirectView
 
+# need for i18n pattern
+js_info_dict = {
+    'packages': ('my.package',),
+}
+
 urlpatterns = patterns('',
     # Students urls
     url(r'^$', 'students.views.students.students_list', name='home'),
@@ -77,6 +82,9 @@ urlpatterns = patterns('',
 
     # Action List
     url(r'^action-journal/$', ActionListView.as_view(), name='action_journal'),
+
+    # i18n
+    url(r'^i18n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
 )
 
 if DEBUG:
