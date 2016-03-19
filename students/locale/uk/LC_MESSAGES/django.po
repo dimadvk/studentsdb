@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-18 16:08+0000\n"
+"POT-Creation-Date: 2016-03-19 11:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,17 +56,31 @@ msgstr "Журнал Змін"
 msgid "Contact"
 msgstr "Контакт"
 
+#: templates/students/groups_confirm_delete.html:6
+#: templates/students/groups_confirm_delete.html:7
+msgid "Delete Group"
+msgstr "Видалити Групу"
+
+#: templates/students/groups_confirm_delete.html:13
+#, python-format
+msgid "Do you really want to delete group \"%(object)s\"?"
+msgstr "Ви дійсно бажаете видалити групу \"%(object)s\"?"
+
+#: templates/students/groups_confirm_delete.html:15
+msgid "Yes"
+msgstr "Так"
+
+#: templates/students/groups_confirm_delete.html:17
+msgid "No"
+msgstr "Ні"
+
 #: templates/students/students_list.html:8
-#, fuzzy
-#| msgid "Students"
 msgid "Students List"
-msgstr "Студенти"
+msgstr "Список Студентів"
 
 #: templates/students/students_list.html:9
-#, fuzzy
-#| msgid "All Students"
 msgid "Add Student"
-msgstr "Всі Студенти"
+msgstr "Додати Студенти"
 
 #: templates/students/students_list.html:21
 msgid "Check"

@@ -2,9 +2,9 @@
 
 
 {% load static from staticfiles %}
+{% load i18n %}
 
 {% block meta_title %}Облік Відвідування{% endblock meta_title %}
-
 {% block title %}Облік Відвідування{% endblock title %}
 
 {% block content %}
@@ -32,8 +32,7 @@
             <th class="name">Студент</th>
             {% for day in month_header %}
                 <th class="day-header">
-                <!-- TODO: translate day name -->
-                {{ day.verbose }}
+                {% trans day.verbose %}
                 <br />
                 {{ day.day }}
                 </th>

@@ -1,12 +1,12 @@
 {% extends "students/base.html" %}
 
-
+{% load i18n %}
 {% load static from staticfiles %}
 
-{% block meta_title %}Студенти{% endblock meta_title %}
+{% block meta_title %}{% trans "Students" %}{% endblock meta_title %}
 
-{% block title %}База студентів
-    <a class="btn btn-primary" href="{% url "students_add" %}">Додати Студента</a>
+{% block title %}{% trans "Students List" %}
+<a class="btn btn-primary" href="{% url "students_add" %}">{% trans "Add Student" %}</a>
 {% endblock title %}
 
 {% block content %}
@@ -18,29 +18,29 @@
     {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
     <thead>
 	<tr>
-        <th class="col-checkbox">Check</th>
+        <th class="col-checkbox">{% trans "Check" %}</th>
 	    <th><a href="#">№</a></th>
-	    <th>Фото</th>
-	    <th><a href="{% url "home" %}?order_by=last_name{% if reverse != '1' %}&amp;reverse=1{% endif %}">Прізвище
+        <th>{% trans "Photo" %}</th>
+        <th><a href="{% url "home" %}?order_by=last_name{% if reverse != '1' %}&amp;reverse=1{% endif %}">{% trans "Last Name" %}
 		    {% if order_by == 'last_name' and reverse != '1' %}&uarr;
 		    {% elif not order_by %}&uarr;
 		    {% elif order_by == 'last_name' and reverse == '1' %}&darr;
 		    {% endif %}
 		</a>
 	    </th>
-	    <th><a href="{% url "home" %}?order_by=first_name{% if reverse != '1' %}&amp;reverse=1{% endif %}">Ім’я
+        <th><a href="{% url "home" %}?order_by=first_name{% if reverse != '1' %}&amp;reverse=1{% endif %}">{% trans "First Name" %}
 		{% if order_by == 'first_name' and reverse != '1' %}&uarr;
 		{% elif order_by == 'first_name' and reverse == '1' %}&darr;
 		{% endif %}
 		</a>
 	    </th>
-	    <th><a href="{% url "home" %}?order_by=ticket{% if reverse != '1' %}&amp;reverse=1{% endif %}">№ Білету
+        <th><a href="{% url "home" %}?order_by=ticket{% if reverse != '1' %}&amp;reverse=1{% endif %}">{% trans "Ticket #" %}
 		{% if order_by == 'ticket' and reverse != '1' %}&uarr;
 		{% elif order_by == 'ticket' and reverse == '1' %}&darr;
 		{% endif %}
 		</a>
 	    </th>
-	    <th>Дії</th>
+        <th>{% trans "Actions" %}</th>
 	</tr>
     </thead>
     {% endwith %}
@@ -61,12 +61,12 @@
 	    <td>{{ student.ticket }}</td>
 	    <td>
 		<div class="btn-group">
-		    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія<span class="caret"></span>
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">{% trans "Action" %}<span class="caret"></span>
 		    </button>
 		    <ul class="dropdown-menu" role="menu">
-			<li><a href="{% url "students_edit" student.id %}" class="student-edit-form-link">Редагування</a></li>
-			<li><a href="{% url "journal" student.id %}">Відвідування</a></li>
-			<li><a href="{% url "students_delete" student.id %}">Видалити</a></li>
+                <li><a href="{% url "students_edit" student.id %}" class="student-edit-form-link">{% trans "Edit" %}</a></li>
+                <li><a href="{% url "journal" student.id %}">{% trans "Journal" %}</a></li>
+                <li><a href="{% url "students_delete" student.id %}">{% trans "Delete" %}</a></li>
 		    </ul>
 		</div>
 	    </td>
@@ -75,7 +75,7 @@
 
     </tbody>
 </table>
-<button class="btn btn-danger">Видалити</button> - видалити відмічених студентів
+<button class="btn btn-danger">{% trans "Delete" %}</button> - {% trans "delete checked students"%}
 </form>
 <!-- End Students Listing -->
 

@@ -87,7 +87,7 @@ function initEditStudentForm(form, modal) {
         'error': function(){
             //alert('Помилка на сервері. Спробуйте будь-ласка пізніше. form.ajaxForm()');
             $('#modal-message-block').show();
-            $('#modal-message').html('<b>Error:</b> Помилка на сервері. Спробуйте будь-ласка пізніше.');
+            $('#modal-message').html('<b>Error:</b> ' + gettext("There was an error on the server. Please, try again a bit later."));
             return false;
         },
         'success': function(data, status, xhr) {
@@ -144,7 +144,7 @@ function initEditStudentPage() {
             'success': function(data, status, xhr){
                 // check if we got successfull response from the server
                 if (status != 'success') {
-                    alert('Помилка на сервері. Спробуйте пізніше.');
+                    alert(gettext("There was an error on the server. Please, try again a bit later."));
                     return false;
                 }
 
@@ -166,7 +166,7 @@ function initEditStudentPage() {
                 });
             },
             'error': function(){
-                alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
+                alert(gettext("There was an error on the server. Please, try again a bit later."));
                 return false;
             },
             'beforeSend': function() {
@@ -191,7 +191,7 @@ function navTabs() {
             'success': function(data, status, xhr){
                 // check if we got successful responcse
                 if (status != 'success') {
-                    alert('Помилка на сервері.');
+                    alert(gettext("There was an error on the server. Please, try again a bit later."));
                     return false;
                 };
                 
@@ -212,7 +212,7 @@ function navTabs() {
                 document.title = $(data).filter('title').text();
             },
             'error': function() {
-                alert('Помилка на сервері.');
+                alert(gettext("There was an error on the server. Please, try again a bit later."));
                 return false;
             },
             'beforeSend': function() {

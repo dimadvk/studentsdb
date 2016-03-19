@@ -1,7 +1,11 @@
 {% extends "students/base.html" %}
+
 {% load static from staticfiles %}
+{% load i18n %}
+
 {% block meta_title %}Видалити Студента{% endblock meta_title %}
 {% block title %}Видалити Студента{% endblock title %}
+
 {% block content %}
 <form action="{% url "students_delete" object.id %}" method="post">
     {% csrf_token %}

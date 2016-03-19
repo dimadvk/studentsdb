@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from datetime import datetime
 from time import sleep
 
@@ -11,6 +9,7 @@ from django.views.generic import UpdateView, DeleteView, ListView, DetailView
 from django.forms import  ModelForm, ValidationError
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+from django.utils.translation import ugettext as _
 
 from ..models.student import Student
 from ..models.group import Group
@@ -23,11 +22,10 @@ class StudentUpdateForm(StudentAddForm):
         super(StudentUpdateForm, self).__init__(*args, **kwargs)
         self.helper.form_action = reverse('students_edit',
             kwargs={'pk': kwargs['instance'].id})
-#        sleep(2)
     def clean_student_group(self):
         groups = Group.objects.filter(leader=self.instance)
         if len(groups) > 0 and self.cleaned_data['student_group'] != groups[0]:
-            raise ValidationError(u'Студент є старостою групи "%s"' % groups.first())
+            raise ValidationError('%s "%s"' % (_(u'This student is a leader of group'), groups.first()))
         return self.cleaned_data['student_group']
 
 
@@ -35,19 +33,19 @@ class StudentUpdateView(SuccessMessageMixin, UpdateView):
     model = Student
     template_name = 'students/students_add.html'
     form_class = StudentUpdateForm
-    success_message = u'Студента "%(first_name)s %(last_name)s" успішно збережено!'
+    success_message = _(u'Student "%(first_name)s %(last_name)s" successfully saved!')
 
     def get_success_url(self):
         return reverse('home')
 
     def get_context_data(self, **kwargs):
         context = super(StudentUpdateView, self).get_context_data(**kwargs)
-        context.update({'page_title': u"Редагувати Студента"})
+        context.update({'page_title': _(u"Edit Student")})
         return context
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            messages.info(self.request, u"Редагування студента відмінено!")
+            messages.info(self.request, _(u"Student editing canceled!"))
             return HttpResponseRedirect(reverse('home'))
         else:
             return super(StudentUpdateView, self).post(request, *args, **kwargs)
@@ -59,7 +57,7 @@ class StudentDeleteView(DeleteView):
     success_url = reverse_lazy('home')
 
     def delete(self, request, *args, **kwargs):
-        messages.info(self.request, u"Студента успішно видалено!")
+        messages.info(self.request, _(u"Student successfully deleted!"))
         return super(StudentDeleteView, self).delete(request, *args, **kwargs)
 
 def students_delete_bunch(request):
@@ -67,7 +65,7 @@ def students_delete_bunch(request):
         students_id_list = request.POST.getlist('selected-student')
         students_set = Student.objects.filter(pk__in=students_id_list)
         students_set.delete()
-        messages.info(request, u"Вибраних студентів успішно видалено!")
+        messages.info(request, _(u"Selected students successfully deleted!"))
         return HttpResponseRedirect(reverse("home"))
 
 
@@ -79,7 +77,7 @@ def students_delete(request, pk):
         return render(request, confirm_template, context)
     elif request.method == "POST":
         student.delete()
-        messages.info(request, u"Студента успішно видалено!")
+        messages.info(request, _(u"Student successfully deleted!"))
         return HttpResponseRedirect(reverse("home"))
 
         

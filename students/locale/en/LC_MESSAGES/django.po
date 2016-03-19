@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-18 16:08+0000\n"
+"POT-Creation-Date: 2016-03-19 11:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,6 +52,24 @@ msgstr ""
 
 #: templates/students/base.html:82
 msgid "Contact"
+msgstr ""
+
+#: templates/students/groups_confirm_delete.html:6
+#: templates/students/groups_confirm_delete.html:7
+msgid "Delete Group"
+msgstr ""
+
+#: templates/students/groups_confirm_delete.html:13
+#, python-format
+msgid "Do you really want to delete group \"%(object)s\"?"
+msgstr ""
+
+#: templates/students/groups_confirm_delete.html:15
+msgid "Yes"
+msgstr ""
+
+#: templates/students/groups_confirm_delete.html:17
+msgid "No"
 msgstr ""
 
 #: templates/students/students_list.html:8

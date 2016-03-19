@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from datetime import datetime
 from collections import OrderedDict
 
@@ -10,8 +8,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 from django.forms import ModelForm
 from django import forms
-
 from django.utils.image import Image
+from django.utils.translation import ugettext as _
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, HTML
@@ -54,9 +52,8 @@ class StudentAddForm(ModelForm):
         # add button
         self.helper.layout.append(
             FormActions(
-                Submit('add_button', u'Зберегти', css_class="btn btn-primary"),
-                #Submit('cancel_button', u'Скасувати', css_class="btn btn-link"),
-                HTML(u"<a class='btn btn-link' href='%s'>Скасувати</a>" % reverse('home')),
+                Submit('add_button', _(u'Save'), css_class="btn btn-primary"),
+                HTML(u"<a class='btn btn-link' href='%s'>%s</a>" % (reverse('home'), _(u'Cancel'))),
             )
         )
         #self.helper.layout[3] = AppendedText('birthday',
@@ -69,7 +66,7 @@ class StudentAddForm(ModelForm):
 def students_add(request):
     form = StudentAddForm(request.POST or None)
     context = {'form': form}
-    context.update({'page_title': u"Додати Студента"})
+    context.update({'page_title': _(u"Add Student")})
     # was form posted?
     if request.method == "POST":
         # was form add button clicked?
@@ -83,40 +80,40 @@ def students_add(request):
             # validate user input
             first_name = request.POST.get('first_name', '').strip()
             if not first_name:
-                errors['first_name'] = u"Ім’я є обов’язковим"
+                errors['first_name'] = _(u"First Name field is required")
             else:
                 data['first_name'] = first_name
 
             last_name = request.POST.get('last_name', '').strip()
             if not last_name:
-                errors['last_name'] = u"Прізвище є обов’язковим"
+                errors['last_name'] = _(u"Last Name field is required")
             else:
                 data['last_name'] = last_name
 
             birthday = request.POST.get('birthday', '').strip()
             if not birthday:
-                errors['birthday'] = u"Дата народження є обов'язковою"
+                errors['birthday'] = _(u"Birthday date is required")
             else:
                 data['birthday'] = birthday
                 try:
                     datetime.strptime(birthday, '%Y-%m-%d')
                 except Exception:
-                    errors['birthday'] = u"Введіть корректний формат дати (напр. 1984-12-30)"
+                    errors['birthday'] = _(u"Please, enter the correct date (Ex. 1984-12-30)")
                 else:
                     data['birthday'] = birthday
             ticket = request.POST.get('ticket', '').strip()
             if not ticket:
-                errors['ticket'] = u"Номер білета є обов'язковим"
+                errors['ticket'] = _(u"Ticket number is required")
             else:
                 data['ticket'] = ticket
 
             student_group = request.POST.get('student_group', '').strip()
             if not student_group:
-                errors['student_group'] = u"Оберіть групу для студента"
+                errors['student_group'] = _(u"Select goup for student")
             else:
                 groups = Group.objects.filter(pk=student_group)
                 if len(groups) != 1:
-                    errors['student_group'] = u"Оберіть групу для студента"
+                    errors['student_group'] = _(u"Select goup for student")
                 else:
                     data['student_group'] = Group.objects.get(pk=student_group)
 
@@ -125,10 +122,10 @@ def students_add(request):
                 try:
                     Image.open(photo).verify()
                 except Exception:
-                    errors['photo'] = u"Файл не є зображенням"
+                    errors['photo'] = _(u"File is not an image")
                 else:
                     if photo.size > (2*1024*1024):
-                        errors['photo'] = u"Завеликий файл. Фото має бути не більше 2 мегабайт"
+                        errors['photo'] = _(u'The file is too big. Must be less then 2MB')
                     else:
                         data['photo'] = photo
 
@@ -141,7 +138,7 @@ def students_add(request):
                 # redirect user to students list
                 messages.info(
                     request,
-                    u'Студента "%s %s" успішно додано!' %
+                    _(u'Student "%s %s" sucessfully added!') %
                         (student.first_name, student.last_name),
                 )
                 return HttpResponseRedirect(reverse('home'))
@@ -158,7 +155,7 @@ def students_add(request):
             # redirect to home page on cancel button
             messages.info(
                 request,
-                u'Додавання студента скасовано!',
+                _(u'Adding a student got canceled!'),
             )
             return HttpResponseRedirect(reverse('home'))
     else:
