@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # writed as at https://atsoftware.de/2015/02/django-contact-form-full-tutorial-custom-example-in-django-1-7/
 from collections import OrderedDict
 from django import forms
@@ -6,6 +5,7 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.views.generic import FormView
+from django.utils.translation import ugettext as _
 
 from contact_form.forms import ContactForm
 
@@ -27,15 +27,15 @@ class CustomContactForm(ContactForm):
         self.helper.label_class = 'col-sm-2 control-label'
         self.helper.field_class = 'col-sm-10'
         # button
-        self.helper.add_input(Submit('send_button', u'Надіслати'))
+        self.helper.add_input(Submit('send_button', _(u'Send')))
 
     recepient_list = [settings.ADMIN_EMAIL]
     name = forms.CharField(max_length=100,
-                           label=u'Ім’я')
+                           label=_(u'Name'))
     email = forms.EmailField(max_length=200,
-                             label=(u'Email адреса'))
+                             label=(_(u'Email')))
     body = forms.CharField(widget=forms.Textarea,
-                           label=(u'Повідомлення'))
+                           label=(_(u'Message')))
 
 
 class CustomContactFormView(FormView):

@@ -2,14 +2,15 @@
 
 
 {% load static from staticfiles %}
+{% load i18n %}
 
 
-{% block meta_title %}Зв’язок із Адміністратором{% endblock meta_title %}
+{% block meta_title %}{% trans "Contact Administrator" %}{% endblock meta_title %}
 
-{% block title %}Зв’язок із Адміністратором{% endblock title %}
+{% block title %}{% trans "Contact Administrator" %}{% endblock title %}
 
 {% block content %}
 
-<h3>Дякую! Лист направлено адіміністратору.<h3>
+<h3>{% trans "Message has been sent" %}<h3>
 
 {% endblock content %}

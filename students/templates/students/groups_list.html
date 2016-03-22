@@ -2,12 +2,13 @@
 
 
 {% load static from staticfiles %}
+{% load i18n %}
 
-{% block meta_title %}Групи{% endblock meta_title %}
+{% block meta_title %}{% trans "Groups" %}{% endblock meta_title %}
 
 {% block title %}
-    Групи
-    <a class="btn btn-primary" href="{% url "groups_add" %}">Додати Групу</a>
+    {% trans "Groups" %}
+    <a class="btn btn-primary" href="{% url "groups_add" %}">{% trans "Create Group" %}</a>
 {% endblock title %}
 
 {% block content %}
@@ -19,20 +20,20 @@
 	<tr>
 	    <th><a href="">#</a></th>
 	    <th>
-            <a href="{% url "groups" %}?order_by=title{% if reverse != '1'  %}&amp;reverse=1{% endif %}">Назва
+            <a href="{% url "groups" %}?order_by=title{% if reverse != '1'  %}&amp;reverse=1{% endif %}">{% trans "Group Name" %}
             {% if order_by == 'title' and reverse != '1' %}&uarr;
             {% elif not order_by %}&uarr;
             {% elif order_by == 'title' and reverse == '1' %}&darr;
             {% endif %}
             </a>
         </th>
-	    <th><a href="{% url "groups" %}?order_by=leader{% if reverse != '1'  %}&amp;reverse=1{% endif %}">Староста
+        <th><a href="{% url "groups" %}?order_by=leader{% if reverse != '1'  %}&amp;reverse=1{% endif %}">{% trans "Leader" %}
             {% if order_by == 'leader' and reverse != '1' %}&uarr;
             {% elif order_by == 'leader' and reverse == '1' %}&darr;
             {% endif %}
             </a>
         </th>
-	    <th>Дії</th>								
+        <th>{% trans "Actions" %}</th>								
 	</tr>							
     </thead>
 {% endwith %} 
@@ -40,16 +41,16 @@
 	{% for group in groups %}
 	<tr>
 	    <td>{{ forloop.counter }}</td>								
-	    <td><a title="Редагувати"  href='{% url "group_edit" group.id %}'>{{ group.title }}</a></td>
-	    <td><a title="Редагувати"  href='{% url "group_edit" group.id %}'>{{ group.leader }}</a></td>
+        <td><a title="{% trans "Edit" %}" href='{% url "group_edit" group.id %}'>{{ group.title }}</a></td>
+	    <td><a title="{% trans "Edit" %}" href='{% url "group_edit" group.id %}'>{{ group.leader }}</a></td>
 	    <td>
 		<div class="btn-group">
 		    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія<span class="caret"></span>
 		    </button>
 		    <ul class="dropdown-menu" role="menu">
-			<li><a href="{% url "group_edit" group.id %}">Редагування</a></li>
-			<li><a href="/journal/{{ group.id }}">Відвідування</a></li>
-			<li><a href="{% url "group_delete" group.id %}">Вдалити</a></li>
+                <li><a href="{% url "group_edit" group.id %}">{% trans "Edit" %}</a></li>
+                <li><a href="/journal/{{ group.id }}">{% trans "Journal" %}</a></li>
+                <li><a href="{% url "group_delete" group.id %}">{% trans "Delete" %}</a></li>
 		    </ul>
 		</div>
 	    </td>								

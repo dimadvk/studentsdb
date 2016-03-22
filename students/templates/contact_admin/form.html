@@ -3,15 +3,16 @@
 
 {% load static from staticfiles %}
 {% load crispy_forms_tags %}
+{% load i18n %}
 
-{% block meta_title %}Зв’язок із Адміністратором{% endblock meta_title %}
+{% block meta_title %}{% trans "Contact Administrator" %}{% endblock meta_title %}
 
-{% block title %}Зв’язок із Адміністратором{% endblock title %}
+{% block title %}{% trans "Contact Administrator" %}{% endblock title %}
 
 {% block status_message %}
     {% if form.errors %}
         <div class="alert alert-warning" role="alert">
-            Будь-ласкаб виправте наступні помилки
+            {% trans "Please, check the errors" %}
         </div>
     {% endif %}
 

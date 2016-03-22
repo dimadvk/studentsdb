@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -10,6 +8,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.core.exceptions import PermissionDenied
 from django.http.response import HttpResponseForbidden
 from django.forms import ModelForm, ValidationError, ChoiceField, Select
+from django.utils.translation import ugettext as _
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Field
@@ -78,8 +77,8 @@ class GroupCreateForm(ModelForm):
 
         self.helper.layout.append(
             FormActions(
-                Submit('edit_button', u'Зберегти', css_class="btn btn-primary"),
-                Submit("cancel_button", u'Скасувати', css_class="btn btn-link"),
+                Submit('edit_button', _(u'Save'), css_class="btn btn-primary"),
+                Submit("cancel_button", _(u'Cancel'), css_class="btn btn-link"),
             )
         )
         self.fields['leader'].widget.attrs = {'disabled': 'True'}
@@ -91,16 +90,16 @@ class GroupCreateView(SuccessMessageMixin, CreateView):
     form_class = GroupCreateForm
     template_name = "students/groups_add.html"
     success_url = reverse_lazy("groups")
-    success_message = u"Групу успішно додано!"
+    success_message = _(u"The group successfully created!")
 
     def get_context_data(self, **kwargs):
         context = super(GroupCreateView, self).get_context_data(**kwargs)
-        context.update({"page_title": u"Додавання групи"})
+        context.update({"page_title": _(u"Create Group")})
         return context
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            messages.info(request, u"Додавання групи відмінено")
+            messages.info(request, _(u"Creationg of a group canceled"))
             return HttpResponseRedirect(self.success_url)
         else:
             return super(GroupCreateView, self).post(request, *args, **kwargs)
@@ -121,7 +120,7 @@ class GroupUpdateForm(GroupCreateForm):
         """ Check if leader is in the same group """
         new_leader = self.cleaned_data['leader']
         if hasattr(new_leader, 'student_group') and new_leader.student_group != self.instance:
-            raise ValidationError(u"Студент не входить до даної групи!",
+            raise ValidationError(_(u"The student is not a member of the group!"),
                 code='invalid')
         return new_leader
  
@@ -132,16 +131,16 @@ class GroupUpdateView(SuccessMessageMixin, UpdateView):
     form_class = GroupUpdateForm
     template_name = "students/groups_add.html"
     success_url = reverse_lazy('groups')
-    success_message = u'Групу "%(title)s" успішно збережено!'
+    success_message = _(u'The group "%(title)s" successfully saved!')
 
     def get_context_data(self, **kwargs):
         context = super(GroupUpdateView, self).get_context_data(**kwargs)
-        context.update({'page_title': u'Редагування групи'})
+        context.update({'page_title': _(u'Edit Group')})
         return context
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('cancel_button'):
-            messages.info(request, u"Редагування відмінено")
+            messages.info(request, _(u"Edit canceled"))
             return HttpResponseRedirect(self.success_url)
         else:
             return super(GroupUpdateView, self).post(request, *args, **kwargs)
@@ -162,6 +161,6 @@ class GroupDeleteView(DeleteView):
         success_url = self.get_success_url()
         if self.object.student_set.exists():
             messages.info(self.request,
-                u"Неможливо видалити групу, що містить студентів!")
+                _(u"Group that contains students couldn't be deleted!"))
             return HttpResponseRedirect(success_url)
         return super(GroupDeleteView, self).delete(request, *args, **kwargs)

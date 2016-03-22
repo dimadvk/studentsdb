@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 from calendar import monthrange, weekday, day_abbr
@@ -117,7 +116,7 @@ def journal_list(request):
     # get students ids and get journal
     students_ids = students.values_list('id')
     students_journals = Journal.objects.filter(student_id__in=students_ids).all()
-    # для конкретного місяця: j = Journal.objects.filter(attendance__month=month)
+    # for specified month: j = Journal.objects.filter(attendance__month=month)
 
     return render(request, 'students/journal.html', {'students':students})
 

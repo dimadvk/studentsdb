@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import logging
 from collections import OrderedDict
 
@@ -9,6 +8,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.views.generic import FormView
+from django.utils.translation import ugettext as _
 
 from studentsdb.settings import ADMIN_EMAIL, DEFAULT_FROM_EMAIL
 
@@ -38,17 +38,17 @@ class ContactAdminForm(forms.Form):
         self.helper.field_class = 'col-sm-10 form-field-width'
 
         # form buttons
-        self.helper.add_input(Submit('send_button', u'Надіслати'))
+        self.helper.add_input(Submit('send_button', _(u'Send')))
 
     from_email = forms.EmailField(
-        label=u"Ваша Емейл Адреса")
+        label=_(u"Your email"))
 
     subject = forms.CharField(
-        label=u"Заголовок Листа",
+        label=_(u"Message title"),
         max_length=128)
 
     message = forms.CharField(
-        label=u"Текст повідомлення",
+        label=_(u"Message"),
         max_length=2500,
         widget=forms.Textarea)
 
@@ -75,12 +75,12 @@ class ContactAdminView(FormView):
         try:
             form.send_email()
         except Exception:
-            message = u"Сталася якась помилка, лист не відправився. Shit happens :)"
+            message = _(u"Some trouble happend. Message not sent. Please, try later.")
             messages.info(self.request, message)
             logger = logging.getLogger(__name__)
             logger.exception(message)
         else:
-            messages.info(self.request, u"Лист відправлено. Верховна канцелярія вже займається обробкою!")
+            messages.info(self.request, _(u"Message sent successfully"))
             # send a signal
             form_data = self.get_form_kwargs().get('data')
             message_subject = form_data.get('subject')
@@ -111,10 +111,9 @@ def contact_admin(request):
             except Exception:
                 messages.info(
                     request,
-                    u"""Під час віправки листа виникла непередабачувана помилка.
-                    Спробуйте скористатися данною формою пізніше.""")
+                    u"""Error""")
             else:
-                messages.info(request, u"Повідомлення успішно надіслане")
+                messages.info(request, u"Message sent")
 
             # redirect to same contact page with messages
             return HttpResponseRedirect(reverse('contact_admin'))

@@ -1,13 +1,17 @@
 {% extends "students/base.html" %}
+
 {% load static from staticfiles %}
 {% load crispy_forms_tags %}
+{% load i18n %}
+
 {% block meta_title %}{{ page_title }}{% endblock meta_title %}
 {% block title %}{{ page_title }}{% endblock title %}
+
 {% block status_message %}
 
 {% if messages %}
     <div class="alert alert-warning" role="alert">
-    Будь-ласка, виправте наступні помилки
+        {% trans "Please, check the errors" %}
         <ul>
           {% for message in messages %}
             <li >{{ message }}</li>

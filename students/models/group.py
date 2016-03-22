@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
-
 from django.db import models
-#from student import Student
+from django.utils.translation import ugettext_lazy as _
+
 
 # Create your models here
 
@@ -9,23 +8,23 @@ class Group(models.Model):
     '''Group Model'''
 
     class Meta(object):
-        verbose_name = u"група"
-        verbose_name_plural = u"групи"
+        verbose_name = _(u"group")
+        verbose_name_plural = _(u"groups")
 
     title = models.CharField(
         max_length=256,
         blank=False,
-        verbose_name=u"назва")
+        verbose_name=_(u"name"))
 
     leader = models.OneToOneField('Student',
-        verbose_name=u"староста",
+        verbose_name=_(u"leader"),
         null = True,
         blank = True,
         on_delete = models.SET_NULL)
 
     notes = models.TextField(
         blank=True,
-        verbose_name=u"додаткові нотатки")
+        verbose_name=_(u"additional notes"))
 
     def __unicode__(self):
         if self.leader:

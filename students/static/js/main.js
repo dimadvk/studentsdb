@@ -85,7 +85,7 @@ function initEditStudentForm(form, modal) {
     form.ajaxForm({
         'dataType': 'html',
         'error': function(){
-            //alert('Помилка на сервері. Спробуйте будь-ласка пізніше. form.ajaxForm()');
+            //alert(gettext("There was an error on the server. Please, try again a bit later."));
             $('#modal-message-block').show();
             $('#modal-message').html('<b>Error:</b> ' + gettext("There was an error on the server. Please, try again a bit later."));
             return false;

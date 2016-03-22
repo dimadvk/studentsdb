@@ -1,21 +1,20 @@
-# -*- coding: utf-8 -*-
-
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 class MonthJournal(models.Model):
     """Student Monthly Journal"""
 
     class Meta:
-        verbose_name = u'Місячний журнал'
-        verbose_name_plural = u'Місячні Журнали'
+        verbose_name = _(u'month journal')
+        verbose_name_plural = _(u'month journals')
 
     student = models.ForeignKey('Student',
-        verbose_name=u'Студент',
+        verbose_name=_(u'student'),
         blank=False,
         unique_for_month='date')
 
     date = models.DateField(
-        verbose_name=u'Дата',
+        verbose_name=_(u'date'),
         blank=False)
 
     def __unicode__(self):

@@ -109,11 +109,11 @@ def students_add(request):
 
             student_group = request.POST.get('student_group', '').strip()
             if not student_group:
-                errors['student_group'] = _(u"Select goup for student")
+                errors['student_group'] = _(u"Select group for student")
             else:
                 groups = Group.objects.filter(pk=student_group)
                 if len(groups) != 1:
-                    errors['student_group'] = _(u"Select goup for student")
+                    errors['student_group'] = _(u"Select group for student")
                 else:
                     data['student_group'] = Group.objects.get(pk=student_group)
 
@@ -138,8 +138,8 @@ def students_add(request):
                 # redirect user to students list
                 messages.info(
                     request,
-                    _(u'Student "%s %s" sucessfully added!') %
-                        (student.first_name, student.last_name),
+                    _(u'Student "%(first_name)s %(last_name)s" sucessfully added!') %
+                    {'first_name': student.first_name, 'last_name': student.last_name},
                 )
                 return HttpResponseRedirect(reverse('home'))
 
