@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-21 12:49+0000\n"
+"POT-Creation-Date: 2016-03-22 12:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -376,28 +376,28 @@ msgstr ""
 msgid "Group that contains students couldn't be deleted!"
 msgstr ""
 
-#: views/students.py:28
+#: views/students.py:29
 msgid "This student is a leader of group"
 msgstr ""
 
-#: views/students.py:36
+#: views/students.py:37
 #, python-format
 msgid "Student \"%(first_name)s %(last_name)s\" successfully saved!"
 msgstr ""
 
-#: views/students.py:43
+#: views/students.py:44
 msgid "Edit Student"
 msgstr ""
 
-#: views/students.py:48
+#: views/students.py:49
 msgid "Student editing canceled!"
 msgstr ""
 
-#: views/students.py:60 views/students.py:80
+#: views/students.py:61 views/students.py:81
 msgid "Student successfully deleted!"
 msgstr ""
 
-#: views/students.py:68
+#: views/students.py:69
 msgid "Selected students successfully deleted!"
 msgstr ""
 

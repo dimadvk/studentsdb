@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-21 12:49+0000\n"
+"POT-Creation-Date: 2016-03-22 12:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -283,6 +283,7 @@ msgid "Delete Student"
 msgstr "Видалити Студента"
 
 #: templates/students/students_confirm_delete.html:12
+#, python-format
 msgid "Do you really want to delete student \"%(object|title)s\"?"
 msgstr "Ви дійсно бажаете видалити студента \"%(object|title)s\"?"
 
@@ -392,28 +393,28 @@ msgstr "Редагування відмінено"
 msgid "Group that contains students couldn't be deleted!"
 msgstr "Не можливо видалити групу, що містить студентів"
 
-#: views/students.py:28
+#: views/students.py:29
 msgid "This student is a leader of group"
 msgstr "Студент є старостою групи"
 
-#: views/students.py:36
+#: views/students.py:37
 #, python-format
 msgid "Student \"%(first_name)s %(last_name)s\" successfully saved!"
 msgstr "Студента \"%(first_name)s %(last_name)s\" успішно збережено!"
 
-#: views/students.py:43
+#: views/students.py:44
 msgid "Edit Student"
 msgstr "Редагувати Студенти"
 
-#: views/students.py:48
+#: views/students.py:49
 msgid "Student editing canceled!"
 msgstr "Редагування студента відмінено"
 
-#: views/students.py:60 views/students.py:80
+#: views/students.py:61 views/students.py:81
 msgid "Student successfully deleted!"
 msgstr "Студента успішно видалено"
 
-#: views/students.py:68
+#: views/students.py:69
 msgid "Selected students successfully deleted!"
 msgstr "Вибрані студенти успішно видалені"
 
@@ -453,6 +454,12 @@ msgstr "Студента \"%(first_name)s %(last_name)s\" успішно дод�
 #: views/students_add.py:158
 msgid "Adding a student got canceled!"
 msgstr "Додавання студента відмінено!"
+
+#~ msgid "apple"
+#~ msgid_plural "apples"
+#~ msgstr[0] "яблуко"
+#~ msgstr[1] "яблука"
+#~ msgstr[2] "яблук"
 
 #~ msgid "Edit "
 #~ msgstr "Редагувати"
