@@ -29,6 +29,10 @@ h1, h2, h3, h4, h5, h6 {
 	color: #555555;
 }
 
+#lang-select {
+    margin: 15px 0;
+}
+
 #navigate-month {
 	margin-bottom: 10px;
 }

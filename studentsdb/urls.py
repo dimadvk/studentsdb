@@ -86,6 +86,8 @@ urlpatterns = patterns('',
 
     # i18n
     url(r'^jsi18n\.js$', 'django.views.i18n.javascript_catalog', js_info_dict),
+    # set_language view
+    url('^set-language/$', 'students.views.set_language.set_language', name='set_language'),
 )
 
 if DEBUG:

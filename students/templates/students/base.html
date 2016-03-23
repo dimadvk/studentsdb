@@ -38,11 +38,19 @@
 			
 				<!-- Logo -->
 				{% block logo %}				
-				<div class="col-xs-8">
+				<div class="col-xs-7">
                     <h1>{% trans "Students Accounting Service"%}</h1>
 				</div>
 				{% endblock logo %}
 			
+                <!-- Language Select -->
+                <div class="col-xs-1" id='lang-select'>
+                    <a href="{% url "set_language" %}?return-path={{request.path}}&lang=uk">Укр</a>
+                    |
+                    <a href="{% url "set_language" %}?return-path={{request.path}}&lang=en">Eng</a>
+                </div>
+                <!-- End Language Select -->
+
 				<!-- Groups selector -->
 				{% block groups_selector %}				
 				<div class="col-xs-4" id="group-selector">
