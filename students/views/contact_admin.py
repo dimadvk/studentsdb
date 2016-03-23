@@ -8,7 +8,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.views.generic import FormView
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from studentsdb.settings import ADMIN_EMAIL, DEFAULT_FROM_EMAIL
 
