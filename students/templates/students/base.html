@@ -45,9 +45,21 @@
 			
                 <!-- Language Select -->
                 <div class="col-xs-1" id='lang-select'>
-                    <a href="{% url "set_language" %}?return-path={{request.path}}&lang=uk">Укр</a>
+                    <div class='lang-select-form'>
+                        <form action="{% url "set_language" %}" method='post'>{% csrf_token %}
+                            <input type='hidden' name='lang' value='uk'>
+                            <input type='hidden' name='return-path' value='{{request.path}}'>
+                            <button type='submit' class='btn btn-link'>Укр</button>
+                        </form>
+                    </div>
                     |
-                    <a href="{% url "set_language" %}?return-path={{request.path}}&lang=en">Eng</a>
+                    <div class='lang-select-form'>
+                        <form action="{% url "set_language" %}" method='post'>{% csrf_token %}
+                            <input type='hidden' name='lang' value='en'>
+                            <input type='hidden' name='return-path' value='{{request.path}}'>
+                            <button type='submit' class='btn btn-link'>Eng</button>
+                        </form>
+                    </div>
                 </div>
                 <!-- End Language Select -->
 
