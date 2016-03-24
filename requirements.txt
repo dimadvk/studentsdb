@@ -2,6 +2,9 @@ Django==1.7.2
 django-contact-form==1.2
 django-crispy-forms==1.4.0
 django-debug-toolbar==1.4
+django-el-pagination==2.1.1
+django-endless-pagination==2.0
+django-registration-redux==1.2
 ipdb==0.8.1
 ipython==3.0.0
 MySQL-python==1.2.5
@@ -9,6 +12,7 @@ pdb==0.1
 Pillow==3.1.0
 python-dateutil==2.4.2
 python-gnupg==0.3.8
+pytz==2016.1
 PyYAML==3.11
 six==1.10.0
 sqlparse==0.1.18

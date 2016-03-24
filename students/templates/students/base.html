@@ -29,6 +29,7 @@
 				
 	</head>
 	<body>
+        <div id="wrap">
 		
 		<!-- Start Containet -->
 		<div class="container">
@@ -38,8 +39,8 @@
 			
 				<!-- Logo -->
 				{% block logo %}				
-				<div class="col-xs-7">
-                    <h1>{% trans "Students Accounting Service"%}</h1>
+				<div class="col-xs-5">
+                    <h2>{% trans "Students Accounting Service"%}</h2>
 				</div>
 				{% endblock logo %}
 			
@@ -64,7 +65,7 @@
                 <!-- End Language Select -->
 
 				<!-- Groups selector -->
-				{% block groups_selector %}				
+                {% if user.is_authenticated %}
 				<div class="col-xs-4" id="group-selector">
                     <strong>{% trans "Group:" %}</strong>
 					<select>
@@ -76,7 +77,22 @@
                         {% endfor %}
 					</select>
 				</div>
-				{% endblock groups_selector %}
+
+                <!-- User's toolbar for authenticated users -->
+                <div class="col-xs-2" id="user-toolbar">
+                    <span>{{ user.username }}</span> |
+                    <a href="{% url "users:auth_logout" %}">{% trans "Logout" %}</a>
+                </div>
+
+                {% else %}
+                
+                <!-- User's toolbar for anonymous users -->
+                <div class="col-xs-6" id="user-toolbar">
+                    <a href="{% url "users:auth_login" %}">{% trans "Login" %}</a> |
+                    <a href="{% url "users:registration_register" %}">{% trans "Register" %}</a>
+                </div>
+                {% endif %}
+
 			</div>
 			<!-- End Header -->
 			
@@ -128,19 +144,16 @@
 				</div>
 			</div>
 			<!-- End Content Columns -->
-			
-			<!-- Start Footer -->
-			{% block footer %} 
-			<div class='row' id="footer"> 
-				<div class="col-xs-12">
-                    &copy; {% trans "Students Accounting Service" %}
-				</div>
-			</div>
-			{% endblock footer %} 
-			<!-- End Footer -->		
 						
+            <!-- End Container -->
 		</div>
-		<!-- End Container -->
+        </div> {# id=wrap #}
+
+        <!-- Start Footer -->
+        <div class='container' id="footer"> 
+                &copy; {% trans "Students Accounting Service" %}
+        </div>
+        <!-- End Footer -->		
 		
         <!-- Modal Boilerplate -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog"

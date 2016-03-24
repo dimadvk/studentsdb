@@ -148,7 +148,9 @@ def students_list(request):
 
     context = paginate(students, 4, request, {}, var_name='students')
 
-    return render(request, 'students/students_list.html', context)
+    response = render(request, 'students/students_list.html', context)
+    return response
+    #return render(request, 'students/students_list.html', context)
 
 # ajax, first probe
 def students_ajax_next_page(request):

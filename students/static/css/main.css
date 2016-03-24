@@ -14,7 +14,19 @@ h1, h2, h3, h4, h5, h6 {
 	border-top: 1px solid #dddddd;
 	/*задаємо внутрішю відстанб елемента до верхньго краю */
 	padding-top: 10px;
+    text-align: center;
 }
+html,
+body{
+    height: 100%;
+}
+#wrap{
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
 
 #group-selector {
 	margin: 10px 0;
@@ -31,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 #lang-select {
-    margin: 15px 0;
+    margin-top: 14px;
     padding: 0;
 }
 #lang-select button {
@@ -39,6 +51,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 .lang-select-form {
     display:inline-block;
+}
+
+#user-toolbar {
+    margin-top: 14px;
+    text-align: right;
 }
 
 

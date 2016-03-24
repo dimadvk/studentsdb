@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'registration',
     'students',
 #    'debug_toolbar',
 )
@@ -98,6 +99,10 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 
 #PORTAL_URL = 'http://localhost:8000'
 
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'studentsdb', 'templates'),
+)
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 
@@ -119,6 +124,9 @@ MANAGERS = [
 
 # messages - storage backend
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
+
+# for 'registration' app
+REFISTRATION_OPEN = True
 
 # debug_toolbar
 DEBUG_TOOLBAR_PATCH_SETTINGS = True

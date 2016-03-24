@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.views.generic.base import RedirectView
+from django.contrib.auth import views as auth_views
 
 from .settings import MEDIA_ROOT, DEBUG
 
@@ -88,6 +89,11 @@ urlpatterns = patterns('',
     url(r'^jsi18n\.js$', 'django.views.i18n.javascript_catalog', js_info_dict),
     # set_language view
     url('^set-language/$', 'students.views.set_language.set_language', name='set_language'),
+
+    # User related urls
+    url(r'^users/logout/$', auth_views.logout, kwargs={'next_page': 'home'}, name='auth_logout'),
+    url(r'^register/complete/$', RedirectView.as_view(pattern_name='home'), name='registration_complete'),
+    url(r'^users/', include('registration.backends.simple.urls', namespace='users')),
 )
 
 if DEBUG:
