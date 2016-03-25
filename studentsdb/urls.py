@@ -2,6 +2,8 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.views.generic.base import RedirectView
 from django.contrib.auth import views as auth_views
+from django.contrib.auth.decorators import login_required
+from django.views.generic import TemplateView
 
 from .settings import MEDIA_ROOT, DEBUG
 
@@ -10,6 +12,7 @@ from students.views.students import students_ajax_next_page
 from students.views.students import students_delete_bunch
 from students.views.custom_contact_form import CustomContactFormView
 from students.views.contact_admin import ContactAdminView
+from students.views.groups import groups_list
 from students.views.groups import GroupDeleteView
 from students.views.groups import GroupUpdateView
 from students.views.groups import GroupCreateView
@@ -31,12 +34,12 @@ urlpatterns = patterns('',
     url(r'^students/add/$',
         'students.views.students_add.students_add', name='students_add'),
 #    url(r'^students/(?P<sid>\d+)/edit/$', 'students.views.students.students_edit', name='students_edit'),
-    url(r'^students/(?P<pk>\d+)/delete/$', 'students.views.students.students_delete', name='students_delete'),
+#    url(r'^students/(?P<pk>\d+)/delete/$', 'students.views.students.students_delete', name='students_delete'),
     url(r'^students/(?P<pk>\d+)/edit/$',
         StudentUpdateView.as_view(), name='students_edit'),
-#    url(r'^students/(?P<pk>\d+)/delete/$',
-#        StudentDeleteView.as_view(),
-#        name='students_delete'),
+    url(r'^students/(?P<pk>\d+)/delete/$',
+        StudentDeleteView.as_view(),
+        name='students_delete'),
     url(r'^student_list/$', StudentList.as_view()),
 
     # trying ajax
@@ -50,11 +53,10 @@ urlpatterns = patterns('',
 
 
     #Groups urls
-    url(r'^groups/$',
-        'students.views.groups.groups_list', name='groups'),
+    url(r'^groups/$', login_required(groups_list), name='groups'),
 #    url(r'^groups/add/$',
 #        'students.views.groups.groups_add', name='groups_add'),
-    url(r'^groups/add/$', GroupCreateView.as_view(), name="groups_add"),
+    url(r'^groups/add/$', login_required(GroupCreateView.as_view()), name="groups_add"),
 #    url(r'^groups/(?P<pk>\d+)/edit/$',
 #        'students.views.groups.groups_edit', name='groups_edit'),
     url(r'^groups/(?P<pk>\d+)/edit/$',
@@ -91,9 +93,14 @@ urlpatterns = patterns('',
     url('^set-language/$', 'students.views.set_language.set_language', name='set_language'),
 
     # User related urls
+    url(r'^users/profile/$', login_required(TemplateView.as_view(
+        template_name='registration/profile.html')), name='profile'),
     url(r'^users/logout/$', auth_views.logout, kwargs={'next_page': 'home'}, name='auth_logout'),
     url(r'^register/complete/$', RedirectView.as_view(pattern_name='home'), name='registration_complete'),
     url(r'^users/', include('registration.backends.simple.urls', namespace='users')),
+
+    # Social Auth Related urls
+    url(r'^social/', include('social.apps.django_app.urls', namespace='social')),
 )
 
 if DEBUG:

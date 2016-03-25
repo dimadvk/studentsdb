@@ -10,6 +10,8 @@ from django.forms import  ModelForm, ValidationError
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 from ..models.student import Student
 from ..models.group import Group
@@ -35,6 +37,10 @@ class StudentUpdateView(SuccessMessageMixin, UpdateView):
     form_class = StudentUpdateForm
     success_message = _(u'Student "%(first_name)s %(last_name)s" successfully saved!')
 
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(StudentUpdateForm, self).dispatch(*args, **kwargs)
+
     def get_success_url(self):
         return reverse('home')
 
@@ -55,6 +61,10 @@ class StudentDeleteView(DeleteView):
     model = Student
     template_name = 'students/students_confirm_delete.html'
     success_url = reverse_lazy('home')
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(StudentDeleteView, self).dispatch(*args, **kwargs)
 
     def delete(self, request, *args, **kwargs):
         messages.info(self.request, _(u"Student successfully deleted!"))

@@ -80,7 +80,7 @@
 
                 <!-- User's toolbar for authenticated users -->
                 <div class="col-xs-2" id="user-toolbar">
-                    <span>{{ user.username }}</span> |
+                    <a href="{% url "profile" %}">{{ user.get_full_name|default:user.username }}</a> |
                     <a href="{% url "users:auth_logout" %}">{% trans "Logout" %}</a>
                 </div>
 
@@ -88,6 +88,7 @@
                 
                 <!-- User's toolbar for anonymous users -->
                 <div class="col-xs-6" id="user-toolbar">
+                    <a href="{% url "social:begin" "facebook" %}?next={{ request.path }}">{% trans "via Facebook" %}</a> |
                     <a href="{% url "users:auth_login" %}">{% trans "Login" %}</a> |
                     <a href="{% url "users:registration_register" %}">{% trans "Register" %}</a>
                 </div>
@@ -107,14 +108,18 @@
                     <ul class="nav nav-tabs">
                         <li role="presentation" 
                             {% if request.path == home_page %} class="active" {% endif %}><a href="{{ home_page }}">{% trans "Students" %}</a></li>
+                        {% if user.is_authenticated %}
                         <li role="presentation" 
                             {% if journal_page in request.path %} class="active" {%endif%}><a href="{{ journal_page }}">{% trans "Journal" %}</a></li>
                         <li role="presentation" 
                             {% if groups_page in request.path %} class="active" {% endif %}><a href="{{ groups_page }}">{% trans "Groups" %}</a></li>
                         <li role="presentation" 
                             {% if actions_page in request.path %} class="active" {% endif %}><a href="{{ actions_page }}">{% trans "Action Journal" %}</a></li>
+                        {% endif %}
+                        {% if perm.auth.add_user %}
                         <li role="presentation" 
                             {% if contact_admin in request.path %} class="active" {% endif %}><a href="{{ contact_admin }}">{% trans "Contact" %}</a></li>
+                        {% endif %}
                     </ul>
 			    </div>
 			</div>

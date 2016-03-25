@@ -9,6 +9,8 @@ from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.views.generic import FormView
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth.decorators import permission_required
+from django.utils.decorators import method_decorator
 
 from studentsdb.settings import ADMIN_EMAIL, DEFAULT_FROM_EMAIL
 
@@ -67,6 +69,10 @@ class ContactAdminForm(forms.Form):
 class ContactAdminView(FormView):
     form_class = ContactAdminForm
     template_name = 'contact_admin/form.html'
+
+    @method_decorator(permission_required('auth.add_user'))
+    def dispatch(self, *args, **kwargs):
+        return super(ContactAdminView, self).dispatch(*args, **kwargs)
 
     def get_success_url(self):
         return reverse('contact_admin')

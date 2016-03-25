@@ -10,6 +10,8 @@ from django.forms import ModelForm
 from django import forms
 from django.utils.image import Image
 from django.utils.translation import ugettext as _
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, HTML
@@ -62,7 +64,7 @@ class StudentAddForm(ModelForm):
         
 
 
-
+@login_required
 def students_add(request):
     form = StudentAddForm(request.POST or None)
     context = {'form': form}
