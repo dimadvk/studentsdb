@@ -110,7 +110,7 @@ SOCIAL_AUTH_FACEBOOK_SECRET = '36b075370d6f7e06ac4d225d3d2d3f6d'
 #PORTAL_URL = 'http://localhost:8000'
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'studentsdb', 'templates'),
+    os.path.join(BASE_DIR, 'stud_auth', 'templates'),
 )
 
 LOGIN_URL = 'users:auth_login'
@@ -195,7 +195,7 @@ LOGGING = {
         'django': {
             'handlers': ['mail_admins', 'file', 'console'],
             'propagate': True,
-            'level': 'DEBUG',
+            'level': 'INFO',
         },
         'students.signals': {
             'handlers': ['console', 'file'],
