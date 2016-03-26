@@ -46,7 +46,7 @@ INSTALLED_APPS = (
     'registration',
     'social.apps.django_app.default',
     'students',
-    'studentsdb',
+    'stud_auth',
 #    'debug_toolbar',
 )
 

@@ -9,7 +9,7 @@ class StProfile(models.Model):
     user = models.OneToOneField(User)
 
     class Meta(object):
-        verbose_name = _(u"User Provole")
+        verbose_name = _(u"User Profile")
 
     # extra user data
     mobile_phone = models.CharField(
