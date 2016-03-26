@@ -29,7 +29,7 @@ msgstr "Мобільний телефон"
 
 #: templates/registration/login.html:6 templates/registration/login.html:8
 msgid "Login Form"
-msgstr "Фарма Входу"
+msgstr "Форма Входу"
 
 #: templates/registration/login.html:17
 #: templates/registration/registration_form.html:25

@@ -15,7 +15,7 @@ from django.contrib.auth.decorators import login_required
 
 from ..models.student import Student
 from ..models.group import Group
-from ..util import paginate, get_current_group
+from ..util import paginate, get_current_group, DispatchLoginRequired
 
 from students_add import StudentAddForm
 
@@ -31,15 +31,11 @@ class StudentUpdateForm(StudentAddForm):
         return self.cleaned_data['student_group']
 
 
-class StudentUpdateView(SuccessMessageMixin, UpdateView):
+class StudentUpdateView(DispatchLoginRequired, SuccessMessageMixin, UpdateView):
     model = Student
     template_name = 'students/students_add.html'
     form_class = StudentUpdateForm
     success_message = _(u'Student "%(first_name)s %(last_name)s" successfully saved!')
-
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super(StudentUpdateForm, self).dispatch(*args, **kwargs)
 
     def get_success_url(self):
         return reverse('home')
@@ -57,19 +53,16 @@ class StudentUpdateView(SuccessMessageMixin, UpdateView):
             return super(StudentUpdateView, self).post(request, *args, **kwargs)
 
 
-class StudentDeleteView(DeleteView):
+class StudentDeleteView(DispatchLoginRequired, DeleteView):
     model = Student
     template_name = 'students/students_confirm_delete.html'
     success_url = reverse_lazy('home')
-
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super(StudentDeleteView, self).dispatch(*args, **kwargs)
 
     def delete(self, request, *args, **kwargs):
         messages.info(self.request, _(u"Student successfully deleted!"))
         return super(StudentDeleteView, self).delete(request, *args, **kwargs)
 
+@login_required
 def students_delete_bunch(request):
     if request.method =="POST":
         students_id_list = request.POST.getlist('selected-student')
@@ -79,6 +72,7 @@ def students_delete_bunch(request):
         return HttpResponseRedirect(reverse("home"))
 
 
+@login_required
 def students_delete(request, pk):
     student = Student.objects.get(pk=pk)
     context = {'object': student}
