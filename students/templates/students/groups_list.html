@@ -8,7 +8,9 @@
 
 {% block title %}
     {% trans "Groups" %}
+    {% if perms.students.add_group %}
     <a class="btn btn-primary" href="{% url "groups_add" %}">{% trans "Create Group" %}</a>
+    {% endif %}
 {% endblock title %}
 
 {% block content %}
@@ -33,7 +35,9 @@
             {% endif %}
             </a>
         </th>
+        {% if user.is_authenticated %}
         <th>{% trans "Actions" %}</th>								
+        {% endif %}
 	</tr>							
     </thead>
 {% endwith %} 
@@ -43,6 +47,7 @@
 	    <td>{{ forloop.counter }}</td>								
         <td><a title="{% trans "Edit" %}" href='{% url "group_edit" group.id %}'>{{ group.title }}</a></td>
 	    <td><a title="{% trans "Edit" %}" href='{% url "group_edit" group.id %}'>{{ group.leader }}</a></td>
+        {% if user.is_authenticated %}
 	    <td>
 		<div class="btn-group">
 		    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія<span class="caret"></span>
@@ -54,6 +59,7 @@
 		    </ul>
 		</div>
 	    </td>								
+        {% endif %}
 	</tr>
 	{% endfor %}
 	

@@ -6,7 +6,9 @@
 {% block meta_title %}{% trans "Students" %}{% endblock meta_title %}
 
 {% block title %}{% trans "Students List" %}
-<a class="btn btn-primary" href="{% url "students_add" %}">{% trans "Add Student" %}</a>
+{% if perms.students.add_student %}
+    <a class="btn btn-primary" href="{% url "students_add" %}">{% trans "Add Student" %}</a>
+{% endif %}
 {% endblock title %}
 
 {% block content %}
@@ -18,7 +20,9 @@
     {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
     <thead>
 	<tr>
+        {% if user.is_authenticated %}
         <th class="col-checkbox">{% trans "Check" %}</th>
+        {% endif %}
 	    <th><a href="#">№</a></th>
         <th>{% trans "Photo" %}</th>
         <th><a href="{% url "home" %}?order_by=last_name{% if reverse != '1' %}&amp;reverse=1{% endif %}">{% trans "Last Name" %}
@@ -40,14 +44,18 @@
 		{% endif %}
 		</a>
 	    </th>
+        {% if user.is_authenticated %}
         <th>{% trans "Actions" %}</th>
+        {% endif %}
 	</tr>
     </thead>
     {% endwith %}
     <tbody>
 	{% for student in students %}
     <tr id="{{student.id}}">
+        {% if user.is_authenticated %}
         <td><input type="checkbox" name="selected-student" value="{{student.id}}"></td>
+        {% endif %}
 	    <td>{{ forloop.counter }}</td>
 	    <td>
 		{% if student.photo %}
@@ -56,9 +64,22 @@
 		<img heigh="30" width="30" src="{% static "img/default_user.jpg" %}" class="img-circle"/>
 		{% endif %}
 		</td>
-        <td><a title="{% trans "Edit" %}" class="student-edit-form-link" href='{% url "students_edit" student.id %}'>{{ student.last_name }}</a></td>
-        <td><a title="{% trans "Edit" %}" class="student-edit-form-link" href='{% url "students_edit" student.id %}'>{{ student.first_name }}</a></td>
+        <td>
+            {% if user.is_authenticated %}
+            <a title="{% trans "Edit" %}" class="student-edit-form-link" href='{% url "students_edit" student.id %}'>{{ student.last_name }}</a>
+            {% else %}
+            {{ student.last_name }}
+            {% endif %}
+        </td>
+        <td>
+            {% if user.is_authenticated %}
+            <a title="{% trans "Edit" %}" class="student-edit-form-link" href='{% url "students_edit" student.id %}'>{{ student.first_name }}</a>
+            {% else %}
+            {{ student.first_name }}
+            {% endif %}
+        </td>
 	    <td>{{ student.ticket }}</td>
+        {% if user.is_authenticated %}
 	    <td>
 		<div class="btn-group">
             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">{% trans "Action" %}<span class="caret"></span>
@@ -70,12 +91,16 @@
 		    </ul>
 		</div>
 	    </td>
+        {% endif %}
 	</tr>
 	{% endfor %}
 
     </tbody>
 </table>
+
+{% if user.is_authenticated %}
 <button class="btn btn-danger">{% trans "Delete" %}</button> - {% trans "delete checked students"%}
+{% endif %}
 </form>
 <!-- End Students Listing -->
 

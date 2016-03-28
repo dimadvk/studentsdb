@@ -88,7 +88,7 @@
                 
                 <!-- User's toolbar for anonymous users -->
                 <div class="col-xs-6" id="user-toolbar">
-                    <a href="{% url "social:begin" "facebook" %}?next={{ request.path }}">{% trans "via Facebook" %}</a> |
+                    <a href="{% url "social:begin" "facebook" %}?next={{ request.path }}"><img heigh="25" width="140" src="{% static "img/facebook_login.png" %}" alt="{% trans "via Facebook" %}"></a> |
                     <a href="{% url "users:auth_login" %}">{% trans "Login" %}</a> |
                     <a href="{% url "users:registration_register" %}">{% trans "Register" %}</a>
                 </div>
@@ -104,6 +104,7 @@
                     {% url 'journal' as journal_page %}
                     {% url 'groups' as groups_page %}
                     {% url 'action_journal' as actions_page %}
+                    {% url 'users_list' as users_page %}
                     {% url 'contact_admin' as contact_admin %}
                     <ul class="nav nav-tabs">
                         <li role="presentation" 
@@ -115,8 +116,10 @@
                             {% if groups_page in request.path %} class="active" {% endif %}><a href="{{ groups_page }}">{% trans "Groups" %}</a></li>
                         <li role="presentation" 
                             {% if actions_page in request.path %} class="active" {% endif %}><a href="{{ actions_page }}">{% trans "Action Journal" %}</a></li>
+                        <li role="presentation" 
+                            {% if users_page in request.path %} class="active" {% endif %}><a href="{{ users_page }}">{% trans "Users" %}</a></li>
                         {% endif %}
-                        {% if perm.auth.add_user %}
+                        {% if perms.auth.add_user %}
                         <li role="presentation" 
                             {% if contact_admin in request.path %} class="active" {% endif %}><a href="{{ contact_admin }}">{% trans "Contact" %}</a></li>
                         {% endif %}

@@ -1,42 +1,53 @@
 {% extends "students/base.html" %}
 
-
 {% load i18n %}
 
-{% block meta_title %}{{ user.get_full_name|default:user.username }}{% endblock meta_title %}
+{% load assign_variable %} 
 
-{% block title %}{{ user.get_full_name|default:user.username }}{% endblock title %}
+{% block meta_title %}
+{% assign_variable user_info user as profile %} 
+{{ profile.get_full_name|default:profile.username }}
+{% endblock meta_title %}
+
+{% block title %}
+{% assign_variable user_info user as profile %} 
+{{ profile.get_full_name|default:profile.username }}
+{% endblock title %}
 
 
 {% block content %}
+
+{% assign_variable user_info user as profile %} 
+
 <table class="table table-stripped">
-    {% if user.email %}
+    {% if profile.email %}
     <tr>
         <td>{% trans "Email" %}:</td>
-        <td>{{ user.email }}</td>
+        <td>{{ profile.email }}</td>
     </tr>
     {% endif %}
 
-    {% if user.username %}
+    {% if profile.username %}
     <tr>
         <td>{% trans "Username" %}:</td>
-        <td>{{ user.username }}</td>
+        <td>{{ profile.username }}</td>
     </tr>
     {% endif %}
 
-    {% if user.date_joined %}
+    {% if profile.date_joined %}
     <tr>
         <td>{% trans "Joined" %}:</td>
-        <td>{{ user.date_joined }}</td>
+        <td>{{ profile.date_joined }}</td>
     </tr>
     {% endif %}
 
-    {% if user.stprofile.mobile_phone %}
+    {% if profile.stprofile.mobile_phone %}
     <tr>
         <td>{% trans "Mobile Phone" %}:</td>
-        <td>{{ user.stprofile.mobile_phone }}</td>
+        <td>{{ profile.stprofile.mobile_phone }}</td>
     </tr>
     {% endif %}
 </table>
 
 {% endblock content %}
+

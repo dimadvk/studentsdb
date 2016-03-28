@@ -1,0 +1,33 @@
+{% extends "students/base.html" %}
+
+{% load i18n %}
+{% load static from staticfiles %}
+
+{% block meta_title %}{% trans "Users List" %}{% endblock meta_title %}
+
+{% block title %}{% trans "Users List" %}{% endblock title %}
+
+{% block content %}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>{% trans "Username" %}</th>
+            <th>{% trans "Full Name" %}</th>
+            <th>{% trans "Email" %}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td><a href="{% url "user_profile" user.pk %}">{{ user.username }}</a></td>
+            <td><a href="#">{{ user.get_full_name }}</a></td>
+            <td>{{ user.email }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}
