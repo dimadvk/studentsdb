@@ -94,7 +94,7 @@ urlpatterns = patterns('',
     url('^set-language/$', 'students.views.set_language.set_language', name='set_language'),
 
     # User related urls
-    url(r'^users/all/$', login_required(UsersListView.as_view()), name='users_list'),
+    url(r'^users/profiles/$', login_required(UsersListView.as_view()), name='users_list'),
     url(r'^users/profile/$', login_required(TemplateView.as_view(
         template_name='registration/profile.html')), name='profile'),
     url(r'^users/profile/(?P<pk>\d+)/$', login_required(UserDetailView.as_view()), name='user_profile'),
@@ -103,7 +103,8 @@ urlpatterns = patterns('',
     url(r'^activate/complete/$',
             TemplateView.as_view(template_name='registration/activation_complete.html'),
             name='registration_activation_complete'),
-    url(r'^users/', include('registration.backends.default.urls', namespace='users')),
+    url(r'^users/', include('registration.backends.default.urls')),
+    url(r'^users/', include('django.contrib.auth.urls')),
 
     # Social Auth Related urls
     url(r'^social/', include('social.apps.django_app.urls', namespace='social')),
