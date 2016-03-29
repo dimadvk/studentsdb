@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-26 11:24+0000\n"
+"POT-Creation-Date: 2016-03-29 12:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "User Profile"
 msgstr "Профіль Користувача"
 
-#: models.py:18 templates/registration/profile.html:36
+#: models.py:18 templates/registration/profile.html:46
 msgid "Mobile Phone"
 msgstr "Мобільний телефон"
 
@@ -37,7 +37,7 @@ msgid "Your Username"
 msgstr "Ім’я Користувача"
 
 #: templates/registration/login.html:22
-#: templates/registration/registration_form.html:35
+#: templates/registration/registration_form.html:37
 msgid "Your Password"
 msgstr "Пароль"
 
@@ -45,15 +45,17 @@ msgstr "Пароль"
 msgid "Login"
 msgstr "Увійти"
 
-#: templates/registration/profile.html:15
+#: templates/registration/profile.html:25
+#: templates/registration/users_list.html:18
 msgid "Email"
 msgstr "Імейл"
 
-#: templates/registration/profile.html:22
+#: templates/registration/profile.html:32
+#: templates/registration/users_list.html:16
 msgid "Username"
 msgstr "Ім’я користувача"
 
-#: templates/registration/profile.html:29
+#: templates/registration/profile.html:39
 msgid "Joined"
 msgstr "Залогований"
 
@@ -66,14 +68,23 @@ msgstr "Реєстраційна форма"
 msgid "Please, correct the following errors."
 msgstr "Будь ласка, виправте помилки."
 
-#: templates/registration/registration_form.html:30
+#: templates/registration/registration_form.html:31
 msgid "Your Email"
 msgstr "Ваш Імейл"
 
-#: templates/registration/registration_form.html:41
+#: templates/registration/registration_form.html:43
 msgid "Confirm Password"
 msgstr "Підтвердіть пароль"
 
-#: templates/registration/registration_form.html:46
+#: templates/registration/registration_form.html:48
 msgid "Register"
-msgstr "Зареєструвати"
+msgstr "Зареєструватися"
+
+#: templates/registration/users_list.html:6
+#: templates/registration/users_list.html:8
+msgid "Users List"
+msgstr ""
+
+#: templates/registration/users_list.html:17
+msgid "Full Name"
+msgstr ""

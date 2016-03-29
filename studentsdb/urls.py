@@ -22,7 +22,7 @@ from students.views.action_journal import ActionListView
 from stud_auth.views import UsersListView, UserDetailView
 
 #test
-from django.views.generic import RedirectView
+from stud_auth.views import test
 
 # need for i18n pattern
 js_info_dict = {
@@ -47,8 +47,6 @@ urlpatterns = patterns('',
     # trying ajax
     url(r'students/next_page$',
         students_ajax_next_page, name='students_ajax_next_page'),
-    #test templateView
-    url('^test/$', permission_required('auth.add_user')(RedirectView.as_view(pattern_name="home"))),
 
     # delete bunch of students
     url(r'^students/delete-bunch/$', permission_required('students.delete_student')(students_delete_bunch), name="students-delete-bunch"),
@@ -96,17 +94,23 @@ urlpatterns = patterns('',
     url('^set-language/$', 'students.views.set_language.set_language', name='set_language'),
 
     # User related urls
+    url(r'^users/all/$', login_required(UsersListView.as_view()), name='users_list'),
     url(r'^users/profile/$', login_required(TemplateView.as_view(
         template_name='registration/profile.html')), name='profile'),
     url(r'^users/profile/(?P<pk>\d+)/$', login_required(UserDetailView.as_view()), name='user_profile'),
     url(r'^users/logout/$', auth_views.logout, kwargs={'next_page': 'home'}, name='auth_logout'),
     url(r'^register/complete/$', RedirectView.as_view(pattern_name='home'), name='registration_complete'),
-    url(r'^users/', include('registration.backends.simple.urls', namespace='users')),
-    url(r'^users-list/$', login_required(UsersListView.as_view()), name='users_list'),
+    url(r'^activate/complete/$',
+            TemplateView.as_view(template_name='registration/activation_complete.html'),
+            name='registration_activation_complete'),
+    url(r'^users/', include('registration.backends.default.urls', namespace='users')),
 
     # Social Auth Related urls
     url(r'^social/', include('social.apps.django_app.urls', namespace='social')),
 
+    #test 
+    url(r'^test/$', test, name='test'),
+    url(r'^test/', include('stud_auth.urls', namespace='test_stud_auth')),
 )
 
 if DEBUG:
