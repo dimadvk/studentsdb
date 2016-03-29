@@ -116,8 +116,8 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'students', 'templates', 'students'),
 )
 
-LOGIN_URL = 'auth_login'
-LOGOUT_URL = 'auth_logout'
+LOGIN_URL = 'users:auth_login'
+LOGOUT_URL = 'users:auth_logout'
 LOGIN_REDIRECT_URL = 'home'
 
 MEDIA_URL = '/media/'

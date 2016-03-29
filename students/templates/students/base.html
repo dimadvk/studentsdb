@@ -81,7 +81,7 @@
                 <!-- User's toolbar for authenticated users -->
                 <div class="col-xs-2" id="user-toolbar">
                     <a href="{% url "profile" %}">{{ user.get_full_name|default:user.username }}</a> |
-                    <a href="{% url "auth_logout" %}">{% trans "Logout" %}</a>
+                    <a href="{% url "users:auth_logout" %}">{% trans "Logout" %}</a>
                 </div>
 
                 {% else %}
@@ -89,8 +89,8 @@
                 <!-- User's toolbar for anonymous users -->
                 <div class="col-xs-6" id="user-toolbar">
                     <a href="{% url "social:begin" "facebook" %}?next={{ request.path }}"><img heigh="25" width="140" src="{% static "img/facebook_login.png" %}" alt="{% trans "via Facebook" %}"></a> |
-                    <a href="{% url "auth_login" %}">{% trans "Login" %}</a> |
-                    <a href="{% url "registration_register" %}">{% trans "Register" %}</a>
+                    <a href="{% url "users:auth_login" %}">{% trans "Login" %}</a> |
+                    <a href="{% url "users:registration_register" %}">{% trans "Register" %}</a>
                 </div>
                 {% endif %}
 
