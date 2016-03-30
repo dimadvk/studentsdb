@@ -18,5 +18,4 @@ def assign_variable(*args):
         variable = args[0]
     else:
         variable = args[1]
-    print type(variable)
     return variable

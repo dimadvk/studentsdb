@@ -4,6 +4,7 @@ from django.views.generic.base import RedirectView
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required, permission_required
 from django.views.generic import TemplateView
+from django.core.urlresolvers import reverse
 
 from .settings import MEDIA_ROOT, DEBUG
 
@@ -112,6 +113,8 @@ urlpatterns = patterns('',
         auth_views.password_reset_confirm,
         name='password_reset_confirm'),
     url(r'^users/reset/done/$', auth_views.password_reset_complete, name='password_reset_complete'),
+    url(r'^users/password_change/$', auth_views.password_change, name='password_change'),
+    url(r'^users/password_change/done/$', RedirectView.as_view(pattern_name='profile'), name='password_change_done'),
     url(r'^users/', include('registration.backends.default.urls', namespace='users')),
 
     # Social Auth Related urls
