@@ -102,11 +102,10 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 
 AUTHENTICATION_BACKENDS = (
     'social.backends.facebook.FacebookOAuth2',
-    #'social.backends.google.GoogleOAuth',
     'social.backends.google.GoogleOAuth2',
-    #'social.backends.google.GoogleOpenId',
     'social.backends.twitter.TwitterOAuth',
     'django.contrib.auth.backends.ModelBackend',
+    'social.backends.vk.VKOAuth2',
 )
 SOCIAL_AUTH_FACEBOOK_KEY = '542329375940973'
 SOCIAL_AUTH_FACEBOOK_SECRET = '36b075370d6f7e06ac4d225d3d2d3f6d'
@@ -114,6 +113,8 @@ SOCIAL_AUTH_TWITTER_KEY = 'NhgU9mhPvZVmqzbH19d7rOP4r'
 SOCIAL_AUTH_TWITTER_SECRET = 'Ourbh9QRmxabR3Ktvlo3jdfSAy0Wwir9jaI6Re2C64DucZeC1s'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '240649527890-d6rbb1stb0ie7su6far0n8hf391qqsnu.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'cFNOhKr97kUKwu0zILkFD2Hx'
+SOCIAL_AUTH_VK_OAUTH2_KEY = '5387686'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = 'qUslkggkHce9NjkGTrhx'
 
 # for 'registration' app 
 REGISTRATION_OPEN = True

@@ -88,9 +88,11 @@
                 
                 <!-- User's toolbar for anonymous users -->
                 <div class="col-xs-6" id="user-toolbar">
-                    <a href="{% url "social:begin" "facebook" %}?next={{ request.path }}"><img heigh="32" width="170" src="{% static "img/facebook_login.png" %}" alt="{% trans "via Facebook" %}"></a>
-                    <a href="{% url "social:begin" "twitter" %}?next={{ request.path }}"><img heigh="32" width="170" src="{% static "img/twitter_login.png" %}" alt="{% trans "via Facebook" %}"></a>
-                    <a href="{% url "social:begin" "google-oauth2" %}?next={{ request.path }}"><img heigh="32" width="170" src="{% static "img/google_login.png" %}" alt="{% trans "via Facebook" %}"></a><br>
+                    <span>{% trans "Sign in with: " %}</span>
+                    <a href="{% url "social:begin" "facebook" %}?next={{ request.path }}"><img heigh="35" width="35" src="{% static "img/fb_short.png" %}" alt="{% trans "FB" %}"></a>
+                    <a href="{% url "social:begin" "twitter" %}?next={{ request.path }}"><img heigh="35" width="35" src="{% static "img/tw_short.png" %}" alt="{% trans "Tw" %}"></a>
+                    <a href="{% url "social:begin" "google-oauth2" %}?next={{ request.path }}"><img heigh="35" width="35" src="{% static "img/g_short.png" %}" alt="{% trans "G" %}"></a>
+                    <a href="{% url "social:begin" "vk-oauth2" %}?next={{ request.path }}"><img heigh="35" width="35" src="{% static "img/vk_short.png" %}" alt="{% trans "Vk" %}"></a><br>
                     <a href="{% url "users:auth_login" %}">{% trans "Login" %}</a> |
                     <a href="{% url "users:registration_register" %}">{% trans "Register" %}</a><br>
                 </div>
