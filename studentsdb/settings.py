@@ -119,10 +119,12 @@ SOCIAL_AUTH_VK_OAUTH2_SECRET = 'qUslkggkHce9NjkGTrhx'
 # for 'registration' app 
 REGISTRATION_OPEN = True
 ACCOUNT_ACTIVATION_DAYS = 1
+REGISTRATION_FORM = 'stud_auth.forms.CustomRegForm'
 #PORTAL_URL = 'http://localhost:8000'
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'students', 'templates', 'students'),
+    os.path.join(BASE_DIR, 'stud_auth', 'templates'),
 )
 
 LOGIN_URL = 'users:auth_login'
