@@ -1,0 +1,35 @@
+
+{% extends "students/base.html" %}
+
+{% load i18n %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% load assign_variable %} 
+
+{% block meta_title %}
+{% assign_variable user_info user as profile %} 
+{{ profile.get_full_name|default:profile.username }} - edit
+{% endblock meta_title %}
+
+{% block title %}
+{% assign_variable user_info user as profile %} 
+{{ profile.get_full_name|default:profile.username }} - edit
+{% endblock title %}
+
+
+{% block content %}
+
+{% assign_variable user_info user as profile %} 
+
+{% if profile.username == user.username %}
+<a href="{% url "password_change" %}">[ {% trans "Change password" %} ]</a>
+{% endif %}
+<br><br>
+
+{% crispy form %}
+
+{% endblock content %}
+

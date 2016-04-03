@@ -11,7 +11,7 @@ from django.forms import ModelForm, ValidationError, ChoiceField, Select
 from django.utils.translation import ugettext as _
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Field
+from crispy_forms.layout import Submit, Layout, Field, HTML
 from crispy_forms.bootstrap import FormActions
 
 from ..models.group import Group
@@ -78,7 +78,7 @@ class GroupCreateForm(ModelForm):
         self.helper.layout.append(
             FormActions(
                 Submit('edit_button', _(u'Save'), css_class="btn btn-primary"),
-                Submit("cancel_button", _(u'Cancel'), css_class="btn btn-link"),
+                HTML(u"<a class='btn btn-link' href='%s'>%s</a>" % (reverse('groups'), _(u'Cancel'))),
             )
         )
         self.fields['leader'].widget.attrs = {'disabled': 'True'}
@@ -97,12 +97,6 @@ class GroupCreateView(DispatchLoginRequired, SuccessMessageMixin, CreateView):
         context.update({"page_title": _(u"Create Group")})
         return context
 
-    def post(self, request, *args, **kwargs):
-        if request.POST.get('cancel_button'):
-            messages.info(request, _(u"Creationg of a group canceled"))
-            return HttpResponseRedirect(self.success_url)
-        else:
-            return super(GroupCreateView, self).post(request, *args, **kwargs)
 
 #def groups_edit(request, pk):
 #    return HttpResponse('<h1>Edit Group %s' % pk)

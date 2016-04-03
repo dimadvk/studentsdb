@@ -2,6 +2,8 @@
 
 {% load i18n %}
 
+{% load static %}
+
 {% load assign_variable %} 
 
 {% block meta_title %}
@@ -20,10 +22,31 @@
 {% assign_variable user_info user as profile %} 
 
 {% if profile.username == user.username %}
-<a href="{% url "password_change" %}">[ {% trans "Change password" %} ]</a><br><br>
+<a href="{% url "password_change" %}">[ {% trans "Change password" %} ]</a>
+<a href="{% url "user_profile_edit" %}">[ Edit profile ]</a>
 {% endif %}
+<br><br>
 
-<table class="table table-stripped">
+<table class="table table-striped">
+
+    <tr>
+        <td>{% trans "Photo" %}:</td>
+        <td>
+            {% if profile.stprofile.photo %}
+                <img heigh="100" width="100" src="{{ profile.stprofile.photo.url }}" class="img-rounded"/>
+            {% else %}
+                <img heigh="100" width="100" src="{% static "img/default_user.jpg" %}" class="img-rounded"/>
+            {% endif %}
+        </td>
+    </tr>
+
+    {% if profile.username %}
+    <tr>
+        <td>{% trans "Username" %}:</td>
+        <td>{{ profile.username }}</td>
+    </tr>
+    {% endif %}
+
     {% if profile.email %}
     <tr>
         <td>{% trans "Email" %}:</td>
@@ -31,10 +54,24 @@
     </tr>
     {% endif %}
 
-    {% if profile.username %}
+    {% if profile.stprofile.mobile_phone %}
     <tr>
-        <td>{% trans "Username" %}:</td>
-        <td>{{ profile.username }}</td>
+        <td>{% trans "Mobile Phone" %}:</td>
+        <td>{{ profile.stprofile.mobile_phone }}</td>
+    </tr>
+    {% endif %}
+
+    {% if profile.stprofile.address %}
+    <tr>
+        <td>{% trans "Address" %}:</td>
+        <td>{{ profile.stprofile.address }}</td>
+    </tr>
+    {% endif %}
+
+    {% if profile.stprofile.passport_id %}
+    <tr>
+        <td>{% trans "Passport id" %}:</td>
+        <td>{{ profile.stprofile.passport_id }}</td>
     </tr>
     {% endif %}
 
@@ -45,12 +82,6 @@
     </tr>
     {% endif %}
 
-    {% if profile.stprofile.mobile_phone %}
-    <tr>
-        <td>{% trans "Mobile Phone" %}:</td>
-        <td>{{ profile.stprofile.mobile_phone }}</td>
-    </tr>
-    {% endif %}
 </table>
 
 {% endblock content %}

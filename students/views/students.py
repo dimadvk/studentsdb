@@ -45,12 +45,6 @@ class StudentUpdateView(DispatchLoginRequired, SuccessMessageMixin, UpdateView):
         context.update({'page_title': _(u"Edit Student")})
         return context
 
-    def post(self, request, *args, **kwargs):
-        if request.POST.get('cancel_button'):
-            messages.info(self.request, _(u"Student editing canceled!"))
-            return HttpResponseRedirect(reverse('home'))
-        else:
-            return super(StudentUpdateView, self).post(request, *args, **kwargs)
 
 
 class StudentDeleteView(DispatchLoginRequired, DeleteView):

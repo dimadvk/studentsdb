@@ -20,7 +20,7 @@ from students.views.groups import GroupUpdateView
 from students.views.groups import GroupCreateView
 from students.views.journal import JournalView
 from students.views.action_journal import ActionListView
-from stud_auth.views import UsersListView, UserDetailView
+from stud_auth.views import UsersListView, UserDetailView, UserUpdateView
 from registration.backends.default import views as registration_views
 
 #test
@@ -99,7 +99,9 @@ urlpatterns = patterns('',
     url(r'^users/profiles/$', login_required(UsersListView.as_view()), name='users_list'),
     url(r'^users/profile/$', login_required(TemplateView.as_view(
         template_name='registration/profile.html')), name='profile'),
+    #url(r'^users/profile/(?P<username>[a-zA-Z@+-_.0-9]+)/$', login_required(UserDetailView.as_view()), name='user_profile'),
     url(r'^users/profile/(?P<pk>\d+)/$', login_required(UserDetailView.as_view()), name='user_profile'),
+    url(r'^users/profile/edit/$', login_required(UserUpdateView.as_view()), name='user_profile_edit'),
     url(r'^users/logout/$', auth_views.logout, kwargs={'next_page': 'home'}, name='auth_logout'),
     url(r'^users/register/complete/$', RedirectView.as_view(pattern_name='home'), name='registration_complete'),
     url(r'^users/activate/complete/$',
