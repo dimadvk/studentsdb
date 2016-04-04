@@ -2,6 +2,7 @@
 
 {% load i18n %}
 {% load static from staticfiles %}
+{% load pagenav %}
 
 {% block meta_title %}{% trans "Students" %}{% endblock meta_title %}
 
@@ -104,10 +105,13 @@
 </form>
 <!-- End Students Listing -->
 
+{% pagenav object_list=students is_paginated=is_paginated paginator=paginator %}
 
+{% comment %}
 {% with object_list=students %}
     {% include "students/pagination.html" %}
 {% endwith %}  
+{% endcomment %}
 
 {% comment %}
 kjhkjdhfkjsdhkjshdksjdhf
