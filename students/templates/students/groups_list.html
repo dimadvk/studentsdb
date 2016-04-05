@@ -3,6 +3,7 @@
 
 {% load static from staticfiles %}
 {% load i18n %}
+{% load pagenav %}
 
 {% block meta_title %}{% trans "Groups" %}{% endblock meta_title %}
 
@@ -66,6 +67,9 @@
     </tbody>						
 </table>					
 <!-- End Students Listing -->
+
+{% pagenav object_list=groups is_paginated=is_paginated paginator=paginator %}
+{% comment %}
 {% if groups.has_other_pages %}
 {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
 <nav>
@@ -84,4 +88,6 @@
 </nav>
 {% endwith %}
 {% endif %}
+{% endcomment %}
+
 {% endblock content %}

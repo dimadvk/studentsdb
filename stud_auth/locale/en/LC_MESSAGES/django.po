@@ -16,36 +16,34 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: forms.py:29
 msgid "Register"
-msgstr "Зареєструватися"
+msgstr ""
 
 #: forms.py:30 forms.py:66
 msgid "Cancel"
-msgstr "Відмінити"
+msgstr ""
 
 #: forms.py:65
 msgid "Save"
-msgstr "Зберегти"
+msgstr ""
 
 #: models.py:12 models.py:13
 msgid "Additional User Info"
-msgstr "Додаткова інформація про користувача"
+msgstr ""
 
 #: models.py:19 templates/registration/profile.html:59
 msgid "Mobile Phone"
-msgstr "Мобільний телефон"
+msgstr ""
 
 #: models.py:26
 msgid "passport id"
-msgstr "номер паспорта"
+msgstr ""
 
 #: models.py:33
 msgid "address"
-msgstr "адреса"
+msgstr ""
 
 #: models.py:39
 msgid "photo"
@@ -53,29 +51,27 @@ msgstr ""
 
 #: templates/registration/activate.html:5
 msgid "Account activation failed!"
-msgstr "Активація не відбулась"
+msgstr ""
 
 #: templates/registration/activation_complete.html:4
 msgid "Account Activated"
-msgstr "Акаунт активовано"
+msgstr ""
 
 #: templates/registration/activation_complete.html:8
 msgid "Your account is now activated."
-msgstr "Ваш аккаунт активованою"
+msgstr ""
 
 #: templates/registration/activation_complete.html:10
 msgid "You can "
-msgstr "Ви можете"
+msgstr ""
 
 #: templates/registration/activation_complete.html:10
 msgid "log in."
-msgstr "увійти"
+msgstr ""
 
 #: templates/registration/activation_email.html:7
-#, fuzzy
-#| msgid "Register"
 msgid "registration"
-msgstr "Зареєструватися"
+msgstr ""
 
 #: templates/registration/activation_email.html:12
 #, python-format
@@ -87,12 +83,6 @@ msgid ""
 "    and your address will be removed from our records.\n"
 "    "
 msgstr ""
-"\n"
-"   Ви (або хтось, хто видає себе за вас) лишили запит на реєстрацію акаунта"
-"на\n"
-"   %(site_name)s. Якщо це були не ви, будь ласка, проігноруєте це повідомлення\n"
-"   і ваша адреса буде видалена з нашої бази.\n"
-"   "
 
 #: templates/registration/activation_email.html:19
 #, python-format
@@ -103,10 +93,6 @@ msgid ""
 "    %(expiration_days)s days:\n"
 "    "
 msgstr ""
-"\n"
-"   Для активації акаунта, будь ласка, відкрийте наступний лінк\n"
-"   протягом %(expiration_days)s днів:\n"
-"   "
 
 #: templates/registration/activation_email.html:31
 #, python-format
@@ -116,10 +102,6 @@ msgid ""
 "    %(site_name)s Management\n"
 "    "
 msgstr ""
-"\n"
-"   З повагою, \n"
-"   адміністратор %(site_name)s"
-"   "
 
 #: templates/registration/activation_email.txt:3
 #, python-format
@@ -129,12 +111,6 @@ msgid ""
 "%(site_name)s.  If this wasn't you, please ignore this email\n"
 "and your address will be removed from our records.\n"
 msgstr ""
-"\n"
-"   Ви (або хтось, хто видає себе за вас) лишили запит на реєстрацію акаунта"
-"на\n"
-"   %(site_name)s. Якщо це були не ви, будь ласка, проігноруєте це повідомлення\n"
-"   і ваша адреса буде видалена з нашої бази.\n"
-
 
 #: templates/registration/activation_email.txt:8
 #, python-format
@@ -143,9 +119,6 @@ msgid ""
 "To activate this account, please click the following link within the next\n"
 "%(expiration_days)s days:\n"
 msgstr ""
-"\n"
-"   Для активації акаунта, будь ласка, відкрийте наступний лінк\n"
-"   протягом %(expiration_days)s днів:\n"
 
 #: templates/registration/activation_email.txt:15
 #, python-format
@@ -154,83 +127,60 @@ msgid ""
 "Sincerely,\n"
 "%(site_name)s Management\n"
 msgstr ""
-"\n"
-"З повагою, \n"
-"адміністратор %(site_name)s\n"
 
 #: templates/registration/activation_email_subject.txt:1
 msgid "Account activation on"
-msgstr "Активація акаунта"
+msgstr ""
 
 #: templates/registration/profile.html:25
 #: templates/registration/profile_edit.html:28
-#, fuzzy
-#| msgid "Confirm Password"
 msgid "Change password"
-msgstr "Підтвердіть пароль"
+msgstr ""
 
 #: templates/registration/profile.html:33
 msgid "Photo"
-msgstr "Фото"
+msgstr ""
 
 #: templates/registration/profile.html:45
 #: templates/registration/users_list.html:16
 msgid "Username"
-msgstr "Ім’я користувача"
+msgstr ""
 
 #: templates/registration/profile.html:52
 #: templates/registration/users_list.html:18
 msgid "Email"
-msgstr "Імейл"
+msgstr ""
 
 #: templates/registration/profile.html:66
 msgid "Address"
-msgstr "Адреса"
+msgstr ""
 
 #: templates/registration/profile.html:73
 msgid "Passport id"
-msgstr "Номер пасрпорта"
+msgstr ""
 
 #: templates/registration/profile.html:80
 msgid "Joined"
-msgstr "Залогований"
+msgstr ""
 
 #: templates/registration/registration_form.html:6
 #: templates/registration/registration_form.html:8
 msgid "Register Form"
-msgstr "Реєстраційна форма"
+msgstr ""
 
 #: templates/registration/registration_form.html:13
 msgid "Please, correct the following errors."
-msgstr "Будь ласка, виправте помилки."
+msgstr ""
 
 #: templates/registration/users_list.html:6
 #: templates/registration/users_list.html:8
 msgid "Users List"
-msgstr "Список користувачів"
+msgstr ""
 
 #: templates/registration/users_list.html:17
 msgid "Full Name"
-msgstr "Повне Ім’я"
+msgstr ""
 
 #: views.py:41
 msgid "Profile successfully updated!"
-msgstr "Профіль оновлено!"
-
-#~ msgid "User Profile"
-#~ msgstr "Профіль Користувача"
-
-#~ msgid "Login Form"
-#~ msgstr "Форма Входу"
-
-#~ msgid "Your Username"
-#~ msgstr "Ім’я Користувача"
-
-#~ msgid "Your Password"
-#~ msgstr "Пароль"
-
-#~ msgid "Login"
-#~ msgstr "Увійти"
-
-#~ msgid "Your Email"
-#~ msgstr "Ваш Імейл"
+msgstr ""
