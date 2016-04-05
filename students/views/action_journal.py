@@ -1,3 +1,4 @@
+from time import sleep
 from django.views.generic import ListView
 
 from ..models.action import Action
@@ -14,6 +15,7 @@ class ActionListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(ActionListView, self).get_context_data(**kwargs)
         context = paginate(self.queryset, 10, self.request, context, var_name='actions')
+        # sleep(1)
         return context
 
 

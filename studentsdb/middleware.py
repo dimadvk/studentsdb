@@ -23,9 +23,15 @@ class RequestTimeMiddleware(object):
             return response
 
         request.end_time = datetime.now()
+        time_delta = request.end_time - request.start_time
         if 'text/html' in response.get('Content-Type', ''):
-            response.write('<br />Request took: %s' % str(
-                request.end_time - request.start_time))
+            if time_delta.seconds < 1:
+                response.write('<br />Request took: %s' % str(
+                    time_delta))
+            else:
+                response = HttpResponse('''
+                    <h2>It took more than 1 second to make the response.<br>
+                    Please, remaster your code!<h2>''')
 
         return response
 
