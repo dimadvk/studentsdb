@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-04 14:58+0000\n"
+"POT-Creation-Date: 2016-04-07 11:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,24 +54,28 @@ msgstr ""
 msgid "model verbose name"
 msgstr ""
 
-#: models/group.py:11 models/student.py:49
+#: models/group.py:12 models/student.py:49
 msgid "group"
 msgstr ""
 
-#: models/group.py:12
+#: models/group.py:13
 msgid "groups"
 msgstr ""
 
-#: models/group.py:17
+#: models/group.py:18
 msgid "name"
 msgstr ""
 
-#: models/group.py:20
+#: models/group.py:21
 msgid "leader"
 msgstr ""
 
-#: models/group.py:27
+#: models/group.py:28
 msgid "additional notes"
+msgstr ""
+
+#: models/group.py:31
+msgid "mmyyss"
 msgstr ""
 
 #: models/monthjournal.py:8
@@ -187,14 +191,14 @@ msgstr ""
 msgid "Students"
 msgstr ""
 
-#: templates/students/base.html:118 templates/students/groups_list.html:57
+#: templates/students/base.html:118 templates/students/groups_list.html:58
 #: templates/students/journal.html:7 templates/students/journal.html.py:8
 #: templates/students/students_list.html:90
 msgid "Journal"
 msgstr ""
 
-#: templates/students/base.html:120 templates/students/groups_list.html:7
-#: templates/students/groups_list.html:10
+#: templates/students/base.html:120 templates/students/groups_list.html:8
+#: templates/students/groups_list.html:11
 msgid "Groups"
 msgstr ""
 
@@ -226,33 +230,33 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: templates/students/groups_list.html:12 views/groups.py:97
+#: templates/students/groups_list.html:13 views/groups.py:98
 msgid "Create Group"
 msgstr ""
 
-#: templates/students/groups_list.html:25
+#: templates/students/groups_list.html:26
 msgid "Group Name"
 msgstr ""
 
-#: templates/students/groups_list.html:32
+#: templates/students/groups_list.html:33
 msgid "Leader"
 msgstr ""
 
-#: templates/students/groups_list.html:39
+#: templates/students/groups_list.html:40
 #: templates/students/students_list.html:49
 msgid "Actions"
 msgstr ""
 
-#: templates/students/groups_list.html:48
 #: templates/students/groups_list.html:49
-#: templates/students/groups_list.html:56 templates/students/journal.html:54
+#: templates/students/groups_list.html:50
+#: templates/students/groups_list.html:57 templates/students/journal.html:54
 #: templates/students/students_list.html:70
 #: templates/students/students_list.html:77
 #: templates/students/students_list.html:89
 msgid "Edit"
 msgstr ""
 
-#: templates/students/groups_list.html:58
+#: templates/students/groups_list.html:59
 #: templates/students/students_list.html:91
 #: templates/students/students_list.html:103
 msgid "Delete"
@@ -368,36 +372,36 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: views/groups.py:80 views/students_add.py:57
+#: views/groups.py:81 views/students_add.py:57
 msgid "Save"
 msgstr ""
 
-#: views/groups.py:81 views/students_add.py:58
+#: views/groups.py:82 views/students_add.py:58
 msgid "Cancel"
 msgstr ""
 
-#: views/groups.py:93
+#: views/groups.py:94
 msgid "The group successfully created!"
 msgstr ""
 
-#: views/groups.py:117
+#: views/groups.py:118
 msgid "The student is not a member of the group!"
 msgstr ""
 
-#: views/groups.py:128
+#: views/groups.py:129
 #, python-format
 msgid "The group \"%(title)s\" successfully saved!"
 msgstr ""
 
-#: views/groups.py:132
+#: views/groups.py:133
 msgid "Edit Group"
 msgstr ""
 
-#: views/groups.py:137
+#: views/groups.py:138
 msgid "Edit canceled"
 msgstr ""
 
-#: views/groups.py:158
+#: views/groups.py:159
 msgid "Group that contains students couldn't be deleted!"
 msgstr ""
 

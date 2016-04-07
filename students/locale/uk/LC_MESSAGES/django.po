@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-04 14:58+0000\n"
+"POT-Creation-Date: 2016-04-07 11:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,27 +61,31 @@ msgstr "назва моделі"
 msgid "model verbose name"
 msgstr "повна назва моделі"
 
-#: models/group.py:11 models/student.py:49
+#: models/group.py:12 models/student.py:49
 msgid "group"
 msgstr "група"
 
-#: models/group.py:12
+#: models/group.py:13
 #, fuzzy
 #| msgid "Groups"
 msgid "groups"
 msgstr "групи"
 
-#: models/group.py:17
+#: models/group.py:18
 msgid "name"
 msgstr "назва"
 
-#: models/group.py:20
+#: models/group.py:21
 msgid "leader"
 msgstr "староста"
 
-#: models/group.py:27
+#: models/group.py:28
 msgid "additional notes"
 msgstr "додаткові примітки"
+
+#: models/group.py:31
+msgid "mmyyss"
+msgstr "ммоояя"
 
 #: models/monthjournal.py:8
 msgid "month journal"
@@ -204,14 +208,14 @@ msgstr "Реєстрація"
 msgid "Students"
 msgstr "Студенти"
 
-#: templates/students/base.html:118 templates/students/groups_list.html:57
+#: templates/students/base.html:118 templates/students/groups_list.html:58
 #: templates/students/journal.html:7 templates/students/journal.html.py:8
 #: templates/students/students_list.html:90
 msgid "Journal"
 msgstr "Відвідування"
 
-#: templates/students/base.html:120 templates/students/groups_list.html:7
-#: templates/students/groups_list.html:10
+#: templates/students/base.html:120 templates/students/groups_list.html:8
+#: templates/students/groups_list.html:11
 msgid "Groups"
 msgstr "Групи"
 
@@ -243,33 +247,33 @@ msgstr "Так"
 msgid "No"
 msgstr "Ні"
 
-#: templates/students/groups_list.html:12 views/groups.py:97
+#: templates/students/groups_list.html:13 views/groups.py:98
 msgid "Create Group"
 msgstr "Додати Групу"
 
-#: templates/students/groups_list.html:25
+#: templates/students/groups_list.html:26
 msgid "Group Name"
 msgstr "Назва Групи"
 
-#: templates/students/groups_list.html:32
+#: templates/students/groups_list.html:33
 msgid "Leader"
 msgstr "Староста"
 
-#: templates/students/groups_list.html:39
+#: templates/students/groups_list.html:40
 #: templates/students/students_list.html:49
 msgid "Actions"
 msgstr "Дії"
 
-#: templates/students/groups_list.html:48
 #: templates/students/groups_list.html:49
-#: templates/students/groups_list.html:56 templates/students/journal.html:54
+#: templates/students/groups_list.html:50
+#: templates/students/groups_list.html:57 templates/students/journal.html:54
 #: templates/students/students_list.html:70
 #: templates/students/students_list.html:77
 #: templates/students/students_list.html:89
 msgid "Edit"
 msgstr "Редагувати"
 
-#: templates/students/groups_list.html:58
+#: templates/students/groups_list.html:59
 #: templates/students/students_list.html:91
 #: templates/students/students_list.html:103
 msgid "Delete"
@@ -387,36 +391,36 @@ msgstr "Ім’я"
 msgid "Email"
 msgstr "Ваш email"
 
-#: views/groups.py:80 views/students_add.py:57
+#: views/groups.py:81 views/students_add.py:57
 msgid "Save"
 msgstr "Зберегти"
 
-#: views/groups.py:81 views/students_add.py:58
+#: views/groups.py:82 views/students_add.py:58
 msgid "Cancel"
 msgstr "Відмінити"
 
-#: views/groups.py:93
+#: views/groups.py:94
 msgid "The group successfully created!"
 msgstr "Групу успішно створено"
 
-#: views/groups.py:117
+#: views/groups.py:118
 msgid "The student is not a member of the group!"
 msgstr "Студент не входить до даної групи!"
 
-#: views/groups.py:128
+#: views/groups.py:129
 #, python-format
 msgid "The group \"%(title)s\" successfully saved!"
 msgstr "Групу \"%(title)s\" успішно збережено!"
 
-#: views/groups.py:132
+#: views/groups.py:133
 msgid "Edit Group"
 msgstr "Редагувати Групу"
 
-#: views/groups.py:137
+#: views/groups.py:138
 msgid "Edit canceled"
 msgstr "Редагування відмінено"
 
-#: views/groups.py:158
+#: views/groups.py:159
 msgid "Group that contains students couldn't be deleted!"
 msgstr "Не можливо видалити групу, що містить студентів"
 

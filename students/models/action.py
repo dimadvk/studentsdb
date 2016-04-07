@@ -31,4 +31,3 @@ class Action(models.Model):
         blank = False,
         max_length = 256,
     )
-

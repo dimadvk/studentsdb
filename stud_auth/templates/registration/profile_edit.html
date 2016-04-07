@@ -2,21 +2,20 @@
 {% extends "students/base.html" %}
 
 {% load i18n %}
-
 {% load crispy_forms_tags %}
-
 {% load static %}
 
 {% load assign_variable %} 
+{% load nice_username %}
 
 {% block meta_title %}
 {% assign_variable user_info user as profile %} 
-{{ profile.get_full_name|default:profile.username }} - edit
+{{ profile|nice_username }} - edit
 {% endblock meta_title %}
 
 {% block title %}
 {% assign_variable user_info user as profile %} 
-{{ profile.get_full_name|default:profile.username }} - edit
+{{ profile|nice_username }} - edit
 {% endblock title %}
 
 
