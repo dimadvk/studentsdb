@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.http import HttpResponse
 from django.conf import settings
+from django.db import connection
 
 
 class RequestTimeMiddleware(object):
@@ -25,12 +26,12 @@ class RequestTimeMiddleware(object):
         request.end_time = datetime.now()
         time_delta = request.end_time - request.start_time
         if 'text/html' in response.get('Content-Type', ''):
-            if time_delta.seconds < 1:
+            if time_delta.seconds < 2:
                 response.write('<br />Request took: %s' % str(
                     time_delta))
             else:
                 response = HttpResponse('''
-                    <h2>It took more than 1 second to make the response.<br>
+                    <h2>It took more than 2 seconds to make the response.<br>
                     Please, remaster your code!<h2>''')
 
         return response
@@ -43,3 +44,22 @@ class RequestTimeMiddleware(object):
 
     def process_exception(self, request, exception):
         return HttpResponse('Exception found: %s' % exception)
+
+
+class SqlQueriesTimeMiddleware(object):
+    """Display on a page the time of sql queries"""
+
+    def process_response(self, request, response):
+        if settings.DEBUG == False:
+            return response
+
+        queries_time = 0
+        for query in connection.queries:
+            query_time = query.get('time')
+            queries_time += float(query_time)
+
+        if 'text/html' in response.get('Content-Type', ''):
+            response.write('<br />SQL queries took: %s' % str(
+                queries_time))
+
+        return response
