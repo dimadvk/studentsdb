@@ -1,5 +1,6 @@
 {% load static from staticfiles %}
 {% load i18n %}
+{% load select_menu %}
 
 <!DOCTYPE html>
 
@@ -112,20 +113,20 @@
                     {% url 'contact_admin' as contact_admin %}
                     <ul class="nav nav-tabs">
                         <li role="presentation" 
-                            {% if request.path == home_page %} class="active" {% endif %}><a href="{{ home_page }}">{% trans "Students" %}</a></li>
+                            {% select_menu 'home' %}><a href="{{ home_page }}">{% trans "Students" %}</a></li>
                         {% if user.is_authenticated %}
                         <li role="presentation" 
-                            {% if journal_page in request.path %} class="active" {%endif%}><a href="{{ journal_page }}">{% trans "Journal" %}</a></li>
+                            {% select_menu 'journal' %}><a href="{{ journal_page }}">{% trans "Journal" %}</a></li>
                         <li role="presentation" 
-                            {% if groups_page in request.path %} class="active" {% endif %}><a href="{{ groups_page }}">{% trans "Groups" %}</a></li>
+                            {% select_menu 'groups' %}><a href="{{ groups_page }}">{% trans "Groups" %}</a></li>
                         <li role="presentation" 
-                            {% if actions_page in request.path %} class="active" {% endif %}><a href="{{ actions_page }}">{% trans "Action Journal" %}</a></li>
+                            {% select_menu 'action_journal' %}><a href="{{ actions_page }}">{% trans "Action Journal" %}</a></li>
                         <li role="presentation" 
-                            {% if users_page in request.path %} class="active" {% endif %}><a href="{{ users_page }}">{% trans "Users" %}</a></li>
+                            {% select_menu 'users_list' %}><a href="{{ users_page }}">{% trans "Users" %}</a></li>
                         {% endif %}
                         {% if perms.auth.add_user %}
                         <li role="presentation" 
-                            {% if contact_admin in request.path %} class="active" {% endif %}><a href="{{ contact_admin }}">{% trans "Contact" %}</a></li>
+                            {% select_menu 'contact_admin' %}><a href="{{ contact_admin }}">{% trans "Contact" %}</a></li>
                         {% endif %}
                     </ul>
 			    </div>
