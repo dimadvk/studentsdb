@@ -1,4 +1,6 @@
 from datetime import datetime
+import re
+from bs4 import BeautifulSoup
 
 from django.http import HttpResponse
 from django.conf import settings
@@ -27,8 +29,17 @@ class RequestTimeMiddleware(object):
         time_delta = request.end_time - request.start_time
         if 'text/html' in response.get('Content-Type', ''):
             if time_delta.seconds < 2:
-                response.write('<br />Request took: %s' % str(
-                    time_delta))
+                #response.write('<br />Request took: %s' % str(
+                #    time_delta))
+                # -
+                #insert_text = '<body><code style="margin-left:20px;">Request took: ' + str(time_delta) + '</code>'
+                #response.content = re.sub('\<body\>', insert_text, response.content)
+                # -
+                soup = BeautifulSoup(response.content)
+                time_measure_tag = soup.new_tag('code', style='margin-left:20px')
+                time_measure_tag.append('Request took: %s' % str(time_delta))
+                soup.body.insert(0, time_measure_tag)
+                response.content = soup.prettify(soup.original_encoding)
             else:
                 response = HttpResponse('''
                     <h2>It took more than 2 seconds to make the response.<br>
@@ -53,13 +64,21 @@ class SqlQueriesTimeMiddleware(object):
         if settings.DEBUG == False:
             return response
 
-        queries_time = 0
+        time_queries = 0
         for query in connection.queries:
             query_time = query.get('time')
-            queries_time += float(query_time)
+            time_queries += float(query_time)
 
         if 'text/html' in response.get('Content-Type', ''):
-            response.write('<br />SQL queries took: %s' % str(
-                queries_time))
+            #insert_text = '<body><code style="margin-left:20px;">SQL queries took: ' + str(time_queries) + '</code>'
+            #response.content = re.sub('\<body\>', insert_text, response.content)
+            # -
+            #response.write('<br />SQL queries took: %s' % str(
+            #    time_queries))
+            soup = BeautifulSoup(response.content)
+            time_measure_tag = soup.new_tag('code', style='margin-left:20px')
+            time_measure_tag.append('SQL queries took: %s' % str(time_queries))
+            soup.body.insert(0, time_measure_tag)
+            response.content = soup.prettify(soup.original_encoding)
 
         return response

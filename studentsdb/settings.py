@@ -52,7 +52,7 @@ INSTALLED_APPS = (
 
 MIDDLEWARE_CLASSES = (
 #    'debug_toolbar.middleware.DebugToolbarMiddleware',
-#    'studentsdb.middleware.RequestTimeMiddleware',
+    'studentsdb.middleware.RequestTimeMiddleware',
     'studentsdb.middleware.SqlQueriesTimeMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
