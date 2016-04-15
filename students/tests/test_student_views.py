@@ -60,6 +60,25 @@ class TestStudentList(TestCase):
             response.content)
 
         # ensure we got 3 students, pagination limit is 3
-        self.assertEqual(len(response.context['students']), 3)
+        self.assertEqual(len(response.context['students']), 4)
 
+    def test_current_group(self):
+        # set group as currently selected group
+        group = Group.objects.filter(title='MtM-1')[0]
+        self.client.cookies['current_group'] = group.id
 
+        # make request to the server to get homepage page
+        response = self.client.get(self.url)
+
+        # in group1 we have only 1 student
+        self.assertEqual(len(response.context['students']), 1)
+
+    def test_order_by(self):
+        # set order by Last Name
+        response = self.clien.get(self.url, {'order_by': 'last_name'})
+
+        # now check if we got proper order
+        students = response.context['students']
+        self.assertEqual(students[0].last_name, 'l_name1')
+        self.assertEqual(students[1].last_name, 'l_name2')
+        self.assertEqual(students[2].last_name, 'l_name3')
