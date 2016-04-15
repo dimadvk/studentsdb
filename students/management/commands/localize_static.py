@@ -14,10 +14,14 @@ class Command(BaseCommand):
 find links to static files, download these files, \
 replace external links to local""")
 
-    APP_NAME = 'students'
+    APP_NAME = settings.LOCALIZE_STATIC.get('app_name')
     TEMPLATE_NAME = 'base.html'
-    PATH_DIR_STATIC_CSS = os.path.join(settings.BASE_DIR, APP_NAME, 'static', 'css')
-    PATH_DIR_STATIC_JS = os.path.join(settings.BASE_DIR, APP_NAME, 'static', 'js')
+    PATH_DIR_STATIC_CSS = os.path.join(
+        settings.BASE_DIR, APP_NAME, 'static',
+        settings.LOCALIZE_STATIC.get('static_css_dir'))
+    PATH_DIR_STATIC_JS = os.path.join(
+        settings.BASE_DIR, APP_NAME, 'static',
+        settings.LOCALIZE_STATIC.get('static_js_dir'))
     PATH_TEMPLATE = os.path.join(settings.BASE_DIR, APP_NAME, 'templates', APP_NAME, TEMPLATE_NAME)
 
     def handle(self, *args, **options):

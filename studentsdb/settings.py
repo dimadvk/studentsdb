@@ -54,6 +54,7 @@ MIDDLEWARE_CLASSES = (
 #    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'studentsdb.middleware.RequestTimeMiddleware',
     'studentsdb.middleware.SqlQueriesTimeMiddleware',
+    'studentsdb.middleware.LocalizeStaticMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -151,6 +152,14 @@ SERVER_EMAIL = "dvk@skif.net.ua"
 MANAGERS = [
     ('admin', 'ren-kpi@i.ua'),
 ]
+
+# for localize static management command and LocalizeStaticMiddleware 
+LOCALIZE_STATIC = {
+    'app_name': 'students',
+    'static_css_dir': 'css',
+    'static_js_dir': 'js'
+}
+
 
 # messages - storage backend
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
