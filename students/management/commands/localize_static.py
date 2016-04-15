@@ -37,15 +37,15 @@ replace external links to local""")
         urls_static_css = [tag.attrs.get('href') for tag in tags_static_css]
         urls_static_js = [tag.attrs.get('src') for tag in tags_static_js]
 
-        # download all the files to <app_name>/static
+        # download all the files to <app_name>/static/< css|js >/
         # show progress of downloading
         print "Start downloading files:"
         for url in urls_static_css:
             result = self._download_static_file(url, self.PATH_DIR_STATIC_CSS)
-            print _(u"Get file: %(filename)s; status: %(status)s" % result)
+            print _(u"Get file: %(filename)s -:::::- Status: %(status)s" % result)
         for url in urls_static_js:
             result = self._download_static_file(url, self.PATH_DIR_STATIC_JS)
-            print _(u"Get file: %(filename)s; status: %(status)s" % result)
+            print _(u"Get file: %(filename)s -:::::- Status: %(status)s" % result)
 
         # make middleware for replacement:
         # replace all urls in soup - external to local

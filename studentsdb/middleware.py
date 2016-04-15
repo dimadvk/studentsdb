@@ -1,5 +1,5 @@
-from datetime import datetime
 import re
+from datetime import datetime
 from bs4 import BeautifulSoup
 
 from django.http import HttpResponse
@@ -80,5 +80,40 @@ class SqlQueriesTimeMiddleware(object):
             time_measure_tag.append('SQL queries took: %s' % str(time_queries))
             soup.body.insert(0, time_measure_tag)
             response.content = soup.prettify(soup.original_encoding)
+
+        return response
+
+
+class LocalizeStaticMiddleware(object):
+    """Process links to static files, replase external links to local links if file exists."""
+
+    def process_response(self, request, response):
+        if settings.DEBUG == False:
+            return response
+        # if our process_request was canceled somewhere within
+        # middleware stack, we can not calculate request time
+
+        if not hasattr(request, 'start_time'):
+            return response
+
+        request.end_time = datetime.now()
+        time_delta = request.end_time - request.start_time
+        if 'text/html' in response.get('Content-Type', ''):
+            if time_delta.seconds < 2:
+                #response.write('<br />Request took: %s' % str(
+                #    time_delta))
+                # -
+                #insert_text = '<body><code style="margin-left:20px;">Request took: ' + str(time_delta) + '</code>'
+                #response.content = re.sub('\<body\>', insert_text, response.content)
+                # -
+                soup = BeautifulSoup(response.content)
+                time_measure_tag = soup.new_tag('code', style='margin-left:20px')
+                time_measure_tag.append('Request took: %s' % str(time_delta))
+                soup.body.insert(0, time_measure_tag)
+                response.content = soup.prettify(soup.original_encoding)
+            else:
+                response = HttpResponse('''
+                    <h2>It took more than 2 seconds to make the response.<br>
+                    Please, remaster your code!<h2>''')
 
         return response
