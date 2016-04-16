@@ -60,7 +60,7 @@ class TestStudentList(TestCase):
             response.content)
 
         # ensure we got 3 students, pagination limit is 3
-        self.assertEqual(len(response.context['students']), 4)
+        self.assertEqual(len(response.context['students']), 3)
 
     def test_current_group(self):
         # set group as currently selected group
@@ -75,10 +75,27 @@ class TestStudentList(TestCase):
 
     def test_order_by(self):
         # set order by Last Name
-        response = self.clien.get(self.url, {'order_by': 'last_name'})
+        response = self.client.get(self.url, {'order_by': 'last_name'})
 
         # now check if we got proper order
         students = response.context['students']
         self.assertEqual(students[0].last_name, 'l_name1')
         self.assertEqual(students[1].last_name, 'l_name2')
         self.assertEqual(students[2].last_name, 'l_name3')
+
+    def test_reverse_order(self):
+        response = self.client.get(self.url,
+                                   {'order_by': 'last_name',
+                                    'reverse': '1'})
+        students = response.context['students']
+        self.assertEqual(students[0].last_name, 'l_name4')
+        self.assertEqual(students[1].last_name, 'l_name3')
+        self.assertEqual(students[2].last_name, 'l_name2')
+
+    def test_pagination(self):
+        response = self.client.get(self.url,
+                                   {'order_by': 'last_name',
+                                    'reverse': '1',
+                                    'page': '2'})
+        students = response.context['students']
+        self.assertEqual(students[0].last_name, 'l_name1')
