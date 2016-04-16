@@ -54,7 +54,7 @@ def groups_list(request):
 #    return render(request, 'students/groups_list.html', {'groups':groups})
 
     # paginate groups with custom func "paginate" from ..util
-    context = paginate(groups, 5, request, {}, var_name="groups")
+    context = paginate(groups, 3, request, {}, var_name="groups")
     response = render(request, 'students/groups_list.html', context)
     return response
 
