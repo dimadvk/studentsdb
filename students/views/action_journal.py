@@ -1,4 +1,4 @@
-from time import sleep
+#from time import sleep
 from django.views.generic import ListView
 
 from ..models.action import Action

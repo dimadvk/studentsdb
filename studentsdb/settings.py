@@ -47,7 +47,7 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
     'students',
     'stud_auth',
-    'debug_toolbar',
+#    'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (

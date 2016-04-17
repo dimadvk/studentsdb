@@ -31,3 +31,6 @@ class Action(models.Model):
         blank = False,
         max_length = 256,
     )
+
+    def __unicode__(self):
+        return u"%s (%s)" % (self.model_name, self.model_verbose_name)
