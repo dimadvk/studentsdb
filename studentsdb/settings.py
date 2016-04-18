@@ -198,17 +198,17 @@ LOGGING = {
             'class': 'logging.NullHandler',
         },
         'console': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.StreamHandler',
             'formatter': 'verbose',
             'filters': ['require_debug_true'],
         },
         'file': {
-            'level': 'ERROR',
+            'level': 'INFO',
             'class': 'logging.FileHandler',
             'filename': LOG_FILE,
             'formatter': 'verbose',
-            'filters': ['require_debug_false'],
+            #'filters': ['require_debug_false'],
         },
         'mail_admins': {
             'level': 'ERROR',

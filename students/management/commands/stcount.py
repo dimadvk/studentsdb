@@ -15,7 +15,7 @@ class Command(BaseCommand):
         for name, model in self.models:
             if name in args:
                 self.stdout.write(_(u'Number of %(name)ss in database: %(count)d') %
-                                  (name, model.objects.count()))
+                                  {'name': name, 'count': model.objects.count()})
 
 #        if 'student' in args:
 #            self.stdout.write('Number of students in database: %d' % 

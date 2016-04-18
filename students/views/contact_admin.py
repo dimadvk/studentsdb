@@ -60,7 +60,7 @@ class ContactAdminForm(forms.Form):
         data = self.cleaned_data
         send_mail('[contact admin]' + data.get('subject'),
                   'From: ' + data.get('from_email') + '\n\n' + data.get('message'),
-                  DEFAULT_FROM_EMAIL,
+                  data.get('from_email'),
                   [ADMIN_EMAIL]
                  )
 
