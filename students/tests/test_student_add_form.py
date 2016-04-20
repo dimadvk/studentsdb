@@ -99,11 +99,8 @@ class TestStudentAddForm(TestCase):
         # check for errors
         self.assertIn('File is not an image', response.content)
 
-
-
-
     def test_post_right_data(self):
-        photo_path = os.path.join(settings.MEDIA_ROOT, '1.jpg')
+        photo_path = os.path.join(settings.BASE_DIR, 'students/fixtures/test.jpg')
         self.client.login(username='admin', password='admin')
         with open(photo_path, 'rb') as photo:
             response = self.client.post(self.url,
@@ -124,7 +121,8 @@ class TestStudentAddForm(TestCase):
             student = Student.objects.filter(
                 first_name='new_fname', last_name='new_lname')
             self.assertEqual(len(student), 1)
-        #student = [1,]
+        # check saved photo
+        self.assertTrue(os.path.isfile(os.path.join(settings.MEDIA_ROOT, 'test.jpg')))
         # check the right redirection
         self.assertIn('Student &quot;new_fname new_lname&quot; sucessfully added!',
                          response.content)
@@ -138,5 +136,10 @@ class TestStudentAddForm(TestCase):
         self.assertIn('Log in', response.content)
 
     def tearDown(self):
-        os.remove('file_too_big.tmp')
-        os.remove('file_not_image.tmp')
+        if os.path.isfile('file_too_big.tmp'):
+            os.remove('file_too_big.tmp')
+        if os.path.isfile('file_not_image.tmp'):
+            os.remove('file_not_image.tmp')
+        if os.path.isfile(os.path.join(settings.MEDIA_ROOT, 'test.jpg')):
+            os.remove(os.path.join(settings.MEDIA_ROOT, 'test.jpg'))
+

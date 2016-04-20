@@ -16,7 +16,7 @@
 
 
 <!-- Start Students Listing -->
-<form method="post" action="{% url "students-delete-bunch" %}">{% csrf_token %}
+<form method="post" action="{% url "students_delete_bunch" %}">{% csrf_token %}
 <table class="table table-hover table-strip">
     {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
     <thead>

@@ -1,7 +1,8 @@
 from datetime import datetime
 
-from django.test import TestCase, Client
+from django.test import TestCase, Client, override_settings
 from django.core.urlresolvers import reverse
+from django.http import QueryDict
 
 from students.models import Student, Group
 
@@ -99,3 +100,51 @@ class TestStudentList(TestCase):
                                     'page': '2'})
         students = response.context['students']
         self.assertEqual(students[0].last_name, 'l_name1')
+
+
+@override_settings(LANGUAGE_CODE='en')
+class TestStudentsDelete(TestCase):
+
+    fixtures = ['students_test_data.json']
+
+    def setUp(self):
+        self.client = Client()
+        self.url = reverse('students_delete', kwargs={'pk': 1})
+        self.url_del_bunch = reverse('students_delete_bunch')
+
+
+    def test_students_delete(self):
+        self.client.login(username='admin', password='admin')
+
+        # test get request
+        response = self.client.get(self.url, follow=True)
+        self.assertIn('Do you really want to delete student',
+                      response.content)
+        self.assertIn('action="%s"' % self.url, response.content)
+        self.assertIn('name="delete_button"', response.content)
+
+        # test post request
+        response = self.client.post(self.url, follow=True)
+        self.assertEqual(len(Student.objects.filter(id=1)), 0)
+        self.assertIn('Student successfully deleted!', response.content)
+        self.assertEqual(response.redirect_chain[0][0],
+                         'http://testserver/')
+
+    def test_students_delete_bunch(self):
+        self.client.login(username='admin', password='admin')
+        response = self.client.post(self.url_del_bunch,
+                        {'selected-student':1}, follow=True)
+
+        # check response content
+        self.assertIn('Selected students successfully deleted!',
+                     response.content)
+        # check if students deleted
+        students = Student.objects.filter(id=1)
+        self.assertEqual(len(students), 0)
+
+        # check correct redirection
+        self.assertEqual(response.redirect_chain[0][0],
+                         'http://testserver/')
+
+
+

@@ -51,7 +51,7 @@ urlpatterns = patterns('',
         students_ajax_next_page, name='students_ajax_next_page'),
 
     # delete bunch of students
-    url(r'^students/delete-bunch/$', permission_required('students.delete_student')(students_delete_bunch), name="students-delete-bunch"),
+    url(r'^students/delete-bunch/$', permission_required('students.delete_student')(students_delete_bunch), name="students_delete_bunch"),
 
 
     #Groups urls
