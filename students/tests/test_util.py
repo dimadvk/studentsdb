@@ -101,4 +101,11 @@ class UtilsTestCase(TestCase):
         self.assertTrue(context.has_key('page_obj'))
         self.assertTrue(context.has_key('paginator'))
 
-
+        # try with page='x' - not an integer
+        request.GET.update({'page':'x'})
+        context = paginate(objects, 3, request, {}, var_name='students')
+        self.assertTrue(isinstance(context, dict))
+        self.assertEqual(len(context.get('students')), 3)
+        self.assertEqual(context.get('is_paginated'), True)
+        self.assertTrue(context.has_key('page_obj'))
+        self.assertTrue(context.has_key('paginator'))

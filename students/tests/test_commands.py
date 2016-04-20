@@ -9,8 +9,8 @@ class CommandsTest(TestCase):
     fixtures = ['students_test_data.json',]
 
     def test_stcount(self):
-
         out = StringIO()
+
         # test for student, group and user models
         call_command('stcount',
                      'student', 'group', 'user',

@@ -9,7 +9,7 @@ from .models.group import Group
 from .models.monthjournal import MonthJournal
 
 
-class StudentFormAdmin(ModelForm):
+class StudentFormAdmin(ModelForm): # pragma: no cover
 
     def clean_student_group(self):
         """ Check if student is leader in any group
@@ -23,7 +23,7 @@ class StudentFormAdmin(ModelForm):
         return self.cleaned_data['student_group']
 
 
-class StudentAdmin(admin.ModelAdmin):
+class StudentAdmin(admin.ModelAdmin): # pragma: no cover
     list_display = ['last_name', 'first_name', 'ticket', 'student_group']
     list_display_links = ['last_name', 'first_name']
     list_editable = ['student_group']
@@ -45,7 +45,7 @@ class StudentAdmin(admin.ModelAdmin):
         return reverse('students_edit', kwargs={'pk':obj.id})
 
 
-class GroupFormAdmin(ModelForm):
+class GroupFormAdmin(ModelForm): # pragma: no cover
     def __init__(self, *args, **kwargs):
         super(GroupFormAdmin, self).__init__(*args, **kwargs)
         self.fields['leader'].queryset = self.instance.student_set.order_by('last_name')
@@ -58,7 +58,7 @@ class GroupFormAdmin(ModelForm):
                 code='invalid')
         return new_leader
 
-class GroupAdmin(admin.ModelAdmin):
+class GroupAdmin(admin.ModelAdmin): # pragma: no cover
     list_display = ['title', 'leader']
     list_display_links = ['title']
     list_editable = ['leader']

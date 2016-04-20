@@ -99,3 +99,4 @@ class TestStudentList(TestCase):
                                     'page': '2'})
         students = response.context['students']
         self.assertEqual(students[0].last_name, 'l_name1')
+

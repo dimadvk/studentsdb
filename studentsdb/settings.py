@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     'registration',
     'social.apps.django_app.default',
+    'django_coverage',
     'students',
     'stud_auth',
 #    'debug_toolbar',
@@ -167,6 +168,9 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 # for 'registration' app
 REFISTRATION_OPEN = True
 
+# for test_coverage command
+COVERAGE_REPORT_HTML_OUTPUT_DIR = os.path.join(BASE_DIR, '..', 'coverage') 
+
 # debug_toolbar
 DEBUG_TOOLBAR_PATCH_SETTINGS = True
 
@@ -208,7 +212,7 @@ LOGGING = {
             'class': 'logging.FileHandler',
             'filename': LOG_FILE,
             'formatter': 'verbose',
-            #'filters': ['require_debug_false'],
+            'filters': ['require_debug_false'],
         },
         'mail_admins': {
             'level': 'ERROR',
@@ -226,7 +230,7 @@ LOGGING = {
         'students.signals': {
             'handlers': ['console', 'file'],
             'level': 'INFO',
-            'propagate': False,
+            #'propagate': False,
         },
         'students.views.contact_admin': {
             'handlers': ['mail_admins', 'file'],

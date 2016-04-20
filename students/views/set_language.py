@@ -16,7 +16,5 @@ def set_language(request):
             settings.LANGUAGE_COOKIE_NAME,
             selected_language,
             max_age=max_age)
-    else:
-        response = HttpResponseRedirect(reverse('home'))
-    return response
+        return response
 

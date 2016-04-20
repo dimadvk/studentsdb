@@ -39,14 +39,13 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         # checking here: 0 < count < 100, count of object is integer
         for name, model in self.models:
-            if options[name]:
+            if options.get(name) != None:
                 count = options[name]
                 try:
                     count = int(count)
                 except:
                     raise ValueError("Number of '%s' objects must be an integer!"
                                      % name)
-                    continue
                 if not 0< count <100:
                     raise ValueError("Number of '%s' objects must be in range 1..99!"
                                      % name)

@@ -4,7 +4,7 @@ from django.utils.six import StringIO
 from django.test import TestCase
 
 from students.models import Student
-from students import signals
+#from students import signals
 
 
 class StudentSignalsTests(TestCase):
@@ -23,10 +23,6 @@ class StudentSignalsTests(TestCase):
 
         # check output file content
         out.seek(0)
-        #import ipdb; ipdb.set_trace()
-        #if len(out.readlines()) == 0:
-        #    print '\n\nERROR: len(out.readlines()) == 0'
-        #    return
         self.assertEqual(out.readlines()[-1],
              'Student added: Demo Student (ID: %d)\n' % student.id)
 

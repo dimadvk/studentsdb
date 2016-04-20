@@ -8,7 +8,7 @@ from django.utils.translation import ugettext as _
 from django.conf import settings
 
 
-class Command(BaseCommand):
+class Command(BaseCommand): # pragma: no cover
     args = ''
     help = _(u"""Parse base.html, \
 find links to static files, download these files, \

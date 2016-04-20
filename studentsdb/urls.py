@@ -44,7 +44,7 @@ urlpatterns = patterns('',
     url(r'^students/(?P<pk>\d+)/delete/$',
         permission_required('students.delete_student')(StudentDeleteView.as_view()),
         name='students_delete'),
-    url(r'^student_list/$', StudentList.as_view()),
+    url(r'^student_list/$', StudentList.as_view(), name='student_list'),
 
     # trying ajax
     url(r'students/next_page$',

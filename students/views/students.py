@@ -150,6 +150,6 @@ def students_list(request):
     #return render(request, 'students/students_list.html', context)
 
 # ajax, first probe
-def students_ajax_next_page(request):
+def students_ajax_next_page(request): # pragma: no cover
     text = '<h2>Text from view students_ajax_next_page, received via ajax</h2>'
     return HttpResponse(text)
