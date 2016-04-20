@@ -9,7 +9,7 @@ from django.views.generic import UpdateView, DeleteView, ListView, DetailView
 from django.forms import  ModelForm, ValidationError
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext as _, ugettext_lazy as __
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
@@ -18,6 +18,7 @@ from ..models.group import Group
 from ..util import paginate, get_current_group, DispatchLoginRequired
 
 from students_add import StudentAddForm
+
 
 class StudentUpdateForm(StudentAddForm):
     def __init__(self, *args, **kwargs):
@@ -35,7 +36,7 @@ class StudentUpdateView(DispatchLoginRequired, SuccessMessageMixin, UpdateView):
     model = Student
     template_name = 'students/students_add.html'
     form_class = StudentUpdateForm
-    success_message = _(u'Student "%(first_name)s %(last_name)s" successfully saved!')
+    success_message = __(u'Student "%(first_name)s %(last_name)s" successfully saved!')
 
     def get_success_url(self):
         return reverse('home')
@@ -89,6 +90,8 @@ class StudentList(ListView):
 
 
 def students_list(request):
+    #from ..signals import REQUESTS_COUNT
+    #print REQUESTS_COUNT
     # check if need to show only one group of students
     current_group = get_current_group(request)
     if current_group:

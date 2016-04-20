@@ -77,18 +77,18 @@ def log_group_updated_added_event(sender, **kwargs):
 
     group = kwargs['instance']
     if kwargs['created']:
-        logger.info("Group created: %s (Leader: %s) (ID: %d)",
-                    group.title, group.leader, group.id
+        logger.info("Group created: %s (ID: %d)",
+                    group.title, group.id
                    )
-        action.action_detail = "Group created: %s (Leader: %s) (ID: %d)" % (
-            group.title, group.leader, group.id,
+        action.action_detail = "Group created: %s (ID: %d)" % (
+            group.title, group.id,
         )
     else:
-        logger.info("Group updated: %s (Leader: %s) (ID: %d)",
-                   group.title, group.leader, group.id
+        logger.info("Group updated: %s (ID: %d)",
+                   group.title, group.id
                    )
-        action.action_detail = "Group updated: %s (Leader: %s) (ID: %d)" % (
-            group.title, group.leader, group.id,
+        action.action_detail = "Group updated: %s (ID: %d)" % (
+            group.title, group.id,
         )
     action.model_name = sender.__name__
     action.model_verbose_name = sender._meta.verbose_name

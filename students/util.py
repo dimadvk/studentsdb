@@ -37,8 +37,6 @@ def paginate(objects, size, request, context, var_name='object_list'):
         object_list = paginator.page(page)
     except PageNotAnInteger:
         object_list = paginator.page(1)
-    except EmptyPage:
-        object_list = paginator.page(paginator.num_pages)
 
     context[var_name] = object_list
     context['is_paginated'] = object_list.has_other_pages()
