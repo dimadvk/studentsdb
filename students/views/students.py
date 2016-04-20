@@ -68,7 +68,7 @@ def students_delete_bunch(request):
 
 
 @login_required
-def students_delete(request, pk):
+def students_delete(request, pk): # pragma: no cover
     student = Student.objects.get(pk=pk)
     context = {'object': student}
     if request.method == "GET":
@@ -79,7 +79,6 @@ def students_delete(request, pk):
         messages.info(request, _(u"Student successfully deleted!"))
         return HttpResponseRedirect(reverse("home"))
 
-        
 
 # Views for Students
 
