@@ -8,7 +8,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.core.exceptions import PermissionDenied
 from django.http.response import HttpResponseForbidden
 from django.forms import ModelForm, ValidationError, ChoiceField, Select
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext as _, ugettext_lazy
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Field, HTML
@@ -29,14 +29,13 @@ def groups_list(request):
         groups = Group.objects.all()
 
     # try to order group list
-    order_by = request.GET.get('order_by', '')
-    if order_by in ('title', 'leader'):
-        groups = groups.order_by(order_by)
+    order_by = request.GET.get('order_by', 'title')
+    if order_by == 'leader':
+        groups = groups.order_by('leader__first_name')
+    else:
+        groups = groups.order_by('title')
     if request.GET.get('reverse', '') == '1':
         groups = groups.reverse()
-    else:
-        order_by = 'title'
-        groups = groups.order_by(order_by)
 
 #    # paginate groups
 #    paginator = Paginator(groups, 3)
@@ -78,7 +77,7 @@ class GroupCreateForm(ModelForm):
 
         self.helper.layout.append(
             FormActions(
-                Submit('edit_button', _(u'Save'), css_class="btn btn-primary"),
+                Submit('save_button', _(u'Save'), css_class="btn btn-primary"),
                 HTML(u"<a class='btn btn-link' href='%s'>%s</a>" % (reverse('groups'), _(u'Cancel'))),
             )
         )
@@ -91,7 +90,7 @@ class GroupCreateView(DispatchLoginRequired, SuccessMessageMixin, CreateView):
     form_class = GroupCreateForm
     template_name = "students/groups_add.html"
     success_url = reverse_lazy("groups")
-    success_message = _(u"The group successfully created!")
+    success_message = ugettext_lazy(u"The group successfully created!")
 
     def get_context_data(self, **kwargs):
         context = super(GroupCreateView, self).get_context_data(**kwargs)
@@ -126,7 +125,7 @@ class GroupUpdateView(DispatchLoginRequired, SuccessMessageMixin, UpdateView):
     form_class = GroupUpdateForm
     template_name = "students/groups_add.html"
     success_url = reverse_lazy('groups')
-    success_message = _(u'The group "%(title)s" successfully saved!')
+    success_message = ugettext_lazy(u'The group "%(title)s" successfully saved!')
 
     def get_context_data(self, **kwargs):
         context = super(GroupUpdateView, self).get_context_data(**kwargs)
@@ -142,7 +141,7 @@ class GroupUpdateView(DispatchLoginRequired, SuccessMessageMixin, UpdateView):
 
 #def groups_delete(request, gid):
 #    return HttpResponse('<h1>Delete Group %s</h1>' % gid)
-class GroupDeleteView(DispatchLoginRequired, DeleteView):
+class GroupDeleteView(DispatchLoginRequired, SuccessMessageMixin, DeleteView):
     model = Group
     template_name = "students/groups_confirm_delete.html"
     success_url = reverse_lazy("groups")

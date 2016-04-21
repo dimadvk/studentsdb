@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-07 11:43+0000\n"
+"POT-Creation-Date: 2016-04-21 13:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,18 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: management/commands/localize_static.py:13
+msgid ""
+"Parse base.html, find links to static files, download these files, replace "
+"external links to local"
+msgstr ""
+
+#: management/commands/localize_static.py:49
+#: management/commands/localize_static.py:52
+#, python-format
+msgid "Get file: %(filename)s -:::::- Status: %(status)s"
+msgstr ""
 
 #: management/commands/stcount.py:10
 msgid "Prints to console number of student realted objects in a database."
@@ -54,28 +66,24 @@ msgstr ""
 msgid "model verbose name"
 msgstr ""
 
-#: models/group.py:12 models/student.py:49
+#: models/group.py:11 models/student.py:49
 msgid "group"
 msgstr ""
 
-#: models/group.py:13
+#: models/group.py:12
 msgid "groups"
 msgstr ""
 
-#: models/group.py:18
+#: models/group.py:17
 msgid "name"
 msgstr ""
 
-#: models/group.py:21
+#: models/group.py:20
 msgid "leader"
 msgstr ""
 
-#: models/group.py:28
+#: models/group.py:27
 msgid "additional notes"
-msgstr ""
-
-#: models/group.py:31
-msgid "mmyyss"
 msgstr ""
 
 #: models/monthjournal.py:8
@@ -126,7 +134,7 @@ msgstr ""
 msgid "Additional notes"
 msgstr ""
 
-#: models/student.py:64 views/students_add.py:130
+#: models/student.py:64 views/students_add.py:125
 msgid "The file is too big. Must be less then 2MB"
 msgstr ""
 
@@ -150,63 +158,63 @@ msgid "Message has been sent"
 msgstr ""
 
 #: templates/students/action_journal.html:6
-#: templates/students/action_journal.html:8 templates/students/base.html:122
+#: templates/students/action_journal.html:8 templates/students/base.html:121
 msgid "Action Journal"
 msgstr ""
 
-#: templates/students/base.html:9 templates/students/base.html.py:43
-#: templates/students/base.html:166
+#: templates/students/base.html:10 templates/students/base.html.py:42
+#: templates/students/base.html:165
 msgid "Students Accounting Service"
 msgstr ""
 
-#: templates/students/base.html:11
+#: templates/students/base.html:12
 msgid "App to manage students database"
 msgstr ""
 
-#: templates/students/base.html:70
+#: templates/students/base.html:69
 msgid "Group:"
 msgstr ""
 
-#: templates/students/base.html:72
+#: templates/students/base.html:71
 msgid "All Students"
 msgstr ""
 
-#: templates/students/base.html:84
+#: templates/students/base.html:83
 msgid "Logout"
 msgstr ""
 
-#: templates/students/base.html:91
+#: templates/students/base.html:90
 msgid "Sign in with: "
 msgstr ""
 
-#: templates/students/base.html:96
+#: templates/students/base.html:95
 msgid "Log in"
 msgstr ""
 
-#: templates/students/base.html:97
+#: templates/students/base.html:96
 msgid "Register"
 msgstr ""
 
-#: templates/students/base.html:115 templates/students/students_list.html:7
+#: templates/students/base.html:114 templates/students/students_list.html:7
 msgid "Students"
 msgstr ""
 
-#: templates/students/base.html:118 templates/students/groups_list.html:58
+#: templates/students/base.html:117 templates/students/groups_list.html:58
 #: templates/students/journal.html:7 templates/students/journal.html.py:8
 #: templates/students/students_list.html:90
 msgid "Journal"
 msgstr ""
 
-#: templates/students/base.html:120 templates/students/groups_list.html:8
+#: templates/students/base.html:119 templates/students/groups_list.html:8
 #: templates/students/groups_list.html:11
 msgid "Groups"
 msgstr ""
 
-#: templates/students/base.html:124
+#: templates/students/base.html:123
 msgid "Users"
 msgstr ""
 
-#: templates/students/base.html:128
+#: templates/students/base.html:127
 msgid "Contact"
 msgstr ""
 
@@ -230,7 +238,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: templates/students/groups_list.html:13 views/groups.py:98
+#: templates/students/groups_list.html:13 views/groups.py:97
 msgid "Create Group"
 msgstr ""
 
@@ -372,57 +380,56 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: views/groups.py:81 views/students_add.py:57
+#: views/groups.py:80 views/students_add.py:57
 msgid "Save"
 msgstr ""
 
-#: views/groups.py:82 views/students_add.py:58
+#: views/groups.py:81 views/students_add.py:58
 msgid "Cancel"
 msgstr ""
 
-#: views/groups.py:94
+#: views/groups.py:93
 msgid "The group successfully created!"
 msgstr ""
 
-#: views/groups.py:118
+#: views/groups.py:117
 msgid "The student is not a member of the group!"
 msgstr ""
 
-#: views/groups.py:129
+#: views/groups.py:128
 #, python-format
 msgid "The group \"%(title)s\" successfully saved!"
 msgstr ""
 
-#: views/groups.py:133
+#: views/groups.py:132
 msgid "Edit Group"
 msgstr ""
 
-#: views/groups.py:138
+#: views/groups.py:137
 msgid "Edit canceled"
+msgstr ""
+
+#: views/groups.py:148
+msgid "The group successfully deleted!"
 msgstr ""
 
 #: views/groups.py:159
 msgid "Group that contains students couldn't be deleted!"
 msgstr ""
 
-#: views/students.py:30
+#: views/students.py:31
 msgid "This student is a leader of group"
 msgstr ""
 
-#: views/students.py:38
-#, python-format
-msgid "Student \"%(first_name)s %(last_name)s\" successfully saved!"
-msgstr ""
-
-#: views/students.py:45
+#: views/students.py:46
 msgid "Edit Student"
 msgstr ""
 
-#: views/students.py:56 views/students.py:78
+#: views/students.py:57 views/students.py:79
 msgid "Student successfully deleted!"
 msgstr ""
 
-#: views/students.py:65
+#: views/students.py:66
 msgid "Selected students successfully deleted!"
 msgstr ""
 
@@ -450,7 +457,7 @@ msgstr ""
 msgid "Select group for student"
 msgstr ""
 
-#: views/students_add.py:127
+#: views/students_add.py:130
 msgid "File is not an image"
 msgstr ""
 

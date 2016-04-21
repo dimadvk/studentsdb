@@ -105,7 +105,7 @@
 </form>
 <!-- End Students Listing -->
 
-{% pagenav object_list=students is_paginated=is_paginated paginator=paginator %}
+{% pagenav object_list=students is_paginated=is_paginated paginator=paginator request=request %}
 
 {% comment %}
 {% with object_list=students %}

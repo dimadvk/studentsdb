@@ -12,7 +12,7 @@ from contact_form.forms import ContactForm
 from crispy_forms.layout import Submit
 from crispy_forms.helper import FormHelper
 
-class CustomContactForm(ContactForm):
+class CustomContactForm(ContactForm): # pragma: no cover
     def __init__(self, request, *args, **kwargs):
         super(CustomContactForm, self).__init__(request=request, *args, **kwargs)
         fields_keyOrder = ['name', 'email', 'body']
@@ -21,7 +21,7 @@ class CustomContactForm(ContactForm):
         self.helper.form_class = 'form-horizontal'
         self.helper.form_method = 'post'
         #self.helper.form_action = reverse('contact-form')
-       
+
         self.helper.help_text_inline = True
         self.helper.html5_required = True
         self.helper.label_class = 'col-sm-2 control-label'
@@ -38,7 +38,7 @@ class CustomContactForm(ContactForm):
                            label=(_(u'Message')))
 
 
-class CustomContactFormView(FormView):
+class CustomContactFormView(FormView): # pragma: no cover
     form_class = CustomContactForm
     template_name = 'contact_form/contact_form.html'
 
