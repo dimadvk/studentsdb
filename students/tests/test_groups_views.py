@@ -27,13 +27,24 @@ class TestGroupsList(TestCase):
         response = self.client.get(self.url)
 
         # response status code must be 200
+        self.assertEqual(response.status_code, 200)
         # title 'Groups' and button 'Create Group' must be on page
-        # check pagination attributes
-        # check if we have exactly 3 groups on page(need to add 2 groups to fixtures)
+        self.assertIn('Groups', response.content)
+        self.assertIn('Create Group', response.content)
+        # check pagination attribute
+        self.assertTrue(response.context['is_paginated'])
+        # check if we have exactly 3 groups on page
+        self.assertEqual(len(response.context['groups']), 3)
 
     def test_pagination(self):
         # test page=2
-        pass
+        self.client.login(username='admin', password='admin')
+        response = self.client.get(self.url, {'page': '2'})
+        # check response status code
+        self.assertEqual(response.status_code, 200)
+        # do we have only one object, Group4?
+        self.assertEqual(len(response.context['groups']), 1)
+        self.assertIn('Group4', response.content)
 
     def test_current_group(self):
         pass

@@ -75,6 +75,24 @@
 },
 {
     "fields": {
+        "notes": "",
+        "leader": null,
+        "title": "Group3"
+    },
+    "model": "students.group",
+    "pk": 3
+},
+{
+    "fields": {
+        "notes": "",
+        "leader": null,
+        "title": "Group4"
+    },
+    "model": "students.group",
+    "pk": 4
+},
+{
+    "fields": {
         "username": "admin",
         "first_name": "",
         "last_name": "",

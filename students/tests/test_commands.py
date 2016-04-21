@@ -17,6 +17,6 @@ class CommandsTest(TestCase):
                      stdout=out)
         self.assertEqual(out.buflist,
                          ['Number of students in database: 4\n',
-                          'Number of groups in database: 2\n',
+                          'Number of groups in database: 4\n',
                           'Number of users in database: 1\n']
                         )
