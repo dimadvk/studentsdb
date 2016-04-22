@@ -52,6 +52,9 @@ class TestStudentUpdateForm(TestCase):
         # check response status
         self.assertEqual(response.status_code, 200)
 
+        print response.content
+        print "Group ID: ", group.id
+
         # test updated student details
         student = Student.objects.get(pk=1)
         self.assertEqual(student.first_name, 'Updated Name')
