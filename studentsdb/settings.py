@@ -155,6 +155,7 @@ from .smtp_settings import *
 #EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 #EMAIL_FILE_PATH = 'email_files'
 SERVER_EMAIL = "dvk@skif.net.ua"
+DEFAULT_FROM_EMAIL = "dvk@skif.net.ua"
 
 # as django-contact-form needs
 MANAGERS = [
