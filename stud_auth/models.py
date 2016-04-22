@@ -5,12 +5,13 @@ from django.utils.translation import ugettext as _
 
 class StProfile(models.Model):
     """To keep extra user data"""
-    # user mapping
-    user = models.OneToOneField(User)
 
     class Meta(object):
         verbose_name = _(u"Additional User Info")
         verbose_name_plural = _(u"Additional User Info")
+
+    # user mapping
+    user = models.OneToOneField(User)
 
     # extra user data
     mobile_phone = models.CharField(
