@@ -78,7 +78,9 @@ WSGI_APPLICATION = 'studentsdb.wsgi.application'
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 from .db import DATABASES
-if jenkin in BASE_DIR.split('/'):
+
+path_base_dir = BASE_DIR.split('/')
+if 'jenkins' in path_base_dir:
     import imp
     imp.load_source('db_settings',
         '/data/work/virtualenvs/studentsdb/src/studentsdb/studentsdb/db.py')
