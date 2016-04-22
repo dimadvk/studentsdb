@@ -1,4 +1,5 @@
-from django.test import TestCase, Client, override_settings
+from django.test import TestCase
+from django.test import Client, override_settings
 from django.core.urlresolvers import reverse
 
 from students.models import Group, Student
@@ -52,8 +53,11 @@ class TestStudentUpdateForm(TestCase):
         # check response status
         self.assertEqual(response.status_code, 200)
 
-        print response.content
-        print "Group ID: ", group.id
+        f = open('tmp.txt', 'w+')
+        f.write("Group ID: \n")
+        f.write(str(group.id))
+        f.write('++++++++++++++')
+        f.write(response.content)
 
         # test updated student details
         student = Student.objects.get(pk=1)
