@@ -4,7 +4,7 @@ from django.views.generic import ListView, DetailView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponse
 from django.core.urlresolvers import reverse, reverse_lazy
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from django.shortcuts import get_object_or_404
 
 from .models import StProfile
@@ -29,7 +29,7 @@ class UserDetailView(DetailView):
 #        import ipdb; ipdb.set_trace()
 #        return super(UserDetailView, self).render_to_response(self, context, **response_kwargs)
 
-def test(request):
+def test(request): # pragma: no cover
     # text = reverse('registration_activate', activation_key='60f3d1426a1e99a9a6387945f17b2d77038ba165')
     # 60f3d1426a1e99a9a6387945f17b2d77038ba165
     # text = reverse('registration_complete')

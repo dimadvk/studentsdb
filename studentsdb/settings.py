@@ -173,6 +173,12 @@ COVERAGE_REPORT_HTML_OUTPUT_DIR = os.path.join(BASE_DIR, '..', 'coverage')
 
 # debug_toolbar
 DEBUG_TOOLBAR_PATCH_SETTINGS = True
+INSTALLED_APPS += ('django_jenkins',)
+JENKINS_TASKS = ('django_jenkins.tasks.run_pylint',
+                 'django_jenkins.tasks.run_pep8',
+                 'django_jenkins.tasks.run_pyflakes',
+                 'django_jenkins.tasks.with_coverage',
+                 'django_jenkins.tasks.django_tests',)
 
 # logging settings
 LOG_FILE = os.path.join(BASE_DIR, 'studentsdb.log')

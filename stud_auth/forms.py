@@ -12,7 +12,7 @@ from .models import StProfile
 
 
 class CustomRegForm(RegistrationForm):
-    
+
     def __init__(self, *args, **kwargs):
         super(CustomRegForm, self).__init__(*args, **kwargs)
 
