@@ -151,6 +151,11 @@ ADMINS = (
     ('admin', 'ren-kpi@i.ua'),
 )
 from .smtp_settings import *
+if 'jenkins' in path_base_dir:
+    import imp
+    imp.load_source('smtp_settings',
+        '/data/work/virtualenvs/studentsdb/src/studentsdb/studentsdb/smtp_settings.py')
+    from smtp_settings import *
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 #EMAIL_FILE_PATH = 'email_files'
