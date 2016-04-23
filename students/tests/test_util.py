@@ -1,3 +1,4 @@
+"""Tests for utils module"""
 from datetime import datetime
 
 from django.test import TestCase
@@ -19,25 +20,25 @@ class UtilsTestCase(TestCase):
         student1, created = Student.objects.get_or_create(
             first_name="f_name1",
             last_name="l_name1",
-            birthday = datetime.today(),
+            birthday=datetime.today(),
             ticket='1',
             student_group=group1)
         Student.objects.get_or_create(
             first_name="f_name2",
             last_name="l_name2",
-            birthday = datetime.today(),
+            birthday=datetime.today(),
             ticket='2',
             student_group=group1)
         Student.objects.get_or_create(
             first_name="f_name3",
             last_name="l_name3",
-            birthday = datetime.today(),
+            birthday=datetime.today(),
             ticket='3',
             student_group=group1)
         Student.objects.get_or_create(
             first_name="f_name4",
             last_name="l_name4",
-            birthday = datetime.today(),
+            birthday=datetime.today(),
             ticket='4',
             student_group=group1)
 
@@ -46,7 +47,8 @@ class UtilsTestCase(TestCase):
 
 
     def test_get_current_group(self):
-        # preapre requesto object to pass to utility function
+        """Test for selected 'group'"""
+        # prepare request object to pass to utility function
         request = HttpRequest()
 
         # test with no group in cookie

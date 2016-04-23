@@ -46,7 +46,7 @@ def groups_list(request):
 #        # if page is out of range (e.g. 9999), deliver
 #        # last page of results.
 #        groups = paginator.page(paginator.num_pages)
-#    
+#
 #    return render(request, 'students/groups_list.html', {'groups':groups})
 
     # paginate groups with custom func "paginate" from ..util
@@ -55,7 +55,9 @@ def groups_list(request):
     return response
 
 class GroupCreateForm(ModelForm):
-    class Meta:
+    """Form for creating new group"""
+
+    class Meta(object):
         model = Group
         fields = '__all__'
 
@@ -75,7 +77,8 @@ class GroupCreateForm(ModelForm):
         self.helper.layout.append(
             FormActions(
                 Submit('save_button', _(u'Save'), css_class="btn btn-primary"),
-                HTML(u"<a class='btn btn-link' href='%s'>%s</a>" % (reverse('groups'), _(u'Cancel'))),
+                HTML(u"<a class='btn btn-link' href='%s'>%s</a>" % (
+                    reverse('groups'), _(u'Cancel'))),
             )
         )
         self.fields['leader'].widget.attrs = {'disabled': 'True'}
@@ -83,6 +86,8 @@ class GroupCreateForm(ModelForm):
 
 
 class GroupCreateView(DispatchLoginRequiredMixin, SuccessMessageMixin, CreateView):
+    """View for creating new group"""
+
     model = Group
     form_class = GroupCreateForm
     template_name = "students/groups_add.html"
@@ -100,7 +105,7 @@ class GroupUpdateForm(GroupCreateForm):
         super(GroupUpdateForm, self).__init__(*args, **kwargs)
 
         self.helper.form_action = reverse('group_edit',
-            kwargs={'pk': kwargs['instance'].id})
+                                          kwargs={'pk': kwargs['instance'].id})
         self.fields['leader'].widget.attrs = {}
         self.fields['leader'].queryset = self.instance.student_set.order_by('last_name')
 
@@ -109,9 +114,8 @@ class GroupUpdateForm(GroupCreateForm):
         new_leader = self.cleaned_data['leader']
         if hasattr(new_leader, 'student_group') and new_leader.student_group != self.instance:
             raise ValidationError(_(u"The student is not a member of the group!"),
-                code='invalid')
+                                  code='invalid')
         return new_leader
- 
 
 
 class GroupUpdateView(DispatchLoginRequiredMixin, SuccessMessageMixin, UpdateView):
@@ -149,6 +153,6 @@ class GroupDeleteView(DispatchLoginRequiredMixin, SuccessMessageMixin, DeleteVie
         success_url = self.get_success_url()
         if self.object.student_set.exists():
             messages.info(self.request,
-                _(u"Group that contains students couldn't be deleted!"))
+                  _(u"Group that contains students couldn't be deleted!"))
             return HttpResponseRedirect(success_url)
         return super(GroupDeleteView, self).delete(request, *args, **kwargs)

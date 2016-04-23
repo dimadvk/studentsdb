@@ -204,9 +204,9 @@ class TestGroupUpdate(TestCase):
                       response.content)
         # check updated group exists in db
         self.assertEqual(len(Group.objects.filter(
-                                title='New Group1',
-                                leader__id=1,
-                                notes='some group note')), 1)
+            title='New Group1',
+            leader__id=1,
+            notes='some group note')), 1)
 
 
 @override_settings(LANGUAGE_CODE='en')

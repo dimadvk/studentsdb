@@ -1,3 +1,4 @@
+"""Tests for students_list views"""
 from datetime import datetime
 
 from django.test import TestCase, Client, override_settings
@@ -17,25 +18,25 @@ class TestStudentList(TestCase):
         Student.objects.get_or_create(
             first_name="f_name1",
             last_name="l_name1",
-            birthday = datetime.today(),
+            birthday=datetime.today(),
             ticket='1',
             student_group=group1)
         Student.objects.get_or_create(
             first_name="f_name2",
             last_name="l_name2",
-            birthday = datetime.today(),
+            birthday=datetime.today(),
             ticket='2',
             student_group=group2)
         Student.objects.get_or_create(
             first_name="f_name3",
             last_name="l_name3",
-            birthday = datetime.today(),
+            birthday=datetime.today(),
             ticket='3',
             student_group=group2)
         Student.objects.get_or_create(
             first_name="f_name4",
             last_name="l_name4",
-            birthday = datetime.today(),
+            birthday=datetime.today(),
             ticket='4',
             student_group=group2)
 
@@ -56,8 +57,8 @@ class TestStudentList(TestCase):
 
         # do we have link to student edit form?
         self.assertIn(reverse('students_edit',
-            kwargs={'pk': Student.objects.all()[0].id}),
-            response.content)
+                              kwargs={'pk': Student.objects.all()[0].id}),
+                      response.content)
 
         # ensure we got 3 students, pagination limit is 3
         self.assertEqual(len(response.context['students']), 3)
@@ -132,11 +133,11 @@ class TestStudentsDelete(TestCase):
     def test_students_delete_bunch(self):
         self.client.login(username='admin', password='admin')
         response = self.client.post(self.url_del_bunch,
-                        {'selected-student':1}, follow=True)
+                                    {'selected-student':1}, follow=True)
 
         # check response content
         self.assertIn('Selected students successfully deleted!',
-                     response.content)
+                      response.content)
         # check if students deleted
         students = Student.objects.filter(id=1)
         self.assertEqual(len(students), 0)

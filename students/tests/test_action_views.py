@@ -13,8 +13,8 @@ class ActionViewsTest(TestCase):
         self.client = Client()
         Action.objects.get_or_create(
             action_detail='action detail 1',
-            model_name = 'model_1',
-            model_verbose_name = 'model verbose name 1')
+            model_name='model_1',
+            model_verbose_name='model verbose name 1')
 
     def test_pagination(self):
         self.client.login(username='admin', password='admin')
