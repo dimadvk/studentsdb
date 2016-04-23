@@ -7,12 +7,12 @@ from django.views.generic.base import TemplateView
 from django.core.urlresolvers import reverse
 
 from ..models import Student, MonthJournal
-from ..util import paginate, get_current_group, DispatchLoginRequired
+from ..util import paginate, get_current_group, DispatchLoginRequiredMixin
 
 
 # Views for Journal
 
-class JournalView(DispatchLoginRequired, TemplateView):
+class JournalView(DispatchLoginRequiredMixin, TemplateView):
     """Journal view class"""
     template_name = "students/journal.html"
 

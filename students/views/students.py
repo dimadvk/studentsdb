@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 
 from ..models.student import Student
 from ..models.group import Group
-from ..util import paginate, get_current_group, DispatchLoginRequired
+from ..util import paginate, get_current_group, DispatchLoginRequiredMixin
 
 from students_add import StudentAddForm
 
@@ -27,7 +27,7 @@ class StudentUpdateForm(StudentAddForm):
         return self.cleaned_data['student_group']
 
 
-class StudentUpdateView(DispatchLoginRequired, SuccessMessageMixin, UpdateView):
+class StudentUpdateView(DispatchLoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Student
     template_name = 'students/students_add.html'
     form_class = StudentUpdateForm
@@ -43,7 +43,7 @@ class StudentUpdateView(DispatchLoginRequired, SuccessMessageMixin, UpdateView):
 
 
 
-class StudentDeleteView(DispatchLoginRequired, DeleteView):
+class StudentDeleteView(DispatchLoginRequiredMixin, DeleteView):
     model = Student
     template_name = 'students/students_confirm_delete.html'
     success_url = reverse_lazy('home')

@@ -12,7 +12,7 @@ from crispy_forms.layout import Submit, HTML
 from crispy_forms.bootstrap import FormActions
 
 from ..models.group import Group
-from ..util import paginate, get_current_group, DispatchLoginRequired
+from ..util import paginate, get_current_group, DispatchLoginRequiredMixin
 
 
 # Views for Groups
@@ -82,7 +82,7 @@ class GroupCreateForm(ModelForm):
         self.fields['leader'].queryset = self.fields['leader'].queryset.none()
 
 
-class GroupCreateView(DispatchLoginRequired, SuccessMessageMixin, CreateView):
+class GroupCreateView(DispatchLoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Group
     form_class = GroupCreateForm
     template_name = "students/groups_add.html"
@@ -114,7 +114,7 @@ class GroupUpdateForm(GroupCreateForm):
  
 
 
-class GroupUpdateView(DispatchLoginRequired, SuccessMessageMixin, UpdateView):
+class GroupUpdateView(DispatchLoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Group
     form_class = GroupUpdateForm
     template_name = "students/groups_add.html"
@@ -135,7 +135,7 @@ class GroupUpdateView(DispatchLoginRequired, SuccessMessageMixin, UpdateView):
 
 #def groups_delete(request, gid):
 #    return HttpResponse('<h1>Delete Group %s</h1>' % gid)
-class GroupDeleteView(DispatchLoginRequired, SuccessMessageMixin, DeleteView):
+class GroupDeleteView(DispatchLoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Group
     template_name = "students/groups_confirm_delete.html"
     success_url = reverse_lazy("groups")

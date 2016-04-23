@@ -28,10 +28,10 @@ def log_student_updated_added_event(sender, **kwargs):
                     student.id
                    )
         action.action_detail = "Student added: %s %s (ID: %d)" % (
-                                student.first_name,
-                                student.last_name,
-                                student.id
-                                )
+            student.first_name,
+            student.last_name,
+            student.id
+            )
     else:
         logger.info("Student updated: %s %s (ID: %d)",
                     student.first_name,
@@ -39,10 +39,10 @@ def log_student_updated_added_event(sender, **kwargs):
                     student.id
                    )
         action.action_detail = "Student updated: %s %s (ID: %d)" % (
-                                student.first_name,
-                                student.last_name,
-                                student.id
-                                )
+            student.first_name,
+            student.last_name,
+            student.id
+            )
     action.model_name = sender.__name__
     action.model_verbose_name = sender._meta.verbose_name
     action.save()
@@ -62,10 +62,10 @@ def log_student_deleted_event(sender, **kwargs):
                 student.id
                )
     action.action_detail = "Student deleted: %s %s (ID: %d)" % (
-                student.first_name,
-                student.last_name,
-                student.id,
-                )
+        student.first_name,
+        student.last_name,
+        student.id,
+        )
     action.model_name = sender.__name__
     action.model_verbose_name = sender._meta.verbose_name
     action.save()

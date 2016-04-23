@@ -20,7 +20,7 @@ class TestUsersList(TestCase):
         self.assertIn('Log in', response.content)
         # right link
         self.assertEqual(response.redirect_chain[0][0],
-             'http://testserver/users/login/?next=/users/profiles/')
+                     'http://testserver/users/login/?next=/users/profiles/')
 
     def test_users_list(self):
         self.client.login(username='admin', password='admin')
@@ -109,7 +109,7 @@ class TestProfileEdit(TestCase):
                                      'mobile_phone': '0001234567',
                                      'passport_id': '123456',
                                      'address': 'user address'},
-                                   follow=True)
+                                    follow=True)
         # check response status code
         self.assertEqual(response.status_code, 200)
         # right redirection

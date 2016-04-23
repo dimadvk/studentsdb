@@ -41,7 +41,7 @@ class StudentAdmin(admin.ModelAdmin): # pragma: no cover
         self.message_user(request, u"Скопійовано студентів: %s" % len(queryset))
     copy_students.short_description = u"Копіювати студентів"
 
-    def view_on_site(slef, obj):
+    def view_on_site(self, obj):
         return reverse('students_edit', kwargs={'pk':obj.id})
 
 

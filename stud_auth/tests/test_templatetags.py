@@ -10,7 +10,7 @@ class TestTemplatetags(TestCase):
             "{% load assign_variable %}"
             "{% assign_variable var1 var2 as var %}"
             "{% if var == var1 %}"
-            " it works " 
+            " it works "
             "{% endif %}").render(Context({'var1':'x', 'var2':'x'}))
         self.assertIn('it works', html)
         # check if only second variable exists
@@ -18,6 +18,6 @@ class TestTemplatetags(TestCase):
             "{% load assign_variable %}"
             "{% assign_variable var1 var2 as var %}"
             "{% if var == var2 %}"
-            " it works " 
+            " it works "
             "{% endif %}").render(Context({'var2':'x'}))
         self.assertIn('it works', html)

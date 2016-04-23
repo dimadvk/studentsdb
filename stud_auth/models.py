@@ -22,22 +22,22 @@ class StProfile(models.Model):
     )
 
     passport_id = models.CharField(
-        max_length = 8,
-        blank = True,
-        verbose_name = _(u'passport id'),
-        default = '',
+        max_length=8,
+        blank=True,
+        verbose_name=_(u'passport id'),
+        default='',
     )
 
     address = models.CharField(
-        max_length = 256,
-        blank = True,
-        verbose_name = _(u'address'),
-        default = '',
+        max_length=256,
+        blank=True,
+        verbose_name=_(u'address'),
+        default='',
     )
 
     photo = models.ImageField(
-        blank = True,
-        verbose_name = _(u'photo'),
+        blank=True,
+        verbose_name=_(u'photo'),
     )
 
     def __unicode__(self):

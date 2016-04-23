@@ -4,7 +4,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
 
-class DispatchLoginRequired(object):
+class DispatchLoginRequiredMixin(object):
     """Base class for restrict access to views"""
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
