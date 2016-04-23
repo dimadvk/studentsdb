@@ -1,6 +1,5 @@
 from django.db import models
 
-from django.utils.image import Image
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
@@ -16,7 +15,7 @@ class Student(models.Model):
 
     first_name = models.CharField(
         max_length=256,
-        blank= False,
+        blank=False,
         verbose_name=_(u"first name"),
     )
     last_name = models.CharField(
@@ -45,7 +44,8 @@ class Student(models.Model):
         blank=False,
         verbose_name=_(u"ticket"),
     )
-    student_group = models.ForeignKey('Group',
+    student_group = models.ForeignKey(
+        'Group',
         verbose_name=_(u"group"),
         blank=False,
         null=True,

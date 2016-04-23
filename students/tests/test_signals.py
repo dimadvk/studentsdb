@@ -133,6 +133,7 @@ class StudentSignalsTests(TestCase):
         logging.root.removeHandler(handler)
 
     def test_log_contact_admin(self):
+        """Test log message when mail was sent"""
         # add own root handler to catch group signals output
         out = StringIO()
         handler = logging.StreamHandler(out)
@@ -143,7 +144,7 @@ class StudentSignalsTests(TestCase):
         client.login(username='admin', password='admin')
 
         # make form submit
-        response = client.post(reverse('contact_admin'), {
+        client.post(reverse('contact_admin'), {
             'from_email': 'from@gmail.com',
             'subject': 'test email',
             'message': 'test email message',

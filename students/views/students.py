@@ -1,16 +1,11 @@
-from datetime import datetime
-from time import sleep
-
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.urlresolvers import reverse, reverse_lazy
-from django.views.generic import UpdateView, DeleteView, ListView, DetailView
-from django.forms import  ModelForm, ValidationError
+from django.views.generic import UpdateView, ListView, DetailView
+from django.forms import ValidationError
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _, ugettext_lazy as __
-from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
 from ..models.student import Student

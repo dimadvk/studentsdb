@@ -1,9 +1,8 @@
 from datetime import datetime, date
-from dateutil.relativedelta import relativedelta
 from calendar import monthrange, weekday, day_abbr
+from dateutil.relativedelta import relativedelta
 
-from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.views.generic.base import TemplateView
 from django.core.urlresolvers import reverse
 
@@ -14,6 +13,7 @@ from ..util import paginate, get_current_group, DispatchLoginRequired
 # Views for Journal
 
 class JournalView(DispatchLoginRequired, TemplateView):
+    """Journal view class"""
     template_name = "students/journal.html"
 
     def get_context_data(self, **kwargs):

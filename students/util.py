@@ -1,9 +1,6 @@
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.paginator import Paginator, PageNotAnInteger
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
-from django.views.generic import ListView
-
-from django.utils.decorators import classonlymethod
 
 
 class DispatchLoginRequired(object):

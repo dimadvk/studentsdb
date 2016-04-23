@@ -122,7 +122,7 @@ class TestStudentAddForm(TestCase):
 #                first_name='new_fname', last_name='new_lname')
 #            self.assertEqual(len(student), 1)
 #        # check saved photo
-#        self.assertTrue(os.path.isfile(os.path.join(settings.MEDIA_ROOT, 'test.jpg')))
+        self.assertTrue(os.path.isfile(os.path.join(settings.MEDIA_ROOT, 'test.jpg')))
         # check the right redirection
         self.assertIn('Student &quot;new_fname new_lname&quot; sucessfully added!',
                          response.content)

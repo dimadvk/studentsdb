@@ -1,7 +1,6 @@
 # writed as at https://atsoftware.de/2015/02/django-contact-form-full-tutorial-custom-example-in-django-1-7/
 from collections import OrderedDict
 from django import forms
-from django.shortcuts import render, redirect
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.views.generic import FormView

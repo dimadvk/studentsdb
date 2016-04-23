@@ -1,10 +1,11 @@
+"""Test for some cutom template tags"""
 from django.template import Template, Context
 from django.test import TestCase
-from django.core.paginator import Paginator
 from django.contrib.auth.models import User
 
 
 class TemplateTagTests(TestCase):
+    """Test for custom templatetags"""
 
     def test_str2int(self):
         """Test str2int template filter"""

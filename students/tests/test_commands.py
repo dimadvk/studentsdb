@@ -1,8 +1,7 @@
-import os
-
 from django.test import TestCase
 from django.core.management import call_command
 from django.utils.six import StringIO
+
 
 class CommandsTest(TestCase):
 

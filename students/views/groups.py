@@ -1,22 +1,19 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import HttpResponseRedirect
 from django.views.generic import DeleteView, UpdateView, CreateView
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
-from django.core.exceptions import PermissionDenied
-from django.http.response import HttpResponseForbidden
-from django.forms import ModelForm, ValidationError, ChoiceField, Select
+from django.forms import ModelForm, ValidationError
 from django.utils.translation import ugettext as _, ugettext_lazy
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Field, HTML
+from crispy_forms.layout import Submit, HTML
 from crispy_forms.bootstrap import FormActions
 
 from ..models.group import Group
-from ..models.student import Student
-from ..util import paginate, get_current_group, DispatchLoginRequired 
+from ..util import paginate, get_current_group, DispatchLoginRequired
+
 
 # Views for Groups
 
@@ -97,9 +94,6 @@ class GroupCreateView(DispatchLoginRequired, SuccessMessageMixin, CreateView):
         context.update({"page_title": _(u"Create Group")})
         return context
 
-
-#def groups_edit(request, pk):
-#    return HttpResponse('<h1>Edit Group %s' % pk)
 
 class GroupUpdateForm(GroupCreateForm):
     def __init__(self, *args, **kwargs):

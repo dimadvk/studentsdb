@@ -13,7 +13,7 @@ class ContactAdminFormTests(TestCase):
         client.login(username='admin', password='admin')
 
         # make form submit
-        response = client.post(reverse('contact_admin'), {
+        client.post(reverse('contact_admin'), {
             'from_email': 'from@gmail.com',
             'subject': 'test email',
             'message': 'test email message',

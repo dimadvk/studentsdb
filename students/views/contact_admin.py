@@ -1,10 +1,7 @@
 import logging
-from collections import OrderedDict
 
-from django.shortcuts import render, redirect
 from django import forms
 from django.core.mail import send_mail
-from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.views.generic import FormView
@@ -12,7 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.decorators import permission_required
 from django.utils.decorators import method_decorator
 
-from studentsdb.settings import ADMIN_EMAIL, DEFAULT_FROM_EMAIL
+from studentsdb.settings import ADMIN_EMAIL
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit

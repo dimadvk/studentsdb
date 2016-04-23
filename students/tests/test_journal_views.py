@@ -1,10 +1,7 @@
-from datetime import datetime
-import json
-
 from django.test import TestCase, Client
 from django.core.urlresolvers import reverse
 
-from ..models import MonthJournal, Student, Group
+from ..models import MonthJournal, Group
 
 
 class JuornalViewsTest(TestCase):
@@ -35,7 +32,7 @@ class JuornalViewsTest(TestCase):
         self.assertEqual(response.status_code, 200)
         # check content type
         self.assertEqual(response.get('Content-Type'),
-                    'application/json')
+                         'application/json')
         # check content
         self.assertEqual(response.content, '{"status": "success"}')
 
