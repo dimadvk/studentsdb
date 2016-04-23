@@ -79,13 +79,6 @@ WSGI_APPLICATION = 'studentsdb.wsgi.application'
 
 from .db import DATABASES
 
-path_base_dir = BASE_DIR.split('/')
-if 'jenkins' in path_base_dir:
-    import imp
-    imp.load_source('db_settings',
-        '/data/work/virtualenvs/studentsdb/src/studentsdb/studentsdb/db.py')
-    from db_settings import DATABASES
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
@@ -151,11 +144,6 @@ ADMINS = (
     ('admin', 'ren-kpi@i.ua'),
 )
 from .smtp_settings import *
-if 'jenkins' in path_base_dir:
-    import imp
-    imp.load_source('smtp_settings',
-        '/data/work/virtualenvs/studentsdb/src/studentsdb/studentsdb/smtp_settings.py')
-    from smtp_settings import *
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 #EMAIL_FILE_PATH = 'email_files'
@@ -255,3 +243,19 @@ LOGGING = {
         },
     }
 }
+
+
+# for jenkins
+current_user = os.getenv('USER')
+if current_user == 'jenkins':
+    import imp
+    # load db settings
+    imp.load_source('db_settings',
+        '/data/work/virtualenvs/studentsdb/src/studentsdb/studentsdb/db.py')
+    from db_settings import DATABASES
+    # load smtp settings
+    imp.load_source('smtp_settings',
+        '/data/work/virtualenvs/studentsdb/src/studentsdb/studentsdb/smtp_settings.py')
+    from smtp_settings import *
+    # set MEDIA_ROOT
+    MEDIA_ROOT = '/data/work/virtualenvs/studentsdb/src/media'

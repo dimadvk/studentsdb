@@ -53,12 +53,6 @@ class TestStudentUpdateForm(TestCase):
         # check response status
         self.assertEqual(response.status_code, 200)
 
-        f = open('tmp.txt', 'w+')
-        f.write("Group ID: \n")
-        f.write(str(group.id))
-        f.write('++++++++++++++')
-        f.write(response.content)
-
         # test updated student details
         student = Student.objects.get(pk=1)
         self.assertEqual(student.first_name, 'Updated Name')
