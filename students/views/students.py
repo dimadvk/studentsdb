@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse, reverse_lazy
-from django.views.generic import UpdateView, ListView, DetailView
+from django.views.generic import UpdateView, ListView, DeleteView
 from django.forms import ValidationError
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
