@@ -258,4 +258,4 @@ if current_user == 'jenkins':
         '/data/work/virtualenvs/studentsdb/src/studentsdb/studentsdb/smtp_settings.py')
     from smtp_settings import *
     # set MEDIA_ROOT
-    MEDIA_ROOT = '/data/work/virtualenvs/studentsdb/src/media'
+    #MEDIA_ROOT = '/data/work/virtualenvs/studentsdb/src/media'
