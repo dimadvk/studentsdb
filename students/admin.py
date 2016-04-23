@@ -18,7 +18,7 @@ class StudentFormAdmin(ModelForm): # pragma: no cover
         groups = Group.objects.filter(leader=self.instance)
         if len(groups) > 0 and self.cleaned_data['student_group'] != groups[0]:
             raise ValidationError(u'Студент є старостою іншої групи',
-                code='invalid')
+                                  code='invalid')
 
         return self.cleaned_data['student_group']
 
@@ -31,7 +31,7 @@ class StudentAdmin(admin.ModelAdmin): # pragma: no cover
     list_filter = ['student_group']
     list_per_page = 10
     search_fields = ['last_name', 'first_name', 'middle_name', 'ticket', 'notes']
-    form  = StudentFormAdmin
+    form = StudentFormAdmin
 
     actions = ['copy_students']
     def copy_students(self, request, queryset):
@@ -53,9 +53,10 @@ class GroupFormAdmin(ModelForm): # pragma: no cover
     def clean_leader(self):
         """ Check if leader is in the same group """
         new_leader = self.cleaned_data['leader']
-        if hasattr(new_leader, 'student_group') and new_leader.student_group != self.instance:
+        if hasattr(new_leader, 'student_group') and (
+                new_leader.student_group != self.instance):
             raise ValidationError(u"Студент не входить до даної групи!",
-                code='invalid')
+                                  code='invalid')
         return new_leader
 
 class GroupAdmin(admin.ModelAdmin): # pragma: no cover
@@ -69,8 +70,9 @@ class GroupAdmin(admin.ModelAdmin): # pragma: no cover
     form = GroupFormAdmin
 
     def view_on_site(self, obj):
+        """-"""
         return reverse('group_edit', kwargs={'pk': obj.pk})
-    
+
 # Register your models here.
 
 admin.site.register(Student, StudentAdmin)

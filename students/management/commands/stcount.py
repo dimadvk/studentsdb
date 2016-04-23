@@ -18,11 +18,11 @@ class Command(BaseCommand):
                                   {'name': name, 'count': model.objects.count()})
 
 #        if 'student' in args:
-#            self.stdout.write('Number of students in database: %d' % 
+#            self.stdout.write('Number of students in database: %d' %
 #                              Student.objects.count())
 #        if 'group' in args:
-#            self.stdout.write('Number of groups in database: %d' % 
+#            self.stdout.write('Number of groups in database: %d' %
 #                              Group.objects.count())
 #        if 'user' in args:
-#            self.stdout.write('Number of users in database: %d' % 
+#            self.stdout.write('Number of users in database: %d' %
 #                              User.objects.count())

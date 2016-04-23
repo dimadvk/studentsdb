@@ -8,7 +8,8 @@ class MonthJournal(models.Model):
         verbose_name = _(u'month journal')
         verbose_name_plural = _(u'month journals')
 
-    student = models.ForeignKey('Student',
+    student = models.ForeignKey(
+        'Student',
         verbose_name=_(u'student'),
         blank=False,
         unique_for_month='date')

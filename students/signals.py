@@ -34,9 +34,9 @@ def log_student_updated_added_event(sender, **kwargs):
                                 )
     else:
         logger.info("Student updated: %s %s (ID: %d)",
-                      student.first_name,
-                      student.last_name,
-                      student.id
+                    student.first_name,
+                    student.last_name,
+                    student.id
                    )
         action.action_detail = "Student updated: %s %s (ID: %d)" % (
                                 student.first_name,
@@ -51,6 +51,7 @@ def log_student_updated_added_event(sender, **kwargs):
 
 @receiver(post_delete, sender=Student)
 def log_student_deleted_event(sender, **kwargs):
+    """Log message when studetn object got deleted"""
     logger = logging.getLogger(__name__)
     action = Action()
 
@@ -59,12 +60,12 @@ def log_student_deleted_event(sender, **kwargs):
                 student.first_name,
                 student.last_name,
                 student.id
-    )
+               )
     action.action_detail = "Student deleted: %s %s (ID: %d)" % (
                 student.first_name,
                 student.last_name,
                 student.id,
-    )
+                )
     action.model_name = sender.__name__
     action.model_verbose_name = sender._meta.verbose_name
     action.save()
@@ -72,6 +73,7 @@ def log_student_deleted_event(sender, **kwargs):
 
 @receiver(post_save, sender=Group)
 def log_group_updated_added_event(sender, **kwargs):
+    """Log message when group got updated or added new one"""
     logger = logging.getLogger(__name__)
     action = Action()
 
@@ -85,7 +87,7 @@ def log_group_updated_added_event(sender, **kwargs):
         )
     else:
         logger.info("Group updated: %s (ID: %d)",
-                   group.title, group.id
+                    group.title, group.id
                    )
         action.action_detail = "Group updated: %s (ID: %d)" % (
             group.title, group.id,
@@ -97,6 +99,7 @@ def log_group_updated_added_event(sender, **kwargs):
 
 @receiver(post_delete, sender=Group)
 def log_group_deleted_event(sender, **kwargs):
+    """Log message when group object got deleted"""
     logger = logging.getLogger(__name__)
     action = Action()
     group = kwargs['instance']
@@ -108,6 +111,7 @@ def log_group_deleted_event(sender, **kwargs):
 
 @receiver(post_save, sender=MonthJournal)
 def log_monthjournal_changes(sender, **kwargs):
+    """Log message when monthjournal object got changed"""
     logger = logging.getLogger(__name__)
     action = Action()
     monthjournal = kwargs['instance']
@@ -129,6 +133,7 @@ contact_admin_sent = Signal()
 
 @receiver(contact_admin_sent)
 def log_contact_admin(sender, **kwargs):
+    """Log message when message to admin got sent"""
     logger = logging.getLogger(__name__)
     logger.info('A message via Contact Form was sent. Sender: %s; Subject: %s',
                 kwargs['message_sender'],

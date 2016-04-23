@@ -117,11 +117,11 @@ class TestStudentAddForm(TestCase):
         # check response status
         self.assertEqual(response.status_code, 200)
         # check new student
-#        with transaction.atomic():
-#            student = Student.objects.filter(
-#                first_name='new_fname', last_name='new_lname')
-#            self.assertEqual(len(student), 1)
-#        # check saved photo
+        with transaction.atomic():
+            student = Student.objects.filter(
+                first_name='new_fname', last_name='new_lname')
+            self.assertEqual(len(student), 1)
+        # check saved photo
         self.assertTrue(os.path.isfile(os.path.join(settings.MEDIA_ROOT, 'test.jpg')))
         # check the right redirection
         self.assertIn('Student &quot;new_fname new_lname&quot; sucessfully added!',

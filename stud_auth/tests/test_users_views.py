@@ -2,8 +2,6 @@ from django.test import TestCase, override_settings, Client
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
-from ..models import StProfile
-
 
 @override_settings(LANGUAGE_CODE='en')
 class TestUsersList(TestCase):

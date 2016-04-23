@@ -23,17 +23,17 @@ class Command(BaseCommand):
                     action='store',
                     dest='student',
                     help='Count of "student" objects',
-                    ),
+                   ),
         make_option('--group',
                     action='store',
                     dest='group',
                     help='Count of "group" objects',
-                    ),
+                   ),
         make_option('--user',
                     action='store',
                     dest='user',
                     help='Count of "user" objects',
-                    ),
+                   ),
     )
 
     def handle(self, *args, **options):
@@ -46,7 +46,7 @@ class Command(BaseCommand):
                 except:
                     raise ValueError("Number of '%s' objects must be an integer!"
                                      % name)
-                if not 0< count <100:
+                if not 0 < count < 100:
                     raise ValueError("Number of '%s' objects must be in range 1..99!"
                                      % name)
 
@@ -83,10 +83,10 @@ class Command(BaseCommand):
                 email=self._random_value("email") + '@example.com',
             )
             # User model have an unique field 'username'.
-            # Generated 'username' can be not unique 
+            # Generated 'username' can be not unique
             #   in compare with existing objects.
             # In case of exception repeat creating object 'user'.
             try:
                 user.save()
             except:
-                self.add_object_to_db(name)
+                self._add_object_to_db(name)
