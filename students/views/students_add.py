@@ -58,7 +58,7 @@ class StudentAddForm(ModelForm):
         #self.helper.layout[3] = AppendedText('birthday',
         #    '<i class="glyphicon glyphicon-calendar" ></i>',
         #    active=True)
-        
+
 
 
 @login_required
