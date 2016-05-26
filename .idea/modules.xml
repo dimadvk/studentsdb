@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/../../../lifetrack/src/lifetrack/.idea/lifetrack.iml" filepath="$PROJECT_DIR$/../../../lifetrack/src/lifetrack/.idea/lifetrack.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/studentsdb.iml" filepath="$PROJECT_DIR$/.idea/studentsdb.iml" />
-    </modules>
-  </component>
-</project>
