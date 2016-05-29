@@ -1,0 +1,2213 @@
+[
+{
+    "fields": {
+        "notes": "",
+        "leader": null,
+        "title": "MTM"
+    },
+    "model": "students.group",
+    "pk": 6
+},
+{
+    "fields": {
+        "notes": "",
+        "leader": 17,
+        "title": "MTM-1"
+    },
+    "model": "students.group",
+    "pk": 7
+},
+{
+    "fields": {
+        "notes": "",
+        "leader": 16,
+        "title": "MTM-2"
+    },
+    "model": "students.group",
+    "pk": 8
+},
+{
+    "fields": {
+        "notes": "",
+        "leader": null,
+        "title": "test group"
+    },
+    "model": "students.group",
+    "pk": 13
+},
+{
+    "fields": {
+        "notes": "",
+        "leader": 13,
+        "title": "!new test2"
+    },
+    "model": "students.group",
+    "pk": 16
+},
+{
+    "fields": {
+        "first_name": "Natalka",
+        "last_name": "Poltavka",
+        "middle_name": "",
+        "photo": "",
+        "notes": "",
+        "student_group": 16,
+        "birthday": "2015-07-16",
+        "ticket": "252"
+    },
+    "model": "students.student",
+    "pk": 11
+},
+{
+    "fields": {
+        "first_name": "\u0420\u0456\u0447\u0430\u0440\u0434",
+        "last_name": "\u0411\u0435\u0441\u0441\u0435\u0440\u0434\u0435\u0447\u043d\u0438\u0439",
+        "middle_name": "",
+        "photo": "",
+        "notes": "",
+        "student_group": 6,
+        "birthday": "2015-07-16",
+        "ticket": "3"
+    },
+    "model": "students.student",
+    "pk": 12
+},
+{
+    "fields": {
+        "first_name": "\u0422\u0430\u0440\u0430\u0441",
+        "last_name": "\u041a\u0430\u0440\u0442\u043e\u0448\u043a\u0430",
+        "middle_name": "",
+        "photo": "",
+        "notes": "",
+        "student_group": 16,
+        "birthday": "2015-07-16",
+        "ticket": "4"
+    },
+    "model": "students.student",
+    "pk": 13
+},
+{
+    "fields": {
+        "first_name": "\u0421\u0430\u0448\u043a\u043e ",
+        "last_name": "\u0411\u0438\u0431\u043a\u043e",
+        "middle_name": "",
+        "photo": "./2015-07-11_21.48.54.jpg",
+        "notes": "",
+        "student_group": 8,
+        "birthday": "1984-12-30",
+        "ticket": "12"
+    },
+    "model": "students.student",
+    "pk": 16
+},
+{
+    "fields": {
+        "first_name": "\u042f\u0432\u0430",
+        "last_name": "\u0420\u0435\u043d\u044c",
+        "middle_name": "",
+        "photo": "",
+        "notes": "",
+        "student_group": 7,
+        "birthday": "1978-01-01",
+        "ticket": "14"
+    },
+    "model": "students.student",
+    "pk": 17
+},
+{
+    "fields": {
+        "first_name": "Mark",
+        "last_name": "Twain",
+        "middle_name": "",
+        "photo": "",
+        "notes": "         ",
+        "student_group": 6,
+        "birthday": "1984-12-30",
+        "ticket": "24"
+    },
+    "model": "students.student",
+    "pk": 18
+},
+{
+    "fields": {
+        "first_name": "Dimitriy",
+        "last_name": "Kutnyakov",
+        "middle_name": "",
+        "photo": "./3096930_pImqWNn.jpeg",
+        "notes": "         ",
+        "student_group": 6,
+        "birthday": "1999-06-02",
+        "ticket": "1"
+    },
+    "model": "students.student",
+    "pk": 53
+},
+{
+    "fields": {
+        "first_name": "\u0423\u0440\u0444\u0456\u043d",
+        "last_name": "\u0414\u0436\u0443\u0441",
+        "middle_name": "",
+        "photo": "",
+        "notes": "",
+        "student_group": 6,
+        "birthday": "2016-03-02",
+        "ticket": "159"
+    },
+    "model": "students.student",
+    "pk": 57
+},
+{
+    "fields": {
+        "first_name": "!!!",
+        "last_name": "1!!!!!!!",
+        "middle_name": "",
+        "photo": "",
+        "notes": "         ",
+        "student_group": 7,
+        "birthday": "2016-04-06",
+        "ticket": "999"
+    },
+    "model": "students.student",
+    "pk": 84
+},
+{
+    "fields": {
+        "date": "2016-02-01",
+        "present_day21": false,
+        "present_day20": false,
+        "present_day23": false,
+        "present_day22": false,
+        "present_day25": false,
+        "present_day24": false,
+        "present_day27": false,
+        "present_day26": false,
+        "present_day29": false,
+        "present_day28": false,
+        "present_day8": false,
+        "present_day9": true,
+        "present_day2": false,
+        "present_day3": false,
+        "present_day1": false,
+        "present_day6": false,
+        "present_day7": false,
+        "present_day4": true,
+        "present_day5": false,
+        "present_day18": false,
+        "present_day19": false,
+        "student": 53,
+        "present_day10": false,
+        "present_day11": false,
+        "present_day12": false,
+        "present_day13": false,
+        "present_day14": false,
+        "present_day15": false,
+        "present_day16": false,
+        "present_day17": false,
+        "present_day30": false,
+        "present_day31": false
+    },
+    "model": "students.monthjournal",
+    "pk": 2
+},
+{
+    "fields": {
+        "date": "2016-02-01",
+        "present_day21": false,
+        "present_day20": false,
+        "present_day23": false,
+        "present_day22": false,
+        "present_day25": false,
+        "present_day24": false,
+        "present_day27": false,
+        "present_day26": false,
+        "present_day29": false,
+        "present_day28": false,
+        "present_day8": false,
+        "present_day9": false,
+        "present_day2": false,
+        "present_day3": false,
+        "present_day1": false,
+        "present_day6": false,
+        "present_day7": false,
+        "present_day4": false,
+        "present_day5": false,
+        "present_day18": false,
+        "present_day19": false,
+        "student": 11,
+        "present_day10": false,
+        "present_day11": false,
+        "present_day12": false,
+        "present_day13": false,
+        "present_day14": false,
+        "present_day15": false,
+        "present_day16": false,
+        "present_day17": false,
+        "present_day30": false,
+        "present_day31": false
+    },
+    "model": "students.monthjournal",
+    "pk": 3
+},
+{
+    "fields": {
+        "date": "2016-03-01",
+        "present_day21": false,
+        "present_day20": false,
+        "present_day23": false,
+        "present_day22": false,
+        "present_day25": false,
+        "present_day24": false,
+        "present_day27": false,
+        "present_day26": false,
+        "present_day29": false,
+        "present_day28": false,
+        "present_day8": false,
+        "present_day9": false,
+        "present_day2": true,
+        "present_day3": true,
+        "present_day1": true,
+        "present_day6": false,
+        "present_day7": false,
+        "present_day4": true,
+        "present_day5": true,
+        "present_day18": false,
+        "present_day19": false,
+        "student": 53,
+        "present_day10": false,
+        "present_day11": false,
+        "present_day12": false,
+        "present_day13": false,
+        "present_day14": false,
+        "present_day15": false,
+        "present_day16": false,
+        "present_day17": false,
+        "present_day30": false,
+        "present_day31": false
+    },
+    "model": "students.monthjournal",
+    "pk": 4
+},
+{
+    "fields": {
+        "date": "2016-03-01",
+        "present_day21": false,
+        "present_day20": false,
+        "present_day23": false,
+        "present_day22": false,
+        "present_day25": false,
+        "present_day24": false,
+        "present_day27": false,
+        "present_day26": false,
+        "present_day29": false,
+        "present_day28": false,
+        "present_day8": true,
+        "present_day9": false,
+        "present_day2": false,
+        "present_day3": false,
+        "present_day1": false,
+        "present_day6": true,
+        "present_day7": false,
+        "present_day4": false,
+        "present_day5": false,
+        "present_day18": false,
+        "present_day19": false,
+        "student": 18,
+        "present_day10": false,
+        "present_day11": false,
+        "present_day12": false,
+        "present_day13": false,
+        "present_day14": false,
+        "present_day15": false,
+        "present_day16": false,
+        "present_day17": false,
+        "present_day30": false,
+        "present_day31": false
+    },
+    "model": "students.monthjournal",
+    "pk": 5
+},
+{
+    "fields": {
+        "date": "2016-03-01",
+        "present_day21": false,
+        "present_day20": false,
+        "present_day23": false,
+        "present_day22": false,
+        "present_day25": false,
+        "present_day24": false,
+        "present_day27": false,
+        "present_day26": false,
+        "present_day29": false,
+        "present_day28": false,
+        "present_day8": false,
+        "present_day9": false,
+        "present_day2": false,
+        "present_day3": false,
+        "present_day1": false,
+        "present_day6": true,
+        "present_day7": false,
+        "present_day4": false,
+        "present_day5": false,
+        "present_day18": false,
+        "present_day19": false,
+        "student": 12,
+        "present_day10": false,
+        "present_day11": false,
+        "present_day12": false,
+        "present_day13": false,
+        "present_day14": false,
+        "present_day15": false,
+        "present_day16": false,
+        "present_day17": false,
+        "present_day30": false,
+        "present_day31": false
+    },
+    "model": "students.monthjournal",
+    "pk": 6
+},
+{
+    "fields": {
+        "date": "2016-03-01",
+        "present_day21": false,
+        "present_day20": false,
+        "present_day23": false,
+        "present_day22": false,
+        "present_day25": false,
+        "present_day24": false,
+        "present_day27": false,
+        "present_day26": false,
+        "present_day29": false,
+        "present_day28": false,
+        "present_day8": false,
+        "present_day9": false,
+        "present_day2": false,
+        "present_day3": false,
+        "present_day1": false,
+        "present_day6": false,
+        "present_day7": false,
+        "present_day4": true,
+        "present_day5": false,
+        "present_day18": false,
+        "present_day19": false,
+        "student": 16,
+        "present_day10": false,
+        "present_day11": false,
+        "present_day12": false,
+        "present_day13": false,
+        "present_day14": false,
+        "present_day15": false,
+        "present_day16": false,
+        "present_day17": false,
+        "present_day30": false,
+        "present_day31": false
+    },
+    "model": "students.monthjournal",
+    "pk": 7
+},
+{
+    "fields": {
+        "date": "2016-03-01",
+        "present_day21": false,
+        "present_day20": false,
+        "present_day23": false,
+        "present_day22": false,
+        "present_day25": false,
+        "present_day24": false,
+        "present_day27": false,
+        "present_day26": false,
+        "present_day29": false,
+        "present_day28": false,
+        "present_day8": false,
+        "present_day9": false,
+        "present_day2": false,
+        "present_day3": false,
+        "present_day1": false,
+        "present_day6": false,
+        "present_day7": false,
+        "present_day4": true,
+        "present_day5": false,
+        "present_day18": false,
+        "present_day19": false,
+        "student": 13,
+        "present_day10": false,
+        "present_day11": false,
+        "present_day12": false,
+        "present_day13": false,
+        "present_day14": false,
+        "present_day15": false,
+        "present_day16": false,
+        "present_day17": false,
+        "present_day30": false,
+        "present_day31": false
+    },
+    "model": "students.monthjournal",
+    "pk": 8
+},
+{
+    "fields": {
+        "date": "2016-04-01",
+        "present_day21": false,
+        "present_day20": false,
+        "present_day23": false,
+        "present_day22": false,
+        "present_day25": false,
+        "present_day24": false,
+        "present_day27": false,
+        "present_day26": false,
+        "present_day29": false,
+        "present_day28": false,
+        "present_day8": false,
+        "present_day9": true,
+        "present_day2": false,
+        "present_day3": false,
+        "present_day1": false,
+        "present_day6": false,
+        "present_day7": false,
+        "present_day4": true,
+        "present_day5": false,
+        "present_day18": false,
+        "present_day19": false,
+        "student": 53,
+        "present_day10": true,
+        "present_day11": false,
+        "present_day12": false,
+        "present_day13": true,
+        "present_day14": false,
+        "present_day15": false,
+        "present_day16": false,
+        "present_day17": false,
+        "present_day30": false,
+        "present_day31": false
+    },
+    "model": "students.monthjournal",
+    "pk": 10
+},
+{
+    "fields": {
+        "date": "2016-04-01",
+        "present_day21": false,
+        "present_day20": false,
+        "present_day23": false,
+        "present_day22": false,
+        "present_day25": false,
+        "present_day24": false,
+        "present_day27": false,
+        "present_day26": false,
+        "present_day29": false,
+        "present_day28": false,
+        "present_day8": false,
+        "present_day9": true,
+        "present_day2": false,
+        "present_day3": false,
+        "present_day1": false,
+        "present_day6": false,
+        "present_day7": false,
+        "present_day4": false,
+        "present_day5": true,
+        "present_day18": false,
+        "present_day19": false,
+        "student": 11,
+        "present_day10": false,
+        "present_day11": false,
+        "present_day12": false,
+        "present_day13": true,
+        "present_day14": false,
+        "present_day15": false,
+        "present_day16": false,
+        "present_day17": false,
+        "present_day30": false,
+        "present_day31": false
+    },
+    "model": "students.monthjournal",
+    "pk": 11
+},
+{
+    "fields": {
+        "date": "2016-04-01",
+        "present_day21": true,
+        "present_day20": true,
+        "present_day23": true,
+        "present_day22": true,
+        "present_day25": true,
+        "present_day24": true,
+        "present_day27": false,
+        "present_day26": false,
+        "present_day29": false,
+        "present_day28": false,
+        "present_day8": false,
+        "present_day9": false,
+        "present_day2": false,
+        "present_day3": false,
+        "present_day1": false,
+        "present_day6": false,
+        "present_day7": false,
+        "present_day4": false,
+        "present_day5": false,
+        "present_day18": true,
+        "present_day19": true,
+        "student": 12,
+        "present_day10": false,
+        "present_day11": false,
+        "present_day12": false,
+        "present_day13": false,
+        "present_day14": false,
+        "present_day15": false,
+        "present_day16": false,
+        "present_day17": true,
+        "present_day30": false,
+        "present_day31": false
+    },
+    "model": "students.monthjournal",
+    "pk": 12
+},
+{
+    "fields": {
+        "timestamp": "2016-03-11T17:09:37Z",
+        "model_name": "Student",
+        "model_verbose_name": "\u0421\u0442\u0443\u0434\u0435\u043d\u0442",
+        "user": "UNKNOWN",
+        "action_detail": "Student udated: Natalka Poltavka (ID: 11)"
+    },
+    "model": "students.action",
+    "pk": 1
+},
+{
+    "fields": {
+        "timestamp": "2016-03-11T17:13:08Z",
+        "model_name": "Student",
+        "model_verbose_name": "\u0421\u0442\u0443\u0434\u0435\u043d\u0442",
+        "user": "UNKNOWN",
+        "action_detail": "Student udated: Dimitriy Kutnyakov (ID: 53)"
+    },
+    "model": "students.action",
+    "pk": 2
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T14:07:30Z",
+        "model_name": "Student",
+        "model_verbose_name": "\u0421\u0442\u0443\u0434\u0435\u043d\u0442",
+        "user": "UNKNOWN",
+        "action_detail": "Student udated: Dimitriy Kutnyakov (ID: 53)"
+    },
+    "model": "students.action",
+    "pk": 3
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T14:58:43Z",
+        "model_name": "Student",
+        "model_verbose_name": "\u0441\u0442\u0443\u0434\u0435\u043d\u0442",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: Natalka Poltavka (ID: 56)"
+    },
+    "model": "students.action",
+    "pk": 4
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T15:30:27Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "\u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Dimitriy Kutnyakov (Journal ID: 4)"
+    },
+    "model": "students.action",
+    "pk": 5
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T15:30:27Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "\u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Dimitriy Kutnyakov (Journal ID: 4)"
+    },
+    "model": "students.action",
+    "pk": 6
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T15:30:28Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "\u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Dimitriy Kutnyakov (Journal ID: 4)"
+    },
+    "model": "students.action",
+    "pk": 7
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T15:49:53Z",
+        "model_name": "Student",
+        "model_verbose_name": "\u0441\u0442\u0443\u0434\u0435\u043d\u0442",
+        "user": "UNKNOWN",
+        "action_detail": "Student updated: Natalka Poltavka (ID: 11)"
+    },
+    "model": "students.action",
+    "pk": 8
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T15:51:00Z",
+        "model_name": "Group",
+        "model_verbose_name": "\u0433\u0440\u0443\u043f\u0430",
+        "user": "UNKNOWN",
+        "action_detail": "Group deleted: !test (ID: 19)"
+    },
+    "model": "students.action",
+    "pk": 9
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T16:23:25Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "\u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Dimitriy Kutnyakov (Journal ID: 4)"
+    },
+    "model": "students.action",
+    "pk": 10
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T16:23:26Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "\u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Dimitriy Kutnyakov (Journal ID: 4)"
+    },
+    "model": "students.action",
+    "pk": 11
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T16:28:52Z",
+        "model_name": "Group",
+        "model_verbose_name": "\u0433\u0440\u0443\u043f\u0430",
+        "user": "UNKNOWN",
+        "action_detail": "Group updated: MTM (Leader: None) (ID: 6)"
+    },
+    "model": "students.action",
+    "pk": 12
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T16:28:58Z",
+        "model_name": "Group",
+        "model_verbose_name": "\u0433\u0440\u0443\u043f\u0430",
+        "user": "UNKNOWN",
+        "action_detail": "Group updated: !new test2 (Leader: \u0422\u0430\u0440\u0430\u0441 \u041a\u0430\u0440\u0442\u043e\u0448\u043a\u0430) (ID: 16)"
+    },
+    "model": "students.action",
+    "pk": 13
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T16:29:07Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "\u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Mark Twain (Journal ID: 5)"
+    },
+    "model": "students.action",
+    "pk": 14
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T16:29:07Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "\u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Mark Twain (Journal ID: 5)"
+    },
+    "model": "students.action",
+    "pk": 15
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T16:29:08Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "\u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Mark Twain (Journal ID: 5)"
+    },
+    "model": "students.action",
+    "pk": 16
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T16:29:09Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "\u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: \u0420\u0456\u0447\u0430\u0440\u0434 \u0411\u0435\u0441\u0441\u0435\u0440\u0434\u0435\u0447\u043d\u0438\u0439 (Journal ID: 6)"
+    },
+    "model": "students.action",
+    "pk": 17
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T16:29:09Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "\u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: \u0420\u0456\u0447\u0430\u0440\u0434 \u0411\u0435\u0441\u0441\u0435\u0440\u0434\u0435\u0447\u043d\u0438\u0439 (Journal ID: 6)"
+    },
+    "model": "students.action",
+    "pk": 18
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T16:29:10Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "\u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: \u0421\u0430\u0448\u043a\u043e  \u0411\u0438\u0431\u043a\u043e (Journal ID: 7)"
+    },
+    "model": "students.action",
+    "pk": 19
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T16:29:10Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "\u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: \u0421\u0430\u0448\u043a\u043e  \u0411\u0438\u0431\u043a\u043e (Journal ID: 7)"
+    },
+    "model": "students.action",
+    "pk": 20
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T16:29:11Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "\u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: \u0422\u0430\u0440\u0430\u0441 \u041a\u0430\u0440\u0442\u043e\u0448\u043a\u0430 (Journal ID: 8)"
+    },
+    "model": "students.action",
+    "pk": 21
+},
+{
+    "fields": {
+        "timestamp": "2016-03-16T16:29:11Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "\u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: \u0422\u0430\u0440\u0430\u0441 \u041a\u0430\u0440\u0442\u043e\u0448\u043a\u0430 (Journal ID: 8)"
+    },
+    "model": "students.action",
+    "pk": 22
+},
+{
+    "fields": {
+        "timestamp": "2016-03-17T11:08:38Z",
+        "model_name": "Group",
+        "model_verbose_name": "\u0433\u0440\u0443\u043f\u0430",
+        "user": "UNKNOWN",
+        "action_detail": "Group updated: MTM (Leader: None) (ID: 6)"
+    },
+    "model": "students.action",
+    "pk": 23
+},
+{
+    "fields": {
+        "timestamp": "2016-03-17T11:08:50Z",
+        "model_name": "Group",
+        "model_verbose_name": "\u0433\u0440\u0443\u043f\u0430",
+        "user": "UNKNOWN",
+        "action_detail": "Group updated: MTM-2 (Leader: \u0421\u0430\u0448\u043a\u043e  \u0411\u0438\u0431\u043a\u043e) (ID: 8)"
+    },
+    "model": "students.action",
+    "pk": 24
+},
+{
+    "fields": {
+        "timestamp": "2016-03-17T11:09:06Z",
+        "model_name": "Student",
+        "model_verbose_name": "\u0441\u0442\u0443\u0434\u0435\u043d\u0442",
+        "user": "UNKNOWN",
+        "action_detail": "Student updated: Mark Twain (ID: 18)"
+    },
+    "model": "students.action",
+    "pk": 25
+},
+{
+    "fields": {
+        "timestamp": "2016-03-17T11:09:18Z",
+        "model_name": "Student",
+        "model_verbose_name": "\u0441\u0442\u0443\u0434\u0435\u043d\u0442",
+        "user": "UNKNOWN",
+        "action_detail": "Student updated: \u0420\u0456\u0447\u0430\u0440\u0434 \u0411\u0435\u0441\u0441\u0435\u0440\u0434\u0435\u0447\u043d\u0438\u0439 (ID: 12)"
+    },
+    "model": "students.action",
+    "pk": 26
+},
+{
+    "fields": {
+        "timestamp": "2016-03-17T11:09:29Z",
+        "model_name": "Student",
+        "model_verbose_name": "\u0441\u0442\u0443\u0434\u0435\u043d\u0442",
+        "user": "UNKNOWN",
+        "action_detail": "Student updated: \u0420\u0456\u0447\u0430\u0440\u0434 \u0411\u0435\u0441\u0441\u0435\u0440\u0434\u0435\u0447\u043d\u0438\u0439 (ID: 12)"
+    },
+    "model": "students.action",
+    "pk": 27
+},
+{
+    "fields": {
+        "timestamp": "2016-03-18T09:02:22Z",
+        "model_name": "Student",
+        "model_verbose_name": "\u0441\u0442\u0443\u0434\u0435\u043d\u0442",
+        "user": "UNKNOWN",
+        "action_detail": "Student updated: Dimitriy-copy Kutnyakov-copy (ID: 10)"
+    },
+    "model": "students.action",
+    "pk": 28
+},
+{
+    "fields": {
+        "timestamp": "2016-03-18T11:42:03Z",
+        "model_name": "Group",
+        "model_verbose_name": "\u0433\u0440\u0443\u043f\u0430",
+        "user": "UNKNOWN",
+        "action_detail": "Group updated: !new test2 (Leader: \u0422\u0430\u0440\u0430\u0441 \u041a\u0430\u0440\u0442\u043e\u0448\u043a\u0430) (ID: 16)"
+    },
+    "model": "students.action",
+    "pk": 29
+},
+{
+    "fields": {
+        "timestamp": "2016-03-18T13:36:13Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "\u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Dimitriy-copy Kutnyakov-copy (Journal ID: 9)"
+    },
+    "model": "students.action",
+    "pk": 30
+},
+{
+    "fields": {
+        "timestamp": "2016-03-18T13:36:13Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "\u041c\u0456\u0441\u044f\u0447\u043d\u0438\u0439 \u0436\u0443\u0440\u043d\u0430\u043b",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Dimitriy-copy Kutnyakov-copy (Journal ID: 9)"
+    },
+    "model": "students.action",
+    "pk": 31
+},
+{
+    "fields": {
+        "timestamp": "2016-03-19T11:26:04Z",
+        "model_name": "Student",
+        "model_verbose_name": "\u0441\u0442\u0443\u0434\u0435\u043d\u0442",
+        "user": "UNKNOWN",
+        "action_detail": "Student updated: Natalka Poltavka (ID: 11)"
+    },
+    "model": "students.action",
+    "pk": 32
+},
+{
+    "fields": {
+        "timestamp": "2016-03-19T11:27:12Z",
+        "model_name": "Student",
+        "model_verbose_name": "\u0441\u0442\u0443\u0434\u0435\u043d\u0442",
+        "user": "UNKNOWN",
+        "action_detail": "Student updated: Mark Twain (ID: 18)"
+    },
+    "model": "students.action",
+    "pk": 33
+},
+{
+    "fields": {
+        "timestamp": "2016-03-19T11:32:51Z",
+        "model_name": "Student",
+        "model_verbose_name": "\u0441\u0442\u0443\u0434\u0435\u043d\u0442",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: \u0423\u0440\u0444\u0456\u043d \u0414\u0436\u0443\u0441 (ID: 57)"
+    },
+    "model": "students.action",
+    "pk": 34
+},
+{
+    "fields": {
+        "timestamp": "2016-03-19T11:33:36Z",
+        "model_name": "Student",
+        "model_verbose_name": "\u0441\u0442\u0443\u0434\u0435\u043d\u0442",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: !!!!!!!!! !!!!!!!!!!1 (ID: 58)"
+    },
+    "model": "students.action",
+    "pk": 35
+},
+{
+    "fields": {
+        "timestamp": "2016-03-19T11:33:46Z",
+        "model_name": "Student",
+        "model_verbose_name": "\u0441\u0442\u0443\u0434\u0435\u043d\u0442",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: !!!!!!!!! !!!!!!!!!!1 (ID: 58)"
+    },
+    "model": "students.action",
+    "pk": 36
+},
+{
+    "fields": {
+        "timestamp": "2016-03-19T11:34:07Z",
+        "model_name": "Student",
+        "model_verbose_name": "\u0441\u0442\u0443\u0434\u0435\u043d\u0442",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: Dimitriy-copy Kutnyakov-copy (ID: 10)"
+    },
+    "model": "students.action",
+    "pk": 37
+},
+{
+    "fields": {
+        "timestamp": "2016-03-19T11:52:49Z",
+        "model_name": "Student",
+        "model_verbose_name": "\u0441\u0442\u0443\u0434\u0435\u043d\u0442",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: !!!!!!!!!!!! !!! (ID: 59)"
+    },
+    "model": "students.action",
+    "pk": 38
+},
+{
+    "fields": {
+        "timestamp": "2016-03-19T12:53:29Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student updated: Dimitriy Kutnyakov (ID: 53)"
+    },
+    "model": "students.action",
+    "pk": 39
+},
+{
+    "fields": {
+        "timestamp": "2016-03-19T13:01:04Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student updated: !!!!!!!!!!!! !!! (ID: 59)"
+    },
+    "model": "students.action",
+    "pk": 40
+},
+{
+    "fields": {
+        "timestamp": "2016-03-19T13:47:20Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student updated: Dimitriy Kutnyakov (ID: 53)"
+    },
+    "model": "students.action",
+    "pk": 41
+},
+{
+    "fields": {
+        "timestamp": "2016-03-21T12:13:25Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Dimitriy Kutnyakov (Journal ID: 4)"
+    },
+    "model": "students.action",
+    "pk": 42
+},
+{
+    "fields": {
+        "timestamp": "2016-03-24T15:45:25Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: !!!!!!!!!!!! !!! (ID: 59)"
+    },
+    "model": "students.action",
+    "pk": 43
+},
+{
+    "fields": {
+        "timestamp": "2016-03-24T15:50:55Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: ttt ttt (ID: 60)"
+    },
+    "model": "students.action",
+    "pk": 44
+},
+{
+    "fields": {
+        "timestamp": "2016-03-24T15:51:05Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: ttt ttt (ID: 60)"
+    },
+    "model": "students.action",
+    "pk": 45
+},
+{
+    "fields": {
+        "timestamp": "2016-03-26T19:17:14Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: ------ !!! (ID: 61)"
+    },
+    "model": "students.action",
+    "pk": 46
+},
+{
+    "fields": {
+        "timestamp": "2016-03-28T08:41:36Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: ------ !!! (ID: 61)"
+    },
+    "model": "students.action",
+    "pk": 47
+},
+{
+    "fields": {
+        "timestamp": "2016-03-28T09:56:37Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: !!test !!tttt (ID: 62)"
+    },
+    "model": "students.action",
+    "pk": 48
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T06:59:46Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: !!test !!tttt (ID: 62)"
+    },
+    "model": "students.action",
+    "pk": 49
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:22Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Dimitriy Kutnyakov (Journal ID: 10)"
+    },
+    "model": "students.action",
+    "pk": 50
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:22Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Dimitriy Kutnyakov (Journal ID: 10)"
+    },
+    "model": "students.action",
+    "pk": 51
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:23Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Natalka Poltavka (Journal ID: 11)"
+    },
+    "model": "students.action",
+    "pk": 52
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:23Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Natalka Poltavka (Journal ID: 11)"
+    },
+    "model": "students.action",
+    "pk": 53
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:24Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Natalka Poltavka (Journal ID: 11)"
+    },
+    "model": "students.action",
+    "pk": 54
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:26Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Dimitriy Kutnyakov (Journal ID: 10)"
+    },
+    "model": "students.action",
+    "pk": 55
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:27Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Dimitriy Kutnyakov (Journal ID: 10)"
+    },
+    "model": "students.action",
+    "pk": 56
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:28Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Natalka Poltavka (Journal ID: 11)"
+    },
+    "model": "students.action",
+    "pk": 57
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:29Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: Dimitriy Kutnyakov (Journal ID: 10)"
+    },
+    "model": "students.action",
+    "pk": 58
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:43Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: \u0420\u0456\u0447\u0430\u0440\u0434 \u0411\u0435\u0441\u0441\u0435\u0440\u0434\u0435\u0447\u043d\u0438\u0439 (Journal ID: 12)"
+    },
+    "model": "students.action",
+    "pk": 59
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:43Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: \u0420\u0456\u0447\u0430\u0440\u0434 \u0411\u0435\u0441\u0441\u0435\u0440\u0434\u0435\u0447\u043d\u0438\u0439 (Journal ID: 12)"
+    },
+    "model": "students.action",
+    "pk": 60
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:44Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: \u0420\u0456\u0447\u0430\u0440\u0434 \u0411\u0435\u0441\u0441\u0435\u0440\u0434\u0435\u0447\u043d\u0438\u0439 (Journal ID: 12)"
+    },
+    "model": "students.action",
+    "pk": 61
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:45Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: \u0420\u0456\u0447\u0430\u0440\u0434 \u0411\u0435\u0441\u0441\u0435\u0440\u0434\u0435\u0447\u043d\u0438\u0439 (Journal ID: 12)"
+    },
+    "model": "students.action",
+    "pk": 62
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:47Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: \u0420\u0456\u0447\u0430\u0440\u0434 \u0411\u0435\u0441\u0441\u0435\u0440\u0434\u0435\u0447\u043d\u0438\u0439 (Journal ID: 12)"
+    },
+    "model": "students.action",
+    "pk": 63
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:47Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: \u0420\u0456\u0447\u0430\u0440\u0434 \u0411\u0435\u0441\u0441\u0435\u0440\u0434\u0435\u0447\u043d\u0438\u0439 (Journal ID: 12)"
+    },
+    "model": "students.action",
+    "pk": 64
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:48Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: \u0420\u0456\u0447\u0430\u0440\u0434 \u0411\u0435\u0441\u0441\u0435\u0440\u0434\u0435\u0447\u043d\u0438\u0439 (Journal ID: 12)"
+    },
+    "model": "students.action",
+    "pk": 65
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:49Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: \u0420\u0456\u0447\u0430\u0440\u0434 \u0411\u0435\u0441\u0441\u0435\u0440\u0434\u0435\u0447\u043d\u0438\u0439 (Journal ID: 12)"
+    },
+    "model": "students.action",
+    "pk": 66
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:50Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: \u0420\u0456\u0447\u0430\u0440\u0434 \u0411\u0435\u0441\u0441\u0435\u0440\u0434\u0435\u0447\u043d\u0438\u0439 (Journal ID: 12)"
+    },
+    "model": "students.action",
+    "pk": 67
+},
+{
+    "fields": {
+        "timestamp": "2016-04-04T07:00:51Z",
+        "model_name": "MonthJournal",
+        "model_verbose_name": "month journal",
+        "user": "UNKNOWN",
+        "action_detail": "MonthJournal updated: \u0420\u0456\u0447\u0430\u0440\u0434 \u0411\u0435\u0441\u0441\u0435\u0440\u0434\u0435\u0447\u043d\u0438\u0439 (Journal ID: 12)"
+    },
+    "model": "students.action",
+    "pk": 68
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T11:12:14Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student updated: Dimitriy Kutnyakov (ID: 53)"
+    },
+    "model": "students.action",
+    "pk": 69
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T11:12:36Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group updated: MTM (Leader: None) (ID: 6)"
+    },
+    "model": "students.action",
+    "pk": 70
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:12:22Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name958 last_name77 (ID: 63)"
+    },
+    "model": "students.action",
+    "pk": 71
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:13:48Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name2710 last_name8426 (ID: 64)"
+    },
+    "model": "students.action",
+    "pk": 72
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:14:18Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group created: title6087 (Leader: None) (ID: 20)"
+    },
+    "model": "students.action",
+    "pk": 73
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:22:37Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student updated: first_name2710 last_name8426 (ID: 64)"
+    },
+    "model": "students.action",
+    "pk": 74
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:28:31Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name4611 last_name7234 (ID: 65)"
+    },
+    "model": "students.action",
+    "pk": 75
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:28:51Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name8708 last_name3623 (ID: 66)"
+    },
+    "model": "students.action",
+    "pk": 76
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:29:39Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name4927 last_name4814 (ID: 67)"
+    },
+    "model": "students.action",
+    "pk": 77
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:30:02Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name4927 last_name4814 (ID: 67)"
+    },
+    "model": "students.action",
+    "pk": 78
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:30:02Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name8708 last_name3623 (ID: 66)"
+    },
+    "model": "students.action",
+    "pk": 79
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:30:02Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name4611 last_name7234 (ID: 65)"
+    },
+    "model": "students.action",
+    "pk": 80
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:57:53Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name3462 last_name2446 (ID: 68)"
+    },
+    "model": "students.action",
+    "pk": 81
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:57:53Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name664 last_name6550 (ID: 69)"
+    },
+    "model": "students.action",
+    "pk": 82
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:57:53Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name2739 last_name6472 (ID: 70)"
+    },
+    "model": "students.action",
+    "pk": 83
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:57:53Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name3762 last_name659 (ID: 71)"
+    },
+    "model": "students.action",
+    "pk": 84
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:57:53Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name100 last_name4601 (ID: 72)"
+    },
+    "model": "students.action",
+    "pk": 85
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:57:53Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group created: title2284 (Leader: None) (ID: 21)"
+    },
+    "model": "students.action",
+    "pk": 86
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:58:04Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name21 last_name5210 (ID: 73)"
+    },
+    "model": "students.action",
+    "pk": 87
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:58:04Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name363 last_name972 (ID: 74)"
+    },
+    "model": "students.action",
+    "pk": 88
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:58:04Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name2215 last_name9325 (ID: 75)"
+    },
+    "model": "students.action",
+    "pk": 89
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:58:04Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name7158 last_name2528 (ID: 76)"
+    },
+    "model": "students.action",
+    "pk": 90
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:58:04Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name8349 last_name557 (ID: 77)"
+    },
+    "model": "students.action",
+    "pk": 91
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:58:15Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group created: title9686 (Leader: None) (ID: 22)"
+    },
+    "model": "students.action",
+    "pk": 92
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:58:15Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group created: title7894 (Leader: None) (ID: 23)"
+    },
+    "model": "students.action",
+    "pk": 93
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:58:15Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group created: title6118 (Leader: None) (ID: 24)"
+    },
+    "model": "students.action",
+    "pk": 94
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:58:15Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group created: title1233 (Leader: None) (ID: 25)"
+    },
+    "model": "students.action",
+    "pk": 95
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T13:58:16Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group created: title6136 (Leader: None) (ID: 26)"
+    },
+    "model": "students.action",
+    "pk": 96
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T14:01:02Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name7158 last_name2528 (ID: 76)"
+    },
+    "model": "students.action",
+    "pk": 97
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T14:01:02Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name100 last_name4601 (ID: 72)"
+    },
+    "model": "students.action",
+    "pk": 98
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T14:01:02Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name3462 last_name2446 (ID: 68)"
+    },
+    "model": "students.action",
+    "pk": 99
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T15:05:25Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name5672 last_name350 (ID: 78)"
+    },
+    "model": "students.action",
+    "pk": 100
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T15:05:25Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name7380 last_name2580 (ID: 79)"
+    },
+    "model": "students.action",
+    "pk": 101
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T15:05:25Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name6895 last_name117 (ID: 80)"
+    },
+    "model": "students.action",
+    "pk": 102
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T15:05:25Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name8203 last_name4046 (ID: 81)"
+    },
+    "model": "students.action",
+    "pk": 103
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T15:05:25Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name5982 last_name5864 (ID: 82)"
+    },
+    "model": "students.action",
+    "pk": 104
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T15:05:25Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group created: title258 (Leader: None) (ID: 27)"
+    },
+    "model": "students.action",
+    "pk": 105
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T15:05:25Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group created: title1203 (Leader: None) (ID: 28)"
+    },
+    "model": "students.action",
+    "pk": 106
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T15:06:51Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: first_name3734 last_name6153 (ID: 83)"
+    },
+    "model": "students.action",
+    "pk": 107
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T15:06:51Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group created: title380 (Leader: None) (ID: 29)"
+    },
+    "model": "students.action",
+    "pk": 108
+},
+{
+    "fields": {
+        "timestamp": "2016-04-05T15:06:51Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group created: title8096 (Leader: None) (ID: 30)"
+    },
+    "model": "students.action",
+    "pk": 109
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T03:17:29Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: !!!! 1!!!!!!! (ID: 84)"
+    },
+    "model": "students.action",
+    "pk": 110
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:28:56Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group deleted: title8096 (ID: 30)"
+    },
+    "model": "students.action",
+    "pk": 111
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:28:56Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group deleted: title380 (ID: 29)"
+    },
+    "model": "students.action",
+    "pk": 112
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:28:56Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group deleted: title1203 (ID: 28)"
+    },
+    "model": "students.action",
+    "pk": 113
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:28:56Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group deleted: title258 (ID: 27)"
+    },
+    "model": "students.action",
+    "pk": 114
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:28:56Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group deleted: title6136 (ID: 26)"
+    },
+    "model": "students.action",
+    "pk": 115
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:28:56Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group deleted: title1233 (ID: 25)"
+    },
+    "model": "students.action",
+    "pk": 116
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:28:56Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group deleted: title6118 (ID: 24)"
+    },
+    "model": "students.action",
+    "pk": 117
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:28:56Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group deleted: title7894 (ID: 23)"
+    },
+    "model": "students.action",
+    "pk": 118
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:28:56Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group deleted: title9686 (ID: 22)"
+    },
+    "model": "students.action",
+    "pk": 119
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:28:56Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group deleted: title2284 (ID: 21)"
+    },
+    "model": "students.action",
+    "pk": 120
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:28:56Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group deleted: title6087 (ID: 20)"
+    },
+    "model": "students.action",
+    "pk": 121
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:29:50Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name3734 last_name6153 (ID: 83)"
+    },
+    "model": "students.action",
+    "pk": 122
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:29:50Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name5982 last_name5864 (ID: 82)"
+    },
+    "model": "students.action",
+    "pk": 123
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:29:50Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name8203 last_name4046 (ID: 81)"
+    },
+    "model": "students.action",
+    "pk": 124
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:29:50Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name6895 last_name117 (ID: 80)"
+    },
+    "model": "students.action",
+    "pk": 125
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:29:50Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name7380 last_name2580 (ID: 79)"
+    },
+    "model": "students.action",
+    "pk": 126
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:29:50Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name5672 last_name350 (ID: 78)"
+    },
+    "model": "students.action",
+    "pk": 127
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:29:50Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name8349 last_name557 (ID: 77)"
+    },
+    "model": "students.action",
+    "pk": 128
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:29:50Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name2215 last_name9325 (ID: 75)"
+    },
+    "model": "students.action",
+    "pk": 129
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:29:50Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name363 last_name972 (ID: 74)"
+    },
+    "model": "students.action",
+    "pk": 130
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:29:50Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name21 last_name5210 (ID: 73)"
+    },
+    "model": "students.action",
+    "pk": 131
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:29:50Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name3762 last_name659 (ID: 71)"
+    },
+    "model": "students.action",
+    "pk": 132
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:29:50Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name2739 last_name6472 (ID: 70)"
+    },
+    "model": "students.action",
+    "pk": 133
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:29:50Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name664 last_name6550 (ID: 69)"
+    },
+    "model": "students.action",
+    "pk": 134
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:29:50Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name2710 last_name8426 (ID: 64)"
+    },
+    "model": "students.action",
+    "pk": 135
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T08:29:50Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: first_name958 last_name77 (ID: 63)"
+    },
+    "model": "students.action",
+    "pk": 136
+},
+{
+    "fields": {
+        "timestamp": "2016-04-07T11:05:48Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group created: del it  (Leader: None) (ID: 31)"
+    },
+    "model": "students.action",
+    "pk": 137
+},
+{
+    "fields": {
+        "timestamp": "2016-04-17T11:43:01Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student updated: !!!! 1!!!!!!! (ID: 84)"
+    },
+    "model": "students.action",
+    "pk": 138
+},
+{
+    "fields": {
+        "timestamp": "2016-04-17T11:44:01Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student updated: !!! 1!!!!!!! (ID: 84)"
+    },
+    "model": "students.action",
+    "pk": 139
+},
+{
+    "fields": {
+        "timestamp": "2016-04-18T08:38:50Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student added: !!!!!!tttt ttt (ID: 85)"
+    },
+    "model": "students.action",
+    "pk": 140
+},
+{
+    "fields": {
+        "timestamp": "2016-04-20T08:03:49Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student deleted: !!!!!!tttt ttt (ID: 85)"
+    },
+    "model": "students.action",
+    "pk": 141
+},
+{
+    "fields": {
+        "timestamp": "2016-04-20T13:03:07Z",
+        "model_name": "Student",
+        "model_verbose_name": "student",
+        "user": "UNKNOWN",
+        "action_detail": "Student updated: Dimitriy Kutnyakov (ID: 53)"
+    },
+    "model": "students.action",
+    "pk": 142
+},
+{
+    "fields": {
+        "timestamp": "2016-04-20T13:03:24Z",
+        "model_name": "Student",
+        "model_verbose_name": "\u0441\u0442\u0443\u0434\u0435\u043d\u0442",
+        "user": "UNKNOWN",
+        "action_detail": "Student updated: Mark Twain (ID: 18)"
+    },
+    "model": "students.action",
+    "pk": 143
+},
+{
+    "fields": {
+        "timestamp": "2016-04-21T09:32:07Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group deleted: del it  (ID: 31)"
+    },
+    "model": "students.action",
+    "pk": 144
+},
+{
+    "fields": {
+        "timestamp": "2016-04-21T13:25:13Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group deleted: sdsdsd (ID: 17)"
+    },
+    "model": "students.action",
+    "pk": 145
+},
+{
+    "fields": {
+        "timestamp": "2016-04-21T13:26:43Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group created: del it (ID: 32)"
+    },
+    "model": "students.action",
+    "pk": 146
+},
+{
+    "fields": {
+        "timestamp": "2016-04-21T13:28:49Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group updated: del it (ID: 32)"
+    },
+    "model": "students.action",
+    "pk": 147
+},
+{
+    "fields": {
+        "timestamp": "2016-04-21T13:40:44Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group deleted: del it (ID: 32)"
+    },
+    "model": "students.action",
+    "pk": 148
+},
+{
+    "fields": {
+        "timestamp": "2016-04-21T13:42:06Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group created: !!! (ID: 33)"
+    },
+    "model": "students.action",
+    "pk": 149
+},
+{
+    "fields": {
+        "timestamp": "2016-04-21T13:42:11Z",
+        "model_name": "Group",
+        "model_verbose_name": "group",
+        "user": "UNKNOWN",
+        "action_detail": "Group deleted: !!! (ID: 33)"
+    },
+    "model": "students.action",
+    "pk": 150
+}
+]

@@ -12,6 +12,7 @@ django-el-pagination==2.1.1
 django-endless-pagination==2.0
 django-jenkins==0.18.1
 django-registration-redux==1.2
+gunicorn==19.6.0
 html5lib==0.9999999
 ipdb==0.8.1
 ipython==3.0.0
