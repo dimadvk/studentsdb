@@ -13,7 +13,6 @@ from django.conf import global_settings
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-STATIC_ROOT = ''
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale/'),
 )
@@ -26,7 +25,7 @@ SECRET_KEY = 'ye#_i*tty*u53sqpy1l=9dkqszm+-n#(6lbqh@*8vepfp&^8zj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-#DEBUG = False
+DEBUG = False
 
 ALLOWED_HOSTS = ['studentsdb.local', 'localhost']
 
@@ -95,6 +94,9 @@ USE_L10N = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, '..', 'static')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     "django.core.context_processors.request",
@@ -134,9 +136,6 @@ TEMPLATE_DIRS = (
 LOGIN_URL = 'users:auth_login'
 LOGOUT_URL = 'users:auth_logout'
 LOGIN_REDIRECT_URL = 'home'
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 
 # email settings
 ADMIN_EMAIL = "ren-kpi@i.ua"
