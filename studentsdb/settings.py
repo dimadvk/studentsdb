@@ -28,7 +28,7 @@ SECRET_KEY = 'ye#_i*tty*u53sqpy1l=9dkqszm+-n#(6lbqh@*8vepfp&^8zj'
 DEBUG = True
 #DEBUG = False
 
-ALLOWED_HOSTS = ['studentsdb.local', 'localhost']
+ALLOWED_HOSTS = ['studentsdb.local', 'studentsdb.uk.to']
 
 TEMPLATE_DEBUG = True
 
