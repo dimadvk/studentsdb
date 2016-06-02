@@ -169,8 +169,8 @@ EMAIL_USE_SSL = get_secret('SMTP_SETTINGS').get('EMAIL_USE_SSL')
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 #EMAIL_FILE_PATH = 'email_files'
-SERVER_EMAIL = "dvk@skif.net.ua"
-DEFAULT_FROM_EMAIL = "dvk@skif.net.ua"
+SERVER_EMAIL = "ren-kpi@i.ua"
+DEFAULT_FROM_EMAIL = "admin@studentsdb.uk.to"
 
 # as django-contact-form needs
 MANAGERS = [
