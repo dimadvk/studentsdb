@@ -73,7 +73,7 @@ urlpatterns = patterns('',
     url(r'^journal/(?P<pk>\d+)?/?$', login_required(JournalView.as_view()), name='journal'),
 
     # Admin page
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin-page/', include(admin.site.urls)),
 
     # favicon.ico
 #    url(r'^/favicon\.ico/$', RedirectView.as_view(url='/static/img/favicon.ico')),
