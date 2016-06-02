@@ -1,6 +1,6 @@
 *.log
 smtp_settings.py
-db.py
+studentsdb/db.*
 reports/
 *.pyc
 secrets.json
