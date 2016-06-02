@@ -3,3 +3,4 @@ smtp_settings.py
 db.py
 reports/
 *.pyc
+secrets.json

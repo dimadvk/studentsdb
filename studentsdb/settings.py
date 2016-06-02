@@ -7,11 +7,29 @@ https://docs.djangoproject.com/en/1.7/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
+import os
+import json
+
 from django.conf import global_settings
+from django.core.exceptions import ImproperlyConfigured
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+SECRETS_FILE = os.path.join(BASE_DIR, 'studentsdb', 'secrets.json')
+with open(SECRETS_FILE) as f:
+    SECRETS = json.loads(f.read())
+
+def get_secret(setting, secrets=SECRETS):
+    """Get the secret variable or return exception."""
+    try:
+        return secrets[setting]
+    except KeyError:
+        error_msg = "Set the {0} environment variable".format(setting)
+        raise ImproperlyConfigured(error_msg)
+
+
 
 STATIC_ROOT = ''
 LOCALE_PATHS = (
