@@ -3,3 +3,4 @@ smtp_settings.py
 studentsdb/db.*
 reports/
 *.pyc
+secrets.json
