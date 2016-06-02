@@ -78,7 +78,7 @@
 
                 {% if user.is_authenticated %}
                 <!-- User's toolbar for authenticated users -->
-                <div class="col-xs-2" id="user-toolbar">
+                <div class="col-xs-3" id="user-toolbar">
                     <a href="{% url "profile" %}">{{ user.get_full_name|default:user.username }}</a> |
                     <a href="{% url "auth_logout" %}">{% trans "Logout" %}</a>
                 </div>
