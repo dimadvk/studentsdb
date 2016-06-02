@@ -42,7 +42,7 @@ SECRET_KEY = get_secret('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-DEBUG = False
+#DEBUG = False
 
 ALLOWED_HOSTS = ['studentsdb.local', 'studentsdb.uk.to']
 
@@ -161,7 +161,7 @@ ADMINS = (
     ('admin', 'ren-kpi@i.ua'),
 )
 EMAIL_HOST = get_secret('SMTP_SETTINGS').get('EMAIL_HOST')
-EMAIL_PORT = get_secret('SMTP_SETTINGS').get('EMAIL_PORT')
+EMAIL_PORT = str(get_secret('SMTP_SETTINGS').get('EMAIL_PORT'))
 EMAIL_HOST_USER = get_secret('SMTP_SETTINGS').get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = get_secret('SMTP_SETTINGS').get('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = get_secret('SMTP_SETTINGS').get('EMAIL_USE_SSL')
@@ -187,9 +187,6 @@ LOCALIZE_STATIC = {
 
 # messages - storage backend
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
-
-# for 'registration' app
-REFISTRATION_OPEN = True
 
 # for test_coverage command
 COVERAGE_REPORT_HTML_OUTPUT_DIR = os.path.join(BASE_DIR, '..', 'coverage')
