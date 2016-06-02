@@ -38,7 +38,7 @@ LOCALE_PATHS = (
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ye#_i*tty*u53sqpy1l=9dkqszm+-n#(6lbqh@*8vepfp&^8zj'
+SECRET_KEY = get_secret('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -64,11 +64,11 @@ INSTALLED_APPS = (
     'django_coverage',
     'students',
     'stud_auth',
-#    'debug_toolbar',
+    #'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
-#    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    #'debug_toolbar.middleware.DebugToolbarMiddleware',
     'studentsdb.middleware.RequestTimeMiddleware',
     'studentsdb.middleware.SqlQueriesTimeMiddleware',
     'studentsdb.middleware.LocalizeStaticMiddleware',
@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'studentsdb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-from .db import DATABASES
+DATABASES = get_secret('DATABASES')
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -130,16 +130,16 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'social.backends.vk.VKOAuth2',
 )
-SOCIAL_AUTH_FACEBOOK_KEY = '542329375940973'
-SOCIAL_AUTH_FACEBOOK_SECRET = '36b075370d6f7e06ac4d225d3d2d3f6d'
-SOCIAL_AUTH_TWITTER_KEY = '3fOvNasLOBr3vz0qsWDfI1uaX'
-SOCIAL_AUTH_TWITTER_SECRET = 's0OvZEnEN0pfXVwYjUQxRhp00zPwMzOImjzxbDu2bNIIv0szst'
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '240649527890-d6rbb1stb0ie7su6far0n8hf391qqsnu.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'cFNOhKr97kUKwu0zILkFD2Hx'
-SOCIAL_AUTH_VK_OAUTH2_KEY = '5387686'
-SOCIAL_AUTH_VK_OAUTH2_SECRET = 'qUslkggkHce9NjkGTrhx'
+SOCIAL_AUTH_FACEBOOK_KEY = get_secret('FACEBOOK_APP').get('APP_ID')
+SOCIAL_AUTH_FACEBOOK_SECRET = get_secret('FACEBOOK_APP').get('APP_SECRET')
+SOCIAL_AUTH_TWITTER_KEY = get_secret('TWITTER_APP').get('APP_ID')
+SOCIAL_AUTH_TWITTER_SECRET = get_secret('TWITTER_APP').get('APP_SECRET')
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = get_secret('GOOGLE_APP').get('APP_ID')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = get_secret('GOOGLE_APP').get('APP_SECRET')
+SOCIAL_AUTH_VK_OAUTH2_KEY = get_secret('VK_APP').get('APP_ID')
+SOCIAL_AUTH_VK_OAUTH2_SECRET = get_secret('VK_APP').get('APP_SECRET')
 
-# for 'registration' app 
+# for 'registration' app
 REGISTRATION_OPEN = True
 ACCOUNT_ACTIVATION_DAYS = 1
 REGISTRATION_FORM = 'stud_auth.forms.CustomRegForm'
@@ -159,7 +159,12 @@ ADMIN_EMAIL = "ren-kpi@i.ua"
 ADMINS = (
     ('admin', 'ren-kpi@i.ua'),
 )
-from .smtp_settings import *
+EMAIL_HOST = get_secret('SMTP_SETTINGS').get('EMAIL_HOST')
+EMAIL_PORT = get_secret('SMTP_SETTINGS').get('EMAIL_PORT')
+EMAIL_HOST_USER = get_secret('SMTP_SETTINGS').get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = get_secret('SMTP_SETTINGS').get('EMAIL_HOST_PASSWORD')
+EMAIL_USE_SSL = get_secret('SMTP_SETTINGS').get('EMAIL_USE_SSL')
+
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 #EMAIL_FILE_PATH = 'email_files'
@@ -171,7 +176,7 @@ MANAGERS = [
     ('admin', 'ren-kpi@i.ua'),
 ]
 
-# for localize static management command and LocalizeStaticMiddleware 
+# for localize static management command and LocalizeStaticMiddleware
 LOCALIZE_STATIC = {
     'app_name': 'students',
     'static_css_dir': 'css',
@@ -186,7 +191,7 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 REFISTRATION_OPEN = True
 
 # for test_coverage command
-COVERAGE_REPORT_HTML_OUTPUT_DIR = os.path.join(BASE_DIR, '..', 'coverage') 
+COVERAGE_REPORT_HTML_OUTPUT_DIR = os.path.join(BASE_DIR, '..', 'coverage')
 
 # debug_toolbar
 DEBUG_TOOLBAR_PATCH_SETTINGS = True
@@ -262,16 +267,14 @@ LOGGING = {
 
 
 # for jenkins
-current_user = os.getenv('USER')
-if current_user == 'jenkins':
-    import imp
-    # load db settings
-    imp.load_source('db_settings',
-        '/data/work/virtualenvs/studentsdb/src/studentsdb/studentsdb/db.py')
-    from db_settings import DATABASES
-    # load smtp settings
-    imp.load_source('smtp_settings',
-        '/data/work/virtualenvs/studentsdb/src/studentsdb/studentsdb/smtp_settings.py')
-    from smtp_settings import *
-    # set MEDIA_ROOT
-    #MEDIA_ROOT = '/data/work/virtualenvs/studentsdb/src/media'
+#current_user = os.getenv('USER')
+#if current_user == 'jenkins':
+#    import imp
+#    # load db settings
+#    imp.load_source('db_settings',
+#        '/data/work/virtualenvs/studentsdb/src/studentsdb/studentsdb/db.py')
+#    from db_settings import DATABASES
+#    # load smtp settings
+#    imp.load_source('smtp_settings',
+#        '/data/work/virtualenvs/studentsdb/src/studentsdb/studentsdb/smtp_settings.py')
+#    from smtp_settings import *
