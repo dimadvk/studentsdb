@@ -5,13 +5,13 @@
 <!DOCTYPE html>
 
 <html lang="uk">
-	<head>
-		<meta charset="UTF-8"/>
+    <head>
+        <meta charset="UTF-8"/>
         <title>{% trans "Students Accounting Service"%} - {% block meta_title %}{% endblock meta_title %}</title>
-		<meta name="description"
+        <meta name="description"
             value="{% trans 'App to manage students database'%}" />
         <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}"/>
-			
+
         <!-- Include Styles -->
         <link rel="stylesheet"
             href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
@@ -20,29 +20,29 @@
         <link rel="stylesheet" href="{% static "css/main.css" %}">
 
             {# <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" /><!-- test popUp --> #}
-        {# use file-upload plugin http://hayageek.com/docs/jquery-upload-file.php #}    
+        {# use file-upload plugin http://hayageek.com/docs/jquery-upload-file.php #}
         {# <link href="http://hayageek.github.io/jQuery-Upload-File/4.0.10/uploadfile.css" rel="stylesheet"> #}
-    
-        
-	{% block extra_css %}{% endblock extra_css %}
-				
-	</head>
-	<body>
+
+
+    {% block extra_css %}{% endblock extra_css %}
+
+    </head>
+    <body>
         <div id="wrap">
-		
-		<!-- Start Containet -->
-		<div class="container">
-			
-			<!-- Start Header -->
-			<div class="row" id="header">
-			
-				<!-- Logo -->
-				{% block logo %}				
-				<div class="col-xs-5">
+
+        <!-- Start Containet -->
+        <div class="container">
+
+            <!-- Start Header -->
+            <div class="row" id="header">
+
+                <!-- Logo -->
+                {% block logo %}
+                <div class="col-xs-5">
                     <h2>{% trans "Students Accounting Service"%}</h2>
-				</div>
-				{% endblock logo %}
-			
+                </div>
+                {% endblock logo %}
+
                 <!-- Language Select -->
                 <div class="col-xs-1" id='lang-select'>
                     <div class='lang-select-form'>
@@ -63,20 +63,20 @@
                 </div>
                 <!-- End Language Select -->
 
-				<!-- Groups selector -->
-                {% if user.is_authenticated %}
-				<div class="col-xs-4" id="group-selector">
+                <!-- Groups selector -->
+                <div class="col-xs-3" id="group-selector">
                     <strong>{% trans "Group:" %}</strong>
-					<select>
+                    <select>
                         <option value="">{% trans "All Students" %}</option>
                         {% for group in GROUPS %}
                         <option value="{{group.id }}" {% if group.selected %}selected="1"{% endif %}>
                             {{ group.title }}{% if group.leader %}, {{ group.leader }} {% endif %}
                         </option>
                         {% endfor %}
-					</select>
-				</div>
+                    </select>
+                </div>
 
+                {% if user.is_authenticated %}
                 <!-- User's toolbar for authenticated users -->
                 <div class="col-xs-2" id="user-toolbar">
                     <a href="{% url "profile" %}">{{ user.get_full_name|default:user.username }}</a> |
@@ -84,9 +84,9 @@
                 </div>
 
                 {% else %}
-                
+
                 <!-- User's toolbar for anonymous users -->
-                <div class="col-xs-6" id="user-toolbar">
+                <div class="col-xs-3" id="user-toolbar">
                     <span>{% trans "Sign in with: " %}</span>
                     <a href="{% url "social:begin" "facebook" %}?next={{ request.path }}"><img class='img-rounded' heigh="25" width="25" src="{% static "img/fb_short.png" %}" alt="FB"></a>
                     <a href="{% url "social:begin" "twitter" %}?next={{ request.path }}"><img class='img-rounded' heigh="25" width="25" src="{% static "img/tw_short.png" %}" alt="Tw"></a>
@@ -97,12 +97,12 @@
                 </div>
                 {% endif %}
 
-			</div>
-			<!-- End Header -->
-			
-			<!-- Start SubHeader -->
-			<div class="row" id="sub-header">
-			    <div class="col-xs-12">
+            </div>
+            <!-- End Header -->
+
+            <!-- Start SubHeader -->
+            <div class="row" id="sub-header">
+                <div class="col-xs-12">
                     {% url 'home' as home_page %}
                     {% url 'journal' as journal_page %}
                     {% url 'groups' as groups_page %}
@@ -110,30 +110,30 @@
                     {% url 'users_list' as users_page %}
                     {% url 'contact_admin' as contact_admin %}
                     <ul class="nav nav-tabs">
-                        <li role="presentation" 
+                        <li role="presentation"
                             {% select_menu 'home' %}><a href="{{ home_page }}">{% trans "Students" %}</a></li>
-                        {% if user.is_authenticated %}
-                        <li role="presentation" 
-                            {% select_menu 'journal' %}><a href="{{ journal_page }}">{% trans "Journal" %}</a></li>
-                        <li role="presentation" 
+                        <li role="presentation"
                             {% select_menu 'groups' %}><a href="{{ groups_page }}">{% trans "Groups" %}</a></li>
-                        <li role="presentation" 
+                        {% if user.is_authenticated %}
+                        <li role="presentation"
+                            {% select_menu 'journal' %}><a href="{{ journal_page }}">{% trans "Journal" %}</a></li>
+                        <li role="presentation"
                             {% select_menu 'action_journal' %}><a href="{{ actions_page }}">{% trans "Action Journal" %}</a></li>
-                        <li role="presentation" 
+                        <li role="presentation"
                             {% select_menu 'users_list' %}><a href="{{ users_page }}">{% trans "Users" %}</a></li>
                         {% endif %}
                         {% if perms.auth.add_user %}
-                        <li role="presentation" 
+                        <li role="presentation"
                             {% select_menu 'contact_admin' %}><a href="{{ contact_admin }}">{% trans "Contact" %}</a></li>
                         {% endif %}
                     </ul>
-			    </div>
-			</div>
-			<!-- End SubHeader -->
-			
-			<!-- Start Content Columns-->
-			<div class="row" id="content-columns">
-				<div class="col-xs-12" id="content-column">
+                </div>
+            </div>
+            <!-- End SubHeader -->
+
+            <!-- Start Content Columns-->
+            <div class="row" id="content-columns">
+                <div class="col-xs-12" id="content-column">
 
                     {% block status_message %}
                       {% if messages %}
@@ -150,22 +150,22 @@
                         </div>
                     {% endblock %}
 
-				    <h2>{% block title %}{% endblock title %}</h2>
-				    {% block content %}{% endblock content %}
-				</div>
-			</div>
-			<!-- End Content Columns -->
-						
+                    <h2>{% block title %}{% endblock title %}</h2>
+                    {% block content %}{% endblock content %}
+                </div>
+            </div>
+            <!-- End Content Columns -->
+
             <!-- End Container -->
-		</div>
+        </div>
         </div> {# id=wrap #}
 
         <!-- Start Footer -->
-        <div class='container' id="footer"> 
+        <div class='container' id="footer">
                 &copy; {% trans "Students Accounting Service" %}
         </div>
-        <!-- End Footer -->		
-		
+        <!-- End Footer -->
+
         <!-- Modal Boilerplate -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
             aria-labelledby="myModalLabel" aria-hidden="true">
@@ -193,21 +193,21 @@
 
         <!-- test code -->
         <!-- end test -->
-						
-		<!-- Javascript Section -->
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+
+        <!-- Javascript Section -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-		<script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.0.0/js/bootstrap-datetimepicker.min.js"></script>
         <script src="{% url "django.views.i18n.javascript_catalog" %}"></script>
         <script src="{% static "js/main.js" %}"></script>
-        {# use file-upload plugin http://hayageek.com/docs/jquery-upload-file.php #}    
+        {# use file-upload plugin http://hayageek.com/docs/jquery-upload-file.php #}
         {# <script src="http://hayageek.github.io/jQuery-Upload-File/4.0.10/jquery.uploadfile.min.js"></script> #}
         {% block extra_js %}{% endblock extra_js %}
-			
-	</body>
+
+    </body>
 
 
 </html>

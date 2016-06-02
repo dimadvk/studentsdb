@@ -1,3 +1,4 @@
+"""Views for groups."""
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views.generic import DeleteView, UpdateView, CreateView
@@ -18,6 +19,7 @@ from ..util import paginate, get_current_group, DispatchLoginRequiredMixin
 # Views for Groups
 
 def groups_list(request):
+    """Return page with list of groups."""
     # check if we need to show only one group of students
     current_group = get_current_group(request)
     if current_group:
@@ -54,6 +56,7 @@ def groups_list(request):
     response = render(request, 'students/groups_list.html', context)
     return response
 
+
 class GroupCreateForm(ModelForm):
     """Form for creating new group"""
 
@@ -62,6 +65,7 @@ class GroupCreateForm(ModelForm):
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):
+        """__init__"""
         super(GroupCreateForm, self).__init__(*args, **kwargs)
 
         self.helper = FormHelper(self)
@@ -101,6 +105,8 @@ class GroupCreateView(DispatchLoginRequiredMixin, SuccessMessageMixin, CreateVie
 
 
 class GroupUpdateForm(GroupCreateForm):
+    """View for updating group info."""
+
     def __init__(self, *args, **kwargs):
         super(GroupUpdateForm, self).__init__(*args, **kwargs)
 

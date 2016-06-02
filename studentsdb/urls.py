@@ -55,7 +55,7 @@ urlpatterns = patterns('',
 
 
     #Groups urls
-    url(r'^groups/$', login_required(groups_list), name='groups'),
+    url(r'^groups/$', groups_list, name='groups'),
 #    url(r'^groups/add/$',
 #        'students.views.groups.groups_add', name='groups_add'),
     url(r'^groups/add/$', permission_required('students.add_group')(GroupCreateView.as_view()), name="groups_add"),
@@ -122,7 +122,7 @@ urlpatterns = patterns('',
     # Social Auth Related urls
     url(r'^social/', include('social.apps.django_app.urls', namespace='social')),
 
-    #test 
+    #test
     url(r'^test/$', test, name='test'),
     url(r'^test/', include('stud_auth.urls', namespace='test_stud_auth')),
 )

@@ -42,7 +42,7 @@ SECRET_KEY = get_secret('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-DEBUG = False
+#DEBUG = False
 
 ALLOWED_HOSTS = ['studentsdb.local', 'studentsdb.uk.to']
 
@@ -64,13 +64,14 @@ INSTALLED_APPS = (
     'django_coverage',
     'students',
     'stud_auth',
+    'el_pagination'
     #'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
     #'debug_toolbar.middleware.DebugToolbarMiddleware',
-    'studentsdb.middleware.RequestTimeMiddleware',
-    'studentsdb.middleware.SqlQueriesTimeMiddleware',
+#    'studentsdb.middleware.RequestTimeMiddleware',
+#    'studentsdb.middleware.SqlQueriesTimeMiddleware',
     'studentsdb.middleware.LocalizeStaticMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',

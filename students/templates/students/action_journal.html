@@ -2,14 +2,15 @@
 
 {% load tz %}
 {% load i18n %}
+{% load el_pagination_tags %}
 
-{% block meta_title %}{% trans "Action Journal" %}{% endblock meta_title %}
+{% block meta_title %}{% trans "Action Journal (last 100 actions)" %}{% endblock meta_title %}
 
-{% block title %}{% trans "Action Journal" %}{% endblock title %}
+{% block title %}{% trans "Action Journal (last 100 actions)" %}{% endblock title %}
 
 {% block content %}
 
-
+{% paginate actions %}
 
 <dl class="dl-horizontal">
 
@@ -25,7 +26,7 @@
     {% endtimezone %}
 
 </dl>
-{% with object_list=actions %}
-    {% include "students/pagination.html" %}
-{% endwith %} 
+
+{% show_pages %}
+
 {% endblock %}
