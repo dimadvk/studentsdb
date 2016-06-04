@@ -64,7 +64,7 @@ INSTALLED_APPS = (
     'django_coverage',
     'students',
     'stud_auth',
-    'el_pagination'
+    'el_pagination',
     'debug_toolbar',
 )
 
