@@ -65,11 +65,11 @@ INSTALLED_APPS = (
     'students',
     'stud_auth',
     'el_pagination',
-    'debug_toolbar',
+    # 'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     'studentsdb.middleware.RequestTimeMiddleware',
     'studentsdb.middleware.SqlQueriesTimeMiddleware',
     # 'studentsdb.middleware.LocalizeStaticMiddleware',

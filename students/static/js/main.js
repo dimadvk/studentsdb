@@ -135,7 +135,7 @@ function initEditStudentPage() {
        // $('a').click(function (event) {
        //     event.preventDefault();
        // });
-        
+
         var link = $(this);
         $.ajax({
             'url': link.attr('href'),
@@ -156,7 +156,7 @@ function initEditStudentPage() {
 
                 // init our edit form
                 initEditStudentForm(form, modal);
-                
+
 
                 // setup and show modal window finally
                 modal.modal({
@@ -194,7 +194,7 @@ function navTabs() {
                     alert(gettext("There was an error on the server. Please, try again a bit later."));
                     return false;
                 };
-                
+
                 // update table
                 var content = $(data).find('#content-columns');
                 var pageTitle = content.find('h2').text();
@@ -271,12 +271,14 @@ function initPhotoField(){
 //}
 
 
-$(document).ready(initFunctions);
+$(document).ready(function(){
+    initFunctions();
+    navTabs();
+    initGroupSelector();
+});
 function initFunctions(){
     initJournal();
-    initGroupSelector();
     initDateFields();
     initEditStudentPage();
-    navTabs();
     closeModalBackButton();
 }
