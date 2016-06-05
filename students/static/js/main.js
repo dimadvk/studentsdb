@@ -45,7 +45,7 @@ function initGroupSelector(){
 
         // and reload a page
         // location.reload(true);
-        location = '/' + location.pathname.split('/')[1];
+        location = '/' + location.pathname.split('/').slice(1).join('/');
 
         return true;
     });
