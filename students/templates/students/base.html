@@ -121,9 +121,19 @@
                             {% select_menu 'action_journal' %}><a href="{{ actions_page }}">{% trans "Action Journal" %}</a></li>
                         <li role="presentation"
                             {% select_menu 'users_list' %}><a href="{{ users_page }}">{% trans "Users" %}</a></li>
+                        {% else %}
+                        <li role="presentation" class="disabled"
+                            {% select_menu 'journal' %}><a href="{{ journal_page }}">{% trans "Journal" %}</a></li>
+                        <li role="presentation" class="disabled"
+                            {% select_menu 'action_journal' %}><a href="{{ actions_page }}">{% trans "Action Journal" %}</a></li>
+                        <li role="presentation" class="disabled"
+                            {% select_menu 'users_list' %}><a href="{{ users_page }}">{% trans "Users" %}</a></li>
                         {% endif %}
                         {% if perms.auth.add_user %}
                         <li role="presentation"
+                            {% select_menu 'contact_admin' %}><a href="{{ contact_admin }}">{% trans "Contact" %}</a></li>
+                        {% else %}
+                        <li role="presentation" class="disabled"
                             {% select_menu 'contact_admin' %}><a href="{{ contact_admin }}">{% trans "Contact" %}</a></li>
                         {% endif %}
                     </ul>
