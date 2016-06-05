@@ -18,11 +18,11 @@
 
 <!-- Start Students Listing -->
 <table class="table table-hover table-strip">
-{% with order_by=request.GET.order_by reverse=request.GET.reverse %} 
+{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
     <thead>
-	<tr>
-	    <th><a href="">#</a></th>
-	    <th>
+    <tr>
+        <th><a href="">#</a></th>
+        <th>
             <a href="{% url "groups" %}?order_by=title{% if reverse != '1'  %}&amp;reverse=1{% endif %}">{% trans "Group Name" %}
             {% if order_by == 'title' and reverse != '1' %}&uarr;
             {% elif not order_by %}&uarr;
@@ -37,35 +37,51 @@
             </a>
         </th>
         {% if user.is_authenticated %}
-        <th>{% trans "Actions" %}</th>								
+        <th>{% trans "Actions" %}</th>
         {% endif %}
-	</tr>							
+    </tr>
     </thead>
-{% endwith %} 
+{% endwith %}
     <tbody>
-	{% for group in groups %}
-	<tr>
-	    <td>{{ forloop.counter }}</td>								
-        <td><a title="{% trans "Edit" %}" href='{% url "group_edit" group.id %}'>{{ group.title }}</a></td>
-	    <td><a title="{% trans "Edit" %}" href='{% url "group_edit" group.id %}'>{{ group.leader }}</a></td>
+    {% for group in groups %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>
+            {% if user.is_authenticated %}
+            <a title="{% trans "Edit" %}" href='{% url "group_edit" group.id %}'>{{ group.title }}</a>
+            {% else %}
+            {{group.title}}
+            {% endif %}
+        </td>
+        <td>
+            {% if user.is_authenticated %}
+            <a title="{% trans "Edit" %}" href='{% url "group_edit" group.id %}'>{{ group.leader }}</a>
+            {% else %}
+                {% if group.leader == None %}
+                -----
+                {% else %}
+                {{group.leader}}
+                {% endif %}
+            {% endif %}
+        </td>
         {% if user.is_authenticated %}
-	    <td>
-		<div class="btn-group">
-		    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія<span class="caret"></span>
-		    </button>
-		    <ul class="dropdown-menu" role="menu">
+        <td>
+        <div class="btn-group">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Дія<span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
                 <li><a href="{% url "group_edit" group.id %}">{% trans "Edit" %}</a></li>
                 <li><a href="/journal/{{ group.id }}">{% trans "Journal" %}</a></li>
                 <li><a href="{% url "group_delete" group.id %}">{% trans "Delete" %}</a></li>
-		    </ul>
-		</div>
-	    </td>								
+            </ul>
+        </div>
+        </td>
         {% endif %}
-	</tr>
-	{% endfor %}
-	
-    </tbody>						
-</table>					
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
 <!-- End Students Listing -->
 
 {% pagenav object_list=groups is_paginated=is_paginated paginator=paginator request=request %}

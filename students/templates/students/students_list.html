@@ -20,57 +20,57 @@
 <table class="table table-hover table-strip">
     {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
     <thead>
-	<tr>
+    <tr>
         {% if user.is_authenticated %}
         <th class="col-checkbox">{% trans "Check" %}</th>
         {% endif %}
-	    <th><a href="#">№</a></th>
+        <th><a href="#">№</a></th>
         <th>{% trans "Photo" %}</th>
         <th><a href="{% url "home" %}?order_by=last_name{% if reverse != '1' %}&amp;reverse=1{% endif %}">{% trans "Last Name" %}
-		    {% if order_by == 'last_name' and reverse != '1' %}&uarr;
-		    {% elif not order_by %}&uarr;
-		    {% elif order_by == 'last_name' and reverse == '1' %}&darr;
-		    {% endif %}
-		</a>
-	    </th>
+            {% if order_by == 'last_name' and reverse != '1' %}&uarr;
+            {% elif not order_by %}&uarr;
+            {% elif order_by == 'last_name' and reverse == '1' %}&darr;
+            {% endif %}
+        </a>
+        </th>
         <th><a href="{% url "home" %}?order_by=first_name{% if reverse != '1' %}&amp;reverse=1{% endif %}">{% trans "First Name" %}
-		{% if order_by == 'first_name' and reverse != '1' %}&uarr;
-		{% elif order_by == 'first_name' and reverse == '1' %}&darr;
-		{% endif %}
-		</a>
-	    </th>
+        {% if order_by == 'first_name' and reverse != '1' %}&uarr;
+        {% elif order_by == 'first_name' and reverse == '1' %}&darr;
+        {% endif %}
+        </a>
+        </th>
         <th><a href="{% url "home" %}?order_by=ticket{% if reverse != '1' %}&amp;reverse=1{% endif %}">{% trans "Ticket #" %}
-		{% if order_by == 'ticket' and reverse != '1' %}&uarr;
-		{% elif order_by == 'ticket' and reverse == '1' %}&darr;
-		{% endif %}
-		</a>
-	    </th>
+        {% if order_by == 'ticket' and reverse != '1' %}&uarr;
+        {% elif order_by == 'ticket' and reverse == '1' %}&darr;
+        {% endif %}
+        </a>
+        </th>
         {% if user.is_authenticated %}
         <th>{% trans "Actions" %}</th>
         {% endif %}
-	</tr>
+    </tr>
     </thead>
     {% endwith %}
     <tbody>
-	{% for student in students %}
+    {% for student in students %}
     <tr id="{{student.id}}">
         {% if user.is_authenticated %}
         <td><input type="checkbox" name="selected-student" value="{{student.id}}"></td>
         {% endif %}
-	    <td>{{ forloop.counter }}</td>
-	    <td>
-		{% if student.photo %}
-		<img heigh="30" width="30" src="{{ student.photo.url }}" class="img-circle"/>
-		{% else %}
-		<img heigh="30" width="30" src="{% static "img/default_user.jpg" %}" class="img-circle"/>
-		{% endif %}
-		</td>
+        <td>{{ forloop.counter }}</td>
         <td>
-            {#        {% if user.is_authenticated %} #}
+        {% if student.photo %}
+        <img heigh="30" width="30" src="{{ student.photo.url }}" class="img-circle"/>
+        {% else %}
+        <img heigh="30" width="30" src="{% static "img/default_user.jpg" %}" class="img-circle"/>
+        {% endif %}
+        </td>
+        <td>
+            {% if user.is_authenticated %}
             <a title="{% trans "Edit" %}" class="student-edit-form-link" href='{% url "students_edit" student.id %}'>{{ student.last_name }}</a>
-            {# {% else %} #}
-            {# {{ student.last_name }} #}
-            {# {% endif %} #}
+            {% else %}
+            {{ student.last_name }}
+            {% endif %}
         </td>
         <td>
             {% if user.is_authenticated %}
@@ -79,22 +79,22 @@
             {{ student.first_name }}
             {% endif %}
         </td>
-	    <td>{{ student.ticket }}</td>
+        <td>{{ student.ticket }}</td>
         {% if user.is_authenticated %}
-	    <td>
-		<div class="btn-group">
+        <td>
+        <div class="btn-group">
             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">{% trans "Action" %}<span class="caret"></span>
-		    </button>
-		    <ul class="dropdown-menu" role="menu">
+            </button>
+            <ul class="dropdown-menu" role="menu">
                 <li><a href="{% url "students_edit" student.id %}" class="student-edit-form-link">{% trans "Edit" %}</a></li>
                 <li><a href="{% url "journal" student.id %}">{% trans "Journal" %}</a></li>
                 <li><a href="{% url "students_delete" student.id %}">{% trans "Delete" %}</a></li>
-		    </ul>
-		</div>
-	    </td>
+            </ul>
+        </div>
+        </td>
         {% endif %}
-	</tr>
-	{% endfor %}
+    </tr>
+    {% endfor %}
 
     </tbody>
 </table>
@@ -110,7 +110,7 @@
 {% comment %}
 {% with object_list=students %}
     {% include "students/pagination.html" %}
-{% endwith %}  
+{% endwith %}
 {% endcomment %}
 
 {% comment %}
@@ -119,16 +119,16 @@ kjhkjdhfkjsdhkjshdksjdhf
 {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
 <nav>
     <ul class="pagination">
-	<li><a href="{% url 'home' %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&laquo;</a></li>
+    <li><a href="{% url 'home' %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&laquo;</a></li>
     {% for p in page_list %}
-	<li {% if p == page %}class='active'{% endif %}>
-	    <a href="{% url "home" %}?page={{ p }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">{{ p }}</a>
-	</li>
-	{% endfor %}
-	<li>
-	    <a href="{% url "home" %}?page={{ num_pages }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">
-		&raquo;</a>
-	</li>
+    <li {% if p == page %}class='active'{% endif %}>
+        <a href="{% url "home" %}?page={{ p }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">{{ p }}</a>
+    </li>
+    {% endfor %}
+    <li>
+        <a href="{% url "home" %}?page={{ num_pages }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">
+        &raquo;</a>
+    </li>
     </ul>
 </nav>
 {% endwith %}
