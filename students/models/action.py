@@ -11,11 +11,6 @@ class Action(models.Model):
         auto_now=False,
         verbose_name=_('action time'),
     )
-    user = models.CharField(
-        default='UNKNOWN',
-        verbose_name=_(u'username'),
-        max_length=256,
-    )
     action_detail = models.CharField(
         verbose_name=_(u'action descriprion'),
         blank=False,

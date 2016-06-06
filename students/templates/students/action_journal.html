@@ -18,7 +18,7 @@
 
     {% for action in actions %}
     <div class="action-entry action-entry-{{action.model_name|lower}}">
-        <dt class="action-entry-name">{{ action.model_verbose_name|capfirst}} ({{action.timestamp|date:"d/m/Y H:i"}} by {{action.user}})</dt>
+        <dt class="action-entry-name">{% trans action.model_verbose_name|capfirst %} ({{action.timestamp|date:"d/m/Y H:i"}})</dt>
         <dd class="action-entry-detail">{{ action.action_detail|capfirst }}</dd>
     </div>
     {% endfor %}

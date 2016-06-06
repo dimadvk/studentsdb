@@ -44,7 +44,7 @@ def log_student_updated_added_event(sender, **kwargs):
             student.id
             )
     action.model_name = sender.__name__
-    action.model_verbose_name = sender._meta.verbose_name
+    action.model_verbose_name = u"Student"
     action.save()
 
 
@@ -67,7 +67,7 @@ def log_student_deleted_event(sender, **kwargs):
         student.id,
         )
     action.model_name = sender.__name__
-    action.model_verbose_name = sender._meta.verbose_name
+    action.model_verbose_name = u"Student"
     action.save()
 
 
@@ -93,7 +93,7 @@ def log_group_updated_added_event(sender, **kwargs):
             group.title, group.id,
         )
     action.model_name = sender.__name__
-    action.model_verbose_name = sender._meta.verbose_name
+    action.model_verbose_name = u"Group"
     action.save()
 
 
@@ -106,7 +106,7 @@ def log_group_deleted_event(sender, **kwargs):
     logger.info("Group deleted: %s (ID: %d)", group.title, group.id)
     action.action_detail = "Group deleted: %s (ID: %d)" % (group.title, group.id)
     action.model_name = sender.__name__
-    action.model_verbose_name = sender._meta.verbose_name
+    action.model_verbose_name = u"Group"
     action.save()
 
 @receiver(post_save, sender=MonthJournal)
@@ -124,8 +124,9 @@ def log_monthjournal_changes(sender, **kwargs):
         monthjournal.id,
     )
     action.model_name = sender.__name__
-    action.model_verbose_name = sender._meta.verbose_name
+    action.model_verbose_name = u"Journal"
     action.save()
+    print kwargs
 
 
 # custom signal contact_admin
