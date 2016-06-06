@@ -55,7 +55,7 @@ class ContactAdminForm(forms.Form):
 
     def send_email(self):
         data = self.cleaned_data
-        send_mail('[contact admin]' + data.get('subject'),
+        send_mail('[contact admin form] ' + data.get('subject'),
                   'From: ' + data.get('from_email') + '\n\n' + data.get('message'),
                   data.get('from_email'),
                   [ADMIN_EMAIL]
@@ -67,7 +67,7 @@ class ContactAdminView(FormView):
     form_class = ContactAdminForm
     template_name = 'contact_admin/form.html'
 
-    @method_decorator(permission_required('auth.add_user'))
+    # @method_decorator(permission_required('auth.add_user'))
     def dispatch(self, *args, **kwargs):
         return super(ContactAdminView, self).dispatch(*args, **kwargs)
 

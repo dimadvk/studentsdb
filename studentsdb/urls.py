@@ -84,8 +84,8 @@ urlpatterns = patterns('',
         name='contact_admin'),
     # contact admin with application django-contact-form
     #url(r'^contact-form/$', include('contact_form.urls')),
-    url(r'^contact-form/$',
-        CustomContactFormView.as_view(), name='contact_form'),
+    # url(r'^contact-form/$',
+    #     CustomContactFormView.as_view(), name='contact_form'),
 
     # Action List
     url(r'^action-journal/$', login_required(ActionListView.as_view()), name='action_journal'),
