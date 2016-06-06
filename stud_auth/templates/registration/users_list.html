@@ -2,12 +2,15 @@
 
 {% load i18n %}
 {% load static from staticfiles %}
+{% load el_pagination_tags %}
 
 {% block meta_title %}{% trans "Users List" %}{% endblock meta_title %}
 
 {% block title %}{% trans "Users List" %}{% endblock title %}
 
 {% block content %}
+
+{% paginate users %}
 
 <table class="table table-striped">
     <thead>
@@ -29,5 +32,7 @@
         {% endfor %}
     </tbody>
 </table>
+
+{% show_pages %}
 
 {% endblock content %}
