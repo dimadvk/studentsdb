@@ -65,7 +65,7 @@ msgstr "Ваш аккаунт активованою"
 
 #: templates/registration/activation_complete.html:10
 msgid "You can "
-msgstr "Ви можете"
+msgstr "Ви можете "
 
 #: templates/registration/activation_complete.html:10
 msgid "log in."
