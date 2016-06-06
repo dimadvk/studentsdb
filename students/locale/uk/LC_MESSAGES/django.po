@@ -189,7 +189,7 @@ msgstr "Повідомлення відправлено"
 #: students/templates/students/action_journal.html:7
 #: students/templates/students/action_journal.html:9
 msgid "Action Journal (last 100 actions)"
-msgstr "Журнал дій (крайні 100 дій)"
+msgstr "Журнал змін (крайні 100 змін)"
 
 #: students/templates/students/base.html:10
 #: students/templates/students/base.html:42
