@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-06 06:11+0000\n"
+"POT-Creation-Date: 2016-06-06 12:19+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,65 +19,65 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: stud_auth/forms.py:29
+#: forms.py:29
 msgid "Register"
 msgstr "Зареєструватися"
 
-#: stud_auth/forms.py:30 stud_auth/forms.py:66
+#: forms.py:30 forms.py:66
 msgid "Cancel"
 msgstr "Відмінити"
 
-#: stud_auth/forms.py:65
+#: forms.py:65
 msgid "Save"
 msgstr "Зберегти"
 
-#: stud_auth/models.py:10 stud_auth/models.py:11
+#: models.py:10 models.py:11
 msgid "Additional User Info"
 msgstr "Додаткова інформація про користувача"
 
-#: stud_auth/models.py:20 stud_auth/templates/registration/profile.html:58
+#: models.py:20 templates/registration/profile.html:58
 msgid "Mobile Phone"
 msgstr "Мобільний телефон"
 
-#: stud_auth/models.py:27
+#: models.py:27
 msgid "passport id"
 msgstr "номер паспорта"
 
-#: stud_auth/models.py:34
+#: models.py:34
 msgid "address"
 msgstr "адреса"
 
-#: stud_auth/models.py:40
+#: models.py:40
 msgid "photo"
-msgstr ""
+msgstr "фото"
 
-#: stud_auth/templates/registration/activate.html:5
+#: templates/registration/activate.html:5
 msgid "Account activation failed!"
 msgstr "Активація не відбулась"
 
-#: stud_auth/templates/registration/activation_complete.html:4
+#: templates/registration/activation_complete.html:4
 msgid "Account Activated"
 msgstr "Акаунт активовано"
 
-#: stud_auth/templates/registration/activation_complete.html:8
+#: templates/registration/activation_complete.html:8
 msgid "Your account is now activated."
 msgstr "Ваш аккаунт активованою"
 
-#: stud_auth/templates/registration/activation_complete.html:10
+#: templates/registration/activation_complete.html:10
 msgid "You can "
 msgstr "Ви можете"
 
-#: stud_auth/templates/registration/activation_complete.html:10
+#: templates/registration/activation_complete.html:10
 msgid "log in."
 msgstr "увійти"
 
-#: stud_auth/templates/registration/activation_email.html:7
+#: templates/registration/activation_email.html:7
 #, fuzzy
 #| msgid "Register"
 msgid "registration"
 msgstr "Зареєструватися"
 
-#: stud_auth/templates/registration/activation_email.html:12
+#: templates/registration/activation_email.html:12
 #, python-format
 msgid ""
 "\n"
@@ -95,7 +95,7 @@ msgstr ""
 "   і ваша адреса буде видалена з нашої бази.\n"
 "   "
 
-#: stud_auth/templates/registration/activation_email.html:19
+#: templates/registration/activation_email.html:19
 #, python-format
 msgid ""
 "\n"
@@ -109,7 +109,7 @@ msgstr ""
 "   протягом %(expiration_days)s днів:\n"
 "   "
 
-#: stud_auth/templates/registration/activation_email.html:31
+#: templates/registration/activation_email.html:31
 #, python-format
 msgid ""
 "\n"
@@ -121,7 +121,7 @@ msgstr ""
 "   З повагою, \n"
 "   адміністратор %(site_name)s   "
 
-#: stud_auth/templates/registration/activation_email.txt:3
+#: templates/registration/activation_email.txt:3
 #, python-format
 msgid ""
 "\n"
@@ -136,7 +136,7 @@ msgstr ""
 "повідомлення\n"
 "   і ваша адреса буде видалена з нашої бази.\n"
 
-#: stud_auth/templates/registration/activation_email.txt:8
+#: templates/registration/activation_email.txt:8
 #, python-format
 msgid ""
 "\n"
@@ -147,7 +147,7 @@ msgstr ""
 "   Для активації акаунта, будь ласка, відкрийте наступний лінк\n"
 "   протягом %(expiration_days)s днів:\n"
 
-#: stud_auth/templates/registration/activation_email.txt:15
+#: templates/registration/activation_email.txt:15
 #, python-format
 msgid ""
 "\n"
@@ -158,62 +158,71 @@ msgstr ""
 "З повагою, \n"
 "адміністратор %(site_name)s\n"
 
-#: stud_auth/templates/registration/activation_email_subject.txt:1
+#: templates/registration/activation_email_subject.txt:1
 msgid "Account activation on"
 msgstr "Активація акаунта"
 
-#: stud_auth/templates/registration/profile.html:24
-#: stud_auth/templates/registration/profile_edit.html:27
+#: templates/registration/profile.html:24
+#: templates/registration/profile_edit.html:27
 #, fuzzy
 #| msgid "Confirm Password"
 msgid "Change password"
 msgstr "Підтвердіть пароль"
 
-#: stud_auth/templates/registration/profile.html:32
+#: templates/registration/profile.html:32
 msgid "Photo"
 msgstr "Фото"
 
-#: stud_auth/templates/registration/profile.html:44
-#: stud_auth/templates/registration/users_list.html:16
+#: templates/registration/profile.html:44
+#: templates/registration/users_list.html:19
 msgid "Username"
 msgstr "Ім’я користувача"
 
-#: stud_auth/templates/registration/profile.html:51
-#: stud_auth/templates/registration/users_list.html:18
+#: templates/registration/profile.html:51
+#: templates/registration/users_list.html:21
 msgid "Email"
 msgstr "Імейл"
 
-#: stud_auth/templates/registration/profile.html:65
+#: templates/registration/profile.html:65
 msgid "Address"
 msgstr "Адреса"
 
-#: stud_auth/templates/registration/profile.html:72
+#: templates/registration/profile.html:72
 msgid "Passport id"
 msgstr "Номер пасрпорта"
 
-#: stud_auth/templates/registration/profile.html:79
+#: templates/registration/profile.html:79
 msgid "Joined"
 msgstr "Залогований"
 
-#: stud_auth/templates/registration/registration_form.html:6
-#: stud_auth/templates/registration/registration_form.html:8
+#: templates/registration/registration_complete.html:4
+#| msgid "Account activation failed!"
+msgid "Activation email sent"
+msgstr "Надіслано лист для активації"
+
+#: templates/registration/registration_complete.html:7
+msgid "Please check your email to complete the registration process."
+msgstr "Будь ласка, перевірте пошту для завершення реєстрації."
+
+#: templates/registration/registration_form.html:6
+#: templates/registration/registration_form.html:8
 msgid "Register Form"
 msgstr "Реєстраційна форма"
 
-#: stud_auth/templates/registration/registration_form.html:13
+#: templates/registration/registration_form.html:13
 msgid "Please, correct the following errors."
 msgstr "Будь ласка, виправте помилки."
 
-#: stud_auth/templates/registration/users_list.html:6
-#: stud_auth/templates/registration/users_list.html:8
+#: templates/registration/users_list.html:7
+#: templates/registration/users_list.html:9
 msgid "Users List"
 msgstr "Список користувачів"
 
-#: stud_auth/templates/registration/users_list.html:17
+#: templates/registration/users_list.html:20
 msgid "Full Name"
 msgstr "Повне Ім’я"
 
-#: stud_auth/views.py:39
+#: views.py:39
 msgid "Profile successfully updated!"
 msgstr "Профіль оновлено!"
 
