@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-06 12:19+0300\n"
+"POT-Creation-Date: 2016-06-07 11:20+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,15 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: forms.py:29
+#: forms.py:30
 msgid "Register"
 msgstr "Зареєструватися"
 
-#: forms.py:30 forms.py:66
+#: forms.py:31 forms.py:54 forms.py:90
 msgid "Cancel"
 msgstr "Відмінити"
 
-#: forms.py:65
+#: forms.py:53
+msgid "Login"
+msgstr "Увійти"
+
+#: forms.py:89
 msgid "Save"
 msgstr "Зберегти"
 
@@ -88,8 +92,8 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"   Ви (або хтось, хто видає себе за вас) лишили запит на реєстрацію "
-"акаунта на\n"
+"   Ви (або хтось, хто видає себе за вас) лишили запит на реєстрацію акаунта "
+"на\n"
 "   %(site_name)s. Якщо це були не ви, будь ласка, проігноруєте це "
 "повідомлення\n"
 "   і ваша адреса буде видалена з нашої бази.\n"
@@ -162,6 +166,29 @@ msgstr ""
 msgid "Account activation on"
 msgstr "Активація акаунта"
 
+#: templates/registration/login.html:7 templates/registration/login.html:9
+msgid "Login Form"
+msgstr "Форма Входу"
+
+#: templates/registration/login.html:14
+#: templates/registration/registration_form.html:13
+msgid "Please, correct the following errors."
+msgstr "Будь ласка, виправте помилки."
+
+#: templates/registration/login.html:26
+msgid "Your Username"
+msgstr "Ім’я Користувача"
+
+#: templates/registration/login.html:32
+msgid "Your Password"
+msgstr "Пароль"
+
+#: templates/registration/login.html:37
+#, fuzzy
+#| msgid "log in."
+msgid "Log in"
+msgstr "увійти"
+
 #: templates/registration/profile.html:24
 #: templates/registration/profile_edit.html:27
 #, fuzzy
@@ -196,7 +223,6 @@ msgid "Joined"
 msgstr "Залогований"
 
 #: templates/registration/registration_complete.html:4
-#| msgid "Account activation failed!"
 msgid "Activation email sent"
 msgstr "Надіслано лист для активації"
 
@@ -208,10 +234,6 @@ msgstr "Будь ласка, перевірте пошту для заверше
 #: templates/registration/registration_form.html:8
 msgid "Register Form"
 msgstr "Реєстраційна форма"
-
-#: templates/registration/registration_form.html:13
-msgid "Please, correct the following errors."
-msgstr "Будь ласка, виправте помилки."
 
 #: templates/registration/users_list.html:7
 #: templates/registration/users_list.html:9
@@ -228,18 +250,6 @@ msgstr "Профіль оновлено!"
 
 #~ msgid "User Profile"
 #~ msgstr "Профіль Користувача"
-
-#~ msgid "Login Form"
-#~ msgstr "Форма Входу"
-
-#~ msgid "Your Username"
-#~ msgstr "Ім’я Користувача"
-
-#~ msgid "Your Password"
-#~ msgstr "Пароль"
-
-#~ msgid "Login"
-#~ msgstr "Увійти"
 
 #~ msgid "Your Email"
 #~ msgstr "Ваш Імейл"

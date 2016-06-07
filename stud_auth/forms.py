@@ -1,5 +1,6 @@
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as __
 from django import forms
 
 from registration.forms import RegistrationForm
@@ -50,7 +51,7 @@ class CustomLoginForm(AuthenticationForm):
         )
         self.helper.layout.append(
             FormActions(
-                Submit('login_button', _(u'Login'), css_class=''),
+                Submit('login_button', _(u'Log in'), css_class=''),
                 HTML(u"<a class='btn btn-link' href='%s'>%s</a>" % (reverse('home'), _(u'Cancel'))),
             )
         )
