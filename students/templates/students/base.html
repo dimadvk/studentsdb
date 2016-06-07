@@ -92,7 +92,7 @@
                     <a href="{% url "social:begin" "twitter" %}?next={{ request.path }}"><img class='img-rounded' heigh="25" width="25" src="{% static "img/tw_short.png" %}" alt="Tw"></a>
                     <a href="{% url "social:begin" "google-oauth2" %}?next={{ request.path }}"><img class='img-rounded' heigh="25" width="25" src="{% static "img/g_short.png" %}" alt="G"></a>
                     <a href="{% url "social:begin" "vk-oauth2" %}?next={{ request.path }}"><img class='img-rounded' heigh="25" width="25" src="{% static "img/vk_short.png" %}" alt="Vk"></a><br>
-                    <a href="{% url "users:auth_login" %}">{% trans "Log in" %}</a> |
+                    <a href="{% url "users_login" %}">{% trans "Log in" %}</a> |
                     <a href="{% url "users:registration_register" %}">{% trans "Register" %}</a><br>
                 </div>
                 {% endif %}

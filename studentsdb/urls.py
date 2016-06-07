@@ -1,9 +1,10 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.views.generic.base import RedirectView
-from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required, permission_required
 from django.views.generic import TemplateView
+from registration.backends.default import views as registration_views
+from django.contrib.auth import views as auth_views
 # from django.core.urlresolvers import reverse
 
 from .settings import MEDIA_ROOT, DEBUG
@@ -21,7 +22,7 @@ from students.views.groups import GroupCreateView
 from students.views.journal import JournalView
 from students.views.action_journal import ActionListView
 from stud_auth.views import UsersListView, UserDetailView, UserUpdateView
-from registration.backends.default import views as registration_views
+from stud_auth.forms import CustomLoginForm
 
 # test
 from stud_auth.views import test
@@ -145,6 +146,10 @@ urlpatterns = patterns(
     url(r'^users/password_change/done/$',
         RedirectView.as_view(pattern_name='profile'),
         name='password_change_done'),
+    url(r'^users/login/$',
+        auth_views.login, {'template_name': 'registration/login.html',
+                           'authentication_form': CustomLoginForm},
+        name='users_login'),
     url(r'^users/',
         include('registration.backends.default.urls', namespace='users')),
 

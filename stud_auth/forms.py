@@ -3,6 +3,7 @@ from django.utils.translation import ugettext as _
 from django import forms
 
 from registration.forms import RegistrationForm
+from django.contrib.auth.forms import AuthenticationForm
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, HTML, Layout
@@ -27,6 +28,29 @@ class CustomRegForm(RegistrationForm):
         self.helper.layout.append(
             FormActions(
                 Submit('add_button', _(u'Register'), css_class='btn btn-primary'),
+                HTML(u"<a class='btn btn-link' href='%s'>%s</a>" % (reverse('home'), _(u'Cancel'))),
+            )
+        )
+
+class CustomLoginForm(AuthenticationForm):
+
+    def __init__(self, *args, **kwargs):
+        super(CustomLoginForm, self).__init__(*args, **kwargs)
+
+        self.helper = FormHelper(self)
+        self.helper.form_method = 'post'
+        self.helper.form_action = reverse('users_login')
+        self.helper.form_class = 'form-horizontal'
+        self.helper.help_text_inline = True
+        self.helper.html5_required = True
+        self.helper.label_class = 'col-sm-2 control-label'
+        self.helper.field_class = 'col-sm-10 form-field-width'
+        self.helper.layout.append(
+            HTML(u"<div class='col-sm-2'></div")
+        )
+        self.helper.layout.append(
+            FormActions(
+                Submit('login_button', _(u'Login'), css_class=''),
                 HTML(u"<a class='btn btn-link' href='%s'>%s</a>" % (reverse('home'), _(u'Cancel'))),
             )
         )
