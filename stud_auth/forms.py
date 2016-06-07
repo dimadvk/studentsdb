@@ -47,7 +47,7 @@ class CustomLoginForm(AuthenticationForm):
         self.helper.label_class = 'col-sm-2 control-label'
         self.helper.field_class = 'col-sm-10 form-field-width'
         self.helper.layout.append(
-            HTML(u"<div class='col-sm-2'></div")
+            HTML(u"<div class='col-sm-2'></div>")
         )
         self.helper.layout.append(
             FormActions(
