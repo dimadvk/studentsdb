@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-07 11:20+0300\n"
+"POT-Creation-Date: 2016-06-07 11:41+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,19 +19,22 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: forms.py:30
+#: forms.py:31 templates/registration/login.html:46
 msgid "Register"
 msgstr "Зареєструватися"
 
-#: forms.py:31 forms.py:54 forms.py:90
+#: forms.py:32 forms.py:55 forms.py:91
 msgid "Cancel"
 msgstr "Відмінити"
 
-#: forms.py:53
-msgid "Login"
-msgstr "Увійти"
+#: forms.py:54 templates/registration/login.html:7
+#: templates/registration/login.html:9 templates/registration/login.html:37
+#, fuzzy
+#| msgid "log in."
+msgid "Log in"
+msgstr "увійти"
 
-#: forms.py:89
+#: forms.py:90
 msgid "Save"
 msgstr "Зберегти"
 
@@ -166,10 +169,6 @@ msgstr ""
 msgid "Account activation on"
 msgstr "Активація акаунта"
 
-#: templates/registration/login.html:7 templates/registration/login.html:9
-msgid "Login Form"
-msgstr "Форма Входу"
-
 #: templates/registration/login.html:14
 #: templates/registration/registration_form.html:13
 msgid "Please, correct the following errors."
@@ -183,11 +182,17 @@ msgstr "Ім’я Користувача"
 msgid "Your Password"
 msgstr "Пароль"
 
-#: templates/registration/login.html:37
-#, fuzzy
-#| msgid "log in."
-msgid "Log in"
-msgstr "увійти"
+#: templates/registration/login.html:45
+msgid "Forgot your password?"
+msgstr "Забули пароль?"
+
+#: templates/registration/login.html:45
+msgid "Reset it"
+msgstr "Перевстановити"
+
+#: templates/registration/login.html:46
+msgid "Not a member?"
+msgstr "Не зареєстровані?"
 
 #: templates/registration/profile.html:24
 #: templates/registration/profile_edit.html:27
@@ -247,6 +252,12 @@ msgstr "Повне Ім’я"
 #: views.py:39
 msgid "Profile successfully updated!"
 msgstr "Профіль оновлено!"
+
+#~ msgid "Login"
+#~ msgstr "Увійти"
+
+#~ msgid "Login Form"
+#~ msgstr "Форма Входу"
 
 #~ msgid "User Profile"
 #~ msgstr "Профіль Користувача"
