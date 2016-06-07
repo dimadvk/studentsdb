@@ -3,7 +3,7 @@ from django.views.generic import ListView
 
 from ..models.action import Action
 
-from ..util import paginate
+# from ..util import paginate
 
 
 class ActionListView(ListView):
@@ -17,3 +17,5 @@ class ActionListView(ListView):
     #     context = paginate(self.queryset, 10, self.request, context, var_name='actions')
     #     # sleep(1)
     #     return context
+
+
