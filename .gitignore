@@ -4,3 +4,4 @@ studentsdb/db.*
 reports/
 *.pyc
 secrets.json
+.idea/
